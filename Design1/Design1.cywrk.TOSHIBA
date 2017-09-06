@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Design1\PWM_BasicTest01\Source Files\main.c">
+<ExpandedNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\TopDesign</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Pins</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Analog</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Clocks</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Interrupts</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\DMA</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\System</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Directives</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Flash Security</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\EEPROM</v>
+<v>Design1\PWM_BasicTest01\Header Files</v>
+<v>Design1\PWM_BasicTest01\Header Files\cyapicallbacks.h</v>
+<v>Design1\PWM_BasicTest01\Source Files</v>
+<v>Design1\PWM_BasicTest01\Source Files\main.c</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest.pdf</v>
+<v>Design1\UART</v>
+<v>Design1\UART\TopDesign</v>
+<v>Design1\UART\UART.cydwr</v>
+<v>Design1\UART\UART.cydwr\Pins</v>
+<v>Design1\UART\UART.cydwr\Analog</v>
+<v>Design1\UART\UART.cydwr\Clocks</v>
+<v>Design1\UART\UART.cydwr\Interrupts</v>
+<v>Design1\UART\UART.cydwr\DMA</v>
+<v>Design1\UART\UART.cydwr\System</v>
+<v>Design1\UART\UART.cydwr\Directives</v>
+<v>Design1\UART\UART.cydwr\Flash Security</v>
+<v>Design1\UART\UART.cydwr\EEPROM</v>
+<v>Design1\UART\Header Files</v>
+<v>Design1\UART\Header Files\cyapicallbacks.h</v>
+<v>Design1\UART\Source Files</v>
+<v>Design1\UART\Source Files\main.c</v>
+<v>Design1\UART\Generated_Source</v>
+<v>Design1\UART\Generated_Source\PSoC5</v>
+<v>Design1\UART_Rx01</v>
+<v>Design1\UART_Rx01\TopDesign</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\Pins</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\Analog</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\Clocks</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\Interrupts</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\DMA</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\System</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\Directives</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\Flash Security</v>
+<v>Design1\UART_Rx01\UART_Rx01.cydwr\EEPROM</v>
+<v>Design1\UART_Rx01\Header Files</v>
+<v>Design1\UART_Rx01\Header Files\cyapicallbacks.h</v>
+<v>Design1\UART_Rx01\Source Files</v>
+<v>Design1\UART_Rx01\Source Files\main.c</v>
+<v>Design1\UART_Rx01\UART_Rx.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\TopDesign</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Pins</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Analog</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Clocks</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Interrupts</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\DMA</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\System</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Directives</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\Flash Security</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.cydwr\EEPROM</v>
+<v>Design1\PWM_BasicTest01\Header Files</v>
+<v>Design1\PWM_BasicTest01\Header Files\cyapicallbacks.h</v>
+<v>Design1\PWM_BasicTest01\Source Files</v>
+<v>Design1\PWM_BasicTest01\Source Files\main.c</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest.pdf</v>
+<v>Design1\UART</v>
+<v>Design1\UART\TopDesign</v>
+<v>Design1\UART\UART.cydwr</v>
+<v>Design1\UART\UART.cydwr\Pins</v>
+<v>Design1\UART\UART.cydwr\Analog</v>
+<v>Design1\UART\UART.cydwr\Clocks</v>
+<v>Design1\UART\UART.cydwr\Interrupts</v>
+<v>Design1\UART\UART.cydwr\DMA</v>
+<v>Design1\UART\UART.cydwr\System</v>
+<v>Design1\UART\UART.cydwr\Directives</v>
+<v>Design1\UART\UART.cydwr\Flash Security</v>
+<v>Design1\UART\UART.cydwr\EEPROM</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\TopDesign</v>
+<v>Design1\PWM_BasicTest01\TopDesign\TopDesign.cysch</v>
+<v>Design1\UART</v>
+<v>Design1\UART\TopDesign</v>
+<v>Design1\UART\TopDesign\TopDesign.cysch</v>
+<v>Design1\UART_Rx01</v>
+<v>Design1\UART_Rx01\TopDesign</v>
+<v>Design1\UART_Rx01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\TopDesign</v>
+<v>Design1\PWM_BasicTest01\TopDesign\TopDesign.cysch</v>
+<v>Design1\UART</v>
+<v>Design1\UART\TopDesign</v>
+<v>Design1\UART\TopDesign\TopDesign.cysch</v>
+<v>Design1\UART_Rx01</v>
+<v>Design1\UART_Rx01\TopDesign</v>
+<v>Design1\UART_Rx01\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.gpdsc</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.rpt</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01_timing.html</v>
+<v>Design1\UART</v>
+<v>Design1\UART\CortexM3</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_2.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1_PM.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\UART.elf</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\UART.hex</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\UART.map</v>
+<v>Design1\UART\UART.gpdsc</v>
+<v>Design1\UART\UART.rpt</v>
+<v>Design1\UART\UART_timing.html</v>
+<v>Design1\UART_Rx01</v>
+<v>Design1\UART_Rx01\UART_Rx01.gpdsc</v>
+<v>Design1\UART_Rx01\UART_Rx01.rpt</v>
+<v>Design1\UART_Rx01\UART_Rx01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.gpdsc</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01.rpt</v>
+<v>Design1\PWM_BasicTest01\PWM_BasicTest01_timing.html</v>
+<v>Design1\UART</v>
+<v>Design1\UART\CortexM3</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_2.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1_PM.lst</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\UART.elf</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\UART.hex</v>
+<v>Design1\UART\CortexM3\ARM_GCC_541\Debug\UART.map</v>
+<v>Design1\UART\UART.gpdsc</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\PSoC 5LP Architecture TRM</v>
+<v>Design1\PWM_BasicTest01\CY8C58LP Family Datasheet</v>
+<v>Design1\PWM_BasicTest01\System Reference Guides</v>
+<v>Design1\PWM_BasicTest01\System Reference Guides\cy_boot_v5_60</v>
+<v>Design1\PWM_BasicTest01\CharLCD_v2_20.pdf</v>
+<v>Design1\PWM_BasicTest01\cy_clock_v2_20</v>
+<v>Design1\PWM_BasicTest01\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Design1\PWM_BasicTest01\cy_pins_v2_20.pdf</v>
+<v>Design1\PWM_BasicTest01\CyControlReg_v1_80.pdf</v>
+<v>Design1\PWM_BasicTest01\CyStatusReg_v1_90.pdf</v>
+<v>Design1\PWM_BasicTest01\PWM_v3_30.pdf</v>
+<v>Design1\PWM_BasicTest01\ZeroTerminal.pdf</v>
+<v>Design1\UART</v>
+<v>Design1\UART\PSoC 5LP Architecture TRM</v>
+<v>Design1\UART\CY8C58LP Family Datasheet</v>
+<v>Design1\UART\System Reference Guides</v>
+<v>Design1\UART\System Reference Guides\cy_boot_v5_60</v>
+<v>Design1\UART\cy_clock_v2_20.pdf</v>
+<v>Design1\UART\cy_constant_v1_0</v>
+<v>Design1\UART\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>Design1\UART\cy_pins_v2_20</v>
+<v>Design1\UART\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Design1\UART\PWM_v3_30.pdf</v>
+<v>Design1\UART_Rx01</v>
+<v>Design1\UART_Rx01\PSoC 5LP Architecture TRM</v>
+<v>Design1\UART_Rx01\CY8C58LP Family Datasheet</v>
+<v>Design1\UART_Rx01\System Reference Guides</v>
+<v>Design1\UART_Rx01\System Reference Guides\cy_boot_v5_60</v>
+<v>Design1\UART_Rx01\CharLCD_v2_20.pdf</v>
+<v>Design1\UART_Rx01\cy_clock_v2_20.pdf</v>
+<v>Design1\UART_Rx01\cy_pins_v2_20.pdf</v>
+<v>Design1\UART_Rx01\UART_v2_50.pdf</v>
+<v>Design1\UART_Rx01\ZeroTerminal.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Design1</v>
+<v>Design1\PWM_BasicTest01</v>
+<v>Design1\PWM_BasicTest01\PSoC 5LP Architecture TRM</v>
+<v>Design1\PWM_BasicTest01\CY8C58LP Family Datasheet</v>
+<v>Design1\PWM_BasicTest01\System Reference Guides</v>
+<v>Design1\PWM_BasicTest01\System Reference Guides\cy_boot_v5_60</v>
+<v>Design1\PWM_BasicTest01\CharLCD_v2_20.pdf</v>
+<v>Design1\PWM_BasicTest01\cy_clock_v2_20</v>
+<v>Design1\PWM_BasicTest01\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Design1\PWM_BasicTest01\cy_pins_v2_20.pdf</v>
+<v>Design1\PWM_BasicTest01\CyControlReg_v1_80.pdf</v>
+<v>Design1\PWM_BasicTest01\CyStatusReg_v1_90.pdf</v>
+<v>Design1\PWM_BasicTest01\PWM_v3_30.pdf</v>
+<v>Design1\PWM_BasicTest01\ZeroTerminal.pdf</v>
+<v>Design1\UART</v>
+<v>Design1\UART\PSoC 5LP Architecture TRM</v>
+<v>Design1\UART\CY8C58LP Family Datasheet</v>
+<v>Design1\UART\System Reference Guides</v>
+<v>Design1\UART\System Reference Guides\cy_boot_v5_60</v>
+<v>Design1\UART\cy_clock_v2_20.pdf</v>
+<v>Design1\UART\cy_constant_v1_0</v>
+<v>Design1\UART\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>Design1\UART\cy_pins_v2_20</v>
+<v>Design1\UART\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Design1\UART\PWM_v3_30.pdf</v>
+<v>Design1\UART_Rx01</v>
+<v>Design1\UART_Rx01\PSoC 5LP Architecture TRM</v>
+<v>Design1\UART_Rx01\CY8C58LP Family Datasheet</v>
+<v>Design1\UART_Rx01\System Reference Guides</v>
+<v>Design1\UART_Rx01\System Reference Guides\cy_boot_v5_60</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\UART.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\UART.cydsn\UART.cydwr" />
+<name v=".\UART.cydsn\main.c" />
+<name v=".\UART_Rx01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\UART_Rx01.cydsn\UART_Rx01.cydwr" />
+<name v=".\UART_Rx01.cydsn\main.c" />
+<name v=".\PWM_BasicTest01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\PWM_BasicTest01.cydsn\PWM_BasicTest01.cydwr" />
+<name v=".\PWM_BasicTest01.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="759, 400" SelectedTabbedMdiWindow="339692ac-6288-42ff-8eb6-82dc5d00d6d4"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5177127e-d73a-4d5e-a6cc-98f711e7b705" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART.cydsn\TopDesign\TopDesign.cysch" Guid="339692ac-6288-42ff-8eb6-82dc5d00d6d4" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART.cydsn\UART.cydwr" Guid="427caf72-1024-45df-9084-3ea1e24d247c" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART.cydsn\main.c" Guid="73a2f8bd-edb0-4e92-97a6-69cab7193f31" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART_Rx01.cydsn\TopDesign\TopDesign.cysch" Guid="260febfd-3141-4a12-bb6b-41da1e2eb4d0" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART_Rx01.cydsn\UART_Rx01.cydwr" Guid="00511bfa-0085-4e7c-b266-4c185dfcf1c7" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART_Rx01.cydsn\main.c" Guid="89df08a7-8607-442f-b217-de83e072de67" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\PWM_BasicTest01.cydsn\TopDesign\TopDesign.cysch" Guid="b1fcf6c6-209d-46ec-8d5a-1d652d555d08" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\PWM_BasicTest01.cydsn\PWM_BasicTest01.cydwr" Guid="d4dcd78d-365a-45cd-82f9-c7c26d306a3f" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\PWM_BasicTest01.cydsn\main.c" Guid="086b293f-2173-47de-bb5c-74a7a4360e73" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

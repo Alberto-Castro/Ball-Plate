@@ -1,0 +1,28 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2017-09-05T17:14:39Z")
+ (DESIGN "UART")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.1 Update 1")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "UART")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT \\PWM_1\:PWMHW\\.tc Pin_2\(0\).pin_input (8.708:8.708:8.708))
+    (INTERCONNECT \\PWM_1\:PWMHW\\.cmp Pin_1\(0\).pin_input (7.760:7.760:7.760))
+    (INTERCONNECT Pin_1\(0\).pad_out Pin_1\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin_2\(0\).pad_out Pin_2\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT __ONE__.q \\PWM_1\:PWMHW\\.enable (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.dclk_glb_ff_0 \\PWM_1\:PWMHW\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT Pin_1\(0\).pad_out Pin_1\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT Pin_1\(0\)_PAD Pin_1\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Pin_2\(0\).pad_out Pin_2\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT Pin_2\(0\)_PAD Pin_2\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

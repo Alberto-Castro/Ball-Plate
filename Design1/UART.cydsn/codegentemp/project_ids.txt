@@ -1,0 +1,9 @@
+C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART.cydsn\UART.cyprj|0ccdbc8f-37ee-4793-9c13-29db5015fd56
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|576710f2-5fec-4ca5-9f30-fc1ee6824192
+C:\Users\TOSHIBA\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|45c57f5c-565a-4d6f-81de-4c2256da7320
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|cb392864-c42a-41e8-91f7-618b6f545fe0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f93aff41-0e56-4dfb-89a4-c70d79ba41dc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0f3909a2-6246-4fe0-ae8a-c1546f0d79c1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|79bac938-9416-4a9f-92dc-1df19f00950e
+C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\UART_Rx01.cydsn\UART_Rx01.cyprj|3ce9bcf0-8e9b-4b7e-9eaa-fc67d9f1572a
+C:\Users\TOSHIBA\Documents\PSoC Creator\Design1\PWM_BasicTest01.cydsn\PWM_BasicTest01.cyprj|c061b1d7-623c-4e14-bfe0-190030375dd6
