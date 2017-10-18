@@ -40,6 +40,9 @@
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\Out_Y_aliases.h" value="HEADER;;;;;Out_Y" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\Out_Y.c" value="SOURCE_C;CortexM3;;;;Out_Y" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\Out_Y.h" value="HEADER;;;;;Out_Y" />
+  <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\LCD_Char.c" value="SOURCE_C;CortexM3;;;;LCD_Char" />
+  <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\LCD_Char.h" value="HEADER;;;;;LCD_Char" />
+  <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\LCD_Char_PM.c" value="SOURCE_C;CortexM3;;;;LCD_Char" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_AMux.c" value="SOURCE_C;CortexM3;;;;ResistiveTouch_AMux" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_AMux.h" value="HEADER;;;;;ResistiveTouch_AMux" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_xm_aliases.h" value="HEADER;;;;;ResistiveTouch_xm" />
@@ -58,6 +61,9 @@
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_ADC.h" value="HEADER;;;;;ResistiveTouch_ADC" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_ADC_PM.c" value="SOURCE_C;CortexM3;;;;ResistiveTouch_ADC" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_ADC_INT.c" value="SOURCE_C;CortexM3;;;;ResistiveTouch_ADC" />
+  <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\LCD_Char_LCDPort_aliases.h" value="HEADER;;;;;LCD_Char_LCDPort" />
+  <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\LCD_Char_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_Char_LCDPort" />
+  <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\LCD_Char_LCDPort.h" value="HEADER;;;;;LCD_Char_LCDPort" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_ADC_AMux.c" value="SOURCE_C;CortexM3;;;;ResistiveTouch_ADC_AMux" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_ADC_AMux.h" value="HEADER;;;;;ResistiveTouch_ADC_AMux" />
   <file name="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\codegentemp\ResistiveTouch_ADC_Ext_CP_Clk.c" value="SOURCE_C;CortexM3;;;;ResistiveTouch_ADC_Ext_CP_Clk" />

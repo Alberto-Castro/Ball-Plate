@@ -1,0 +1,46 @@
+set_io "\LCD_SegStat:Seg(8)\" iocell 5 1
+set_io "\LCD_SegStat:Seg(6)\" iocell 3 7
+set_io "\LCD_Char:LCDPort(6)\" iocell 2 6
+set_io "\LCD_SegStat:Seg(5)\" iocell 3 6
+set_io "\LCD_Char:LCDPort(5)\" iocell 2 5
+set_io "\LCD_SegStat:Seg(3)\" iocell 3 4
+set_io "\LCD_Char:LCDPort(3)\" iocell 2 3
+set_io "\LCD_SegStat:Seg(7)\" iocell 5 0
+set_io "\LCD_SegStat:Seg(9)\" iocell 5 2
+set_io "\LCD_SegStat:Seg(4)\" iocell 3 5
+set_io "\LCD_Char:LCDPort(4)\" iocell 2 4
+set_io "\LCD_SegStat:Seg(10)\" iocell 5 3
+set_io "\LCD_SegStat:Seg(12)\" iocell 5 5
+set_io "\LCD_SegStat:Seg(13)\" iocell 5 6
+set_io "\LCD_SegStat:Seg(18)\" iocell 4 3
+set_io "\LCD_SegStat:Seg(11)\" iocell 5 4
+set_location "\LCD_SegStat:Lcd_Dma\" drqcell -1 -1 0
+set_io "\LCD_SegStat:Seg(14)\" iocell 5 7
+set_location "\LCD_SegStat:LCD_ISR\" interrupt -1 -1 0
+set_io "\LCD_SegStat:Seg(16)\" iocell 4 1
+set_io "\LCD_SegStat:Seg(17)\" iocell 4 2
+set_io "\LCD_SegStat:Seg(15)\" iocell 4 0
+set_io "Pin_wakeup(0)" iocell 1 4
+set_location "Pin_wakeup" logicalport -1 -1 1
+set_io "\LCD_SegStat:Seg(28)\" iocell 6 5
+set_io "\LCD_SegStat:Seg(31)\" iocell 3 0
+set_io "\LCD_SegStat:Seg(30)\" iocell 6 7
+set_io "\LCD_SegStat:Seg(29)\" iocell 6 6
+set_io "\LCD_SegStat:Seg(27)\" iocell 6 4
+set_location "WakeUpIsr" interrupt -1 -1 5
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "\LCD_SegStat:Com(0)\" iocell 0 4
+set_io "\LCD_SegStat:Seg(0)\" iocell 3 1
+set_io "\LCD_Char:LCDPort(0)\" iocell 2 0
+set_io "\LCD_SegStat:Seg(20)\" iocell 4 5
+set_io "\LCD_SegStat:Seg(26)\" iocell 6 3
+set_io "\LCD_SegStat:Seg(19)\" iocell 4 4
+set_io "\LCD_SegStat:Seg(21)\" iocell 4 6
+set_io "\LCD_SegStat:Seg(24)\" iocell 6 1
+set_io "\LCD_SegStat:Seg(23)\" iocell 6 0
+set_io "\LCD_SegStat:Seg(25)\" iocell 6 2
+set_io "\LCD_SegStat:Seg(2)\" iocell 3 3
+set_io "\LCD_Char:LCDPort(2)\" iocell 2 2
+set_io "\LCD_SegStat:Seg(22)\" iocell 4 7
+set_io "\LCD_SegStat:Seg(1)\" iocell 3 2
+set_io "\LCD_Char:LCDPort(1)\" iocell 2 1

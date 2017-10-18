@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> BallPlate</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 10/10/17 09:55:47</td></tr>
+<td class="proptext"> 10/17/17 11:35:31</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C5868AXI-LP035</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -718,78 +718,9 @@ timer_clock(fixed-function)</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\PWM_Y:PWMHW\/cmp</td>
- <td class = "text_info">Out_Y(0)_PAD</td>
- <td class = "number">20.549</td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="3">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">timercell</td>
- <td class = "text_info">F(Timer,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PWM_Y:PWMHW\</td>
- <td class = "text_info">\PWM_Y:PWMHW\/clock</td>
- <td class = "text_info">\PWM_Y:PWMHW\/cmp</td>
- <td class = "number">1.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_203</td>
- <td class = "text_info">\PWM_Y:PWMHW\/cmp</td>
- <td class = "text_info">Out_Y(0)/pin_input</td>
- <td class = "number">3.747</td>
-</tr>
-<tr> 
- <td class = "text_info">iocell6</td>
- <td class = "text_info">P0[1]</td>
- <td class = "number">1</td>
- <td class = "text_info">Out_Y(0)</td>
- <td class = "text_info">Out_Y(0)/pin_input</td>
- <td class = "text_info">Out_Y(0)/pad_out</td>
- <td class = "number">15.802</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Out_Y(0)_PAD</td>
- <td class = "text_info">Out_Y(0)/pad_out</td>
- <td class = "text_info">Out_Y(0)_PAD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Clock path delay</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
  <td class = "text_info">\PWM_X:PWMHW\/cmp</td>
  <td class = "text_info">Out_X(0)_PAD</td>
- <td class = "number">19.998</td>
+ <td class = "number">21.540</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -822,16 +753,16 @@ timer_clock(fixed-function)</span>
  <td class = "text_info">Net_174</td>
  <td class = "text_info">\PWM_X:PWMHW\/cmp</td>
  <td class = "text_info">Out_X(0)/pin_input</td>
- <td class = "number">3.747</td>
+ <td class = "number">4.536</td>
 </tr>
 <tr> 
  <td class = "text_info">iocell5</td>
- <td class = "text_info">P0[0]</td>
+ <td class = "text_info">P4[4]</td>
  <td class = "number">1</td>
  <td class = "text_info">Out_X(0)</td>
  <td class = "text_info">Out_X(0)/pin_input</td>
  <td class = "text_info">Out_X(0)/pad_out</td>
- <td class = "number">15.251</td>
+ <td class = "number">16.004</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
@@ -840,6 +771,75 @@ timer_clock(fixed-function)</span>
  <td class = "text_info">Out_X(0)_PAD</td>
  <td class = "text_info">Out_X(0)/pad_out</td>
  <td class = "text_info">Out_X(0)_PAD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Clock path delay</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PWM_Y:PWMHW\/cmp</td>
+ <td class = "text_info">Out_Y(0)_PAD</td>
+ <td class = "number">20.869</td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="3">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">timercell</td>
+ <td class = "text_info">F(Timer,1)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PWM_Y:PWMHW\</td>
+ <td class = "text_info">\PWM_Y:PWMHW\/clock</td>
+ <td class = "text_info">\PWM_Y:PWMHW\/cmp</td>
+ <td class = "number">1.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_203</td>
+ <td class = "text_info">\PWM_Y:PWMHW\/cmp</td>
+ <td class = "text_info">Out_Y(0)/pin_input</td>
+ <td class = "number">4.522</td>
+</tr>
+<tr> 
+ <td class = "text_info">iocell6</td>
+ <td class = "text_info">P4[5]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">Out_Y(0)</td>
+ <td class = "text_info">Out_Y(0)/pin_input</td>
+ <td class = "text_info">Out_Y(0)/pad_out</td>
+ <td class = "number">15.347</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Out_Y(0)_PAD</td>
+ <td class = "text_info">Out_Y(0)/pad_out</td>
+ <td class = "text_info">Out_Y(0)_PAD</td>
  <td class = "number">0.000</td>
 </tr>
 <tr> 

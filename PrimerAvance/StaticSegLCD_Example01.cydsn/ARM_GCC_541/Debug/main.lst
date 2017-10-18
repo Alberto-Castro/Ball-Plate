@@ -1,0 +1,858 @@
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.WakeUpIsr_Int,"ax",%progbits
+  20              		.align	2
+  21              		.global	WakeUpIsr_Int
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	WakeUpIsr_Int, %function
+  25              	WakeUpIsr_Int:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /*******************************************************************************
+   2:main.c        **** * File Name: main.c
+   3:main.c        **** *
+   4:main.c        **** * Version: 3.0
+   5:main.c        **** *
+   6:main.c        **** * Description:
+   7:main.c        **** *  This example project displays 4 digit decimal value, then decrements the 
+   8:main.c        **** *  value and displays the updated value after a small delay. Then the part goes
+   9:main.c        **** *  to a Sleep mode, during wich the LCD is turned off, and after a button prees
+  10:main.c        **** *  it wakes and continues its normal work.
+  11:main.c        **** *
+  12:main.c        **** ********************************************************************************
+  13:main.c        **** * Copyright 2012-2014, Cypress Semiconductor Corporation. All rights reserved.
+  14:main.c        **** * This software is owned by Cypress Semiconductor Corporation and is protected
+  15:main.c        **** * by and subject to worldwide patent and copyright laws and treaties.
+  16:main.c        **** * Therefore, you may use this software only as provided in the license agreement
+  17:main.c        **** * accompanying the software package from which you obtained this software.
+  18:main.c        **** * CYPRESS AND ITS SUPPLIERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  19:main.c        **** * WITH REGARD TO THIS SOFTWARE, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT,
+  20:main.c        **** * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  21:main.c        **** *******************************************************************************/
+  22:main.c        **** 
+  23:main.c        **** #include <project.h>
+  24:main.c        **** 
+  25:main.c        **** 
+  26:main.c        **** /*******************************************************************************
+  27:main.c        **** * Function Name: CY_ISR(WakeUpIsr_Interrupt)
+  28:main.c        **** ********************************************************************************
+  29:main.c        **** *
+  30:main.c        **** * Summary:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 2
+
+
+  31:main.c        **** *  1. Clears interrupts from Pin_wakeup pin. 
+  32:main.c        **** *
+  33:main.c        **** * Parameters:
+  34:main.c        **** *  None.
+  35:main.c        **** *
+  36:main.c        **** * Return:
+  37:main.c        **** *  None.
+  38:main.c        **** *
+  39:main.c        **** *******************************************************************************/
+  40:main.c        **** CY_ISR(WakeUpIsr_Int)
+  41:main.c        **** {
+  28              		.loc 1 41 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  42:main.c        ****     Pin_wakeup_ClearInterrupt();
+  38              		.loc 1 42 0
+  39 0004 FFF7FEFF 		bl	Pin_wakeup_ClearInterrupt
+  43:main.c        **** }
+  40              		.loc 1 43 0
+  41 0008 00BF     		nop
+  42 000a 80BD     		pop	{r7, pc}
+  43              		.cfi_endproc
+  44              	.LFE63:
+  45              		.size	WakeUpIsr_Int, .-WakeUpIsr_Int
+  46              		.section	.rodata
+  47              		.align	2
+  48              	.LC0:
+  49 0000 496E6974 		.ascii	"Init status: Success\000"
+  49      20737461 
+  49      7475733A 
+  49      20537563 
+  49      63657373 
+  50 0015 000000   		.align	2
+  51              	.LC1:
+  52 0018 496E6974 		.ascii	"Init status: Failure\000"
+  52      20737461 
+  52      7475733A 
+  52      20466169 
+  52      6C757265 
+  53 002d 000000   		.align	2
+  54              	.LC2:
+  55 0030 43757272 		.ascii	"Curr status: Success\000"
+  55      20737461 
+  55      7475733A 
+  55      20537563 
+  55      63657373 
+  56 0045 000000   		.align	2
+  57              	.LC3:
+  58 0048 43757272 		.ascii	"Curr status: Failure\000"
+  58      20737461 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 3
+
+
+  58      7475733A 
+  58      20466169 
+  58      6C757265 
+  59              		.section	.text.main,"ax",%progbits
+  60              		.align	2
+  61              		.global	main
+  62              		.thumb
+  63              		.thumb_func
+  64              		.type	main, %function
+  65              	main:
+  66              	.LFB64:
+  44:main.c        **** 
+  45:main.c        **** 
+  46:main.c        **** /*******************************************************************************
+  47:main.c        **** * Function Name: main
+  48:main.c        **** ********************************************************************************
+  49:main.c        **** *
+  50:main.c        **** * Summary:
+  51:main.c        **** *  1. Enables global interrupts and starts Segment LCD, Character LCD and ISR 
+  52:main.c        **** *  components.
+  53:main.c        **** *  2. Displays a message on Char LCD if Segment LCD started successfully or not.
+  54:main.c        **** *  3. Decrements the 4 digit decimal value and displays it on the Segment LCD
+  55:main.c        **** *  glass.      
+  56:main.c        **** *  4. Performs a small delay and after that prepares Segment LCD for entering 
+  57:main.c        **** *  to a sleep mode. 
+  58:main.c        **** *  5. Sets Seg LCD pin drive modes to Hi-Z analog.
+  59:main.c        **** *  7. Puts part to a sleep mode and specifiew PICU as a wakeup source.
+  60:main.c        **** *  8. Wakes the part after a button press interrupt.
+  61:main.c        **** *  9. Restores Seg LCD pin drive modes and wakes the components.
+  62:main.c        **** *  10. Displays a message on Char LCD if Segment LCD waked successfully or not.
+  63:main.c        **** *
+  64:main.c        **** * Parameters:
+  65:main.c        **** *  None.
+  66:main.c        **** *
+  67:main.c        **** * Return:
+  68:main.c        **** *  None.
+  69:main.c        **** *
+  70:main.c        **** *******************************************************************************/
+  71:main.c        **** int main()
+  72:main.c        **** {
+  67              		.loc 1 72 0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 8
+  70              		@ frame_needed = 1, uses_anonymous_args = 0
+  71 0000 80B5     		push	{r7, lr}
+  72              		.cfi_def_cfa_offset 8
+  73              		.cfi_offset 7, -8
+  74              		.cfi_offset 14, -4
+  75 0002 82B0     		sub	sp, sp, #8
+  76              		.cfi_def_cfa_offset 16
+  77 0004 00AF     		add	r7, sp, #0
+  78              		.cfi_def_cfa_register 7
+  73:main.c        ****     uint8 status = 0u;
+  79              		.loc 1 73 0
+  80 0006 0023     		movs	r3, #0
+  81 0008 7B71     		strb	r3, [r7, #5]
+  74:main.c        ****     
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 4
+
+
+  75:main.c        ****     /* Initialize the value to be displayed on the LCD. */
+  76:main.c        ****     uint16 value = 9999u;
+  82              		.loc 1 76 0
+  83 000a 42F20F73 		movw	r3, #9999
+  84 000e FB80     		strh	r3, [r7, #6]	@ movhi
+  77:main.c        ****     
+  78:main.c        ****     /* Enable global interrupts. */
+  79:main.c        ****     CyGlobalIntEnable;
+  85              		.loc 1 79 0
+  86              		.syntax unified
+  87              	@ 79 "main.c" 1
+  88 0010 62B6     		CPSIE   i
+  89              	@ 0 "" 2
+  80:main.c        ****     
+  81:main.c        ****     WakeUpIsr_StartEx(WakeUpIsr_Int);
+  90              		.loc 1 81 0
+  91              		.thumb
+  92              		.syntax unified
+  93 0012 2948     		ldr	r0, .L8
+  94 0014 FFF7FEFF 		bl	WakeUpIsr_StartEx
+  82:main.c        ****     
+  83:main.c        ****     LCD_Char_Start();
+  95              		.loc 1 83 0
+  96 0018 FFF7FEFF 		bl	LCD_Char_Start
+  84:main.c        ****     
+  85:main.c        ****     /* Start the SegLCD component operation. */
+  86:main.c        ****     status = LCD_SegStat_Start();
+  97              		.loc 1 86 0
+  98 001c FFF7FEFF 		bl	LCD_SegStat_Start
+  99 0020 0346     		mov	r3, r0
+ 100 0022 7B71     		strb	r3, [r7, #5]
+  87:main.c        ****     
+  88:main.c        ****     /* Set the output position on Char LCD to row - 0, column - 0. */
+  89:main.c        ****     LCD_Char_Position(0u, 0u);
+ 101              		.loc 1 89 0
+ 102 0024 0021     		movs	r1, #0
+ 103 0026 0020     		movs	r0, #0
+ 104 0028 FFF7FEFF 		bl	LCD_Char_Position
+  90:main.c        ****     
+  91:main.c        ****     /* Parse the status and display initialization status message. */
+  92:main.c        ****     if(status == CYRET_SUCCESS)
+ 105              		.loc 1 92 0
+ 106 002c 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 107 002e 002B     		cmp	r3, #0
+ 108 0030 03D1     		bne	.L3
+  93:main.c        ****     {
+  94:main.c        ****         LCD_Char_PrintString("Init status: Success");
+ 109              		.loc 1 94 0
+ 110 0032 2248     		ldr	r0, .L8+4
+ 111 0034 FFF7FEFF 		bl	LCD_Char_PrintString
+ 112 0038 02E0     		b	.L4
+ 113              	.L3:
+  95:main.c        ****     }
+  96:main.c        ****     else
+  97:main.c        ****     {
+  98:main.c        ****         LCD_Char_PrintString("Init status: Failure");
+ 114              		.loc 1 98 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 5
+
+
+ 115 003a 2148     		ldr	r0, .L8+8
+ 116 003c FFF7FEFF 		bl	LCD_Char_PrintString
+ 117              	.L4:
+  99:main.c        ****     }
+ 100:main.c        ****     
+ 101:main.c        ****     for(;;)
+ 102:main.c        ****     {   
+ 103:main.c        ****         /* Decrement the value. */
+ 104:main.c        ****         value = value - 1u;
+ 118              		.loc 1 104 0
+ 119 0040 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 120 0042 013B     		subs	r3, r3, #1
+ 121 0044 FB80     		strh	r3, [r7, #6]	@ movhi
+ 105:main.c        ****         
+ 106:main.c        ****         /* Display current value on the LCD. */
+ 107:main.c        ****         LCD_SegStat_Write7SegNumber_0(value, 0u, 0u);
+ 122              		.loc 1 107 0
+ 123 0046 FB88     		ldrh	r3, [r7, #6]
+ 124 0048 0022     		movs	r2, #0
+ 125 004a 0021     		movs	r1, #0
+ 126 004c 1846     		mov	r0, r3
+ 127 004e FFF7FEFF 		bl	LCD_SegStat_Write7SegNumber_0
+ 108:main.c        ****         
+ 109:main.c        ****         /* Small delay */
+ 110:main.c        ****         CyDelay(4u);
+ 128              		.loc 1 110 0
+ 129 0052 0420     		movs	r0, #4
+ 130 0054 FFF7FEFF 		bl	CyDelay
+ 111:main.c        ****         
+ 112:main.c        ****         /* Reset the value to 9999 if it decremented to 0. */
+ 113:main.c        ****         if(value == 0u)
+ 131              		.loc 1 113 0
+ 132 0058 FB88     		ldrh	r3, [r7, #6]
+ 133 005a 002B     		cmp	r3, #0
+ 134 005c 02D1     		bne	.L5
+ 114:main.c        ****         {
+ 115:main.c        ****             value = 9999u;        
+ 135              		.loc 1 115 0
+ 136 005e 42F20F73 		movw	r3, #9999
+ 137 0062 FB80     		strh	r3, [r7, #6]	@ movhi
+ 138              	.L5:
+ 116:main.c        ****         }
+ 117:main.c        ****         
+ 118:main.c        ****         /* Some delay to make image on LCD frezze for some time. */
+ 119:main.c        ****         CyDelay(500u);
+ 139              		.loc 1 119 0
+ 140 0064 4FF4FA70 		mov	r0, #500
+ 141 0068 FFF7FEFF 		bl	CyDelay
+ 120:main.c        ****         
+ 121:main.c        ****         /* Prepare component for entering to a Sleep mode. */
+ 122:main.c        ****         LCD_SegStat_Sleep();
+ 142              		.loc 1 122 0
+ 143 006c FFF7FEFF 		bl	LCD_SegStat_Sleep
+ 123:main.c        ****         
+ 124:main.c        ****         /* Set component's pin mode to HiZ for both segment and common lines to 
+ 125:main.c        ****         * decrese current consumption and to avoid LCD glaass damaging .
+ 126:main.c        ****         */
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 6
+
+
+ 127:main.c        ****         LCD_SegStat_SegPort_SetDriveMode(LCD_SegStat_DM_ALG_HIZ);
+ 144              		.loc 1 127 0
+ 145 0070 0020     		movs	r0, #0
+ 146 0072 FFF7FEFF 		bl	LCD_SegStat_SegPort_SetDriveMode
+ 128:main.c        ****         LCD_SegStat_ComPort_SetDriveMode(LCD_SegStat_DM_ALG_HIZ);
+ 147              		.loc 1 128 0
+ 148 0076 0020     		movs	r0, #0
+ 149 0078 FFF7FEFF 		bl	LCD_SegStat_ComPort_SetDriveMode
+ 129:main.c        ****         
+ 130:main.c        ****         /* Puts entire chip excet the PICu into a sleep. */
+ 131:main.c        ****         CyPmSleep(PM_SLEEP_TIME_NONE, PM_SLEEP_SRC_PICU);
+ 150              		.loc 1 131 0
+ 151 007c 4021     		movs	r1, #64
+ 152 007e 0020     		movs	r0, #0
+ 153 0080 FFF7FEFF 		bl	CyPmSleep
+ 132:main.c        **** 
+ 133:main.c        ****         /* Restore pin mode back to Strong. */
+ 134:main.c        ****         LCD_SegStat_SegPort_SetDriveMode(LCD_SegStat_DM_STRONG);
+ 154              		.loc 1 134 0
+ 155 0084 0C20     		movs	r0, #12
+ 156 0086 FFF7FEFF 		bl	LCD_SegStat_SegPort_SetDriveMode
+ 135:main.c        ****         LCD_SegStat_ComPort_SetDriveMode(LCD_SegStat_DM_STRONG);
+ 157              		.loc 1 135 0
+ 158 008a 0C20     		movs	r0, #12
+ 159 008c FFF7FEFF 		bl	LCD_SegStat_ComPort_SetDriveMode
+ 136:main.c        ****         
+ 137:main.c        ****         /* Wake the LCD and capture the status. */
+ 138:main.c        ****         status = LCD_SegStat_Wakeup();
+ 160              		.loc 1 138 0
+ 161 0090 FFF7FEFF 		bl	LCD_SegStat_Wakeup
+ 162 0094 0346     		mov	r3, r0
+ 163 0096 7B71     		strb	r3, [r7, #5]
+ 139:main.c        ****         
+ 140:main.c        ****         LCD_Char_Position(1u, 0u);
+ 164              		.loc 1 140 0
+ 165 0098 0021     		movs	r1, #0
+ 166 009a 0120     		movs	r0, #1
+ 167 009c FFF7FEFF 		bl	LCD_Char_Position
+ 141:main.c        ****         
+ 142:main.c        ****         /* Parse the status and display current status message. */
+ 143:main.c        ****         if(status == CYRET_SUCCESS)
+ 168              		.loc 1 143 0
+ 169 00a0 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 170 00a2 002B     		cmp	r3, #0
+ 171 00a4 03D1     		bne	.L6
+ 144:main.c        ****         {
+ 145:main.c        ****             LCD_Char_PrintString("Curr status: Success");
+ 172              		.loc 1 145 0
+ 173 00a6 0748     		ldr	r0, .L8+12
+ 174 00a8 FFF7FEFF 		bl	LCD_Char_PrintString
+ 175 00ac C8E7     		b	.L4
+ 176              	.L6:
+ 146:main.c        ****         }
+ 147:main.c        ****         else
+ 148:main.c        ****         {
+ 149:main.c        ****             LCD_Char_PrintString("Curr status: Failure");
+ 177              		.loc 1 149 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 7
+
+
+ 178 00ae 0648     		ldr	r0, .L8+16
+ 179 00b0 FFF7FEFF 		bl	LCD_Char_PrintString
+ 150:main.c        ****         }           
+ 151:main.c        ****     }
+ 180              		.loc 1 151 0
+ 181 00b4 C4E7     		b	.L4
+ 182              	.L9:
+ 183 00b6 00BF     		.align	2
+ 184              	.L8:
+ 185 00b8 00000000 		.word	WakeUpIsr_Int
+ 186 00bc 00000000 		.word	.LC0
+ 187 00c0 18000000 		.word	.LC1
+ 188 00c4 30000000 		.word	.LC2
+ 189 00c8 48000000 		.word	.LC3
+ 190              		.cfi_endproc
+ 191              	.LFE64:
+ 192              		.size	main, .-main
+ 193              		.text
+ 194              	.Letext0:
+ 195              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 196              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 197              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 198              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 199              		.section	.debug_info,"",%progbits
+ 200              	.Ldebug_info0:
+ 201 0000 11010000 		.4byte	0x111
+ 202 0004 0400     		.2byte	0x4
+ 203 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 204 000a 04       		.byte	0x4
+ 205 000b 01       		.uleb128 0x1
+ 206 000c C8000000 		.4byte	.LASF20
+ 207 0010 0C       		.byte	0xc
+ 208 0011 73000000 		.4byte	.LASF21
+ 209 0015 21000000 		.4byte	.LASF22
+ 210 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 211 001d 00000000 		.4byte	0
+ 212 0021 00000000 		.4byte	.Ldebug_line0
+ 213 0025 02       		.uleb128 0x2
+ 214 0026 01       		.byte	0x1
+ 215 0027 06       		.byte	0x6
+ 216 0028 94010000 		.4byte	.LASF0
+ 217 002c 02       		.uleb128 0x2
+ 218 002d 01       		.byte	0x1
+ 219 002e 08       		.byte	0x8
+ 220 002f 56010000 		.4byte	.LASF1
+ 221 0033 02       		.uleb128 0x2
+ 222 0034 02       		.byte	0x2
+ 223 0035 05       		.byte	0x5
+ 224 0036 BC010000 		.4byte	.LASF2
+ 225 003a 02       		.uleb128 0x2
+ 226 003b 02       		.byte	0x2
+ 227 003c 07       		.byte	0x7
+ 228 003d B5000000 		.4byte	.LASF3
+ 229 0041 03       		.uleb128 0x3
+ 230 0042 AC010000 		.4byte	.LASF9
+ 231 0046 02       		.byte	0x2
+ 232 0047 3F       		.byte	0x3f
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 8
+
+
+ 233 0048 4C000000 		.4byte	0x4c
+ 234 004c 02       		.uleb128 0x2
+ 235 004d 04       		.byte	0x4
+ 236 004e 05       		.byte	0x5
+ 237 004f 69010000 		.4byte	.LASF4
+ 238 0053 02       		.uleb128 0x2
+ 239 0054 04       		.byte	0x4
+ 240 0055 07       		.byte	0x7
+ 241 0056 8C000000 		.4byte	.LASF5
+ 242 005a 02       		.uleb128 0x2
+ 243 005b 08       		.byte	0x8
+ 244 005c 05       		.byte	0x5
+ 245 005d 00000000 		.4byte	.LASF6
+ 246 0061 02       		.uleb128 0x2
+ 247 0062 08       		.byte	0x8
+ 248 0063 07       		.byte	0x7
+ 249 0064 9E000000 		.4byte	.LASF7
+ 250 0068 04       		.uleb128 0x4
+ 251 0069 04       		.byte	0x4
+ 252 006a 05       		.byte	0x5
+ 253 006b 696E7400 		.ascii	"int\000"
+ 254 006f 02       		.uleb128 0x2
+ 255 0070 04       		.byte	0x4
+ 256 0071 07       		.byte	0x7
+ 257 0072 14000000 		.4byte	.LASF8
+ 258 0076 03       		.uleb128 0x3
+ 259 0077 CD010000 		.4byte	.LASF10
+ 260 007b 03       		.byte	0x3
+ 261 007c 2C       		.byte	0x2c
+ 262 007d 41000000 		.4byte	0x41
+ 263 0081 05       		.uleb128 0x5
+ 264 0082 86000000 		.4byte	.LASF11
+ 265 0086 04       		.byte	0x4
+ 266 0087 9201     		.2byte	0x192
+ 267 0089 2C000000 		.4byte	0x2c
+ 268 008d 05       		.uleb128 0x5
+ 269 008e C6010000 		.4byte	.LASF12
+ 270 0092 04       		.byte	0x4
+ 271 0093 9301     		.2byte	0x193
+ 272 0095 3A000000 		.4byte	0x3a
+ 273 0099 02       		.uleb128 0x2
+ 274 009a 04       		.byte	0x4
+ 275 009b 04       		.byte	0x4
+ 276 009c B6010000 		.4byte	.LASF13
+ 277 00a0 02       		.uleb128 0x2
+ 278 00a1 08       		.byte	0x8
+ 279 00a2 04       		.byte	0x4
+ 280 00a3 80010000 		.4byte	.LASF14
+ 281 00a7 02       		.uleb128 0x2
+ 282 00a8 01       		.byte	0x1
+ 283 00a9 08       		.byte	0x8
+ 284 00aa 64010000 		.4byte	.LASF15
+ 285 00ae 02       		.uleb128 0x2
+ 286 00af 08       		.byte	0x8
+ 287 00b0 04       		.byte	0x4
+ 288 00b1 A0010000 		.4byte	.LASF16
+ 289 00b5 02       		.uleb128 0x2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 9
+
+
+ 290 00b6 04       		.byte	0x4
+ 291 00b7 07       		.byte	0x7
+ 292 00b8 D5010000 		.4byte	.LASF17
+ 293 00bc 06       		.uleb128 0x6
+ 294 00bd 72010000 		.4byte	.LASF23
+ 295 00c1 01       		.byte	0x1
+ 296 00c2 28       		.byte	0x28
+ 297 00c3 00000000 		.4byte	.LFB63
+ 298 00c7 0C000000 		.4byte	.LFE63-.LFB63
+ 299 00cb 01       		.uleb128 0x1
+ 300 00cc 9C       		.byte	0x9c
+ 301 00cd 07       		.uleb128 0x7
+ 302 00ce 7A000000 		.4byte	.LASF24
+ 303 00d2 01       		.byte	0x1
+ 304 00d3 47       		.byte	0x47
+ 305 00d4 68000000 		.4byte	0x68
+ 306 00d8 00000000 		.4byte	.LFB64
+ 307 00dc CC000000 		.4byte	.LFE64-.LFB64
+ 308 00e0 01       		.uleb128 0x1
+ 309 00e1 9C       		.byte	0x9c
+ 310 00e2 03010000 		.4byte	0x103
+ 311 00e6 08       		.uleb128 0x8
+ 312 00e7 7F000000 		.4byte	.LASF18
+ 313 00eb 01       		.byte	0x1
+ 314 00ec 49       		.byte	0x49
+ 315 00ed 81000000 		.4byte	0x81
+ 316 00f1 02       		.uleb128 0x2
+ 317 00f2 91       		.byte	0x91
+ 318 00f3 75       		.sleb128 -11
+ 319 00f4 08       		.uleb128 0x8
+ 320 00f5 0E000000 		.4byte	.LASF19
+ 321 00f9 01       		.byte	0x1
+ 322 00fa 4C       		.byte	0x4c
+ 323 00fb 8D000000 		.4byte	0x8d
+ 324 00ff 02       		.uleb128 0x2
+ 325 0100 91       		.byte	0x91
+ 326 0101 76       		.sleb128 -10
+ 327 0102 00       		.byte	0
+ 328 0103 09       		.uleb128 0x9
+ 329 0104 87010000 		.4byte	.LASF25
+ 330 0108 05       		.byte	0x5
+ 331 0109 1207     		.2byte	0x712
+ 332 010b 0F010000 		.4byte	0x10f
+ 333 010f 0A       		.uleb128 0xa
+ 334 0110 76000000 		.4byte	0x76
+ 335 0114 00       		.byte	0
+ 336              		.section	.debug_abbrev,"",%progbits
+ 337              	.Ldebug_abbrev0:
+ 338 0000 01       		.uleb128 0x1
+ 339 0001 11       		.uleb128 0x11
+ 340 0002 01       		.byte	0x1
+ 341 0003 25       		.uleb128 0x25
+ 342 0004 0E       		.uleb128 0xe
+ 343 0005 13       		.uleb128 0x13
+ 344 0006 0B       		.uleb128 0xb
+ 345 0007 03       		.uleb128 0x3
+ 346 0008 0E       		.uleb128 0xe
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 10
+
+
+ 347 0009 1B       		.uleb128 0x1b
+ 348 000a 0E       		.uleb128 0xe
+ 349 000b 55       		.uleb128 0x55
+ 350 000c 17       		.uleb128 0x17
+ 351 000d 11       		.uleb128 0x11
+ 352 000e 01       		.uleb128 0x1
+ 353 000f 10       		.uleb128 0x10
+ 354 0010 17       		.uleb128 0x17
+ 355 0011 00       		.byte	0
+ 356 0012 00       		.byte	0
+ 357 0013 02       		.uleb128 0x2
+ 358 0014 24       		.uleb128 0x24
+ 359 0015 00       		.byte	0
+ 360 0016 0B       		.uleb128 0xb
+ 361 0017 0B       		.uleb128 0xb
+ 362 0018 3E       		.uleb128 0x3e
+ 363 0019 0B       		.uleb128 0xb
+ 364 001a 03       		.uleb128 0x3
+ 365 001b 0E       		.uleb128 0xe
+ 366 001c 00       		.byte	0
+ 367 001d 00       		.byte	0
+ 368 001e 03       		.uleb128 0x3
+ 369 001f 16       		.uleb128 0x16
+ 370 0020 00       		.byte	0
+ 371 0021 03       		.uleb128 0x3
+ 372 0022 0E       		.uleb128 0xe
+ 373 0023 3A       		.uleb128 0x3a
+ 374 0024 0B       		.uleb128 0xb
+ 375 0025 3B       		.uleb128 0x3b
+ 376 0026 0B       		.uleb128 0xb
+ 377 0027 49       		.uleb128 0x49
+ 378 0028 13       		.uleb128 0x13
+ 379 0029 00       		.byte	0
+ 380 002a 00       		.byte	0
+ 381 002b 04       		.uleb128 0x4
+ 382 002c 24       		.uleb128 0x24
+ 383 002d 00       		.byte	0
+ 384 002e 0B       		.uleb128 0xb
+ 385 002f 0B       		.uleb128 0xb
+ 386 0030 3E       		.uleb128 0x3e
+ 387 0031 0B       		.uleb128 0xb
+ 388 0032 03       		.uleb128 0x3
+ 389 0033 08       		.uleb128 0x8
+ 390 0034 00       		.byte	0
+ 391 0035 00       		.byte	0
+ 392 0036 05       		.uleb128 0x5
+ 393 0037 16       		.uleb128 0x16
+ 394 0038 00       		.byte	0
+ 395 0039 03       		.uleb128 0x3
+ 396 003a 0E       		.uleb128 0xe
+ 397 003b 3A       		.uleb128 0x3a
+ 398 003c 0B       		.uleb128 0xb
+ 399 003d 3B       		.uleb128 0x3b
+ 400 003e 05       		.uleb128 0x5
+ 401 003f 49       		.uleb128 0x49
+ 402 0040 13       		.uleb128 0x13
+ 403 0041 00       		.byte	0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 11
+
+
+ 404 0042 00       		.byte	0
+ 405 0043 06       		.uleb128 0x6
+ 406 0044 2E       		.uleb128 0x2e
+ 407 0045 00       		.byte	0
+ 408 0046 3F       		.uleb128 0x3f
+ 409 0047 19       		.uleb128 0x19
+ 410 0048 03       		.uleb128 0x3
+ 411 0049 0E       		.uleb128 0xe
+ 412 004a 3A       		.uleb128 0x3a
+ 413 004b 0B       		.uleb128 0xb
+ 414 004c 3B       		.uleb128 0x3b
+ 415 004d 0B       		.uleb128 0xb
+ 416 004e 27       		.uleb128 0x27
+ 417 004f 19       		.uleb128 0x19
+ 418 0050 11       		.uleb128 0x11
+ 419 0051 01       		.uleb128 0x1
+ 420 0052 12       		.uleb128 0x12
+ 421 0053 06       		.uleb128 0x6
+ 422 0054 40       		.uleb128 0x40
+ 423 0055 18       		.uleb128 0x18
+ 424 0056 9642     		.uleb128 0x2116
+ 425 0058 19       		.uleb128 0x19
+ 426 0059 00       		.byte	0
+ 427 005a 00       		.byte	0
+ 428 005b 07       		.uleb128 0x7
+ 429 005c 2E       		.uleb128 0x2e
+ 430 005d 01       		.byte	0x1
+ 431 005e 3F       		.uleb128 0x3f
+ 432 005f 19       		.uleb128 0x19
+ 433 0060 03       		.uleb128 0x3
+ 434 0061 0E       		.uleb128 0xe
+ 435 0062 3A       		.uleb128 0x3a
+ 436 0063 0B       		.uleb128 0xb
+ 437 0064 3B       		.uleb128 0x3b
+ 438 0065 0B       		.uleb128 0xb
+ 439 0066 49       		.uleb128 0x49
+ 440 0067 13       		.uleb128 0x13
+ 441 0068 11       		.uleb128 0x11
+ 442 0069 01       		.uleb128 0x1
+ 443 006a 12       		.uleb128 0x12
+ 444 006b 06       		.uleb128 0x6
+ 445 006c 40       		.uleb128 0x40
+ 446 006d 18       		.uleb128 0x18
+ 447 006e 9642     		.uleb128 0x2116
+ 448 0070 19       		.uleb128 0x19
+ 449 0071 01       		.uleb128 0x1
+ 450 0072 13       		.uleb128 0x13
+ 451 0073 00       		.byte	0
+ 452 0074 00       		.byte	0
+ 453 0075 08       		.uleb128 0x8
+ 454 0076 34       		.uleb128 0x34
+ 455 0077 00       		.byte	0
+ 456 0078 03       		.uleb128 0x3
+ 457 0079 0E       		.uleb128 0xe
+ 458 007a 3A       		.uleb128 0x3a
+ 459 007b 0B       		.uleb128 0xb
+ 460 007c 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 12
+
+
+ 461 007d 0B       		.uleb128 0xb
+ 462 007e 49       		.uleb128 0x49
+ 463 007f 13       		.uleb128 0x13
+ 464 0080 02       		.uleb128 0x2
+ 465 0081 18       		.uleb128 0x18
+ 466 0082 00       		.byte	0
+ 467 0083 00       		.byte	0
+ 468 0084 09       		.uleb128 0x9
+ 469 0085 34       		.uleb128 0x34
+ 470 0086 00       		.byte	0
+ 471 0087 03       		.uleb128 0x3
+ 472 0088 0E       		.uleb128 0xe
+ 473 0089 3A       		.uleb128 0x3a
+ 474 008a 0B       		.uleb128 0xb
+ 475 008b 3B       		.uleb128 0x3b
+ 476 008c 05       		.uleb128 0x5
+ 477 008d 49       		.uleb128 0x49
+ 478 008e 13       		.uleb128 0x13
+ 479 008f 3F       		.uleb128 0x3f
+ 480 0090 19       		.uleb128 0x19
+ 481 0091 3C       		.uleb128 0x3c
+ 482 0092 19       		.uleb128 0x19
+ 483 0093 00       		.byte	0
+ 484 0094 00       		.byte	0
+ 485 0095 0A       		.uleb128 0xa
+ 486 0096 35       		.uleb128 0x35
+ 487 0097 00       		.byte	0
+ 488 0098 49       		.uleb128 0x49
+ 489 0099 13       		.uleb128 0x13
+ 490 009a 00       		.byte	0
+ 491 009b 00       		.byte	0
+ 492 009c 00       		.byte	0
+ 493              		.section	.debug_aranges,"",%progbits
+ 494 0000 24000000 		.4byte	0x24
+ 495 0004 0200     		.2byte	0x2
+ 496 0006 00000000 		.4byte	.Ldebug_info0
+ 497 000a 04       		.byte	0x4
+ 498 000b 00       		.byte	0
+ 499 000c 0000     		.2byte	0
+ 500 000e 0000     		.2byte	0
+ 501 0010 00000000 		.4byte	.LFB63
+ 502 0014 0C000000 		.4byte	.LFE63-.LFB63
+ 503 0018 00000000 		.4byte	.LFB64
+ 504 001c CC000000 		.4byte	.LFE64-.LFB64
+ 505 0020 00000000 		.4byte	0
+ 506 0024 00000000 		.4byte	0
+ 507              		.section	.debug_ranges,"",%progbits
+ 508              	.Ldebug_ranges0:
+ 509 0000 00000000 		.4byte	.LFB63
+ 510 0004 0C000000 		.4byte	.LFE63
+ 511 0008 00000000 		.4byte	.LFB64
+ 512 000c CC000000 		.4byte	.LFE64
+ 513 0010 00000000 		.4byte	0
+ 514 0014 00000000 		.4byte	0
+ 515              		.section	.debug_line,"",%progbits
+ 516              	.Ldebug_line0:
+ 517 0000 8F010000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 13
+
+
+ 517      02004C01 
+ 517      00000201 
+ 517      FB0E0D00 
+ 517      01010101 
+ 518              	.LASF6:
+ 519 0000 6C6F6E67 		.ascii	"long long int\000"
+ 519      206C6F6E 
+ 519      6720696E 
+ 519      7400
+ 520              	.LASF19:
+ 521 000e 76616C75 		.ascii	"value\000"
+ 521      6500
+ 522              	.LASF8:
+ 523 0014 756E7369 		.ascii	"unsigned int\000"
+ 523      676E6564 
+ 523      20696E74 
+ 523      00
+ 524              	.LASF22:
+ 525 0021 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
+ 525      73657273 
+ 525      5C544F53 
+ 525      48494241 
+ 525      5C446F63 
+ 526 004f 4176616E 		.ascii	"Avance\\StaticSegLCD_Example01.cydsn\000"
+ 526      63655C53 
+ 526      74617469 
+ 526      63536567 
+ 526      4C43445F 
+ 527              	.LASF21:
+ 528 0073 6D61696E 		.ascii	"main.c\000"
+ 528      2E6300
+ 529              	.LASF24:
+ 530 007a 6D61696E 		.ascii	"main\000"
+ 530      00
+ 531              	.LASF18:
+ 532 007f 73746174 		.ascii	"status\000"
+ 532      757300
+ 533              	.LASF11:
+ 534 0086 75696E74 		.ascii	"uint8\000"
+ 534      3800
+ 535              	.LASF5:
+ 536 008c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 536      20756E73 
+ 536      69676E65 
+ 536      6420696E 
+ 536      7400
+ 537              	.LASF7:
+ 538 009e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 538      206C6F6E 
+ 538      6720756E 
+ 538      7369676E 
+ 538      65642069 
+ 539              	.LASF3:
+ 540 00b5 73686F72 		.ascii	"short unsigned int\000"
+ 540      7420756E 
+ 540      7369676E 
+ 540      65642069 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 14
+
+
+ 540      6E7400
+ 541              	.LASF20:
+ 542 00c8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 542      43313120 
+ 542      352E342E 
+ 542      31203230 
+ 542      31363036 
+ 543 00fb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 543      20726576 
+ 543      6973696F 
+ 543      6E203233 
+ 543      37373135 
+ 544 012e 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 544      66756E63 
+ 544      74696F6E 
+ 544      2D736563 
+ 544      74696F6E 
+ 545              	.LASF1:
+ 546 0156 756E7369 		.ascii	"unsigned char\000"
+ 546      676E6564 
+ 546      20636861 
+ 546      7200
+ 547              	.LASF15:
+ 548 0164 63686172 		.ascii	"char\000"
+ 548      00
+ 549              	.LASF4:
+ 550 0169 6C6F6E67 		.ascii	"long int\000"
+ 550      20696E74 
+ 550      00
+ 551              	.LASF23:
+ 552 0172 57616B65 		.ascii	"WakeUpIsr_Int\000"
+ 552      55704973 
+ 552      725F496E 
+ 552      7400
+ 553              	.LASF14:
+ 554 0180 646F7562 		.ascii	"double\000"
+ 554      6C6500
+ 555              	.LASF25:
+ 556 0187 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 556      52784275 
+ 556      66666572 
+ 556      00
+ 557              	.LASF0:
+ 558 0194 7369676E 		.ascii	"signed char\000"
+ 558      65642063 
+ 558      68617200 
+ 559              	.LASF16:
+ 560 01a0 6C6F6E67 		.ascii	"long double\000"
+ 560      20646F75 
+ 560      626C6500 
+ 561              	.LASF9:
+ 562 01ac 5F5F696E 		.ascii	"__int32_t\000"
+ 562      7433325F 
+ 562      7400
+ 563              	.LASF13:
+ 564 01b6 666C6F61 		.ascii	"float\000"
+ 564      7400
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 15
+
+
+ 565              	.LASF2:
+ 566 01bc 73686F72 		.ascii	"short int\000"
+ 566      7420696E 
+ 566      7400
+ 567              	.LASF12:
+ 568 01c6 75696E74 		.ascii	"uint16\000"
+ 568      313600
+ 569              	.LASF10:
+ 570 01cd 696E7433 		.ascii	"int32_t\000"
+ 570      325F7400 
+ 571              	.LASF17:
+ 572 01d5 73697A65 		.ascii	"sizetype\000"
+ 572      74797065 
+ 572      00
+ 573              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

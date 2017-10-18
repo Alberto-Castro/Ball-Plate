@@ -1,0 +1,1157 @@
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"LCD_SegStat_Pins.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LCD_SegStat_SegPort_SetDriveMode,"ax",%progbits
+  20              		.align	2
+  21              		.global	LCD_SegStat_SegPort_SetDriveMode
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	LCD_SegStat_SegPort_SetDriveMode, %function
+  25              	LCD_SegStat_SegPort_SetDriveMode:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\LCD_SegStat_Pins.c"
+   1:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * File Name: LCD_SegStat.c
+   3:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Version 2.30
+   4:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+   5:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Description:
+   6:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  This file provides the pin API source code for the Static Segment LCD
+   7:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  component.
+   8:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+   9:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Note:
+  10:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  11:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** 
+  18:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** #include <LCD_SegStat_Pins.h>
+  19:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** 
+  20:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** /*******************************************************************************
+  21:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Function Name: LCD_SegStat_SegPort_SetDriveMode 
+  22:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** ********************************************************************************
+  23:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Summary:
+  24:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  Change the drive mode on the pins of the port.
+  25:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  26:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Parameters:
+  27:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  mode: Changes the pins to this drive mode.
+  28:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  29:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Return:
+  30:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  void
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 2
+
+
+  31:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  32:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *******************************************************************************/
+  33:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** void LCD_SegStat_SegPort_SetDriveMode(uint8 mode) 
+  34:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** {
+  28              		.loc 1 34 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 80B4     		push	{r7}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              		.cfi_def_cfa_offset 16
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 0346     		mov	r3, r0
+  41 0008 FB71     		strb	r3, [r7, #7]
+  35:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_0, mode);
+  42              		.loc 1 35 0
+  43 000a AC49     		ldr	r1, .L2
+  44 000c AB4B     		ldr	r3, .L2
+  45 000e 1B78     		ldrb	r3, [r3]
+  46 0010 DBB2     		uxtb	r3, r3
+  47 0012 5BB2     		sxtb	r3, r3
+  48 0014 23F00E03 		bic	r3, r3, #14
+  49 0018 5AB2     		sxtb	r2, r3
+  50 001a 97F90730 		ldrsb	r3, [r7, #7]
+  51 001e 03F00E03 		and	r3, r3, #14
+  52 0022 5BB2     		sxtb	r3, r3
+  53 0024 1343     		orrs	r3, r3, r2
+  54 0026 5BB2     		sxtb	r3, r3
+  55 0028 DBB2     		uxtb	r3, r3
+  56 002a 0B70     		strb	r3, [r1]
+  36:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_1, mode);
+  57              		.loc 1 36 0
+  58 002c A449     		ldr	r1, .L2+4
+  59 002e A44B     		ldr	r3, .L2+4
+  60 0030 1B78     		ldrb	r3, [r3]
+  61 0032 DBB2     		uxtb	r3, r3
+  62 0034 5BB2     		sxtb	r3, r3
+  63 0036 23F00E03 		bic	r3, r3, #14
+  64 003a 5AB2     		sxtb	r2, r3
+  65 003c 97F90730 		ldrsb	r3, [r7, #7]
+  66 0040 03F00E03 		and	r3, r3, #14
+  67 0044 5BB2     		sxtb	r3, r3
+  68 0046 1343     		orrs	r3, r3, r2
+  69 0048 5BB2     		sxtb	r3, r3
+  70 004a DBB2     		uxtb	r3, r3
+  71 004c 0B70     		strb	r3, [r1]
+  37:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_2, mode);
+  72              		.loc 1 37 0
+  73 004e 9D49     		ldr	r1, .L2+8
+  74 0050 9C4B     		ldr	r3, .L2+8
+  75 0052 1B78     		ldrb	r3, [r3]
+  76 0054 DBB2     		uxtb	r3, r3
+  77 0056 5BB2     		sxtb	r3, r3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 3
+
+
+  78 0058 23F00E03 		bic	r3, r3, #14
+  79 005c 5AB2     		sxtb	r2, r3
+  80 005e 97F90730 		ldrsb	r3, [r7, #7]
+  81 0062 03F00E03 		and	r3, r3, #14
+  82 0066 5BB2     		sxtb	r3, r3
+  83 0068 1343     		orrs	r3, r3, r2
+  84 006a 5BB2     		sxtb	r3, r3
+  85 006c DBB2     		uxtb	r3, r3
+  86 006e 0B70     		strb	r3, [r1]
+  38:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_3, mode);
+  87              		.loc 1 38 0
+  88 0070 9549     		ldr	r1, .L2+12
+  89 0072 954B     		ldr	r3, .L2+12
+  90 0074 1B78     		ldrb	r3, [r3]
+  91 0076 DBB2     		uxtb	r3, r3
+  92 0078 5BB2     		sxtb	r3, r3
+  93 007a 23F00E03 		bic	r3, r3, #14
+  94 007e 5AB2     		sxtb	r2, r3
+  95 0080 97F90730 		ldrsb	r3, [r7, #7]
+  96 0084 03F00E03 		and	r3, r3, #14
+  97 0088 5BB2     		sxtb	r3, r3
+  98 008a 1343     		orrs	r3, r3, r2
+  99 008c 5BB2     		sxtb	r3, r3
+ 100 008e DBB2     		uxtb	r3, r3
+ 101 0090 0B70     		strb	r3, [r1]
+  39:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_4, mode);
+ 102              		.loc 1 39 0
+ 103 0092 8E49     		ldr	r1, .L2+16
+ 104 0094 8D4B     		ldr	r3, .L2+16
+ 105 0096 1B78     		ldrb	r3, [r3]
+ 106 0098 DBB2     		uxtb	r3, r3
+ 107 009a 5BB2     		sxtb	r3, r3
+ 108 009c 23F00E03 		bic	r3, r3, #14
+ 109 00a0 5AB2     		sxtb	r2, r3
+ 110 00a2 97F90730 		ldrsb	r3, [r7, #7]
+ 111 00a6 03F00E03 		and	r3, r3, #14
+ 112 00aa 5BB2     		sxtb	r3, r3
+ 113 00ac 1343     		orrs	r3, r3, r2
+ 114 00ae 5BB2     		sxtb	r3, r3
+ 115 00b0 DBB2     		uxtb	r3, r3
+ 116 00b2 0B70     		strb	r3, [r1]
+  40:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_5, mode);
+ 117              		.loc 1 40 0
+ 118 00b4 8649     		ldr	r1, .L2+20
+ 119 00b6 864B     		ldr	r3, .L2+20
+ 120 00b8 1B78     		ldrb	r3, [r3]
+ 121 00ba DBB2     		uxtb	r3, r3
+ 122 00bc 5BB2     		sxtb	r3, r3
+ 123 00be 23F00E03 		bic	r3, r3, #14
+ 124 00c2 5AB2     		sxtb	r2, r3
+ 125 00c4 97F90730 		ldrsb	r3, [r7, #7]
+ 126 00c8 03F00E03 		and	r3, r3, #14
+ 127 00cc 5BB2     		sxtb	r3, r3
+ 128 00ce 1343     		orrs	r3, r3, r2
+ 129 00d0 5BB2     		sxtb	r3, r3
+ 130 00d2 DBB2     		uxtb	r3, r3
+ 131 00d4 0B70     		strb	r3, [r1]
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 4
+
+
+  41:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_6, mode);
+ 132              		.loc 1 41 0
+ 133 00d6 7F49     		ldr	r1, .L2+24
+ 134 00d8 7E4B     		ldr	r3, .L2+24
+ 135 00da 1B78     		ldrb	r3, [r3]
+ 136 00dc DBB2     		uxtb	r3, r3
+ 137 00de 5BB2     		sxtb	r3, r3
+ 138 00e0 23F00E03 		bic	r3, r3, #14
+ 139 00e4 5AB2     		sxtb	r2, r3
+ 140 00e6 97F90730 		ldrsb	r3, [r7, #7]
+ 141 00ea 03F00E03 		and	r3, r3, #14
+ 142 00ee 5BB2     		sxtb	r3, r3
+ 143 00f0 1343     		orrs	r3, r3, r2
+ 144 00f2 5BB2     		sxtb	r3, r3
+ 145 00f4 DBB2     		uxtb	r3, r3
+ 146 00f6 0B70     		strb	r3, [r1]
+  42:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_7, mode);
+ 147              		.loc 1 42 0
+ 148 00f8 7749     		ldr	r1, .L2+28
+ 149 00fa 774B     		ldr	r3, .L2+28
+ 150 00fc 1B78     		ldrb	r3, [r3]
+ 151 00fe DBB2     		uxtb	r3, r3
+ 152 0100 5BB2     		sxtb	r3, r3
+ 153 0102 23F00E03 		bic	r3, r3, #14
+ 154 0106 5AB2     		sxtb	r2, r3
+ 155 0108 97F90730 		ldrsb	r3, [r7, #7]
+ 156 010c 03F00E03 		and	r3, r3, #14
+ 157 0110 5BB2     		sxtb	r3, r3
+ 158 0112 1343     		orrs	r3, r3, r2
+ 159 0114 5BB2     		sxtb	r3, r3
+ 160 0116 DBB2     		uxtb	r3, r3
+ 161 0118 0B70     		strb	r3, [r1]
+  43:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_8, mode);
+ 162              		.loc 1 43 0
+ 163 011a 7049     		ldr	r1, .L2+32
+ 164 011c 6F4B     		ldr	r3, .L2+32
+ 165 011e 1B78     		ldrb	r3, [r3]
+ 166 0120 DBB2     		uxtb	r3, r3
+ 167 0122 5BB2     		sxtb	r3, r3
+ 168 0124 23F00E03 		bic	r3, r3, #14
+ 169 0128 5AB2     		sxtb	r2, r3
+ 170 012a 97F90730 		ldrsb	r3, [r7, #7]
+ 171 012e 03F00E03 		and	r3, r3, #14
+ 172 0132 5BB2     		sxtb	r3, r3
+ 173 0134 1343     		orrs	r3, r3, r2
+ 174 0136 5BB2     		sxtb	r3, r3
+ 175 0138 DBB2     		uxtb	r3, r3
+ 176 013a 0B70     		strb	r3, [r1]
+  44:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_9, mode);
+ 177              		.loc 1 44 0
+ 178 013c 6849     		ldr	r1, .L2+36
+ 179 013e 684B     		ldr	r3, .L2+36
+ 180 0140 1B78     		ldrb	r3, [r3]
+ 181 0142 DBB2     		uxtb	r3, r3
+ 182 0144 5BB2     		sxtb	r3, r3
+ 183 0146 23F00E03 		bic	r3, r3, #14
+ 184 014a 5AB2     		sxtb	r2, r3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 5
+
+
+ 185 014c 97F90730 		ldrsb	r3, [r7, #7]
+ 186 0150 03F00E03 		and	r3, r3, #14
+ 187 0154 5BB2     		sxtb	r3, r3
+ 188 0156 1343     		orrs	r3, r3, r2
+ 189 0158 5BB2     		sxtb	r3, r3
+ 190 015a DBB2     		uxtb	r3, r3
+ 191 015c 0B70     		strb	r3, [r1]
+  45:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_10, mode);
+ 192              		.loc 1 45 0
+ 193 015e 6149     		ldr	r1, .L2+40
+ 194 0160 604B     		ldr	r3, .L2+40
+ 195 0162 1B78     		ldrb	r3, [r3]
+ 196 0164 DBB2     		uxtb	r3, r3
+ 197 0166 5BB2     		sxtb	r3, r3
+ 198 0168 23F00E03 		bic	r3, r3, #14
+ 199 016c 5AB2     		sxtb	r2, r3
+ 200 016e 97F90730 		ldrsb	r3, [r7, #7]
+ 201 0172 03F00E03 		and	r3, r3, #14
+ 202 0176 5BB2     		sxtb	r3, r3
+ 203 0178 1343     		orrs	r3, r3, r2
+ 204 017a 5BB2     		sxtb	r3, r3
+ 205 017c DBB2     		uxtb	r3, r3
+ 206 017e 0B70     		strb	r3, [r1]
+  46:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_11, mode);
+ 207              		.loc 1 46 0
+ 208 0180 5949     		ldr	r1, .L2+44
+ 209 0182 594B     		ldr	r3, .L2+44
+ 210 0184 1B78     		ldrb	r3, [r3]
+ 211 0186 DBB2     		uxtb	r3, r3
+ 212 0188 5BB2     		sxtb	r3, r3
+ 213 018a 23F00E03 		bic	r3, r3, #14
+ 214 018e 5AB2     		sxtb	r2, r3
+ 215 0190 97F90730 		ldrsb	r3, [r7, #7]
+ 216 0194 03F00E03 		and	r3, r3, #14
+ 217 0198 5BB2     		sxtb	r3, r3
+ 218 019a 1343     		orrs	r3, r3, r2
+ 219 019c 5BB2     		sxtb	r3, r3
+ 220 019e DBB2     		uxtb	r3, r3
+ 221 01a0 0B70     		strb	r3, [r1]
+  47:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_12, mode);
+ 222              		.loc 1 47 0
+ 223 01a2 5249     		ldr	r1, .L2+48
+ 224 01a4 514B     		ldr	r3, .L2+48
+ 225 01a6 1B78     		ldrb	r3, [r3]
+ 226 01a8 DBB2     		uxtb	r3, r3
+ 227 01aa 5BB2     		sxtb	r3, r3
+ 228 01ac 23F00E03 		bic	r3, r3, #14
+ 229 01b0 5AB2     		sxtb	r2, r3
+ 230 01b2 97F90730 		ldrsb	r3, [r7, #7]
+ 231 01b6 03F00E03 		and	r3, r3, #14
+ 232 01ba 5BB2     		sxtb	r3, r3
+ 233 01bc 1343     		orrs	r3, r3, r2
+ 234 01be 5BB2     		sxtb	r3, r3
+ 235 01c0 DBB2     		uxtb	r3, r3
+ 236 01c2 0B70     		strb	r3, [r1]
+  48:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_13, mode);
+ 237              		.loc 1 48 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 6
+
+
+ 238 01c4 4A49     		ldr	r1, .L2+52
+ 239 01c6 4A4B     		ldr	r3, .L2+52
+ 240 01c8 1B78     		ldrb	r3, [r3]
+ 241 01ca DBB2     		uxtb	r3, r3
+ 242 01cc 5BB2     		sxtb	r3, r3
+ 243 01ce 23F00E03 		bic	r3, r3, #14
+ 244 01d2 5AB2     		sxtb	r2, r3
+ 245 01d4 97F90730 		ldrsb	r3, [r7, #7]
+ 246 01d8 03F00E03 		and	r3, r3, #14
+ 247 01dc 5BB2     		sxtb	r3, r3
+ 248 01de 1343     		orrs	r3, r3, r2
+ 249 01e0 5BB2     		sxtb	r3, r3
+ 250 01e2 DBB2     		uxtb	r3, r3
+ 251 01e4 0B70     		strb	r3, [r1]
+  49:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_14, mode);
+ 252              		.loc 1 49 0
+ 253 01e6 4349     		ldr	r1, .L2+56
+ 254 01e8 424B     		ldr	r3, .L2+56
+ 255 01ea 1B78     		ldrb	r3, [r3]
+ 256 01ec DBB2     		uxtb	r3, r3
+ 257 01ee 5BB2     		sxtb	r3, r3
+ 258 01f0 23F00E03 		bic	r3, r3, #14
+ 259 01f4 5AB2     		sxtb	r2, r3
+ 260 01f6 97F90730 		ldrsb	r3, [r7, #7]
+ 261 01fa 03F00E03 		and	r3, r3, #14
+ 262 01fe 5BB2     		sxtb	r3, r3
+ 263 0200 1343     		orrs	r3, r3, r2
+ 264 0202 5BB2     		sxtb	r3, r3
+ 265 0204 DBB2     		uxtb	r3, r3
+ 266 0206 0B70     		strb	r3, [r1]
+  50:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_15, mode);
+ 267              		.loc 1 50 0
+ 268 0208 3B49     		ldr	r1, .L2+60
+ 269 020a 3B4B     		ldr	r3, .L2+60
+ 270 020c 1B78     		ldrb	r3, [r3]
+ 271 020e DBB2     		uxtb	r3, r3
+ 272 0210 5BB2     		sxtb	r3, r3
+ 273 0212 23F00E03 		bic	r3, r3, #14
+ 274 0216 5AB2     		sxtb	r2, r3
+ 275 0218 97F90730 		ldrsb	r3, [r7, #7]
+ 276 021c 03F00E03 		and	r3, r3, #14
+ 277 0220 5BB2     		sxtb	r3, r3
+ 278 0222 1343     		orrs	r3, r3, r2
+ 279 0224 5BB2     		sxtb	r3, r3
+ 280 0226 DBB2     		uxtb	r3, r3
+ 281 0228 0B70     		strb	r3, [r1]
+  51:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_16, mode);
+ 282              		.loc 1 51 0
+ 283 022a 3449     		ldr	r1, .L2+64
+ 284 022c 334B     		ldr	r3, .L2+64
+ 285 022e 1B78     		ldrb	r3, [r3]
+ 286 0230 DBB2     		uxtb	r3, r3
+ 287 0232 5BB2     		sxtb	r3, r3
+ 288 0234 23F00E03 		bic	r3, r3, #14
+ 289 0238 5AB2     		sxtb	r2, r3
+ 290 023a 97F90730 		ldrsb	r3, [r7, #7]
+ 291 023e 03F00E03 		and	r3, r3, #14
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 7
+
+
+ 292 0242 5BB2     		sxtb	r3, r3
+ 293 0244 1343     		orrs	r3, r3, r2
+ 294 0246 5BB2     		sxtb	r3, r3
+ 295 0248 DBB2     		uxtb	r3, r3
+ 296 024a 0B70     		strb	r3, [r1]
+  52:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_17, mode);
+ 297              		.loc 1 52 0
+ 298 024c 2C49     		ldr	r1, .L2+68
+ 299 024e 2C4B     		ldr	r3, .L2+68
+ 300 0250 1B78     		ldrb	r3, [r3]
+ 301 0252 DBB2     		uxtb	r3, r3
+ 302 0254 5BB2     		sxtb	r3, r3
+ 303 0256 23F00E03 		bic	r3, r3, #14
+ 304 025a 5AB2     		sxtb	r2, r3
+ 305 025c 97F90730 		ldrsb	r3, [r7, #7]
+ 306 0260 03F00E03 		and	r3, r3, #14
+ 307 0264 5BB2     		sxtb	r3, r3
+ 308 0266 1343     		orrs	r3, r3, r2
+ 309 0268 5BB2     		sxtb	r3, r3
+ 310 026a DBB2     		uxtb	r3, r3
+ 311 026c 0B70     		strb	r3, [r1]
+  53:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_18, mode);
+ 312              		.loc 1 53 0
+ 313 026e 2549     		ldr	r1, .L2+72
+ 314 0270 244B     		ldr	r3, .L2+72
+ 315 0272 1B78     		ldrb	r3, [r3]
+ 316 0274 DBB2     		uxtb	r3, r3
+ 317 0276 5BB2     		sxtb	r3, r3
+ 318 0278 23F00E03 		bic	r3, r3, #14
+ 319 027c 5AB2     		sxtb	r2, r3
+ 320 027e 97F90730 		ldrsb	r3, [r7, #7]
+ 321 0282 03F00E03 		and	r3, r3, #14
+ 322 0286 5BB2     		sxtb	r3, r3
+ 323 0288 1343     		orrs	r3, r3, r2
+ 324 028a 5BB2     		sxtb	r3, r3
+ 325 028c DBB2     		uxtb	r3, r3
+ 326 028e 0B70     		strb	r3, [r1]
+  54:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_19, mode);
+ 327              		.loc 1 54 0
+ 328 0290 1D49     		ldr	r1, .L2+76
+ 329 0292 1D4B     		ldr	r3, .L2+76
+ 330 0294 1B78     		ldrb	r3, [r3]
+ 331 0296 DBB2     		uxtb	r3, r3
+ 332 0298 5BB2     		sxtb	r3, r3
+ 333 029a 23F00E03 		bic	r3, r3, #14
+ 334 029e 5AB2     		sxtb	r2, r3
+ 335 02a0 97F90730 		ldrsb	r3, [r7, #7]
+ 336 02a4 03F00E03 		and	r3, r3, #14
+ 337 02a8 5BB2     		sxtb	r3, r3
+ 338 02aa 1343     		orrs	r3, r3, r2
+ 339 02ac 5BB2     		sxtb	r3, r3
+ 340 02ae DBB2     		uxtb	r3, r3
+ 341 02b0 0B70     		strb	r3, [r1]
+  55:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_20, mode);
+ 342              		.loc 1 55 0
+ 343 02b2 1649     		ldr	r1, .L2+80
+ 344 02b4 154B     		ldr	r3, .L2+80
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 8
+
+
+ 345 02b6 1B78     		ldrb	r3, [r3]
+ 346 02b8 DBB2     		uxtb	r3, r3
+ 347 02ba 29E0     		b	.L3
+ 348              	.L4:
+ 349              		.align	2
+ 350              	.L2:
+ 351 02bc 19500040 		.word	1073762329
+ 352 02c0 1A500040 		.word	1073762330
+ 353 02c4 1B500040 		.word	1073762331
+ 354 02c8 1C500040 		.word	1073762332
+ 355 02cc 1D500040 		.word	1073762333
+ 356 02d0 1E500040 		.word	1073762334
+ 357 02d4 1F500040 		.word	1073762335
+ 358 02d8 28500040 		.word	1073762344
+ 359 02dc 29500040 		.word	1073762345
+ 360 02e0 2A500040 		.word	1073762346
+ 361 02e4 2B500040 		.word	1073762347
+ 362 02e8 2C500040 		.word	1073762348
+ 363 02ec 2D500040 		.word	1073762349
+ 364 02f0 2E500040 		.word	1073762350
+ 365 02f4 2F500040 		.word	1073762351
+ 366 02f8 20500040 		.word	1073762336
+ 367 02fc 21500040 		.word	1073762337
+ 368 0300 22500040 		.word	1073762338
+ 369 0304 23500040 		.word	1073762339
+ 370 0308 24500040 		.word	1073762340
+ 371 030c 25500040 		.word	1073762341
+ 372              	.L3:
+ 373 0310 5BB2     		sxtb	r3, r3
+ 374 0312 23F00E03 		bic	r3, r3, #14
+ 375 0316 5AB2     		sxtb	r2, r3
+ 376 0318 97F90730 		ldrsb	r3, [r7, #7]
+ 377 031c 03F00E03 		and	r3, r3, #14
+ 378 0320 5BB2     		sxtb	r3, r3
+ 379 0322 1343     		orrs	r3, r3, r2
+ 380 0324 5BB2     		sxtb	r3, r3
+ 381 0326 DBB2     		uxtb	r3, r3
+ 382 0328 0B70     		strb	r3, [r1]
+  56:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_21, mode);
+ 383              		.loc 1 56 0
+ 384 032a 6049     		ldr	r1, .L5
+ 385 032c 5F4B     		ldr	r3, .L5
+ 386 032e 1B78     		ldrb	r3, [r3]
+ 387 0330 DBB2     		uxtb	r3, r3
+ 388 0332 5BB2     		sxtb	r3, r3
+ 389 0334 23F00E03 		bic	r3, r3, #14
+ 390 0338 5AB2     		sxtb	r2, r3
+ 391 033a 97F90730 		ldrsb	r3, [r7, #7]
+ 392 033e 03F00E03 		and	r3, r3, #14
+ 393 0342 5BB2     		sxtb	r3, r3
+ 394 0344 1343     		orrs	r3, r3, r2
+ 395 0346 5BB2     		sxtb	r3, r3
+ 396 0348 DBB2     		uxtb	r3, r3
+ 397 034a 0B70     		strb	r3, [r1]
+  57:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_22, mode);
+ 398              		.loc 1 57 0
+ 399 034c 5849     		ldr	r1, .L5+4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 9
+
+
+ 400 034e 584B     		ldr	r3, .L5+4
+ 401 0350 1B78     		ldrb	r3, [r3]
+ 402 0352 DBB2     		uxtb	r3, r3
+ 403 0354 5BB2     		sxtb	r3, r3
+ 404 0356 23F00E03 		bic	r3, r3, #14
+ 405 035a 5AB2     		sxtb	r2, r3
+ 406 035c 97F90730 		ldrsb	r3, [r7, #7]
+ 407 0360 03F00E03 		and	r3, r3, #14
+ 408 0364 5BB2     		sxtb	r3, r3
+ 409 0366 1343     		orrs	r3, r3, r2
+ 410 0368 5BB2     		sxtb	r3, r3
+ 411 036a DBB2     		uxtb	r3, r3
+ 412 036c 0B70     		strb	r3, [r1]
+  58:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_23, mode);
+ 413              		.loc 1 58 0
+ 414 036e 5149     		ldr	r1, .L5+8
+ 415 0370 504B     		ldr	r3, .L5+8
+ 416 0372 1B78     		ldrb	r3, [r3]
+ 417 0374 DBB2     		uxtb	r3, r3
+ 418 0376 5BB2     		sxtb	r3, r3
+ 419 0378 23F00E03 		bic	r3, r3, #14
+ 420 037c 5AB2     		sxtb	r2, r3
+ 421 037e 97F90730 		ldrsb	r3, [r7, #7]
+ 422 0382 03F00E03 		and	r3, r3, #14
+ 423 0386 5BB2     		sxtb	r3, r3
+ 424 0388 1343     		orrs	r3, r3, r2
+ 425 038a 5BB2     		sxtb	r3, r3
+ 426 038c DBB2     		uxtb	r3, r3
+ 427 038e 0B70     		strb	r3, [r1]
+  59:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_24, mode);
+ 428              		.loc 1 59 0
+ 429 0390 4949     		ldr	r1, .L5+12
+ 430 0392 494B     		ldr	r3, .L5+12
+ 431 0394 1B78     		ldrb	r3, [r3]
+ 432 0396 DBB2     		uxtb	r3, r3
+ 433 0398 5BB2     		sxtb	r3, r3
+ 434 039a 23F00E03 		bic	r3, r3, #14
+ 435 039e 5AB2     		sxtb	r2, r3
+ 436 03a0 97F90730 		ldrsb	r3, [r7, #7]
+ 437 03a4 03F00E03 		and	r3, r3, #14
+ 438 03a8 5BB2     		sxtb	r3, r3
+ 439 03aa 1343     		orrs	r3, r3, r2
+ 440 03ac 5BB2     		sxtb	r3, r3
+ 441 03ae DBB2     		uxtb	r3, r3
+ 442 03b0 0B70     		strb	r3, [r1]
+  60:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_25, mode);
+ 443              		.loc 1 60 0
+ 444 03b2 4249     		ldr	r1, .L5+16
+ 445 03b4 414B     		ldr	r3, .L5+16
+ 446 03b6 1B78     		ldrb	r3, [r3]
+ 447 03b8 DBB2     		uxtb	r3, r3
+ 448 03ba 5BB2     		sxtb	r3, r3
+ 449 03bc 23F00E03 		bic	r3, r3, #14
+ 450 03c0 5AB2     		sxtb	r2, r3
+ 451 03c2 97F90730 		ldrsb	r3, [r7, #7]
+ 452 03c6 03F00E03 		and	r3, r3, #14
+ 453 03ca 5BB2     		sxtb	r3, r3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 10
+
+
+ 454 03cc 1343     		orrs	r3, r3, r2
+ 455 03ce 5BB2     		sxtb	r3, r3
+ 456 03d0 DBB2     		uxtb	r3, r3
+ 457 03d2 0B70     		strb	r3, [r1]
+  61:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_26, mode);
+ 458              		.loc 1 61 0
+ 459 03d4 3A49     		ldr	r1, .L5+20
+ 460 03d6 3A4B     		ldr	r3, .L5+20
+ 461 03d8 1B78     		ldrb	r3, [r3]
+ 462 03da DBB2     		uxtb	r3, r3
+ 463 03dc 5BB2     		sxtb	r3, r3
+ 464 03de 23F00E03 		bic	r3, r3, #14
+ 465 03e2 5AB2     		sxtb	r2, r3
+ 466 03e4 97F90730 		ldrsb	r3, [r7, #7]
+ 467 03e8 03F00E03 		and	r3, r3, #14
+ 468 03ec 5BB2     		sxtb	r3, r3
+ 469 03ee 1343     		orrs	r3, r3, r2
+ 470 03f0 5BB2     		sxtb	r3, r3
+ 471 03f2 DBB2     		uxtb	r3, r3
+ 472 03f4 0B70     		strb	r3, [r1]
+  62:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_27, mode);
+ 473              		.loc 1 62 0
+ 474 03f6 3349     		ldr	r1, .L5+24
+ 475 03f8 324B     		ldr	r3, .L5+24
+ 476 03fa 1B78     		ldrb	r3, [r3]
+ 477 03fc DBB2     		uxtb	r3, r3
+ 478 03fe 5BB2     		sxtb	r3, r3
+ 479 0400 23F00E03 		bic	r3, r3, #14
+ 480 0404 5AB2     		sxtb	r2, r3
+ 481 0406 97F90730 		ldrsb	r3, [r7, #7]
+ 482 040a 03F00E03 		and	r3, r3, #14
+ 483 040e 5BB2     		sxtb	r3, r3
+ 484 0410 1343     		orrs	r3, r3, r2
+ 485 0412 5BB2     		sxtb	r3, r3
+ 486 0414 DBB2     		uxtb	r3, r3
+ 487 0416 0B70     		strb	r3, [r1]
+  63:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_28, mode);
+ 488              		.loc 1 63 0
+ 489 0418 2B49     		ldr	r1, .L5+28
+ 490 041a 2B4B     		ldr	r3, .L5+28
+ 491 041c 1B78     		ldrb	r3, [r3]
+ 492 041e DBB2     		uxtb	r3, r3
+ 493 0420 5BB2     		sxtb	r3, r3
+ 494 0422 23F00E03 		bic	r3, r3, #14
+ 495 0426 5AB2     		sxtb	r2, r3
+ 496 0428 97F90730 		ldrsb	r3, [r7, #7]
+ 497 042c 03F00E03 		and	r3, r3, #14
+ 498 0430 5BB2     		sxtb	r3, r3
+ 499 0432 1343     		orrs	r3, r3, r2
+ 500 0434 5BB2     		sxtb	r3, r3
+ 501 0436 DBB2     		uxtb	r3, r3
+ 502 0438 0B70     		strb	r3, [r1]
+  64:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_29, mode);
+ 503              		.loc 1 64 0
+ 504 043a 2449     		ldr	r1, .L5+32
+ 505 043c 234B     		ldr	r3, .L5+32
+ 506 043e 1B78     		ldrb	r3, [r3]
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 11
+
+
+ 507 0440 DBB2     		uxtb	r3, r3
+ 508 0442 5BB2     		sxtb	r3, r3
+ 509 0444 23F00E03 		bic	r3, r3, #14
+ 510 0448 5AB2     		sxtb	r2, r3
+ 511 044a 97F90730 		ldrsb	r3, [r7, #7]
+ 512 044e 03F00E03 		and	r3, r3, #14
+ 513 0452 5BB2     		sxtb	r3, r3
+ 514 0454 1343     		orrs	r3, r3, r2
+ 515 0456 5BB2     		sxtb	r3, r3
+ 516 0458 DBB2     		uxtb	r3, r3
+ 517 045a 0B70     		strb	r3, [r1]
+  65:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_30, mode);
+ 518              		.loc 1 65 0
+ 519 045c 1C49     		ldr	r1, .L5+36
+ 520 045e 1C4B     		ldr	r3, .L5+36
+ 521 0460 1B78     		ldrb	r3, [r3]
+ 522 0462 DBB2     		uxtb	r3, r3
+ 523 0464 5BB2     		sxtb	r3, r3
+ 524 0466 23F00E03 		bic	r3, r3, #14
+ 525 046a 5AB2     		sxtb	r2, r3
+ 526 046c 97F90730 		ldrsb	r3, [r7, #7]
+ 527 0470 03F00E03 		and	r3, r3, #14
+ 528 0474 5BB2     		sxtb	r3, r3
+ 529 0476 1343     		orrs	r3, r3, r2
+ 530 0478 5BB2     		sxtb	r3, r3
+ 531 047a DBB2     		uxtb	r3, r3
+ 532 047c 0B70     		strb	r3, [r1]
+  66:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_SegPort_31, mode);
+ 533              		.loc 1 66 0
+ 534 047e 1549     		ldr	r1, .L5+40
+ 535 0480 144B     		ldr	r3, .L5+40
+ 536 0482 1B78     		ldrb	r3, [r3]
+ 537 0484 DBB2     		uxtb	r3, r3
+ 538 0486 5BB2     		sxtb	r3, r3
+ 539 0488 23F00E03 		bic	r3, r3, #14
+ 540 048c 5AB2     		sxtb	r2, r3
+ 541 048e 97F90730 		ldrsb	r3, [r7, #7]
+ 542 0492 03F00E03 		and	r3, r3, #14
+ 543 0496 5BB2     		sxtb	r3, r3
+ 544 0498 1343     		orrs	r3, r3, r2
+ 545 049a 5BB2     		sxtb	r3, r3
+ 546 049c DBB2     		uxtb	r3, r3
+ 547 049e 0B70     		strb	r3, [r1]
+  67:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** }
+ 548              		.loc 1 67 0
+ 549 04a0 00BF     		nop
+ 550 04a2 0C37     		adds	r7, r7, #12
+ 551              		.cfi_def_cfa_offset 4
+ 552 04a4 BD46     		mov	sp, r7
+ 553              		.cfi_def_cfa_register 13
+ 554              		@ sp needed
+ 555 04a6 80BC     		pop	{r7}
+ 556              		.cfi_restore 7
+ 557              		.cfi_def_cfa_offset 0
+ 558 04a8 7047     		bx	lr
+ 559              	.L6:
+ 560 04aa 00BF     		.align	2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 12
+
+
+ 561              	.L5:
+ 562 04ac 26500040 		.word	1073762342
+ 563 04b0 27500040 		.word	1073762343
+ 564 04b4 30500040 		.word	1073762352
+ 565 04b8 31500040 		.word	1073762353
+ 566 04bc 32500040 		.word	1073762354
+ 567 04c0 33500040 		.word	1073762355
+ 568 04c4 34500040 		.word	1073762356
+ 569 04c8 35500040 		.word	1073762357
+ 570 04cc 36500040 		.word	1073762358
+ 571 04d0 37500040 		.word	1073762359
+ 572 04d4 18500040 		.word	1073762328
+ 573              		.cfi_endproc
+ 574              	.LFE0:
+ 575              		.size	LCD_SegStat_SegPort_SetDriveMode, .-LCD_SegStat_SegPort_SetDriveMode
+ 576              		.section	.text.LCD_SegStat_ComPort_SetDriveMode,"ax",%progbits
+ 577              		.align	2
+ 578              		.global	LCD_SegStat_ComPort_SetDriveMode
+ 579              		.thumb
+ 580              		.thumb_func
+ 581              		.type	LCD_SegStat_ComPort_SetDriveMode, %function
+ 582              	LCD_SegStat_ComPort_SetDriveMode:
+ 583              	.LFB1:
+  68:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** 
+  69:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** /*******************************************************************************
+  70:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Function Name: LCD_SegStat_ComPort_SetDriveMode 
+  71:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** ********************************************************************************
+  72:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Summary:
+  73:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  Change the drive mode on the pins of the port.
+  74:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  75:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Parameters:
+  76:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  mode: Changes the pins to this drive mode.
+  77:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  78:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** * Return:
+  79:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *  void
+  80:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *
+  81:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** *******************************************************************************/
+  82:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** void LCD_SegStat_ComPort_SetDriveMode(uint8 mode) 
+  83:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** {
+ 584              		.loc 1 83 0
+ 585              		.cfi_startproc
+ 586              		@ args = 0, pretend = 0, frame = 8
+ 587              		@ frame_needed = 1, uses_anonymous_args = 0
+ 588              		@ link register save eliminated.
+ 589 0000 80B4     		push	{r7}
+ 590              		.cfi_def_cfa_offset 4
+ 591              		.cfi_offset 7, -4
+ 592 0002 83B0     		sub	sp, sp, #12
+ 593              		.cfi_def_cfa_offset 16
+ 594 0004 00AF     		add	r7, sp, #0
+ 595              		.cfi_def_cfa_register 7
+ 596 0006 0346     		mov	r3, r0
+ 597 0008 FB71     		strb	r3, [r7, #7]
+  84:Generated_Source\PSoC5/LCD_SegStat_Pins.c ****     CyPins_SetPinDriveMode(LCD_SegStat_ComPort_0, mode);
+ 598              		.loc 1 84 0
+ 599 000a 0B49     		ldr	r1, .L8
+ 600 000c 0A4B     		ldr	r3, .L8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 13
+
+
+ 601 000e 1B78     		ldrb	r3, [r3]
+ 602 0010 DBB2     		uxtb	r3, r3
+ 603 0012 5BB2     		sxtb	r3, r3
+ 604 0014 23F00E03 		bic	r3, r3, #14
+ 605 0018 5AB2     		sxtb	r2, r3
+ 606 001a 97F90730 		ldrsb	r3, [r7, #7]
+ 607 001e 03F00E03 		and	r3, r3, #14
+ 608 0022 5BB2     		sxtb	r3, r3
+ 609 0024 1343     		orrs	r3, r3, r2
+ 610 0026 5BB2     		sxtb	r3, r3
+ 611 0028 DBB2     		uxtb	r3, r3
+ 612 002a 0B70     		strb	r3, [r1]
+  85:Generated_Source\PSoC5/LCD_SegStat_Pins.c **** }
+ 613              		.loc 1 85 0
+ 614 002c 00BF     		nop
+ 615 002e 0C37     		adds	r7, r7, #12
+ 616              		.cfi_def_cfa_offset 4
+ 617 0030 BD46     		mov	sp, r7
+ 618              		.cfi_def_cfa_register 13
+ 619              		@ sp needed
+ 620 0032 80BC     		pop	{r7}
+ 621              		.cfi_restore 7
+ 622              		.cfi_def_cfa_offset 0
+ 623 0034 7047     		bx	lr
+ 624              	.L9:
+ 625 0036 00BF     		.align	2
+ 626              	.L8:
+ 627 0038 04500040 		.word	1073762308
+ 628              		.cfi_endproc
+ 629              	.LFE1:
+ 630              		.size	LCD_SegStat_ComPort_SetDriveMode, .-LCD_SegStat_ComPort_SetDriveMode
+ 631              		.text
+ 632              	.Letext0:
+ 633              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 634              		.section	.debug_info,"",%progbits
+ 635              	.Ldebug_info0:
+ 636 0000 DE000000 		.4byte	0xde
+ 637 0004 0400     		.2byte	0x4
+ 638 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 639 000a 04       		.byte	0x4
+ 640 000b 01       		.uleb128 0x1
+ 641 000c 00000000 		.4byte	.LASF15
+ 642 0010 0C       		.byte	0xc
+ 643 0011 E0000000 		.4byte	.LASF16
+ 644 0015 8E000000 		.4byte	.LASF17
+ 645 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 646 001d 00000000 		.4byte	0
+ 647 0021 00000000 		.4byte	.Ldebug_line0
+ 648 0025 02       		.uleb128 0x2
+ 649 0026 01       		.byte	0x1
+ 650 0027 06       		.byte	0x6
+ 651 0028 E6010000 		.4byte	.LASF0
+ 652 002c 02       		.uleb128 0x2
+ 653 002d 01       		.byte	0x1
+ 654 002e 08       		.byte	0x8
+ 655 002f 10010000 		.4byte	.LASF1
+ 656 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 14
+
+
+ 657 0034 02       		.byte	0x2
+ 658 0035 05       		.byte	0x5
+ 659 0036 AC010000 		.4byte	.LASF2
+ 660 003a 02       		.uleb128 0x2
+ 661 003b 02       		.byte	0x2
+ 662 003c 07       		.byte	0x7
+ 663 003d 35010000 		.4byte	.LASF3
+ 664 0041 02       		.uleb128 0x2
+ 665 0042 04       		.byte	0x4
+ 666 0043 05       		.byte	0x5
+ 667 0044 BC010000 		.4byte	.LASF4
+ 668 0048 02       		.uleb128 0x2
+ 669 0049 04       		.byte	0x4
+ 670 004a 07       		.byte	0x7
+ 671 004b 23010000 		.4byte	.LASF5
+ 672 004f 02       		.uleb128 0x2
+ 673 0050 08       		.byte	0x8
+ 674 0051 05       		.byte	0x5
+ 675 0052 99010000 		.4byte	.LASF6
+ 676 0056 02       		.uleb128 0x2
+ 677 0057 08       		.byte	0x8
+ 678 0058 07       		.byte	0x7
+ 679 0059 7D010000 		.4byte	.LASF7
+ 680 005d 03       		.uleb128 0x3
+ 681 005e 04       		.byte	0x4
+ 682 005f 05       		.byte	0x5
+ 683 0060 696E7400 		.ascii	"int\000"
+ 684 0064 02       		.uleb128 0x2
+ 685 0065 04       		.byte	0x4
+ 686 0066 07       		.byte	0x7
+ 687 0067 70010000 		.4byte	.LASF8
+ 688 006b 04       		.uleb128 0x4
+ 689 006c B6010000 		.4byte	.LASF12
+ 690 0070 02       		.byte	0x2
+ 691 0071 9201     		.2byte	0x192
+ 692 0073 2C000000 		.4byte	0x2c
+ 693 0077 02       		.uleb128 0x2
+ 694 0078 04       		.byte	0x4
+ 695 0079 04       		.byte	0x4
+ 696 007a 0A010000 		.4byte	.LASF9
+ 697 007e 02       		.uleb128 0x2
+ 698 007f 08       		.byte	0x8
+ 699 0080 04       		.byte	0x4
+ 700 0081 48010000 		.4byte	.LASF10
+ 701 0085 02       		.uleb128 0x2
+ 702 0086 01       		.byte	0x1
+ 703 0087 08       		.byte	0x8
+ 704 0088 A7010000 		.4byte	.LASF11
+ 705 008c 04       		.uleb128 0x4
+ 706 008d 1E010000 		.4byte	.LASF13
+ 707 0091 02       		.byte	0x2
+ 708 0092 3C02     		.2byte	0x23c
+ 709 0094 98000000 		.4byte	0x98
+ 710 0098 05       		.uleb128 0x5
+ 711 0099 6B000000 		.4byte	0x6b
+ 712 009d 06       		.uleb128 0x6
+ 713 009e C5010000 		.4byte	.LASF18
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 15
+
+
+ 714 00a2 01       		.byte	0x1
+ 715 00a3 21       		.byte	0x21
+ 716 00a4 00000000 		.4byte	.LFB0
+ 717 00a8 D8040000 		.4byte	.LFE0-.LFB0
+ 718 00ac 01       		.uleb128 0x1
+ 719 00ad 9C       		.byte	0x9c
+ 720 00ae C1000000 		.4byte	0xc1
+ 721 00b2 07       		.uleb128 0x7
+ 722 00b3 94010000 		.4byte	.LASF14
+ 723 00b7 01       		.byte	0x1
+ 724 00b8 21       		.byte	0x21
+ 725 00b9 6B000000 		.4byte	0x6b
+ 726 00bd 02       		.uleb128 0x2
+ 727 00be 91       		.byte	0x91
+ 728 00bf 77       		.sleb128 -9
+ 729 00c0 00       		.byte	0
+ 730 00c1 08       		.uleb128 0x8
+ 731 00c2 4F010000 		.4byte	.LASF19
+ 732 00c6 01       		.byte	0x1
+ 733 00c7 52       		.byte	0x52
+ 734 00c8 00000000 		.4byte	.LFB1
+ 735 00cc 3C000000 		.4byte	.LFE1-.LFB1
+ 736 00d0 01       		.uleb128 0x1
+ 737 00d1 9C       		.byte	0x9c
+ 738 00d2 07       		.uleb128 0x7
+ 739 00d3 94010000 		.4byte	.LASF14
+ 740 00d7 01       		.byte	0x1
+ 741 00d8 52       		.byte	0x52
+ 742 00d9 6B000000 		.4byte	0x6b
+ 743 00dd 02       		.uleb128 0x2
+ 744 00de 91       		.byte	0x91
+ 745 00df 77       		.sleb128 -9
+ 746 00e0 00       		.byte	0
+ 747 00e1 00       		.byte	0
+ 748              		.section	.debug_abbrev,"",%progbits
+ 749              	.Ldebug_abbrev0:
+ 750 0000 01       		.uleb128 0x1
+ 751 0001 11       		.uleb128 0x11
+ 752 0002 01       		.byte	0x1
+ 753 0003 25       		.uleb128 0x25
+ 754 0004 0E       		.uleb128 0xe
+ 755 0005 13       		.uleb128 0x13
+ 756 0006 0B       		.uleb128 0xb
+ 757 0007 03       		.uleb128 0x3
+ 758 0008 0E       		.uleb128 0xe
+ 759 0009 1B       		.uleb128 0x1b
+ 760 000a 0E       		.uleb128 0xe
+ 761 000b 55       		.uleb128 0x55
+ 762 000c 17       		.uleb128 0x17
+ 763 000d 11       		.uleb128 0x11
+ 764 000e 01       		.uleb128 0x1
+ 765 000f 10       		.uleb128 0x10
+ 766 0010 17       		.uleb128 0x17
+ 767 0011 00       		.byte	0
+ 768 0012 00       		.byte	0
+ 769 0013 02       		.uleb128 0x2
+ 770 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 16
+
+
+ 771 0015 00       		.byte	0
+ 772 0016 0B       		.uleb128 0xb
+ 773 0017 0B       		.uleb128 0xb
+ 774 0018 3E       		.uleb128 0x3e
+ 775 0019 0B       		.uleb128 0xb
+ 776 001a 03       		.uleb128 0x3
+ 777 001b 0E       		.uleb128 0xe
+ 778 001c 00       		.byte	0
+ 779 001d 00       		.byte	0
+ 780 001e 03       		.uleb128 0x3
+ 781 001f 24       		.uleb128 0x24
+ 782 0020 00       		.byte	0
+ 783 0021 0B       		.uleb128 0xb
+ 784 0022 0B       		.uleb128 0xb
+ 785 0023 3E       		.uleb128 0x3e
+ 786 0024 0B       		.uleb128 0xb
+ 787 0025 03       		.uleb128 0x3
+ 788 0026 08       		.uleb128 0x8
+ 789 0027 00       		.byte	0
+ 790 0028 00       		.byte	0
+ 791 0029 04       		.uleb128 0x4
+ 792 002a 16       		.uleb128 0x16
+ 793 002b 00       		.byte	0
+ 794 002c 03       		.uleb128 0x3
+ 795 002d 0E       		.uleb128 0xe
+ 796 002e 3A       		.uleb128 0x3a
+ 797 002f 0B       		.uleb128 0xb
+ 798 0030 3B       		.uleb128 0x3b
+ 799 0031 05       		.uleb128 0x5
+ 800 0032 49       		.uleb128 0x49
+ 801 0033 13       		.uleb128 0x13
+ 802 0034 00       		.byte	0
+ 803 0035 00       		.byte	0
+ 804 0036 05       		.uleb128 0x5
+ 805 0037 35       		.uleb128 0x35
+ 806 0038 00       		.byte	0
+ 807 0039 49       		.uleb128 0x49
+ 808 003a 13       		.uleb128 0x13
+ 809 003b 00       		.byte	0
+ 810 003c 00       		.byte	0
+ 811 003d 06       		.uleb128 0x6
+ 812 003e 2E       		.uleb128 0x2e
+ 813 003f 01       		.byte	0x1
+ 814 0040 3F       		.uleb128 0x3f
+ 815 0041 19       		.uleb128 0x19
+ 816 0042 03       		.uleb128 0x3
+ 817 0043 0E       		.uleb128 0xe
+ 818 0044 3A       		.uleb128 0x3a
+ 819 0045 0B       		.uleb128 0xb
+ 820 0046 3B       		.uleb128 0x3b
+ 821 0047 0B       		.uleb128 0xb
+ 822 0048 27       		.uleb128 0x27
+ 823 0049 19       		.uleb128 0x19
+ 824 004a 11       		.uleb128 0x11
+ 825 004b 01       		.uleb128 0x1
+ 826 004c 12       		.uleb128 0x12
+ 827 004d 06       		.uleb128 0x6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 17
+
+
+ 828 004e 40       		.uleb128 0x40
+ 829 004f 18       		.uleb128 0x18
+ 830 0050 9742     		.uleb128 0x2117
+ 831 0052 19       		.uleb128 0x19
+ 832 0053 01       		.uleb128 0x1
+ 833 0054 13       		.uleb128 0x13
+ 834 0055 00       		.byte	0
+ 835 0056 00       		.byte	0
+ 836 0057 07       		.uleb128 0x7
+ 837 0058 05       		.uleb128 0x5
+ 838 0059 00       		.byte	0
+ 839 005a 03       		.uleb128 0x3
+ 840 005b 0E       		.uleb128 0xe
+ 841 005c 3A       		.uleb128 0x3a
+ 842 005d 0B       		.uleb128 0xb
+ 843 005e 3B       		.uleb128 0x3b
+ 844 005f 0B       		.uleb128 0xb
+ 845 0060 49       		.uleb128 0x49
+ 846 0061 13       		.uleb128 0x13
+ 847 0062 02       		.uleb128 0x2
+ 848 0063 18       		.uleb128 0x18
+ 849 0064 00       		.byte	0
+ 850 0065 00       		.byte	0
+ 851 0066 08       		.uleb128 0x8
+ 852 0067 2E       		.uleb128 0x2e
+ 853 0068 01       		.byte	0x1
+ 854 0069 3F       		.uleb128 0x3f
+ 855 006a 19       		.uleb128 0x19
+ 856 006b 03       		.uleb128 0x3
+ 857 006c 0E       		.uleb128 0xe
+ 858 006d 3A       		.uleb128 0x3a
+ 859 006e 0B       		.uleb128 0xb
+ 860 006f 3B       		.uleb128 0x3b
+ 861 0070 0B       		.uleb128 0xb
+ 862 0071 27       		.uleb128 0x27
+ 863 0072 19       		.uleb128 0x19
+ 864 0073 11       		.uleb128 0x11
+ 865 0074 01       		.uleb128 0x1
+ 866 0075 12       		.uleb128 0x12
+ 867 0076 06       		.uleb128 0x6
+ 868 0077 40       		.uleb128 0x40
+ 869 0078 18       		.uleb128 0x18
+ 870 0079 9742     		.uleb128 0x2117
+ 871 007b 19       		.uleb128 0x19
+ 872 007c 00       		.byte	0
+ 873 007d 00       		.byte	0
+ 874 007e 00       		.byte	0
+ 875              		.section	.debug_aranges,"",%progbits
+ 876 0000 24000000 		.4byte	0x24
+ 877 0004 0200     		.2byte	0x2
+ 878 0006 00000000 		.4byte	.Ldebug_info0
+ 879 000a 04       		.byte	0x4
+ 880 000b 00       		.byte	0
+ 881 000c 0000     		.2byte	0
+ 882 000e 0000     		.2byte	0
+ 883 0010 00000000 		.4byte	.LFB0
+ 884 0014 D8040000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 18
+
+
+ 885 0018 00000000 		.4byte	.LFB1
+ 886 001c 3C000000 		.4byte	.LFE1-.LFB1
+ 887 0020 00000000 		.4byte	0
+ 888 0024 00000000 		.4byte	0
+ 889              		.section	.debug_ranges,"",%progbits
+ 890              	.Ldebug_ranges0:
+ 891 0000 00000000 		.4byte	.LFB0
+ 892 0004 D8040000 		.4byte	.LFE0
+ 893 0008 00000000 		.4byte	.LFB1
+ 894 000c 3C000000 		.4byte	.LFE1
+ 895 0010 00000000 		.4byte	0
+ 896 0014 00000000 		.4byte	0
+ 897              		.section	.debug_line,"",%progbits
+ 898              	.Ldebug_line0:
+ 899 0000 B7000000 		.section	.debug_str,"MS",%progbits,1
+ 899      02004D00 
+ 899      00000201 
+ 899      FB0E0D00 
+ 899      01010101 
+ 900              	.LASF15:
+ 901 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 901      43313120 
+ 901      352E342E 
+ 901      31203230 
+ 901      31363036 
+ 902 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 902      20726576 
+ 902      6973696F 
+ 902      6E203233 
+ 902      37373135 
+ 903 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 903      66756E63 
+ 903      74696F6E 
+ 903      2D736563 
+ 903      74696F6E 
+ 904              	.LASF17:
+ 905 008e 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
+ 905      73657273 
+ 905      5C544F53 
+ 905      48494241 
+ 905      5C446F63 
+ 906 00bc 4176616E 		.ascii	"Avance\\StaticSegLCD_Example01.cydsn\000"
+ 906      63655C53 
+ 906      74617469 
+ 906      63536567 
+ 906      4C43445F 
+ 907              	.LASF16:
+ 908 00e0 47656E65 		.ascii	"Generated_Source\\PSoC5\\LCD_SegStat_Pins.c\000"
+ 908      72617465 
+ 908      645F536F 
+ 908      75726365 
+ 908      5C50536F 
+ 909              	.LASF9:
+ 910 010a 666C6F61 		.ascii	"float\000"
+ 910      7400
+ 911              	.LASF1:
+ 912 0110 756E7369 		.ascii	"unsigned char\000"
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 19
+
+
+ 912      676E6564 
+ 912      20636861 
+ 912      7200
+ 913              	.LASF13:
+ 914 011e 72656738 		.ascii	"reg8\000"
+ 914      00
+ 915              	.LASF5:
+ 916 0123 6C6F6E67 		.ascii	"long unsigned int\000"
+ 916      20756E73 
+ 916      69676E65 
+ 916      6420696E 
+ 916      7400
+ 917              	.LASF3:
+ 918 0135 73686F72 		.ascii	"short unsigned int\000"
+ 918      7420756E 
+ 918      7369676E 
+ 918      65642069 
+ 918      6E7400
+ 919              	.LASF10:
+ 920 0148 646F7562 		.ascii	"double\000"
+ 920      6C6500
+ 921              	.LASF19:
+ 922 014f 4C43445F 		.ascii	"LCD_SegStat_ComPort_SetDriveMode\000"
+ 922      53656753 
+ 922      7461745F 
+ 922      436F6D50 
+ 922      6F72745F 
+ 923              	.LASF8:
+ 924 0170 756E7369 		.ascii	"unsigned int\000"
+ 924      676E6564 
+ 924      20696E74 
+ 924      00
+ 925              	.LASF7:
+ 926 017d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 926      206C6F6E 
+ 926      6720756E 
+ 926      7369676E 
+ 926      65642069 
+ 927              	.LASF14:
+ 928 0194 6D6F6465 		.ascii	"mode\000"
+ 928      00
+ 929              	.LASF6:
+ 930 0199 6C6F6E67 		.ascii	"long long int\000"
+ 930      206C6F6E 
+ 930      6720696E 
+ 930      7400
+ 931              	.LASF11:
+ 932 01a7 63686172 		.ascii	"char\000"
+ 932      00
+ 933              	.LASF2:
+ 934 01ac 73686F72 		.ascii	"short int\000"
+ 934      7420696E 
+ 934      7400
+ 935              	.LASF12:
+ 936 01b6 75696E74 		.ascii	"uint8\000"
+ 936      3800
+ 937              	.LASF4:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccUDrDgm.s 			page 20
+
+
+ 938 01bc 6C6F6E67 		.ascii	"long int\000"
+ 938      20696E74 
+ 938      00
+ 939              	.LASF18:
+ 940 01c5 4C43445F 		.ascii	"LCD_SegStat_SegPort_SetDriveMode\000"
+ 940      53656753 
+ 940      7461745F 
+ 940      53656750 
+ 940      6F72745F 
+ 941              	.LASF0:
+ 942 01e6 7369676E 		.ascii	"signed char\000"
+ 942      65642063 
+ 942      68617200 
+ 943              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -8,6 +8,7 @@
 <files />
 <projects>
 <v>.\BallPlate.cydsn\BallPlate.cyprj</v>
+<v>.\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cyprj</v>
 </projects>
 <workspace_id v="28ab9b9c-6976-473a-b02f-fe7779cb5d28" />
 <WriteAppVersionLastSavedWith v="4.1.0.3210" />

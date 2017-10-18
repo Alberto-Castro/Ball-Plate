@@ -1,0 +1,887 @@
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"LCD_SegStat_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.bss
+  20              		.align	2
+  21              	LCD_SegStat_backup:
+  22 0000 00       		.space	1
+  23              		.section	.text.LCD_SegStat_SaveConfig,"ax",%progbits
+  24              		.align	2
+  25              		.global	LCD_SegStat_SaveConfig
+  26              		.thumb
+  27              		.thumb_func
+  28              		.type	LCD_SegStat_SaveConfig, %function
+  29              	LCD_SegStat_SaveConfig:
+  30              	.LFB0:
+  31              		.file 1 "Generated_Source\\PSoC5\\LCD_SegStat_PM.c"
+   1:Generated_Source\PSoC5/LCD_SegStat_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * File Name: LCD_SegStat_PM.c
+   3:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Version 2.30
+   4:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+   5:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Description:
+   6:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  This file provides the API source code for Power Management of the Static
+   7:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  Segment LCD component.
+   8:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+   9:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Note:
+  10:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  11:Generated_Source\PSoC5/LCD_SegStat_PM.c **** ********************************************************************************
+  12:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *******************************************************************************/
+  17:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  18:Generated_Source\PSoC5/LCD_SegStat_PM.c **** #include "LCD_SegStat.h"
+  19:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  20:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  21:Generated_Source\PSoC5/LCD_SegStat_PM.c **** static LCD_SegStat_BACKUP_STRUCT LCD_SegStat_backup;
+  22:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  23:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  24:Generated_Source\PSoC5/LCD_SegStat_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Function Name: LCD_SegStat_SaveConfig
+  26:Generated_Source\PSoC5/LCD_SegStat_PM.c **** ********************************************************************************
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 2
+
+
+  27:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  28:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Summary:
+  29:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  Does nothing, provided for consistency.
+  30:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  31:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Parameters:
+  32:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  None.
+  33:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  34:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Return:
+  35:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  None.
+  36:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  37:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *******************************************************************************/
+  38:Generated_Source\PSoC5/LCD_SegStat_PM.c **** void LCD_SegStat_SaveConfig(void) 
+  39:Generated_Source\PSoC5/LCD_SegStat_PM.c **** {
+  32              		.loc 1 39 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36              		@ link register save eliminated.
+  37 0000 80B4     		push	{r7}
+  38              		.cfi_def_cfa_offset 4
+  39              		.cfi_offset 7, -4
+  40 0002 00AF     		add	r7, sp, #0
+  41              		.cfi_def_cfa_register 7
+  40:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     /* Nothing to save in current version */
+  41:Generated_Source\PSoC5/LCD_SegStat_PM.c **** }
+  42              		.loc 1 41 0
+  43 0004 00BF     		nop
+  44 0006 BD46     		mov	sp, r7
+  45              		.cfi_def_cfa_register 13
+  46              		@ sp needed
+  47 0008 80BC     		pop	{r7}
+  48              		.cfi_restore 7
+  49              		.cfi_def_cfa_offset 0
+  50 000a 7047     		bx	lr
+  51              		.cfi_endproc
+  52              	.LFE0:
+  53              		.size	LCD_SegStat_SaveConfig, .-LCD_SegStat_SaveConfig
+  54              		.section	.text.LCD_SegStat_RestoreConfig,"ax",%progbits
+  55              		.align	2
+  56              		.global	LCD_SegStat_RestoreConfig
+  57              		.thumb
+  58              		.thumb_func
+  59              		.type	LCD_SegStat_RestoreConfig, %function
+  60              	LCD_SegStat_RestoreConfig:
+  61              	.LFB1:
+  42:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  43:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  44:Generated_Source\PSoC5/LCD_SegStat_PM.c **** /*******************************************************************************
+  45:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Function Name: LCD_SegStat_RestoreConfig
+  46:Generated_Source\PSoC5/LCD_SegStat_PM.c **** ********************************************************************************
+  47:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  48:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Summary:
+  49:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  Does nothing, provided for consistency.
+  50:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  51:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Parameters:
+  52:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  None.
+  53:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 3
+
+
+  54:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Return:
+  55:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  None.
+  56:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  57:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *******************************************************************************/
+  58:Generated_Source\PSoC5/LCD_SegStat_PM.c **** void LCD_SegStat_RestoreConfig(void) 
+  59:Generated_Source\PSoC5/LCD_SegStat_PM.c **** {
+  62              		.loc 1 59 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 1, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 80B4     		push	{r7}
+  68              		.cfi_def_cfa_offset 4
+  69              		.cfi_offset 7, -4
+  70 0002 00AF     		add	r7, sp, #0
+  71              		.cfi_def_cfa_register 7
+  60:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     /* Nothing to restore in current version */
+  61:Generated_Source\PSoC5/LCD_SegStat_PM.c **** }
+  72              		.loc 1 61 0
+  73 0004 00BF     		nop
+  74 0006 BD46     		mov	sp, r7
+  75              		.cfi_def_cfa_register 13
+  76              		@ sp needed
+  77 0008 80BC     		pop	{r7}
+  78              		.cfi_restore 7
+  79              		.cfi_def_cfa_offset 0
+  80 000a 7047     		bx	lr
+  81              		.cfi_endproc
+  82              	.LFE1:
+  83              		.size	LCD_SegStat_RestoreConfig, .-LCD_SegStat_RestoreConfig
+  84              		.section	.text.LCD_SegStat_Sleep,"ax",%progbits
+  85              		.align	2
+  86              		.global	LCD_SegStat_Sleep
+  87              		.thumb
+  88              		.thumb_func
+  89              		.type	LCD_SegStat_Sleep, %function
+  90              	LCD_SegStat_Sleep:
+  91              	.LFB2:
+  62:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  63:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  64:Generated_Source\PSoC5/LCD_SegStat_PM.c **** /*******************************************************************************
+  65:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Function Name: LCD_SegStat_Sleep
+  66:Generated_Source\PSoC5/LCD_SegStat_PM.c **** ********************************************************************************
+  67:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  68:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Summary:
+  69:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  Prepares component for entering the sleep mode.
+  70:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  71:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Parameters:
+  72:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  None.
+  73:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  74:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  75:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Return:
+  76:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  None.
+  77:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  78:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Global variables:
+  79:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  LCD_SegStat_enableState - holds a state of the component that will be
+  80:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  stored in LCD_SegStat_backup.
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 4
+
+
+  81:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  82:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  LCD_SegStat_backup - stores the state of the component.
+  83:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  84:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Reentrant:
+  85:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  No.
+  86:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+  87:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *******************************************************************************/
+  88:Generated_Source\PSoC5/LCD_SegStat_PM.c **** void LCD_SegStat_Sleep(void) 
+  89:Generated_Source\PSoC5/LCD_SegStat_PM.c **** {
+  92              		.loc 1 89 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 1, uses_anonymous_args = 0
+  96 0000 80B5     		push	{r7, lr}
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 7, -8
+  99              		.cfi_offset 14, -4
+ 100 0002 00AF     		add	r7, sp, #0
+ 101              		.cfi_def_cfa_register 7
+  90:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     LCD_SegStat_backup.enableState = LCD_SegStat_enableState;
+ 102              		.loc 1 90 0
+ 103 0004 044B     		ldr	r3, .L4
+ 104 0006 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 105 0008 044B     		ldr	r3, .L4+4
+ 106 000a 1A70     		strb	r2, [r3]
+  91:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     LCD_SegStat_SaveConfig();
+ 107              		.loc 1 91 0
+ 108 000c FFF7FEFF 		bl	LCD_SegStat_SaveConfig
+  92:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     LCD_SegStat_Stop();
+ 109              		.loc 1 92 0
+ 110 0010 FFF7FEFF 		bl	LCD_SegStat_Stop
+  93:Generated_Source\PSoC5/LCD_SegStat_PM.c **** }
+ 111              		.loc 1 93 0
+ 112 0014 00BF     		nop
+ 113 0016 80BD     		pop	{r7, pc}
+ 114              	.L5:
+ 115              		.align	2
+ 116              	.L4:
+ 117 0018 00000000 		.word	LCD_SegStat_enableState
+ 118 001c 00000000 		.word	LCD_SegStat_backup
+ 119              		.cfi_endproc
+ 120              	.LFE2:
+ 121              		.size	LCD_SegStat_Sleep, .-LCD_SegStat_Sleep
+ 122              		.section	.text.LCD_SegStat_Wakeup,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	LCD_SegStat_Wakeup
+ 125              		.thumb
+ 126              		.thumb_func
+ 127              		.type	LCD_SegStat_Wakeup, %function
+ 128              	LCD_SegStat_Wakeup:
+ 129              	.LFB3:
+  94:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  95:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+  96:Generated_Source\PSoC5/LCD_SegStat_PM.c **** /*******************************************************************************
+  97:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Function Name: LCD_SegStat_Wakeup
+  98:Generated_Source\PSoC5/LCD_SegStat_PM.c **** ********************************************************************************
+  99:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 5
+
+
+ 100:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Summary:
+ 101:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  Wakes component from sleep mode. Configures DMA and enables the component for
+ 102:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  normal operation.
+ 103:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ 104:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Parameters:
+ 105:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  LCD_SegStat_enableState - Global variable.
+ 106:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ 107:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Global variables:
+ 108:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  LCD_SegStat_backup - this API fetch the component state from the
+ 109:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  structure to analyze and decide if the component should be enabled or not.
+ 110:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ 111:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Return:
+ 112:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  Status one of standard status for PSoC3 Component:
+ 113:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *       CYRET_SUCCESS - Function completed successfully.
+ 114:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *       CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 115:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *                      a channel already in use or the component was turned
+ 116:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *                      off by the user before entering to a sleep.
+ 117:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ 118:Generated_Source\PSoC5/LCD_SegStat_PM.c **** * Reentrant:
+ 119:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *  No.
+ 120:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *
+ 121:Generated_Source\PSoC5/LCD_SegStat_PM.c **** *******************************************************************************/
+ 122:Generated_Source\PSoC5/LCD_SegStat_PM.c **** uint8 LCD_SegStat_Wakeup(void) 
+ 123:Generated_Source\PSoC5/LCD_SegStat_PM.c **** {
+ 130              		.loc 1 123 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 8
+ 133              		@ frame_needed = 1, uses_anonymous_args = 0
+ 134 0000 80B5     		push	{r7, lr}
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 7, -8
+ 137              		.cfi_offset 14, -4
+ 138 0002 82B0     		sub	sp, sp, #8
+ 139              		.cfi_def_cfa_offset 16
+ 140 0004 00AF     		add	r7, sp, #0
+ 141              		.cfi_def_cfa_register 7
+ 124:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     uint8 status;
+ 125:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+ 126:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     LCD_SegStat_RestoreConfig();
+ 142              		.loc 1 126 0
+ 143 0006 FFF7FEFF 		bl	LCD_SegStat_RestoreConfig
+ 127:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+ 128:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     if(LCD_SegStat_backup.enableState == 1u)
+ 144              		.loc 1 128 0
+ 145 000a 084B     		ldr	r3, .L10
+ 146 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 147 000e 012B     		cmp	r3, #1
+ 148 0010 04D1     		bne	.L7
+ 129:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     {
+ 130:Generated_Source\PSoC5/LCD_SegStat_PM.c ****        status = LCD_SegStat_Enable();
+ 149              		.loc 1 130 0
+ 150 0012 FFF7FEFF 		bl	LCD_SegStat_Enable
+ 151 0016 0346     		mov	r3, r0
+ 152 0018 FB71     		strb	r3, [r7, #7]
+ 153 001a 01E0     		b	.L8
+ 154              	.L7:
+ 131:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     }
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 6
+
+
+ 132:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     else
+ 133:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     {
+ 134:Generated_Source\PSoC5/LCD_SegStat_PM.c ****         status = CYRET_LOCKED;
+ 155              		.loc 1 134 0
+ 156 001c 0423     		movs	r3, #4
+ 157 001e FB71     		strb	r3, [r7, #7]
+ 158              	.L8:
+ 135:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     }
+ 136:Generated_Source\PSoC5/LCD_SegStat_PM.c **** 
+ 137:Generated_Source\PSoC5/LCD_SegStat_PM.c ****     return(status);
+ 159              		.loc 1 137 0
+ 160 0020 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 138:Generated_Source\PSoC5/LCD_SegStat_PM.c **** }
+ 161              		.loc 1 138 0
+ 162 0022 1846     		mov	r0, r3
+ 163 0024 0837     		adds	r7, r7, #8
+ 164              		.cfi_def_cfa_offset 8
+ 165 0026 BD46     		mov	sp, r7
+ 166              		.cfi_def_cfa_register 13
+ 167              		@ sp needed
+ 168 0028 80BD     		pop	{r7, pc}
+ 169              	.L11:
+ 170 002a 00BF     		.align	2
+ 171              	.L10:
+ 172 002c 00000000 		.word	LCD_SegStat_backup
+ 173              		.cfi_endproc
+ 174              	.LFE3:
+ 175              		.size	LCD_SegStat_Wakeup, .-LCD_SegStat_Wakeup
+ 176              		.text
+ 177              	.Letext0:
+ 178              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 179              		.file 3 "Generated_Source\\PSoC5\\LCD_SegStat.h"
+ 180              		.section	.debug_info,"",%progbits
+ 181              	.Ldebug_info0:
+ 182 0000 20010000 		.4byte	0x120
+ 183 0004 0400     		.2byte	0x4
+ 184 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 185 000a 04       		.byte	0x4
+ 186 000b 01       		.uleb128 0x1
+ 187 000c 00000000 		.4byte	.LASF19
+ 188 0010 0C       		.byte	0xc
+ 189 0011 20010000 		.4byte	.LASF20
+ 190 0015 A1000000 		.4byte	.LASF21
+ 191 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 192 001d 00000000 		.4byte	0
+ 193 0021 00000000 		.4byte	.Ldebug_line0
+ 194 0025 02       		.uleb128 0x2
+ 195 0026 01       		.byte	0x1
+ 196 0027 06       		.byte	0x6
+ 197 0028 46020000 		.4byte	.LASF0
+ 198 002c 02       		.uleb128 0x2
+ 199 002d 01       		.byte	0x1
+ 200 002e 08       		.byte	0x8
+ 201 002f 00010000 		.4byte	.LASF1
+ 202 0033 02       		.uleb128 0x2
+ 203 0034 02       		.byte	0x2
+ 204 0035 05       		.byte	0x5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 7
+
+
+ 205 0036 09020000 		.4byte	.LASF2
+ 206 003a 02       		.uleb128 0x2
+ 207 003b 02       		.byte	0x2
+ 208 003c 07       		.byte	0x7
+ 209 003d 48010000 		.4byte	.LASF3
+ 210 0041 02       		.uleb128 0x2
+ 211 0042 04       		.byte	0x4
+ 212 0043 05       		.byte	0x5
+ 213 0044 31020000 		.4byte	.LASF4
+ 214 0048 02       		.uleb128 0x2
+ 215 0049 04       		.byte	0x4
+ 216 004a 07       		.byte	0x7
+ 217 004b 0E010000 		.4byte	.LASF5
+ 218 004f 02       		.uleb128 0x2
+ 219 0050 08       		.byte	0x8
+ 220 0051 05       		.byte	0x5
+ 221 0052 F6010000 		.4byte	.LASF6
+ 222 0056 02       		.uleb128 0x2
+ 223 0057 08       		.byte	0x8
+ 224 0058 07       		.byte	0x7
+ 225 0059 9B010000 		.4byte	.LASF7
+ 226 005d 03       		.uleb128 0x3
+ 227 005e 04       		.byte	0x4
+ 228 005f 05       		.byte	0x5
+ 229 0060 696E7400 		.ascii	"int\000"
+ 230 0064 02       		.uleb128 0x2
+ 231 0065 04       		.byte	0x4
+ 232 0066 07       		.byte	0x7
+ 233 0067 8E010000 		.4byte	.LASF8
+ 234 006b 04       		.uleb128 0x4
+ 235 006c 2B020000 		.4byte	.LASF12
+ 236 0070 02       		.byte	0x2
+ 237 0071 9201     		.2byte	0x192
+ 238 0073 2C000000 		.4byte	0x2c
+ 239 0077 02       		.uleb128 0x2
+ 240 0078 04       		.byte	0x4
+ 241 0079 04       		.byte	0x4
+ 242 007a FA000000 		.4byte	.LASF9
+ 243 007e 02       		.uleb128 0x2
+ 244 007f 08       		.byte	0x8
+ 245 0080 04       		.byte	0x4
+ 246 0081 5B010000 		.4byte	.LASF10
+ 247 0085 02       		.uleb128 0x2
+ 248 0086 01       		.byte	0x1
+ 249 0087 08       		.byte	0x8
+ 250 0088 04020000 		.4byte	.LASF11
+ 251 008c 05       		.uleb128 0x5
+ 252 008d 01       		.byte	0x1
+ 253 008e 03       		.byte	0x3
+ 254 008f 2C       		.byte	0x2c
+ 255 0090 A1000000 		.4byte	0xa1
+ 256 0094 06       		.uleb128 0x6
+ 257 0095 3A020000 		.4byte	.LASF22
+ 258 0099 03       		.byte	0x3
+ 259 009a 2E       		.byte	0x2e
+ 260 009b 6B000000 		.4byte	0x6b
+ 261 009f 00       		.byte	0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 8
+
+
+ 262 00a0 00       		.byte	0
+ 263 00a1 07       		.uleb128 0x7
+ 264 00a2 74010000 		.4byte	.LASF13
+ 265 00a6 03       		.byte	0x3
+ 266 00a7 2F       		.byte	0x2f
+ 267 00a8 8C000000 		.4byte	0x8c
+ 268 00ac 08       		.uleb128 0x8
+ 269 00ad C5010000 		.4byte	.LASF14
+ 270 00b1 01       		.byte	0x1
+ 271 00b2 26       		.byte	0x26
+ 272 00b3 00000000 		.4byte	.LFB0
+ 273 00b7 0C000000 		.4byte	.LFE0-.LFB0
+ 274 00bb 01       		.uleb128 0x1
+ 275 00bc 9C       		.byte	0x9c
+ 276 00bd 08       		.uleb128 0x8
+ 277 00be DC010000 		.4byte	.LASF15
+ 278 00c2 01       		.byte	0x1
+ 279 00c3 3A       		.byte	0x3a
+ 280 00c4 00000000 		.4byte	.LFB1
+ 281 00c8 0C000000 		.4byte	.LFE1-.LFB1
+ 282 00cc 01       		.uleb128 0x1
+ 283 00cd 9C       		.byte	0x9c
+ 284 00ce 09       		.uleb128 0x9
+ 285 00cf 62010000 		.4byte	.LASF16
+ 286 00d3 01       		.byte	0x1
+ 287 00d4 58       		.byte	0x58
+ 288 00d5 00000000 		.4byte	.LFB2
+ 289 00d9 20000000 		.4byte	.LFE2-.LFB2
+ 290 00dd 01       		.uleb128 0x1
+ 291 00de 9C       		.byte	0x9c
+ 292 00df 0A       		.uleb128 0xa
+ 293 00e0 8E000000 		.4byte	.LASF23
+ 294 00e4 01       		.byte	0x1
+ 295 00e5 7A       		.byte	0x7a
+ 296 00e6 6B000000 		.4byte	0x6b
+ 297 00ea 00000000 		.4byte	.LFB3
+ 298 00ee 30000000 		.4byte	.LFE3-.LFB3
+ 299 00f2 01       		.uleb128 0x1
+ 300 00f3 9C       		.byte	0x9c
+ 301 00f4 07010000 		.4byte	0x107
+ 302 00f8 0B       		.uleb128 0xb
+ 303 00f9 F3000000 		.4byte	.LASF17
+ 304 00fd 01       		.byte	0x1
+ 305 00fe 7C       		.byte	0x7c
+ 306 00ff 6B000000 		.4byte	0x6b
+ 307 0103 02       		.uleb128 0x2
+ 308 0104 91       		.byte	0x91
+ 309 0105 77       		.sleb128 -9
+ 310 0106 00       		.byte	0
+ 311 0107 0B       		.uleb128 0xb
+ 312 0108 B2010000 		.4byte	.LASF18
+ 313 010c 01       		.byte	0x1
+ 314 010d 15       		.byte	0x15
+ 315 010e A1000000 		.4byte	0xa1
+ 316 0112 05       		.uleb128 0x5
+ 317 0113 03       		.byte	0x3
+ 318 0114 00000000 		.4byte	LCD_SegStat_backup
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 9
+
+
+ 319 0118 0C       		.uleb128 0xc
+ 320 0119 13020000 		.4byte	.LASF24
+ 321 011d 03       		.byte	0x3
+ 322 011e 5F       		.byte	0x5f
+ 323 011f 6B000000 		.4byte	0x6b
+ 324 0123 00       		.byte	0
+ 325              		.section	.debug_abbrev,"",%progbits
+ 326              	.Ldebug_abbrev0:
+ 327 0000 01       		.uleb128 0x1
+ 328 0001 11       		.uleb128 0x11
+ 329 0002 01       		.byte	0x1
+ 330 0003 25       		.uleb128 0x25
+ 331 0004 0E       		.uleb128 0xe
+ 332 0005 13       		.uleb128 0x13
+ 333 0006 0B       		.uleb128 0xb
+ 334 0007 03       		.uleb128 0x3
+ 335 0008 0E       		.uleb128 0xe
+ 336 0009 1B       		.uleb128 0x1b
+ 337 000a 0E       		.uleb128 0xe
+ 338 000b 55       		.uleb128 0x55
+ 339 000c 17       		.uleb128 0x17
+ 340 000d 11       		.uleb128 0x11
+ 341 000e 01       		.uleb128 0x1
+ 342 000f 10       		.uleb128 0x10
+ 343 0010 17       		.uleb128 0x17
+ 344 0011 00       		.byte	0
+ 345 0012 00       		.byte	0
+ 346 0013 02       		.uleb128 0x2
+ 347 0014 24       		.uleb128 0x24
+ 348 0015 00       		.byte	0
+ 349 0016 0B       		.uleb128 0xb
+ 350 0017 0B       		.uleb128 0xb
+ 351 0018 3E       		.uleb128 0x3e
+ 352 0019 0B       		.uleb128 0xb
+ 353 001a 03       		.uleb128 0x3
+ 354 001b 0E       		.uleb128 0xe
+ 355 001c 00       		.byte	0
+ 356 001d 00       		.byte	0
+ 357 001e 03       		.uleb128 0x3
+ 358 001f 24       		.uleb128 0x24
+ 359 0020 00       		.byte	0
+ 360 0021 0B       		.uleb128 0xb
+ 361 0022 0B       		.uleb128 0xb
+ 362 0023 3E       		.uleb128 0x3e
+ 363 0024 0B       		.uleb128 0xb
+ 364 0025 03       		.uleb128 0x3
+ 365 0026 08       		.uleb128 0x8
+ 366 0027 00       		.byte	0
+ 367 0028 00       		.byte	0
+ 368 0029 04       		.uleb128 0x4
+ 369 002a 16       		.uleb128 0x16
+ 370 002b 00       		.byte	0
+ 371 002c 03       		.uleb128 0x3
+ 372 002d 0E       		.uleb128 0xe
+ 373 002e 3A       		.uleb128 0x3a
+ 374 002f 0B       		.uleb128 0xb
+ 375 0030 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 10
+
+
+ 376 0031 05       		.uleb128 0x5
+ 377 0032 49       		.uleb128 0x49
+ 378 0033 13       		.uleb128 0x13
+ 379 0034 00       		.byte	0
+ 380 0035 00       		.byte	0
+ 381 0036 05       		.uleb128 0x5
+ 382 0037 13       		.uleb128 0x13
+ 383 0038 01       		.byte	0x1
+ 384 0039 0B       		.uleb128 0xb
+ 385 003a 0B       		.uleb128 0xb
+ 386 003b 3A       		.uleb128 0x3a
+ 387 003c 0B       		.uleb128 0xb
+ 388 003d 3B       		.uleb128 0x3b
+ 389 003e 0B       		.uleb128 0xb
+ 390 003f 01       		.uleb128 0x1
+ 391 0040 13       		.uleb128 0x13
+ 392 0041 00       		.byte	0
+ 393 0042 00       		.byte	0
+ 394 0043 06       		.uleb128 0x6
+ 395 0044 0D       		.uleb128 0xd
+ 396 0045 00       		.byte	0
+ 397 0046 03       		.uleb128 0x3
+ 398 0047 0E       		.uleb128 0xe
+ 399 0048 3A       		.uleb128 0x3a
+ 400 0049 0B       		.uleb128 0xb
+ 401 004a 3B       		.uleb128 0x3b
+ 402 004b 0B       		.uleb128 0xb
+ 403 004c 49       		.uleb128 0x49
+ 404 004d 13       		.uleb128 0x13
+ 405 004e 38       		.uleb128 0x38
+ 406 004f 0B       		.uleb128 0xb
+ 407 0050 00       		.byte	0
+ 408 0051 00       		.byte	0
+ 409 0052 07       		.uleb128 0x7
+ 410 0053 16       		.uleb128 0x16
+ 411 0054 00       		.byte	0
+ 412 0055 03       		.uleb128 0x3
+ 413 0056 0E       		.uleb128 0xe
+ 414 0057 3A       		.uleb128 0x3a
+ 415 0058 0B       		.uleb128 0xb
+ 416 0059 3B       		.uleb128 0x3b
+ 417 005a 0B       		.uleb128 0xb
+ 418 005b 49       		.uleb128 0x49
+ 419 005c 13       		.uleb128 0x13
+ 420 005d 00       		.byte	0
+ 421 005e 00       		.byte	0
+ 422 005f 08       		.uleb128 0x8
+ 423 0060 2E       		.uleb128 0x2e
+ 424 0061 00       		.byte	0
+ 425 0062 3F       		.uleb128 0x3f
+ 426 0063 19       		.uleb128 0x19
+ 427 0064 03       		.uleb128 0x3
+ 428 0065 0E       		.uleb128 0xe
+ 429 0066 3A       		.uleb128 0x3a
+ 430 0067 0B       		.uleb128 0xb
+ 431 0068 3B       		.uleb128 0x3b
+ 432 0069 0B       		.uleb128 0xb
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 11
+
+
+ 433 006a 27       		.uleb128 0x27
+ 434 006b 19       		.uleb128 0x19
+ 435 006c 11       		.uleb128 0x11
+ 436 006d 01       		.uleb128 0x1
+ 437 006e 12       		.uleb128 0x12
+ 438 006f 06       		.uleb128 0x6
+ 439 0070 40       		.uleb128 0x40
+ 440 0071 18       		.uleb128 0x18
+ 441 0072 9742     		.uleb128 0x2117
+ 442 0074 19       		.uleb128 0x19
+ 443 0075 00       		.byte	0
+ 444 0076 00       		.byte	0
+ 445 0077 09       		.uleb128 0x9
+ 446 0078 2E       		.uleb128 0x2e
+ 447 0079 00       		.byte	0
+ 448 007a 3F       		.uleb128 0x3f
+ 449 007b 19       		.uleb128 0x19
+ 450 007c 03       		.uleb128 0x3
+ 451 007d 0E       		.uleb128 0xe
+ 452 007e 3A       		.uleb128 0x3a
+ 453 007f 0B       		.uleb128 0xb
+ 454 0080 3B       		.uleb128 0x3b
+ 455 0081 0B       		.uleb128 0xb
+ 456 0082 27       		.uleb128 0x27
+ 457 0083 19       		.uleb128 0x19
+ 458 0084 11       		.uleb128 0x11
+ 459 0085 01       		.uleb128 0x1
+ 460 0086 12       		.uleb128 0x12
+ 461 0087 06       		.uleb128 0x6
+ 462 0088 40       		.uleb128 0x40
+ 463 0089 18       		.uleb128 0x18
+ 464 008a 9642     		.uleb128 0x2116
+ 465 008c 19       		.uleb128 0x19
+ 466 008d 00       		.byte	0
+ 467 008e 00       		.byte	0
+ 468 008f 0A       		.uleb128 0xa
+ 469 0090 2E       		.uleb128 0x2e
+ 470 0091 01       		.byte	0x1
+ 471 0092 3F       		.uleb128 0x3f
+ 472 0093 19       		.uleb128 0x19
+ 473 0094 03       		.uleb128 0x3
+ 474 0095 0E       		.uleb128 0xe
+ 475 0096 3A       		.uleb128 0x3a
+ 476 0097 0B       		.uleb128 0xb
+ 477 0098 3B       		.uleb128 0x3b
+ 478 0099 0B       		.uleb128 0xb
+ 479 009a 27       		.uleb128 0x27
+ 480 009b 19       		.uleb128 0x19
+ 481 009c 49       		.uleb128 0x49
+ 482 009d 13       		.uleb128 0x13
+ 483 009e 11       		.uleb128 0x11
+ 484 009f 01       		.uleb128 0x1
+ 485 00a0 12       		.uleb128 0x12
+ 486 00a1 06       		.uleb128 0x6
+ 487 00a2 40       		.uleb128 0x40
+ 488 00a3 18       		.uleb128 0x18
+ 489 00a4 9642     		.uleb128 0x2116
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 12
+
+
+ 490 00a6 19       		.uleb128 0x19
+ 491 00a7 01       		.uleb128 0x1
+ 492 00a8 13       		.uleb128 0x13
+ 493 00a9 00       		.byte	0
+ 494 00aa 00       		.byte	0
+ 495 00ab 0B       		.uleb128 0xb
+ 496 00ac 34       		.uleb128 0x34
+ 497 00ad 00       		.byte	0
+ 498 00ae 03       		.uleb128 0x3
+ 499 00af 0E       		.uleb128 0xe
+ 500 00b0 3A       		.uleb128 0x3a
+ 501 00b1 0B       		.uleb128 0xb
+ 502 00b2 3B       		.uleb128 0x3b
+ 503 00b3 0B       		.uleb128 0xb
+ 504 00b4 49       		.uleb128 0x49
+ 505 00b5 13       		.uleb128 0x13
+ 506 00b6 02       		.uleb128 0x2
+ 507 00b7 18       		.uleb128 0x18
+ 508 00b8 00       		.byte	0
+ 509 00b9 00       		.byte	0
+ 510 00ba 0C       		.uleb128 0xc
+ 511 00bb 34       		.uleb128 0x34
+ 512 00bc 00       		.byte	0
+ 513 00bd 03       		.uleb128 0x3
+ 514 00be 0E       		.uleb128 0xe
+ 515 00bf 3A       		.uleb128 0x3a
+ 516 00c0 0B       		.uleb128 0xb
+ 517 00c1 3B       		.uleb128 0x3b
+ 518 00c2 0B       		.uleb128 0xb
+ 519 00c3 49       		.uleb128 0x49
+ 520 00c4 13       		.uleb128 0x13
+ 521 00c5 3F       		.uleb128 0x3f
+ 522 00c6 19       		.uleb128 0x19
+ 523 00c7 3C       		.uleb128 0x3c
+ 524 00c8 19       		.uleb128 0x19
+ 525 00c9 00       		.byte	0
+ 526 00ca 00       		.byte	0
+ 527 00cb 00       		.byte	0
+ 528              		.section	.debug_aranges,"",%progbits
+ 529 0000 34000000 		.4byte	0x34
+ 530 0004 0200     		.2byte	0x2
+ 531 0006 00000000 		.4byte	.Ldebug_info0
+ 532 000a 04       		.byte	0x4
+ 533 000b 00       		.byte	0
+ 534 000c 0000     		.2byte	0
+ 535 000e 0000     		.2byte	0
+ 536 0010 00000000 		.4byte	.LFB0
+ 537 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 538 0018 00000000 		.4byte	.LFB1
+ 539 001c 0C000000 		.4byte	.LFE1-.LFB1
+ 540 0020 00000000 		.4byte	.LFB2
+ 541 0024 20000000 		.4byte	.LFE2-.LFB2
+ 542 0028 00000000 		.4byte	.LFB3
+ 543 002c 30000000 		.4byte	.LFE3-.LFB3
+ 544 0030 00000000 		.4byte	0
+ 545 0034 00000000 		.4byte	0
+ 546              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 13
+
+
+ 547              	.Ldebug_ranges0:
+ 548 0000 00000000 		.4byte	.LFB0
+ 549 0004 0C000000 		.4byte	.LFE0
+ 550 0008 00000000 		.4byte	.LFB1
+ 551 000c 0C000000 		.4byte	.LFE1
+ 552 0010 00000000 		.4byte	.LFB2
+ 553 0014 20000000 		.4byte	.LFE2
+ 554 0018 00000000 		.4byte	.LFB3
+ 555 001c 30000000 		.4byte	.LFE3
+ 556 0020 00000000 		.4byte	0
+ 557 0024 00000000 		.4byte	0
+ 558              		.section	.debug_line,"",%progbits
+ 559              	.Ldebug_line0:
+ 560 0000 AC000000 		.section	.debug_str,"MS",%progbits,1
+ 560      02005C00 
+ 560      00000201 
+ 560      FB0E0D00 
+ 560      01010101 
+ 561              	.LASF19:
+ 562 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 562      43313120 
+ 562      352E342E 
+ 562      31203230 
+ 562      31363036 
+ 563 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 563      20726576 
+ 563      6973696F 
+ 563      6E203233 
+ 563      37373135 
+ 564 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 564      66756E63 
+ 564      74696F6E 
+ 564      2D736563 
+ 564      74696F6E 
+ 565              	.LASF23:
+ 566 008e 4C43445F 		.ascii	"LCD_SegStat_Wakeup\000"
+ 566      53656753 
+ 566      7461745F 
+ 566      57616B65 
+ 566      757000
+ 567              	.LASF21:
+ 568 00a1 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
+ 568      73657273 
+ 568      5C544F53 
+ 568      48494241 
+ 568      5C446F63 
+ 569 00cf 4176616E 		.ascii	"Avance\\StaticSegLCD_Example01.cydsn\000"
+ 569      63655C53 
+ 569      74617469 
+ 569      63536567 
+ 569      4C43445F 
+ 570              	.LASF17:
+ 571 00f3 73746174 		.ascii	"status\000"
+ 571      757300
+ 572              	.LASF9:
+ 573 00fa 666C6F61 		.ascii	"float\000"
+ 573      7400
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 14
+
+
+ 574              	.LASF1:
+ 575 0100 756E7369 		.ascii	"unsigned char\000"
+ 575      676E6564 
+ 575      20636861 
+ 575      7200
+ 576              	.LASF5:
+ 577 010e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 577      20756E73 
+ 577      69676E65 
+ 577      6420696E 
+ 577      7400
+ 578              	.LASF20:
+ 579 0120 47656E65 		.ascii	"Generated_Source\\PSoC5\\LCD_SegStat_PM.c\000"
+ 579      72617465 
+ 579      645F536F 
+ 579      75726365 
+ 579      5C50536F 
+ 580              	.LASF3:
+ 581 0148 73686F72 		.ascii	"short unsigned int\000"
+ 581      7420756E 
+ 581      7369676E 
+ 581      65642069 
+ 581      6E7400
+ 582              	.LASF10:
+ 583 015b 646F7562 		.ascii	"double\000"
+ 583      6C6500
+ 584              	.LASF16:
+ 585 0162 4C43445F 		.ascii	"LCD_SegStat_Sleep\000"
+ 585      53656753 
+ 585      7461745F 
+ 585      536C6565 
+ 585      7000
+ 586              	.LASF13:
+ 587 0174 4C43445F 		.ascii	"LCD_SegStat_BACKUP_STRUCT\000"
+ 587      53656753 
+ 587      7461745F 
+ 587      4241434B 
+ 587      55505F53 
+ 588              	.LASF8:
+ 589 018e 756E7369 		.ascii	"unsigned int\000"
+ 589      676E6564 
+ 589      20696E74 
+ 589      00
+ 590              	.LASF7:
+ 591 019b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 591      206C6F6E 
+ 591      6720756E 
+ 591      7369676E 
+ 591      65642069 
+ 592              	.LASF18:
+ 593 01b2 4C43445F 		.ascii	"LCD_SegStat_backup\000"
+ 593      53656753 
+ 593      7461745F 
+ 593      6261636B 
+ 593      757000
+ 594              	.LASF14:
+ 595 01c5 4C43445F 		.ascii	"LCD_SegStat_SaveConfig\000"
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccARpfbH.s 			page 15
+
+
+ 595      53656753 
+ 595      7461745F 
+ 595      53617665 
+ 595      436F6E66 
+ 596              	.LASF15:
+ 597 01dc 4C43445F 		.ascii	"LCD_SegStat_RestoreConfig\000"
+ 597      53656753 
+ 597      7461745F 
+ 597      52657374 
+ 597      6F726543 
+ 598              	.LASF6:
+ 599 01f6 6C6F6E67 		.ascii	"long long int\000"
+ 599      206C6F6E 
+ 599      6720696E 
+ 599      7400
+ 600              	.LASF11:
+ 601 0204 63686172 		.ascii	"char\000"
+ 601      00
+ 602              	.LASF2:
+ 603 0209 73686F72 		.ascii	"short int\000"
+ 603      7420696E 
+ 603      7400
+ 604              	.LASF24:
+ 605 0213 4C43445F 		.ascii	"LCD_SegStat_enableState\000"
+ 605      53656753 
+ 605      7461745F 
+ 605      656E6162 
+ 605      6C655374 
+ 606              	.LASF12:
+ 607 022b 75696E74 		.ascii	"uint8\000"
+ 607      3800
+ 608              	.LASF4:
+ 609 0231 6C6F6E67 		.ascii	"long int\000"
+ 609      20696E74 
+ 609      00
+ 610              	.LASF22:
+ 611 023a 656E6162 		.ascii	"enableState\000"
+ 611      6C655374 
+ 611      61746500 
+ 612              	.LASF0:
+ 613 0246 7369676E 		.ascii	"signed char\000"
+ 613      65642063 
+ 613      68617200 
+ 614              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

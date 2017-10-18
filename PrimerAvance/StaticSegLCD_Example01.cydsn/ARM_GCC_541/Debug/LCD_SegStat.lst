@@ -1,0 +1,4098 @@
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"LCD_SegStat.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.rodata
+  20              		.align	2
+  21              		.type	LCD_SegStat_7SegDigits, %object
+  22              		.size	LCD_SegStat_7SegDigits, 17
+  23              	LCD_SegStat_7SegDigits:
+  24 0000 3F       		.byte	63
+  25 0001 06       		.byte	6
+  26 0002 5B       		.byte	91
+  27 0003 4F       		.byte	79
+  28 0004 66       		.byte	102
+  29 0005 6D       		.byte	109
+  30 0006 7D       		.byte	125
+  31 0007 07       		.byte	7
+  32 0008 7F       		.byte	127
+  33 0009 6F       		.byte	111
+  34 000a 77       		.byte	119
+  35 000b 7C       		.byte	124
+  36 000c 39       		.byte	57
+  37 000d 5E       		.byte	94
+  38 000e 79       		.byte	121
+  39 000f 71       		.byte	113
+  40 0010 00       		.byte	0
+  41              		.bss
+  42              		.align	2
+  43              	LCD_SegStat_buffer:
+  44 0000 00000000 		.space	32
+  44      00000000 
+  44      00000000 
+  44      00000000 
+  44      00000000 
+  45              		.align	2
+  46              	LCD_SegStat_lcdTd:
+  47 0020 00000000 		.space	4
+  48              	LCD_SegStat_lcdChannel:
+  49 0024 00       		.space	1
+  50              		.global	LCD_SegStat_initVar
+  51              		.type	LCD_SegStat_initVar, %object
+  52              		.size	LCD_SegStat_initVar, 1
+  53              	LCD_SegStat_initVar:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 2
+
+
+  54 0025 00       		.space	1
+  55              		.global	LCD_SegStat_enableState
+  56              		.type	LCD_SegStat_enableState, %object
+  57              		.size	LCD_SegStat_enableState, 1
+  58              	LCD_SegStat_enableState:
+  59 0026 00       		.space	1
+  60              		.data
+  61              		.align	2
+  62              		.type	LCD_SegStat_commons, %object
+  63              		.size	LCD_SegStat_commons, 2
+  64              	LCD_SegStat_commons:
+  65 0000 0400     		.short	4
+  66              		.section	.text.LCD_SegStat_Init,"ax",%progbits
+  67              		.align	2
+  68              		.global	LCD_SegStat_Init
+  69              		.thumb
+  70              		.thumb_func
+  71              		.type	LCD_SegStat_Init, %function
+  72              	LCD_SegStat_Init:
+  73              	.LFB0:
+  74              		.file 1 "Generated_Source\\PSoC5\\LCD_SegStat.c"
+   1:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/LCD_SegStat.c **** * File Name: LCD_SegStat.c
+   3:Generated_Source\PSoC5/LCD_SegStat.c **** * Version 2.30
+   4:Generated_Source\PSoC5/LCD_SegStat.c **** *
+   5:Generated_Source\PSoC5/LCD_SegStat.c **** * Description:
+   6:Generated_Source\PSoC5/LCD_SegStat.c **** *  This file provides the API source code for the Static Segment LCD component.
+   7:Generated_Source\PSoC5/LCD_SegStat.c **** *
+   8:Generated_Source\PSoC5/LCD_SegStat.c **** * Note:
+   9:Generated_Source\PSoC5/LCD_SegStat.c **** *
+  10:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+  11:Generated_Source\PSoC5/LCD_SegStat.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC5/LCD_SegStat.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC5/LCD_SegStat.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC5/LCD_SegStat.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+  16:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  17:Generated_Source\PSoC5/LCD_SegStat.c **** #include "LCD_SegStat.h"
+  18:Generated_Source\PSoC5/LCD_SegStat.c **** #include <LCD_SegStat_InClock.h>
+  19:Generated_Source\PSoC5/LCD_SegStat.c **** #include <LCD_SegStat_LCD_ISR.h>
+  20:Generated_Source\PSoC5/LCD_SegStat.c **** #include <LCD_SegStat_Lcd_Dma_dma.h>
+  21:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  22:Generated_Source\PSoC5/LCD_SegStat.c **** static uint8  LCD_SegStat_DmaConfigure(void) CYREENTRANT;
+  23:Generated_Source\PSoC5/LCD_SegStat.c **** static void   LCD_SegStat_DmaDispose(void) CYREENTRANT;
+  24:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  25:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  26:Generated_Source\PSoC5/LCD_SegStat.c **** /* Look-up tables for different kinds of displays */
+  27:Generated_Source\PSoC5/LCD_SegStat.c **** #ifdef LCD_SegStat_7SEG
+  28:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  29:Generated_Source\PSoC5/LCD_SegStat.c ****     static const uint8 CYCODE LCD_SegStat_7SegDigits[] =
+  30:Generated_Source\PSoC5/LCD_SegStat.c ****     /* '0'   '1'    '2'    '3'    '4'    '5'    '6'    '7' */
+  31:Generated_Source\PSoC5/LCD_SegStat.c ****     {0x3fu, 0x06u, 0x5bu, 0x4fu, 0x66u, 0x6du, 0x7du, 0x07u,
+  32:Generated_Source\PSoC5/LCD_SegStat.c ****     /* '8'  '9'    'A'    'B'    'C'    'D'    'E'    'F'   null */
+  33:Generated_Source\PSoC5/LCD_SegStat.c ****     0x7fu, 0x6fu, 0x77u, 0x7cu, 0x39u, 0x5eu, 0x79u, 0x71u, 0x00u};
+  34:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  35:Generated_Source\PSoC5/LCD_SegStat.c **** #endif /* LCD_SegStat_7SEG */
+  36:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 3
+
+
+  37:Generated_Source\PSoC5/LCD_SegStat.c **** #ifdef ALPHANUMERIC
+  38:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  39:Generated_Source\PSoC5/LCD_SegStat.c ****     #ifdef LCD_SegStat_14SEG
+  40:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  41:Generated_Source\PSoC5/LCD_SegStat.c ****         static const uint16 CYCODE LCD_SegStat_14SegChars[] = {
+  42:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  43:Generated_Source\PSoC5/LCD_SegStat.c ****         /*                           Blank                            */
+  44:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  45:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  46:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  47:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  48:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+  49:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  50:Generated_Source\PSoC5/LCD_SegStat.c ****         /*         !       "       #       $       %       &       '  */
+  51:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  52:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0006u,0x0120u,0x3fffu,0x156du,0x2ee4u,0x2a8du,0x0200u,
+  53:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  54:Generated_Source\PSoC5/LCD_SegStat.c ****         /* (       )       *       +       ,       -       .       /  */
+  55:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  56:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0a00u,0x2080u,0x3fc0u,0x1540u,0x2000u,0x0440u,0x1058u,0x2200u,
+  57:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  58:Generated_Source\PSoC5/LCD_SegStat.c ****         /* 0       1       2       3       4       5       6       7  */
+  59:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  60:Generated_Source\PSoC5/LCD_SegStat.c ****         0x223fu,0x0206u,0x045bu,0x040fu,0x0466u,0x0869u,0x047du,0x1201u,
+  61:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  62:Generated_Source\PSoC5/LCD_SegStat.c ****         /* 8       9       :       ;       <       =       >       ?  */
+  63:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  64:Generated_Source\PSoC5/LCD_SegStat.c ****         0x047fu,0x046fu,0x1100u,0x2100u,0x0a00u,0x0448u,0x2080u,0x1423u,
+  65:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  66:Generated_Source\PSoC5/LCD_SegStat.c ****         /* @       A       B       C       D       E       F       G  */
+  67:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  68:Generated_Source\PSoC5/LCD_SegStat.c ****         0x053bu,0x0477u,0x150fu,0x0039u,0x110Fu,0x0079u,0x0071u,0x043du,
+  69:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  70:Generated_Source\PSoC5/LCD_SegStat.c ****         /* H       I       J       K       L       M       N       O  */
+  71:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  72:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0476u,0x1100u,0x001eu,0x0a70u,0x0038u,0x02b6u,0x08b6u,0x003fu,
+  73:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  74:Generated_Source\PSoC5/LCD_SegStat.c ****         /* P       Q       R       S       T       U       V       W  */
+  75:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  76:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0473u,0x083fu,0x0C73u,0x046du,0x1101u,0x003eu,0x2230u,0x2836u,
+  77:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  78:Generated_Source\PSoC5/LCD_SegStat.c ****         /* X       Y       Z       [       \       ]       ^       _  */
+  79:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  80:Generated_Source\PSoC5/LCD_SegStat.c ****         0x2a80u,0x1462u,0x2209u,0x0039u,0x0880u,0x000fu,0x0003u,0x0008u,
+  81:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  82:Generated_Source\PSoC5/LCD_SegStat.c ****         /* @       a       b       c       d       e       f       g  */
+  83:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  84:Generated_Source\PSoC5/LCD_SegStat.c ****         0x053bu,0x0477u,0x150fu,0x0039u,0x110Fu,0x0079u,0x0071u,0x043du,
+  85:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  86:Generated_Source\PSoC5/LCD_SegStat.c ****         /* h       i       j       k       l       m       n       o  */
+  87:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  88:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0476u,0x1100u,0x001eu,0x0a70u,0x0038u,0x02b6u,0x08b6u,0x003fu,
+  89:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  90:Generated_Source\PSoC5/LCD_SegStat.c ****         /* p       q       r       s       t       u       v       w  */
+  91:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  92:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0473u,0x083fu,0x0C73u,0x046du,0x1101u,0x003eu,0x2230u,0x2836u,
+  93:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 4
+
+
+  94:Generated_Source\PSoC5/LCD_SegStat.c ****         /* x       y       z       {       |       }        ~      O  */
+  95:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+  96:Generated_Source\PSoC5/LCD_SegStat.c ****         0x2a80u,0x1280u,0x2209u,0x0e00u,0x1100u,0x20C0u,0x0452u,0x003fu};
+  97:Generated_Source\PSoC5/LCD_SegStat.c **** 
+  98:Generated_Source\PSoC5/LCD_SegStat.c ****     #endif /* LCD_SegStat_14SEG */
+  99:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 100:Generated_Source\PSoC5/LCD_SegStat.c ****     #ifdef LCD_SegStat_16SEG
+ 101:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 102:Generated_Source\PSoC5/LCD_SegStat.c ****         static const uint16 CYCODE LCD_SegStat_16SegChars[] = {
+ 103:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 104:Generated_Source\PSoC5/LCD_SegStat.c ****         /*                           Blank                            */
+ 105:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 106:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 107:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 108:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 109:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,0x0000u,
+ 110:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 111:Generated_Source\PSoC5/LCD_SegStat.c ****         /*         !       "       #       $       %       &       '  */
+ 112:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 113:Generated_Source\PSoC5/LCD_SegStat.c ****         0x0000u,0x000cu,0x0480u,0xffffu,0x55bbu,0xdd99u,0xaa3bu,0x0800u,
+ 114:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 115:Generated_Source\PSoC5/LCD_SegStat.c ****         /* (       )       *       +       ,       -       .       /  */
+ 116:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 117:Generated_Source\PSoC5/LCD_SegStat.c ****         0x2800u,0x8200u,0xff00u,0x5500u,0x8000u,0x1100u,0x4160u,0x8800u,
+ 118:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 119:Generated_Source\PSoC5/LCD_SegStat.c ****         /* 0       1       2       3       4       5       6       7  */
+ 120:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 121:Generated_Source\PSoC5/LCD_SegStat.c ****         0x88ffu,0x000cu,0x1177u,0x103fu,0x118cu,0x21b3u,0x11fbu,0x4803u,
+ 122:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 123:Generated_Source\PSoC5/LCD_SegStat.c ****         /* 8       9       :       ;       <       =       >       ?  */
+ 124:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 125:Generated_Source\PSoC5/LCD_SegStat.c ****         0x11ffu,0x11bfu,0x4400u,0x8400u,0x2800u,0x1130u,0x8200u,0x5087u,
+ 126:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 127:Generated_Source\PSoC5/LCD_SegStat.c ****         /* @       A       B       C       D       E       F       G  */
+ 128:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 129:Generated_Source\PSoC5/LCD_SegStat.c ****         0x14f7u,0x11cfu,0x543fu,0x00f3u,0x443fu,0x01f3u,0x01c3u,0x10fbu,
+ 130:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 131:Generated_Source\PSoC5/LCD_SegStat.c ****         /* H       I       J       K       L       M       N       O  */
+ 132:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 133:Generated_Source\PSoC5/LCD_SegStat.c ****         0x11ccu,0x4400u,0x007eu,0x29c0u,0x00f0u,0x0accu,0x22ccu,0x00ffu,
+ 134:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 135:Generated_Source\PSoC5/LCD_SegStat.c ****         /* P       Q       R       S       T       U       V       W  */
+ 136:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 137:Generated_Source\PSoC5/LCD_SegStat.c ****         0x11c7u,0x20ffu,0x31c7u,0x11bbu,0x4403u,0x00fcu,0x88c0u,0xa0ccu,
+ 138:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 139:Generated_Source\PSoC5/LCD_SegStat.c ****         /* X       Y       Z       [       \       ]       ^       _  */
+ 140:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 141:Generated_Source\PSoC5/LCD_SegStat.c ****         0xaa00u,0x5184u,0x8833u,0x4412u,0x2200u,0x4421u,0x0006u,0x0030u,
+ 142:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 143:Generated_Source\PSoC5/LCD_SegStat.c ****         /* @       a       b       c       d       e       f       g  */
+ 144:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 145:Generated_Source\PSoC5/LCD_SegStat.c ****         0x14f7u,0x11cfu,0x543fu,0x00f3u,0x443fu,0x01f3u,0x01c3u,0x10fbu,
+ 146:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 147:Generated_Source\PSoC5/LCD_SegStat.c ****         /* h       i       j       k       l       m       n       o  */
+ 148:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 149:Generated_Source\PSoC5/LCD_SegStat.c ****         0x11ccu,0x4400u,0x007eu,0x29c0u,0x00f0u,0x0accu,0x22ccu,0x00ffu,
+ 150:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 5
+
+
+ 151:Generated_Source\PSoC5/LCD_SegStat.c ****         /* p       q       r       s       t       u       v       w  */
+ 152:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 153:Generated_Source\PSoC5/LCD_SegStat.c ****         0x11c7u,0x20ffu,0x31c7u,0x11bbu,0x4403u,0x00fcu,0x88c0u,0xa0ccu,
+ 154:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 155:Generated_Source\PSoC5/LCD_SegStat.c ****         /* x       y       z       {       |       }        ~         */
+ 156:Generated_Source\PSoC5/LCD_SegStat.c ****         /*------------------------------------------------------------*/
+ 157:Generated_Source\PSoC5/LCD_SegStat.c ****         0xaa00u,0x4A00u,0x8833u,0x3800u,0x4400u,0x8300u,0x1144u,0x0000u};
+ 158:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 159:Generated_Source\PSoC5/LCD_SegStat.c ****     #endif /* LCD_SegStat_16SEG */
+ 160:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 161:Generated_Source\PSoC5/LCD_SegStat.c **** #endif /* ALPHANUMERIC */
+ 162:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 163:Generated_Source\PSoC5/LCD_SegStat.c **** /* Frame Buffer */
+ 164:Generated_Source\PSoC5/LCD_SegStat.c **** static uint8 LCD_SegStat_buffer[LCD_SegStat_BUFFER_LENGTH] ;
+ 165:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 166:Generated_Source\PSoC5/LCD_SegStat.c **** /* Array of common port TDs */
+ 167:Generated_Source\PSoC5/LCD_SegStat.c **** static uint8 LCD_SegStat_lcdTd[LCD_SegStat_LCD_TD_SIZE * LCD_SegStat_COMM_NUM];
+ 168:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 169:Generated_Source\PSoC5/LCD_SegStat.c **** /* DMA channel dedicated for SegLCD commons */
+ 170:Generated_Source\PSoC5/LCD_SegStat.c **** static uint8 LCD_SegStat_lcdChannel;
+ 171:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 172:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_initVar = 0u;
+ 173:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 174:Generated_Source\PSoC5/LCD_SegStat.c **** /* Saves state of the component if it turned on or off */
+ 175:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_enableState = 0u;
+ 176:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 177:Generated_Source\PSoC5/LCD_SegStat.c **** /* Start of customizer generated code */
+ 178:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 179:Generated_Source\PSoC5/LCD_SegStat.c **** static uint16 CYCODE LCD_SegStat_commons[1u] = {LCD_SegStat_Com0};
+ 180:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 181:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 182:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 183:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_Init
+ 184:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 185:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 186:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 187:Generated_Source\PSoC5/LCD_SegStat.c **** *  Configures every-frame ISR and initializes a Frame Buffer.
+ 188:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 189:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 190:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 191:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 192:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 193:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 194:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 195:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 196:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 197:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 198:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_Init(void) 
+ 200:Generated_Source\PSoC5/LCD_SegStat.c **** {
+  75              		.loc 1 200 0
+  76              		.cfi_startproc
+  77              		@ args = 0, pretend = 0, frame = 0
+  78              		@ frame_needed = 1, uses_anonymous_args = 0
+  79 0000 80B5     		push	{r7, lr}
+  80              		.cfi_def_cfa_offset 8
+  81              		.cfi_offset 7, -8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 6
+
+
+  82              		.cfi_offset 14, -4
+  83 0002 00AF     		add	r7, sp, #0
+  84              		.cfi_def_cfa_register 7
+ 201:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_ClearDisplay();
+  85              		.loc 1 201 0
+  86 0004 FFF7FEFF 		bl	LCD_SegStat_ClearDisplay
+ 202:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 203:Generated_Source\PSoC5/LCD_SegStat.c ****     /*ISR initialization */
+ 204:Generated_Source\PSoC5/LCD_SegStat.c ****     CyIntDisable(LCD_SegStat_ISR_NUMBER);
+  87              		.loc 1 204 0
+  88 0008 064B     		ldr	r3, .L2
+  89 000a 0122     		movs	r2, #1
+  90 000c 1A60     		str	r2, [r3]
+ 205:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 206:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Set the ISR to point to the RTC_SUT_isr Interrupt. */
+ 207:Generated_Source\PSoC5/LCD_SegStat.c ****     (void) CyIntSetVector(LCD_SegStat_ISR_NUMBER, &LCD_SegStat_ISR);
+  91              		.loc 1 207 0
+  92 000e 0649     		ldr	r1, .L2+4
+  93 0010 0020     		movs	r0, #0
+  94 0012 FFF7FEFF 		bl	CyIntSetVector
+ 208:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 209:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Set the priority. */
+ 210:Generated_Source\PSoC5/LCD_SegStat.c ****     CyIntSetPriority(LCD_SegStat_ISR_NUMBER, LCD_SegStat_ISR_PRIORITY);
+  95              		.loc 1 210 0
+  96 0016 0721     		movs	r1, #7
+  97 0018 0020     		movs	r0, #0
+  98 001a FFF7FEFF 		bl	CyIntSetPriority
+ 211:Generated_Source\PSoC5/LCD_SegStat.c **** }
+  99              		.loc 1 211 0
+ 100 001e 00BF     		nop
+ 101 0020 80BD     		pop	{r7, pc}
+ 102              	.L3:
+ 103 0022 00BF     		.align	2
+ 104              	.L2:
+ 105 0024 80E100E0 		.word	-536813184
+ 106 0028 00000000 		.word	LCD_SegStat_ISR
+ 107              		.cfi_endproc
+ 108              	.LFE0:
+ 109              		.size	LCD_SegStat_Init, .-LCD_SegStat_Init
+ 110              		.section	.text.LCD_SegStat_Enable,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	LCD_SegStat_Enable
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	LCD_SegStat_Enable, %function
+ 116              	LCD_SegStat_Enable:
+ 117              	.LFB1:
+ 212:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 213:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 214:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 215:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_Enable
+ 216:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 217:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 218:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 219:Generated_Source\PSoC5/LCD_SegStat.c **** *  Enables clock generation for the component and configures DMA channels.
+ 220:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 221:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 7
+
+
+ 222:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 223:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 224:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 225:Generated_Source\PSoC5/LCD_SegStat.c **** *  Status one of standard status for PSoC3 Component:
+ 226:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 227:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 228:Generated_Source\PSoC5/LCD_SegStat.c **** *                     a channel already in use.
+ 229:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 230:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 231:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_enableState - Initializes variable to '1', it means that
+ 232:Generated_Source\PSoC5/LCD_SegStat.c **** *  the component was initialized and enabled before entering into a Sleep.
+ 233:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 234:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 235:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 236:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 237:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 238:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_Enable(void) 
+ 239:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 118              		.loc 1 239 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 8
+ 121              		@ frame_needed = 1, uses_anonymous_args = 0
+ 122 0000 80B5     		push	{r7, lr}
+ 123              		.cfi_def_cfa_offset 8
+ 124              		.cfi_offset 7, -8
+ 125              		.cfi_offset 14, -4
+ 126 0002 82B0     		sub	sp, sp, #8
+ 127              		.cfi_def_cfa_offset 16
+ 128 0004 00AF     		add	r7, sp, #0
+ 129              		.cfi_def_cfa_register 7
+ 240:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 status;
+ 241:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 242:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Configure DMA TDs and return status */
+ 243:Generated_Source\PSoC5/LCD_SegStat.c ****     status = LCD_SegStat_DmaConfigure();
+ 130              		.loc 1 243 0
+ 131 0006 FFF7FEFF 		bl	LCD_SegStat_DmaConfigure
+ 132 000a 0346     		mov	r3, r0
+ 133 000c FB71     		strb	r3, [r7, #7]
+ 244:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 245:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Enable Internal clock */
+ 246:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_InClock_Enable();
+ 134              		.loc 1 246 0
+ 135 000e FFF7FEFF 		bl	LCD_SegStat_InClock_Start
+ 247:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 248:Generated_Source\PSoC5/LCD_SegStat.c ****     /* The component is started so set the state appropriately */
+ 249:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_enableState = 1u;
+ 136              		.loc 1 249 0
+ 137 0012 044B     		ldr	r3, .L6
+ 138 0014 0122     		movs	r2, #1
+ 139 0016 1A70     		strb	r2, [r3]
+ 250:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 251:Generated_Source\PSoC5/LCD_SegStat.c ****     return(status);
+ 140              		.loc 1 251 0
+ 141 0018 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 252:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 142              		.loc 1 252 0
+ 143 001a 1846     		mov	r0, r3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 8
+
+
+ 144 001c 0837     		adds	r7, r7, #8
+ 145              		.cfi_def_cfa_offset 8
+ 146 001e BD46     		mov	sp, r7
+ 147              		.cfi_def_cfa_register 13
+ 148              		@ sp needed
+ 149 0020 80BD     		pop	{r7, pc}
+ 150              	.L7:
+ 151 0022 00BF     		.align	2
+ 152              	.L6:
+ 153 0024 00000000 		.word	LCD_SegStat_enableState
+ 154              		.cfi_endproc
+ 155              	.LFE1:
+ 156              		.size	LCD_SegStat_Enable, .-LCD_SegStat_Enable
+ 157              		.section	.text.LCD_SegStat_DmaConfigure,"ax",%progbits
+ 158              		.align	2
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.type	LCD_SegStat_DmaConfigure, %function
+ 162              	LCD_SegStat_DmaConfigure:
+ 163              	.LFB2:
+ 253:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 254:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 255:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 256:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_DmaConfigure
+ 257:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 258:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 259:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 260:Generated_Source\PSoC5/LCD_SegStat.c **** *  Configures DMA to transfer data from the frame buffer to port alliased
+ 261:Generated_Source\PSoC5/LCD_SegStat.c **** *  memory.
+ 262:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 263:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 264:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 265:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 266:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 267:Generated_Source\PSoC5/LCD_SegStat.c **** *  Status one of standard status for PSoC3 Component
+ 268:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 269:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 270:Generated_Source\PSoC5/LCD_SegStat.c **** *                     a channel already in use.
+ 271:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 272:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 273:Generated_Source\PSoC5/LCD_SegStat.c **** * LCD_SegStat_lcdTd[] - used to store a set of allocated TD IDs that are
+ 274:Generated_Source\PSoC5/LCD_SegStat.c **** *  used by this component.
+ 275:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 276:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_lcdChannel - stores a DMA Channel allocated for an LCD usage.
+ 277:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 278:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_termOut - used as a parameter for LCD DMA configuration API
+ 279:Generated_Source\PSoC5/LCD_SegStat.c **** *  to select proper TermOut signal that was previously calculated.
+ 280:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 281:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStatLcdPort_DMA_TD_PROTO_BLOCK[] - used as a parameter for DMA
+ 282:Generated_Source\PSoC5/LCD_SegStat.c **** *  configuration API.
+ 283:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 284:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 285:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 286:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 287:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 288:Generated_Source\PSoC5/LCD_SegStat.c **** static uint8 LCD_SegStat_DmaConfigure(void) CYREENTRANT
+ 289:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 9
+
+
+ 164              		.loc 1 289 0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 16
+ 167              		@ frame_needed = 1, uses_anonymous_args = 0
+ 168 0000 90B5     		push	{r4, r7, lr}
+ 169              		.cfi_def_cfa_offset 12
+ 170              		.cfi_offset 4, -12
+ 171              		.cfi_offset 7, -8
+ 172              		.cfi_offset 14, -4
+ 173 0002 85B0     		sub	sp, sp, #20
+ 174              		.cfi_def_cfa_offset 32
+ 175 0004 00AF     		add	r7, sp, #0
+ 176              		.cfi_def_cfa_register 7
+ 290:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 status = CYRET_LOCKED;
+ 177              		.loc 1 290 0
+ 178 0006 0423     		movs	r3, #4
+ 179 0008 FB73     		strb	r3, [r7, #15]
+ 291:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 i;
+ 292:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 j;
+ 293:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 errorCnt = 0u;
+ 180              		.loc 1 293 0
+ 181 000a 0023     		movs	r3, #0
+ 182 000c 3B73     		strb	r3, [r7, #12]
+ 294:Generated_Source\PSoC5/LCD_SegStat.c ****     uint32 srcAddr;
+ 295:Generated_Source\PSoC5/LCD_SegStat.c ****     uint32 dstAddr;
+ 296:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 comTdCount;
+ 297:Generated_Source\PSoC5/LCD_SegStat.c ****     /* DMA_PROTO_TD_DEF */
+ 298:Generated_Source\PSoC5/LCD_SegStat.c ****     static const struct LCD_SegStat_DMA_TD_PROTO_ENTRY CYCODE LCD_SegStat_StSegLcdPort_DMA_TD_PROTO
+ 299:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 300:Generated_Source\PSoC5/LCD_SegStat.c ****         {0u, 1u},
+ 301:Generated_Source\PSoC5/LCD_SegStat.c ****         {3u, 4u},
+ 302:Generated_Source\PSoC5/LCD_SegStat.c ****     };
+ 303:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 304:Generated_Source\PSoC5/LCD_SegStat.c ****     /* LCD_SegStat_termOut selects signal which triggers
+ 305:Generated_Source\PSoC5/LCD_SegStat.c ****     * LCD every frame interrupt.
+ 306:Generated_Source\PSoC5/LCD_SegStat.c ****     */
+ 307:Generated_Source\PSoC5/LCD_SegStat.c ****     static uint8 LCD_SegStat_termOut = (LCD_SegStat_Lcd_Dma__TERMOUT0_EN ? TD_TERMOUT0_EN : 0u) |
+ 308:Generated_Source\PSoC5/LCD_SegStat.c ****                                  (LCD_SegStat_Lcd_Dma__TERMOUT1_EN ? TD_TERMOUT1_EN : 0u);
+ 309:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 310:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Get addressed of source and destination for DMA transactions */
+ 311:Generated_Source\PSoC5/LCD_SegStat.c ****     srcAddr = LCD_SegStat_DMA_ADDRESS_MASK & ((uint32) LCD_SegStat_buffer);
+ 183              		.loc 1 311 0
+ 184 000e 714B     		ldr	r3, .L24
+ 185 0010 BB60     		str	r3, [r7, #8]
+ 312:Generated_Source\PSoC5/LCD_SegStat.c ****     dstAddr = LCD_SegStat_DMA_ADDRESS_MASK & LCD_SegStat_ALIASED_AREA_PTR;
+ 186              		.loc 1 312 0
+ 187 0012 714B     		ldr	r3, .L24+4
+ 188 0014 7B60     		str	r3, [r7, #4]
+ 313:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 314:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Allocate DMA channel */
+ 315:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_lcdChannel = LCD_SegStat_Lcd_Dma_DmaInitialize(0u, 0u, HI16(srcAddr), HI16(dstAddr)
+ 189              		.loc 1 315 0
+ 190 0016 BB68     		ldr	r3, [r7, #8]
+ 191 0018 1B0C     		lsrs	r3, r3, #16
+ 192 001a 9AB2     		uxth	r2, r3
+ 193 001c 7B68     		ldr	r3, [r7, #4]
+ 194 001e 1B0C     		lsrs	r3, r3, #16
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 10
+
+
+ 195 0020 9BB2     		uxth	r3, r3
+ 196 0022 0021     		movs	r1, #0
+ 197 0024 0020     		movs	r0, #0
+ 198 0026 FFF7FEFF 		bl	LCD_SegStat_Lcd_Dma_DmaInitialize
+ 199 002a 0346     		mov	r3, r0
+ 200 002c 1A46     		mov	r2, r3
+ 201 002e 6B4B     		ldr	r3, .L24+8
+ 202 0030 1A70     		strb	r2, [r3]
+ 316:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 317:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Check if the channel is valid */
+ 318:Generated_Source\PSoC5/LCD_SegStat.c ****     if(LCD_SegStat_lcdChannel == DMA_INVALID_CHANNEL)
+ 203              		.loc 1 318 0
+ 204 0032 6A4B     		ldr	r3, .L24+8
+ 205 0034 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 206 0036 FF2B     		cmp	r3, #255
+ 207 0038 02D1     		bne	.L9
+ 319:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 320:Generated_Source\PSoC5/LCD_SegStat.c ****         errorCnt++;
+ 208              		.loc 1 320 0
+ 209 003a 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 210 003c 0133     		adds	r3, r3, #1
+ 211 003e 3B73     		strb	r3, [r7, #12]
+ 212              	.L9:
+ 321:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 322:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 323:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Allocate required number of DMA TDs */
+ 324:Generated_Source\PSoC5/LCD_SegStat.c ****     for(j = 0u; j < LCD_SegStat_COMM_NUM; j++)
+ 213              		.loc 1 324 0
+ 214 0040 0023     		movs	r3, #0
+ 215 0042 7B73     		strb	r3, [r7, #13]
+ 216 0044 20E0     		b	.L10
+ 217              	.L14:
+ 325:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 326:Generated_Source\PSoC5/LCD_SegStat.c ****         for(i = 0u; i < LCD_SegStat_LCD_TD_SIZE; i++)
+ 218              		.loc 1 326 0
+ 219 0046 0023     		movs	r3, #0
+ 220 0048 BB73     		strb	r3, [r7, #14]
+ 221 004a 17E0     		b	.L11
+ 222              	.L13:
+ 327:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 328:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i] = CyDmaTdAllocate();
+ 223              		.loc 1 328 0
+ 224 004c 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 225 004e 5A00     		lsls	r2, r3, #1
+ 226 0050 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 227 0052 D418     		adds	r4, r2, r3
+ 228 0054 FFF7FEFF 		bl	CyDmaTdAllocate
+ 229 0058 0346     		mov	r3, r0
+ 230 005a 1A46     		mov	r2, r3
+ 231 005c 604B     		ldr	r3, .L24+12
+ 232 005e 1A55     		strb	r2, [r3, r4]
+ 329:Generated_Source\PSoC5/LCD_SegStat.c ****             if(LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i] == DMA_INVALID_TD)
+ 233              		.loc 1 329 0
+ 234 0060 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 235 0062 5A00     		lsls	r2, r3, #1
+ 236 0064 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 237 0066 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 11
+
+
+ 238 0068 5D4A     		ldr	r2, .L24+12
+ 239 006a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 240 006c FF2B     		cmp	r3, #255
+ 241 006e 02D1     		bne	.L12
+ 330:Generated_Source\PSoC5/LCD_SegStat.c ****             {
+ 331:Generated_Source\PSoC5/LCD_SegStat.c ****                 errorCnt++;
+ 242              		.loc 1 331 0
+ 243 0070 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 244 0072 0133     		adds	r3, r3, #1
+ 245 0074 3B73     		strb	r3, [r7, #12]
+ 246              	.L12:
+ 326:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 247              		.loc 1 326 0 discriminator 2
+ 248 0076 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 249 0078 0133     		adds	r3, r3, #1
+ 250 007a BB73     		strb	r3, [r7, #14]
+ 251              	.L11:
+ 326:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 252              		.loc 1 326 0 is_stmt 0 discriminator 1
+ 253 007c BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 254 007e 012B     		cmp	r3, #1
+ 255 0080 E4D9     		bls	.L13
+ 324:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 256              		.loc 1 324 0 is_stmt 1 discriminator 2
+ 257 0082 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 258 0084 0133     		adds	r3, r3, #1
+ 259 0086 7B73     		strb	r3, [r7, #13]
+ 260              	.L10:
+ 324:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 261              		.loc 1 324 0 is_stmt 0 discriminator 1
+ 262 0088 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 263 008a 012B     		cmp	r3, #1
+ 264 008c DBD9     		bls	.L14
+ 332:Generated_Source\PSoC5/LCD_SegStat.c ****             }
+ 333:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 334:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 335:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 336:Generated_Source\PSoC5/LCD_SegStat.c ****     /* comTdCount stores the number of TDs allocated for this configuration */
+ 337:Generated_Source\PSoC5/LCD_SegStat.c ****     comTdCount = (LCD_SegStat_COMM_NUM * LCD_SegStat_LCD_TD_SIZE);
+ 265              		.loc 1 337 0 is_stmt 1
+ 266 008e 0423     		movs	r3, #4
+ 267 0090 FB70     		strb	r3, [r7, #3]
+ 338:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 339:Generated_Source\PSoC5/LCD_SegStat.c ****     /* TD configuration loop */
+ 340:Generated_Source\PSoC5/LCD_SegStat.c ****     for(j = 0u; j < LCD_SegStat_COMM_NUM; j++)
+ 268              		.loc 1 340 0
+ 269 0092 0023     		movs	r3, #0
+ 270 0094 7B73     		strb	r3, [r7, #13]
+ 271 0096 80E0     		b	.L15
+ 272              	.L21:
+ 341:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 342:Generated_Source\PSoC5/LCD_SegStat.c ****         for(i = 0u; i < LCD_SegStat_LCD_TD_SIZE; i++)
+ 273              		.loc 1 342 0
+ 274 0098 0023     		movs	r3, #0
+ 275 009a BB73     		strb	r3, [r7, #14]
+ 276 009c 77E0     		b	.L16
+ 277              	.L20:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 12
+
+
+ 343:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 344:Generated_Source\PSoC5/LCD_SegStat.c ****             /* The last TD need to point to TD[0] */
+ 345:Generated_Source\PSoC5/LCD_SegStat.c ****             if(((j * LCD_SegStat_LCD_TD_SIZE) + i) == (comTdCount - 1u))
+ 278              		.loc 1 345 0
+ 279 009e 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 280 00a0 5A00     		lsls	r2, r3, #1
+ 281 00a2 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 282 00a4 1344     		add	r3, r3, r2
+ 283 00a6 1A46     		mov	r2, r3
+ 284 00a8 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 285 00aa 013B     		subs	r3, r3, #1
+ 286 00ac 9A42     		cmp	r2, r3
+ 287 00ae 15D1     		bne	.L17
+ 346:Generated_Source\PSoC5/LCD_SegStat.c ****             {
+ 347:Generated_Source\PSoC5/LCD_SegStat.c ****                 (void) CyDmaTdSetConfiguration(LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i]
+ 288              		.loc 1 347 0
+ 289 00b0 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 290 00b2 5A00     		lsls	r2, r3, #1
+ 291 00b4 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 292 00b6 1344     		add	r3, r3, r2
+ 293 00b8 494A     		ldr	r2, .L24+12
+ 294 00ba D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+ 348:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 295              		.loc 1 348 0
+ 296 00bc BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 297 00be 494A     		ldr	r2, .L24+16
+ 298 00c0 5B00     		lsls	r3, r3, #1
+ 299 00c2 1344     		add	r3, r3, r2
+ 300 00c4 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 347:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 301              		.loc 1 347 0
+ 302 00c6 99B2     		uxth	r1, r3
+ 303 00c8 454B     		ldr	r3, .L24+12
+ 304 00ca 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 305 00cc 464B     		ldr	r3, .L24+20
+ 306 00ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 307 00d0 43F00303 		orr	r3, r3, #3
+ 308 00d4 DBB2     		uxtb	r3, r3
+ 309 00d6 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 310 00da 33E0     		b	.L18
+ 311              	.L17:
+ 349:Generated_Source\PSoC5/LCD_SegStat.c ****                                         LCD_SegStat_lcdTd[0u],
+ 350:Generated_Source\PSoC5/LCD_SegStat.c ****                                         TD_INC_DST_ADR | TD_INC_SRC_ADR | LCD_SegStat_termOut);
+ 351:Generated_Source\PSoC5/LCD_SegStat.c ****             }
+ 352:Generated_Source\PSoC5/LCD_SegStat.c ****             /* Last TD in the row should generate an interrupt signal */
+ 353:Generated_Source\PSoC5/LCD_SegStat.c ****             else if(i == (LCD_SegStat_LCD_TD_SIZE - 1u))
+ 312              		.loc 1 353 0
+ 313 00dc BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 314 00de 012B     		cmp	r3, #1
+ 315 00e0 1AD1     		bne	.L19
+ 354:Generated_Source\PSoC5/LCD_SegStat.c ****             {
+ 355:Generated_Source\PSoC5/LCD_SegStat.c ****                 (void) CyDmaTdSetConfiguration(LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i]
+ 316              		.loc 1 355 0
+ 317 00e2 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 318 00e4 5A00     		lsls	r2, r3, #1
+ 319 00e6 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 320 00e8 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 13
+
+
+ 321 00ea 3D4A     		ldr	r2, .L24+12
+ 322 00ec D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+ 356:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 323              		.loc 1 356 0
+ 324 00ee BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 325 00f0 3C4A     		ldr	r2, .L24+16
+ 326 00f2 5B00     		lsls	r3, r3, #1
+ 327 00f4 1344     		add	r3, r3, r2
+ 328 00f6 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 355:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 329              		.loc 1 355 0
+ 330 00f8 99B2     		uxth	r1, r3
+ 357:Generated_Source\PSoC5/LCD_SegStat.c ****                                         LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i + 1u],
+ 331              		.loc 1 357 0
+ 332 00fa 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 333 00fc 5A00     		lsls	r2, r3, #1
+ 334 00fe BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 335 0100 1344     		add	r3, r3, r2
+ 336 0102 0133     		adds	r3, r3, #1
+ 355:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 337              		.loc 1 355 0
+ 338 0104 364A     		ldr	r2, .L24+12
+ 339 0106 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
+ 340 0108 374B     		ldr	r3, .L24+20
+ 341 010a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 342 010c 43F00303 		orr	r3, r3, #3
+ 343 0110 DBB2     		uxtb	r3, r3
+ 344 0112 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 345 0116 15E0     		b	.L18
+ 346              	.L19:
+ 358:Generated_Source\PSoC5/LCD_SegStat.c ****                                         TD_INC_DST_ADR | TD_INC_SRC_ADR | LCD_SegStat_termOut);
+ 359:Generated_Source\PSoC5/LCD_SegStat.c ****             }
+ 360:Generated_Source\PSoC5/LCD_SegStat.c ****             else
+ 361:Generated_Source\PSoC5/LCD_SegStat.c ****             {
+ 362:Generated_Source\PSoC5/LCD_SegStat.c ****                 /* If this is not the last TD in the row it should automatically
+ 363:Generated_Source\PSoC5/LCD_SegStat.c ****                 * next standing TDs.
+ 364:Generated_Source\PSoC5/LCD_SegStat.c ****                 */
+ 365:Generated_Source\PSoC5/LCD_SegStat.c ****                (void) CyDmaTdSetConfiguration(LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i],
+ 347              		.loc 1 365 0
+ 348 0118 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 349 011a 5A00     		lsls	r2, r3, #1
+ 350 011c BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 351 011e 1344     		add	r3, r3, r2
+ 352 0120 2F4A     		ldr	r2, .L24+12
+ 353 0122 D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+ 366:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 354              		.loc 1 366 0
+ 355 0124 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 356 0126 2F4A     		ldr	r2, .L24+16
+ 357 0128 5B00     		lsls	r3, r3, #1
+ 358 012a 1344     		add	r3, r3, r2
+ 359 012c 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 365:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 360              		.loc 1 365 0
+ 361 012e 99B2     		uxth	r1, r3
+ 367:Generated_Source\PSoC5/LCD_SegStat.c ****                                         LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i + 1u],
+ 362              		.loc 1 367 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 14
+
+
+ 363 0130 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 364 0132 5A00     		lsls	r2, r3, #1
+ 365 0134 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 366 0136 1344     		add	r3, r3, r2
+ 367 0138 0133     		adds	r3, r3, #1
+ 365:Generated_Source\PSoC5/LCD_SegStat.c ****                                         (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].len
+ 368              		.loc 1 365 0
+ 369 013a 294A     		ldr	r2, .L24+12
+ 370 013c D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
+ 371 013e 2323     		movs	r3, #35
+ 372 0140 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 373              	.L18:
+ 368:Generated_Source\PSoC5/LCD_SegStat.c ****                                         TD_INC_DST_ADR | TD_INC_SRC_ADR | TD_AUTO_EXEC_NEXT);
+ 369:Generated_Source\PSoC5/LCD_SegStat.c ****             }
+ 370:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 371:Generated_Source\PSoC5/LCD_SegStat.c ****             /* Set the low 16 bits of the source and destination addresses
+ 372:Generated_Source\PSoC5/LCD_SegStat.c ****             * for TDs.
+ 373:Generated_Source\PSoC5/LCD_SegStat.c ****             */
+ 374:Generated_Source\PSoC5/LCD_SegStat.c ****             (void) CyDmaTdSetAddress(LCD_SegStat_lcdTd[(j * LCD_SegStat_LCD_TD_SIZE) + i],
+ 374              		.loc 1 374 0 discriminator 2
+ 375 0144 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 376 0146 5A00     		lsls	r2, r3, #1
+ 377 0148 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 378 014a 1344     		add	r3, r3, r2
+ 379 014c 244A     		ldr	r2, .L24+12
+ 380 014e D05C     		ldrb	r0, [r2, r3]	@ zero_extendqisi2
+ 381 0150 BB68     		ldr	r3, [r7, #8]
+ 382 0152 9AB2     		uxth	r2, r3
+ 383 0154 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 384 0156 9BB2     		uxth	r3, r3
+ 385 0158 1B01     		lsls	r3, r3, #4
+ 386 015a 9BB2     		uxth	r3, r3
+ 387 015c 1344     		add	r3, r3, r2
+ 388 015e 9AB2     		uxth	r2, r3
+ 375:Generated_Source\PSoC5/LCD_SegStat.c ****                               LO16(srcAddr) + (((uint16) j) * LCD_SegStat_ROW_LENGTH) +
+ 376:Generated_Source\PSoC5/LCD_SegStat.c ****                               (uint16) LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].offset,
+ 389              		.loc 1 376 0 discriminator 2
+ 390 0160 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 391 0162 2049     		ldr	r1, .L24+16
+ 392 0164 11F81330 		ldrb	r3, [r1, r3, lsl #1]	@ zero_extendqisi2
+ 374:Generated_Source\PSoC5/LCD_SegStat.c ****                               LO16(srcAddr) + (((uint16) j) * LCD_SegStat_ROW_LENGTH) +
+ 393              		.loc 1 374 0 discriminator 2
+ 394 0168 9BB2     		uxth	r3, r3
+ 395 016a 1344     		add	r3, r3, r2
+ 396 016c 9CB2     		uxth	r4, r3
+ 397 016e 7B68     		ldr	r3, [r7, #4]
+ 398 0170 9AB2     		uxth	r2, r3
+ 377:Generated_Source\PSoC5/LCD_SegStat.c ****                               LO16(dstAddr) + LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK[i].offset
+ 399              		.loc 1 377 0 discriminator 2
+ 400 0172 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 401 0174 1B49     		ldr	r1, .L24+16
+ 402 0176 11F81330 		ldrb	r3, [r1, r3, lsl #1]	@ zero_extendqisi2
+ 374:Generated_Source\PSoC5/LCD_SegStat.c ****                               LO16(srcAddr) + (((uint16) j) * LCD_SegStat_ROW_LENGTH) +
+ 403              		.loc 1 374 0 discriminator 2
+ 404 017a 9BB2     		uxth	r3, r3
+ 405 017c 1344     		add	r3, r3, r2
+ 406 017e 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 15
+
+
+ 407 0180 1A46     		mov	r2, r3
+ 408 0182 2146     		mov	r1, r4
+ 409 0184 FFF7FEFF 		bl	CyDmaTdSetAddress
+ 342:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 410              		.loc 1 342 0 discriminator 2
+ 411 0188 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 412 018a 0133     		adds	r3, r3, #1
+ 413 018c BB73     		strb	r3, [r7, #14]
+ 414              	.L16:
+ 342:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 415              		.loc 1 342 0 is_stmt 0 discriminator 1
+ 416 018e BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 417 0190 012B     		cmp	r3, #1
+ 418 0192 84D9     		bls	.L20
+ 340:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 419              		.loc 1 340 0 is_stmt 1 discriminator 2
+ 420 0194 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 421 0196 0133     		adds	r3, r3, #1
+ 422 0198 7B73     		strb	r3, [r7, #13]
+ 423              	.L15:
+ 340:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 424              		.loc 1 340 0 is_stmt 0 discriminator 1
+ 425 019a 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 426 019c 012B     		cmp	r3, #1
+ 427 019e 7FF67BAF 		bls	.L21
+ 378:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 379:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 380:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 381:Generated_Source\PSoC5/LCD_SegStat.c ****     /* If there was no errors during DMA configuration then enable the channel. */
+ 382:Generated_Source\PSoC5/LCD_SegStat.c ****     if(errorCnt == 0u)
+ 428              		.loc 1 382 0 is_stmt 1
+ 429 01a2 3B7B     		ldrb	r3, [r7, #12]	@ zero_extendqisi2
+ 430 01a4 002B     		cmp	r3, #0
+ 431 01a6 0FD1     		bne	.L22
+ 383:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 384:Generated_Source\PSoC5/LCD_SegStat.c ****         (void) CyDmaChSetInitialTd(LCD_SegStat_lcdChannel, LCD_SegStat_lcdTd[0u]);
+ 432              		.loc 1 384 0
+ 433 01a8 0C4B     		ldr	r3, .L24+8
+ 434 01aa 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 435 01ac 0C4B     		ldr	r3, .L24+12
+ 436 01ae 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 437 01b0 1946     		mov	r1, r3
+ 438 01b2 1046     		mov	r0, r2
+ 439 01b4 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 385:Generated_Source\PSoC5/LCD_SegStat.c ****         (void) CyDmaChEnable(LCD_SegStat_lcdChannel, 1u);
+ 440              		.loc 1 385 0
+ 441 01b8 084B     		ldr	r3, .L24+8
+ 442 01ba 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 443 01bc 0121     		movs	r1, #1
+ 444 01be 1846     		mov	r0, r3
+ 445 01c0 FFF7FEFF 		bl	CyDmaChEnable
+ 386:Generated_Source\PSoC5/LCD_SegStat.c ****         status = CYRET_SUCCESS;
+ 446              		.loc 1 386 0
+ 447 01c4 0023     		movs	r3, #0
+ 448 01c6 FB73     		strb	r3, [r7, #15]
+ 449              	.L22:
+ 387:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 16
+
+
+ 388:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 389:Generated_Source\PSoC5/LCD_SegStat.c ****     return(status);
+ 450              		.loc 1 389 0
+ 451 01c8 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 390:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 452              		.loc 1 390 0
+ 453 01ca 1846     		mov	r0, r3
+ 454 01cc 1437     		adds	r7, r7, #20
+ 455              		.cfi_def_cfa_offset 12
+ 456 01ce BD46     		mov	sp, r7
+ 457              		.cfi_def_cfa_register 13
+ 458              		@ sp needed
+ 459 01d0 90BD     		pop	{r4, r7, pc}
+ 460              	.L25:
+ 461 01d2 00BF     		.align	2
+ 462              	.L24:
+ 463 01d4 00000000 		.word	LCD_SegStat_buffer
+ 464 01d8 80500040 		.word	1073762432
+ 465 01dc 24000000 		.word	LCD_SegStat_lcdChannel
+ 466 01e0 20000000 		.word	LCD_SegStat_lcdTd
+ 467 01e4 14000000 		.word	LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK.5150
+ 468 01e8 02000000 		.word	LCD_SegStat_termOut.5151
+ 469              		.cfi_endproc
+ 470              	.LFE2:
+ 471              		.size	LCD_SegStat_DmaConfigure, .-LCD_SegStat_DmaConfigure
+ 472              		.section	.text.LCD_SegStat_DmaDispose,"ax",%progbits
+ 473              		.align	2
+ 474              		.thumb
+ 475              		.thumb_func
+ 476              		.type	LCD_SegStat_DmaDispose, %function
+ 477              	LCD_SegStat_DmaDispose:
+ 478              	.LFB3:
+ 391:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 392:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 393:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 394:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_DmaDispose
+ 395:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 396:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 397:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 398:Generated_Source\PSoC5/LCD_SegStat.c **** *  Releases transaction descriptors and DMA channel previously used by the
+ 399:Generated_Source\PSoC5/LCD_SegStat.c **** *  component.
+ 400:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 401:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 402:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 403:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 404:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 405:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 406:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 407:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 408:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_lcdTd[] - used  store a set of allocated TD IDs that are
+ 409:Generated_Source\PSoC5/LCD_SegStat.c **** *  used by this component which will be released by this function.
+ 410:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 411:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_lcdChannel - holds the channel number used by the LCD
+ 412:Generated_Source\PSoC5/LCD_SegStat.c **** *  component that will be released by this function.
+ 413:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 414:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 415:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 17
+
+
+ 416:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 417:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 418:Generated_Source\PSoC5/LCD_SegStat.c **** static void LCD_SegStat_DmaDispose(void) CYREENTRANT
+ 419:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 479              		.loc 1 419 0
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 8
+ 482              		@ frame_needed = 1, uses_anonymous_args = 0
+ 483 0000 80B5     		push	{r7, lr}
+ 484              		.cfi_def_cfa_offset 8
+ 485              		.cfi_offset 7, -8
+ 486              		.cfi_offset 14, -4
+ 487 0002 82B0     		sub	sp, sp, #8
+ 488              		.cfi_def_cfa_offset 16
+ 489 0004 00AF     		add	r7, sp, #0
+ 490              		.cfi_def_cfa_register 7
+ 420:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 i;
+ 421:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 422:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Release DMA handle, this will disable the LCD channel */
+ 423:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_Lcd_Dma_DmaRelease();
+ 491              		.loc 1 423 0
+ 492 0006 FFF7FEFF 		bl	LCD_SegStat_Lcd_Dma_DmaRelease
+ 424:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 425:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Free unused channel */
+ 426:Generated_Source\PSoC5/LCD_SegStat.c ****     (void) CyDmaChFree(LCD_SegStat_lcdChannel);
+ 493              		.loc 1 426 0
+ 494 000a 0C4B     		ldr	r3, .L29
+ 495 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 496 000e 1846     		mov	r0, r3
+ 497 0010 FFF7FEFF 		bl	CyDmaChFree
+ 427:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 428:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Release all allocated TDs */
+ 429:Generated_Source\PSoC5/LCD_SegStat.c ****     for(i = 0u; i < (LCD_SegStat_LCD_TD_SIZE * LCD_SegStat_COMM_NUM); i++)
+ 498              		.loc 1 429 0
+ 499 0014 0023     		movs	r3, #0
+ 500 0016 FB71     		strb	r3, [r7, #7]
+ 501 0018 08E0     		b	.L27
+ 502              	.L28:
+ 430:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 431:Generated_Source\PSoC5/LCD_SegStat.c ****         CyDmaTdFree(LCD_SegStat_lcdTd[i]);
+ 503              		.loc 1 431 0 discriminator 3
+ 504 001a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 505 001c 084A     		ldr	r2, .L29+4
+ 506 001e D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 507 0020 1846     		mov	r0, r3
+ 508 0022 FFF7FEFF 		bl	CyDmaTdFree
+ 429:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 509              		.loc 1 429 0 discriminator 3
+ 510 0026 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 511 0028 0133     		adds	r3, r3, #1
+ 512 002a FB71     		strb	r3, [r7, #7]
+ 513              	.L27:
+ 429:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 514              		.loc 1 429 0 is_stmt 0 discriminator 1
+ 515 002c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 516 002e 032B     		cmp	r3, #3
+ 517 0030 F3D9     		bls	.L28
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 18
+
+
+ 432:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 433:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 518              		.loc 1 433 0 is_stmt 1
+ 519 0032 00BF     		nop
+ 520 0034 0837     		adds	r7, r7, #8
+ 521              		.cfi_def_cfa_offset 8
+ 522 0036 BD46     		mov	sp, r7
+ 523              		.cfi_def_cfa_register 13
+ 524              		@ sp needed
+ 525 0038 80BD     		pop	{r7, pc}
+ 526              	.L30:
+ 527 003a 00BF     		.align	2
+ 528              	.L29:
+ 529 003c 24000000 		.word	LCD_SegStat_lcdChannel
+ 530 0040 20000000 		.word	LCD_SegStat_lcdTd
+ 531              		.cfi_endproc
+ 532              	.LFE3:
+ 533              		.size	LCD_SegStat_DmaDispose, .-LCD_SegStat_DmaDispose
+ 534              		.section	.text.LCD_SegStat_Start,"ax",%progbits
+ 535              		.align	2
+ 536              		.global	LCD_SegStat_Start
+ 537              		.thumb
+ 538              		.thumb_func
+ 539              		.type	LCD_SegStat_Start, %function
+ 540              	LCD_SegStat_Start:
+ 541              	.LFB4:
+ 434:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 435:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 436:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 437:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_Start
+ 438:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 439:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 440:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 441:Generated_Source\PSoC5/LCD_SegStat.c **** *  Starts the LCD component , DMA channels and initializes the frame buffer.
+ 442:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 443:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 444:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 445:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 446:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 447:Generated_Source\PSoC5/LCD_SegStat.c **** *  One of standard status for PSoC3 Component:
+ 448:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 449:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_LOCKED - The object was locked, already in use. Some of TDs or
+ 450:Generated_Source\PSoC5/LCD_SegStat.c **** *                     channel already in use.
+ 451:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 452:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 453:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_initVar - is used to indicate initial configuration of
+ 454:Generated_Source\PSoC5/LCD_SegStat.c **** *  this component. The variable is initialized to zero and set to 1 the first
+ 455:Generated_Source\PSoC5/LCD_SegStat.c **** *  time LCD_SegStat_Start() is called. This allows for component
+ 456:Generated_Source\PSoC5/LCD_SegStat.c **** *  initialization without re-initialization in all subsequent calls to the
+ 457:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_Start() routine.
+ 458:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 459:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 460:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 461:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 462:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 463:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_Start(void) 
+ 464:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 19
+
+
+ 542              		.loc 1 464 0
+ 543              		.cfi_startproc
+ 544              		@ args = 0, pretend = 0, frame = 8
+ 545              		@ frame_needed = 1, uses_anonymous_args = 0
+ 546 0000 80B5     		push	{r7, lr}
+ 547              		.cfi_def_cfa_offset 8
+ 548              		.cfi_offset 7, -8
+ 549              		.cfi_offset 14, -4
+ 550 0002 82B0     		sub	sp, sp, #8
+ 551              		.cfi_def_cfa_offset 16
+ 552 0004 00AF     		add	r7, sp, #0
+ 553              		.cfi_def_cfa_register 7
+ 465:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 status;
+ 466:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 467:Generated_Source\PSoC5/LCD_SegStat.c ****     /* If not Initialized then initialize all required hardware and software */
+ 468:Generated_Source\PSoC5/LCD_SegStat.c ****     if(LCD_SegStat_initVar == 0u)
+ 554              		.loc 1 468 0
+ 555 0006 094B     		ldr	r3, .L34
+ 556 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 557 000a 002B     		cmp	r3, #0
+ 558 000c 04D1     		bne	.L32
+ 469:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 470:Generated_Source\PSoC5/LCD_SegStat.c ****         LCD_SegStat_initVar = 1u;
+ 559              		.loc 1 470 0
+ 560 000e 074B     		ldr	r3, .L34
+ 561 0010 0122     		movs	r2, #1
+ 562 0012 1A70     		strb	r2, [r3]
+ 471:Generated_Source\PSoC5/LCD_SegStat.c ****         LCD_SegStat_Init();
+ 563              		.loc 1 471 0
+ 564 0014 FFF7FEFF 		bl	LCD_SegStat_Init
+ 565              	.L32:
+ 472:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 473:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 474:Generated_Source\PSoC5/LCD_SegStat.c ****     status = LCD_SegStat_Enable();
+ 566              		.loc 1 474 0
+ 567 0018 FFF7FEFF 		bl	LCD_SegStat_Enable
+ 568 001c 0346     		mov	r3, r0
+ 569 001e FB71     		strb	r3, [r7, #7]
+ 475:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 476:Generated_Source\PSoC5/LCD_SegStat.c ****     return(status);
+ 570              		.loc 1 476 0
+ 571 0020 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 477:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 572              		.loc 1 477 0
+ 573 0022 1846     		mov	r0, r3
+ 574 0024 0837     		adds	r7, r7, #8
+ 575              		.cfi_def_cfa_offset 8
+ 576 0026 BD46     		mov	sp, r7
+ 577              		.cfi_def_cfa_register 13
+ 578              		@ sp needed
+ 579 0028 80BD     		pop	{r7, pc}
+ 580              	.L35:
+ 581 002a 00BF     		.align	2
+ 582              	.L34:
+ 583 002c 00000000 		.word	LCD_SegStat_initVar
+ 584              		.cfi_endproc
+ 585              	.LFE4:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 20
+
+
+ 586              		.size	LCD_SegStat_Start, .-LCD_SegStat_Start
+ 587              		.section	.text.LCD_SegStat_Stop,"ax",%progbits
+ 588              		.align	2
+ 589              		.global	LCD_SegStat_Stop
+ 590              		.thumb
+ 591              		.thumb_func
+ 592              		.type	LCD_SegStat_Stop, %function
+ 593              	LCD_SegStat_Stop:
+ 594              	.LFB5:
+ 478:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 479:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 480:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 481:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_Stop
+ 482:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 483:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 484:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 485:Generated_Source\PSoC5/LCD_SegStat.c **** *  Disables the LCD component and disables any required interrupts and DMA
+ 486:Generated_Source\PSoC5/LCD_SegStat.c **** *  channels. Automatically blanks the display to avoid damage from DC offsets.
+ 487:Generated_Source\PSoC5/LCD_SegStat.c **** *  Does not clear the frame buffer. Disables LCD every frame interrupt.
+ 488:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 489:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 490:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 491:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 492:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 493:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 494:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 495:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 496:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_enableState - cleared to 0 by this function indicating
+ 497:Generated_Source\PSoC5/LCD_SegStat.c **** *  that the component is disabled.
+ 498:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 499:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 500:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_Stop(void) 
+ 501:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 595              		.loc 1 501 0
+ 596              		.cfi_startproc
+ 597              		@ args = 0, pretend = 0, frame = 0
+ 598              		@ frame_needed = 1, uses_anonymous_args = 0
+ 599 0000 80B5     		push	{r7, lr}
+ 600              		.cfi_def_cfa_offset 8
+ 601              		.cfi_offset 7, -8
+ 602              		.cfi_offset 14, -4
+ 603 0002 00AF     		add	r7, sp, #0
+ 604              		.cfi_def_cfa_register 7
+ 502:Generated_Source\PSoC5/LCD_SegStat.c ****     CyIntDisable(LCD_SegStat_ISR_NUMBER);
+ 605              		.loc 1 502 0
+ 606 0004 054B     		ldr	r3, .L37
+ 607 0006 0122     		movs	r2, #1
+ 608 0008 1A60     		str	r2, [r3]
+ 503:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 504:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Stop clock generation */
+ 505:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_InClock_Disable();
+ 609              		.loc 1 505 0
+ 610 000a FFF7FEFF 		bl	LCD_SegStat_InClock_Stop
+ 506:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 507:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Release DMA resources used for the LCD */
+ 508:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_DmaDispose();
+ 611              		.loc 1 508 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 21
+
+
+ 612 000e FFF7FEFF 		bl	LCD_SegStat_DmaDispose
+ 509:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 510:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Now the component is disabled so save its state */
+ 511:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_enableState = 0u;
+ 613              		.loc 1 511 0
+ 614 0012 034B     		ldr	r3, .L37+4
+ 615 0014 0022     		movs	r2, #0
+ 616 0016 1A70     		strb	r2, [r3]
+ 512:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 617              		.loc 1 512 0
+ 618 0018 00BF     		nop
+ 619 001a 80BD     		pop	{r7, pc}
+ 620              	.L38:
+ 621              		.align	2
+ 622              	.L37:
+ 623 001c 80E100E0 		.word	-536813184
+ 624 0020 00000000 		.word	LCD_SegStat_enableState
+ 625              		.cfi_endproc
+ 626              	.LFE5:
+ 627              		.size	LCD_SegStat_Stop, .-LCD_SegStat_Stop
+ 628              		.section	.text.LCD_SegStat_EnableInt,"ax",%progbits
+ 629              		.align	2
+ 630              		.global	LCD_SegStat_EnableInt
+ 631              		.thumb
+ 632              		.thumb_func
+ 633              		.type	LCD_SegStat_EnableInt, %function
+ 634              	LCD_SegStat_EnableInt:
+ 635              	.LFB6:
+ 513:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 514:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 515:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 516:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_EnableInt
+ 517:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 518:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 519:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 520:Generated_Source\PSoC5/LCD_SegStat.c **** *  Enables LCD every-frame interrupt.
+ 521:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 522:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 523:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 524:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 525:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 526:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 527:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 528:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 529:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_EnableInt(void) 
+ 530:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 636              		.loc 1 530 0
+ 637              		.cfi_startproc
+ 638              		@ args = 0, pretend = 0, frame = 0
+ 639              		@ frame_needed = 1, uses_anonymous_args = 0
+ 640              		@ link register save eliminated.
+ 641 0000 80B4     		push	{r7}
+ 642              		.cfi_def_cfa_offset 4
+ 643              		.cfi_offset 7, -4
+ 644 0002 00AF     		add	r7, sp, #0
+ 645              		.cfi_def_cfa_register 7
+ 531:Generated_Source\PSoC5/LCD_SegStat.c ****     CyIntEnable(LCD_SegStat_ISR_NUMBER);
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 22
+
+
+ 646              		.loc 1 531 0
+ 647 0004 034B     		ldr	r3, .L40
+ 648 0006 0122     		movs	r2, #1
+ 649 0008 1A60     		str	r2, [r3]
+ 532:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 650              		.loc 1 532 0
+ 651 000a 00BF     		nop
+ 652 000c BD46     		mov	sp, r7
+ 653              		.cfi_def_cfa_register 13
+ 654              		@ sp needed
+ 655 000e 80BC     		pop	{r7}
+ 656              		.cfi_restore 7
+ 657              		.cfi_def_cfa_offset 0
+ 658 0010 7047     		bx	lr
+ 659              	.L41:
+ 660 0012 00BF     		.align	2
+ 661              	.L40:
+ 662 0014 00E100E0 		.word	-536813312
+ 663              		.cfi_endproc
+ 664              	.LFE6:
+ 665              		.size	LCD_SegStat_EnableInt, .-LCD_SegStat_EnableInt
+ 666              		.section	.text.LCD_SegStat_DisableInt,"ax",%progbits
+ 667              		.align	2
+ 668              		.global	LCD_SegStat_DisableInt
+ 669              		.thumb
+ 670              		.thumb_func
+ 671              		.type	LCD_SegStat_DisableInt, %function
+ 672              	LCD_SegStat_DisableInt:
+ 673              	.LFB7:
+ 533:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 534:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 535:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 536:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_DisableInt
+ 537:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 538:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 539:Generated_Source\PSoC5/LCD_SegStat.c **** *  Description: Disables LCD interrupt. Not required if LCD_SegStat_Stop
+ 540:Generated_Source\PSoC5/LCD_SegStat.c **** *  called.
+ 541:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 542:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 543:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 544:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 545:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 546:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 547:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 548:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 549:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_DisableInt(void) 
+ 550:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 674              		.loc 1 550 0
+ 675              		.cfi_startproc
+ 676              		@ args = 0, pretend = 0, frame = 0
+ 677              		@ frame_needed = 1, uses_anonymous_args = 0
+ 678              		@ link register save eliminated.
+ 679 0000 80B4     		push	{r7}
+ 680              		.cfi_def_cfa_offset 4
+ 681              		.cfi_offset 7, -4
+ 682 0002 00AF     		add	r7, sp, #0
+ 683              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 23
+
+
+ 551:Generated_Source\PSoC5/LCD_SegStat.c ****    CyIntDisable(LCD_SegStat_ISR_NUMBER);
+ 684              		.loc 1 551 0
+ 685 0004 034B     		ldr	r3, .L43
+ 686 0006 0122     		movs	r2, #1
+ 687 0008 1A60     		str	r2, [r3]
+ 552:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 688              		.loc 1 552 0
+ 689 000a 00BF     		nop
+ 690 000c BD46     		mov	sp, r7
+ 691              		.cfi_def_cfa_register 13
+ 692              		@ sp needed
+ 693 000e 80BC     		pop	{r7}
+ 694              		.cfi_restore 7
+ 695              		.cfi_def_cfa_offset 0
+ 696 0010 7047     		bx	lr
+ 697              	.L44:
+ 698 0012 00BF     		.align	2
+ 699              	.L43:
+ 700 0014 80E100E0 		.word	-536813184
+ 701              		.cfi_endproc
+ 702              	.LFE7:
+ 703              		.size	LCD_SegStat_DisableInt, .-LCD_SegStat_DisableInt
+ 704              		.section	.text.LCD_SegStat_ClearDisplay,"ax",%progbits
+ 705              		.align	2
+ 706              		.global	LCD_SegStat_ClearDisplay
+ 707              		.thumb
+ 708              		.thumb_func
+ 709              		.type	LCD_SegStat_ClearDisplay, %function
+ 710              	LCD_SegStat_ClearDisplay:
+ 711              	.LFB8:
+ 553:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 554:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 555:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 556:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_ClearDisplay
+ 557:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 558:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 559:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 560:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function clears the display RAM of the frame buffer.
+ 561:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 562:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 563:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 564:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 565:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 566:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 567:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 568:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 569:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_buffer[] - an array is modified by this API. Clears the
+ 570:Generated_Source\PSoC5/LCD_SegStat.c **** *  frame buffer to all zeroes and then reinitialize it with a 1 in the
+ 571:Generated_Source\PSoC5/LCD_SegStat.c **** *  locations specified by the values from LCD_SegStat_commons[].
+ 572:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 573:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_commons[] - holds the pixel locations for common lines.
+ 574:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 575:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 576:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 577:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 578:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 579:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_ClearDisplay(void) 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 24
+
+
+ 580:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 712              		.loc 1 580 0
+ 713              		.cfi_startproc
+ 714              		@ args = 0, pretend = 0, frame = 8
+ 715              		@ frame_needed = 1, uses_anonymous_args = 0
+ 716 0000 80B5     		push	{r7, lr}
+ 717              		.cfi_def_cfa_offset 8
+ 718              		.cfi_offset 7, -8
+ 719              		.cfi_offset 14, -4
+ 720 0002 82B0     		sub	sp, sp, #8
+ 721              		.cfi_def_cfa_offset 16
+ 722 0004 00AF     		add	r7, sp, #0
+ 723              		.cfi_def_cfa_register 7
+ 581:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 i;
+ 582:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 583:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Clear entire frame buffer to "zero" values */
+ 584:Generated_Source\PSoC5/LCD_SegStat.c ****     for(i = 0u ; i < LCD_SegStat_BUFFER_LENGTH; i++)
+ 724              		.loc 1 584 0
+ 725 0006 0023     		movs	r3, #0
+ 726 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 727 000a 0EE0     		b	.L46
+ 728              	.L49:
+ 585:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 586:Generated_Source\PSoC5/LCD_SegStat.c ****         if(i < (LCD_SegStat_BUFFER_LENGTH / 2u))
+ 729              		.loc 1 586 0
+ 730 000c FB88     		ldrh	r3, [r7, #6]
+ 731 000e 0F2B     		cmp	r3, #15
+ 732 0010 04D8     		bhi	.L47
+ 587:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 588:Generated_Source\PSoC5/LCD_SegStat.c ****             /* First line(frame) of the buffer should contain pixel data */
+ 589:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_buffer[i] = 0x00u;
+ 733              		.loc 1 589 0
+ 734 0012 FB88     		ldrh	r3, [r7, #6]
+ 735 0014 0B4A     		ldr	r2, .L50
+ 736 0016 0021     		movs	r1, #0
+ 737 0018 D154     		strb	r1, [r2, r3]
+ 738 001a 03E0     		b	.L48
+ 739              	.L47:
+ 590:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 591:Generated_Source\PSoC5/LCD_SegStat.c ****         else
+ 592:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 593:Generated_Source\PSoC5/LCD_SegStat.c ****             /* Second line(frame) of the buffer should contain inverted pixel data */
+ 594:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_buffer[i] = 0xFFu;
+ 740              		.loc 1 594 0
+ 741 001c FB88     		ldrh	r3, [r7, #6]
+ 742 001e 094A     		ldr	r2, .L50
+ 743 0020 FF21     		movs	r1, #255
+ 744 0022 D154     		strb	r1, [r2, r3]
+ 745              	.L48:
+ 584:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 746              		.loc 1 584 0 discriminator 2
+ 747 0024 FB88     		ldrh	r3, [r7, #6]
+ 748 0026 0133     		adds	r3, r3, #1
+ 749 0028 FB80     		strh	r3, [r7, #6]	@ movhi
+ 750              	.L46:
+ 584:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 751              		.loc 1 584 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 25
+
+
+ 752 002a FB88     		ldrh	r3, [r7, #6]
+ 753 002c 1F2B     		cmp	r3, #31
+ 754 002e EDD9     		bls	.L49
+ 595:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 596:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 597:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 598:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Reinitialize the commons */
+ 599:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_WRITE_PIXEL(LCD_SegStat_commons[0u], LCD_SegStat_PIXEL_STATE_OFF);
+ 755              		.loc 1 599 0 is_stmt 1
+ 756 0030 054B     		ldr	r3, .L50+4
+ 757 0032 1B88     		ldrh	r3, [r3]
+ 758 0034 0021     		movs	r1, #0
+ 759 0036 1846     		mov	r0, r3
+ 760 0038 FFF7FEFF 		bl	LCD_SegStat_WritePixel
+ 600:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 761              		.loc 1 600 0
+ 762 003c 00BF     		nop
+ 763 003e 0837     		adds	r7, r7, #8
+ 764              		.cfi_def_cfa_offset 8
+ 765 0040 BD46     		mov	sp, r7
+ 766              		.cfi_def_cfa_register 13
+ 767              		@ sp needed
+ 768 0042 80BD     		pop	{r7, pc}
+ 769              	.L51:
+ 770              		.align	2
+ 771              	.L50:
+ 772 0044 00000000 		.word	LCD_SegStat_buffer
+ 773 0048 00000000 		.word	LCD_SegStat_commons
+ 774              		.cfi_endproc
+ 775              	.LFE8:
+ 776              		.size	LCD_SegStat_ClearDisplay, .-LCD_SegStat_ClearDisplay
+ 777              		.section	.text.LCD_SegStat_WritePixel,"ax",%progbits
+ 778              		.align	2
+ 779              		.global	LCD_SegStat_WritePixel
+ 780              		.thumb
+ 781              		.thumb_func
+ 782              		.type	LCD_SegStat_WritePixel, %function
+ 783              	LCD_SegStat_WritePixel:
+ 784              	.LFB9:
+ 601:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 602:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 603:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 604:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_WritePixel
+ 605:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 606:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 607:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 608:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function sets or clears a pixel based on pixelState in a frame buffer.
+ 609:Generated_Source\PSoC5/LCD_SegStat.c **** *  The Pixel is addressed by a packed number.
+ 610:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 611:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 612:Generated_Source\PSoC5/LCD_SegStat.c **** *  pixelNumber: is the packed number that points to the pixels location in the
+ 613:Generated_Source\PSoC5/LCD_SegStat.c **** *               frame buffer. The lowest three bits in the LSB low nibble are
+ 614:Generated_Source\PSoC5/LCD_SegStat.c **** *               the bit position in the byte, the LSB upper nibble (4 bits) is
+ 615:Generated_Source\PSoC5/LCD_SegStat.c **** *               the byte address in the multiplex Row and the MSB low nibble
+ 616:Generated_Source\PSoC5/LCD_SegStat.c **** *               (4 bits) is the multiplex Row number.
+ 617:Generated_Source\PSoC5/LCD_SegStat.c **** *  pixelState : 0 for pixel off,1 for pixel on, 2 for pixel invert.
+ 618:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 26
+
+
+ 619:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 620:Generated_Source\PSoC5/LCD_SegStat.c **** *  Status returns the standardized return value for pass or fail on a range
+ 621:Generated_Source\PSoC5/LCD_SegStat.c **** *  check of the byte address and multiplex Row number:
+ 622:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_SUCCESS - Function completed successfully.
+ 623:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_BAD_PARAM - One of the parameters is invalid.
+ 624:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 625:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 626:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_buffer[] - an array is modified by this API. This API sets
+ 627:Generated_Source\PSoC5/LCD_SegStat.c **** *  or clears certain bit in the array defined by the input parameter.
+ 628:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 629:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 630:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 631:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 632:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 633:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_WritePixel(uint16 pixelNumber, uint8 pixelState) 
+ 634:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 785              		.loc 1 634 0
+ 786              		.cfi_startproc
+ 787              		@ args = 0, pretend = 0, frame = 24
+ 788              		@ frame_needed = 1, uses_anonymous_args = 0
+ 789 0000 80B5     		push	{r7, lr}
+ 790              		.cfi_def_cfa_offset 8
+ 791              		.cfi_offset 7, -8
+ 792              		.cfi_offset 14, -4
+ 793 0002 86B0     		sub	sp, sp, #24
+ 794              		.cfi_def_cfa_offset 32
+ 795 0004 00AF     		add	r7, sp, #0
+ 796              		.cfi_def_cfa_register 7
+ 797 0006 0346     		mov	r3, r0
+ 798 0008 0A46     		mov	r2, r1
+ 799 000a FB80     		strh	r3, [r7, #6]	@ movhi
+ 800 000c 1346     		mov	r3, r2
+ 801 000e 7B71     		strb	r3, [r7, #5]
+ 635:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 byteAddr;
+ 636:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 bitAddr;
+ 637:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 row;
+ 638:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 mask;
+ 639:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 status;
+ 640:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 641:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Let the User know that he has entered wrong parameter
+ 642:Generated_Source\PSoC5/LCD_SegStat.c ****     * which is pixel state greater than 2 or unconnected pixel.
+ 643:Generated_Source\PSoC5/LCD_SegStat.c ****     */
+ 644:Generated_Source\PSoC5/LCD_SegStat.c ****     if((pixelState > LCD_SegStat_PIXEL_STATE_INVERT) || (pixelNumber == LCD_SegStat_NOT_CON))
+ 802              		.loc 1 644 0
+ 803 0010 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 804 0012 022B     		cmp	r3, #2
+ 805 0014 02D8     		bhi	.L53
+ 806              		.loc 1 644 0 is_stmt 0 discriminator 1
+ 807 0016 FB88     		ldrh	r3, [r7, #6]
+ 808 0018 FF2B     		cmp	r3, #255
+ 809 001a 02D1     		bne	.L54
+ 810              	.L53:
+ 645:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 646:Generated_Source\PSoC5/LCD_SegStat.c ****         status = CYRET_BAD_PARAM;
+ 811              		.loc 1 646 0 is_stmt 1
+ 812 001c 0123     		movs	r3, #1
+ 813 001e FB75     		strb	r3, [r7, #23]
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 27
+
+
+ 814 0020 58E0     		b	.L55
+ 815              	.L54:
+ 647:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 648:Generated_Source\PSoC5/LCD_SegStat.c ****     else
+ 649:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 650:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Extract bit position in the byte */
+ 651:Generated_Source\PSoC5/LCD_SegStat.c ****         bitAddr = (pixelNumber & LCD_SegStat_BIT_MASK);
+ 816              		.loc 1 651 0
+ 817 0022 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 818 0024 03F00703 		and	r3, r3, #7
+ 819 0028 BB82     		strh	r3, [r7, #20]	@ movhi
+ 652:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 653:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Extract byte position in the Row */
+ 654:Generated_Source\PSoC5/LCD_SegStat.c ****         byteAddr = (pixelNumber & LCD_SegStat_PORT_MASK) >> LCD_SegStat_PORT_SHIFT;
+ 820              		.loc 1 654 0
+ 821 002a FB88     		ldrh	r3, [r7, #6]
+ 822 002c 1B09     		lsrs	r3, r3, #4
+ 823 002e 9BB2     		uxth	r3, r3
+ 824 0030 03F00F03 		and	r3, r3, #15
+ 825 0034 7B82     		strh	r3, [r7, #18]	@ movhi
+ 655:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 656:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Extract Row position */
+ 657:Generated_Source\PSoC5/LCD_SegStat.c ****         row = (pixelNumber & LCD_SegStat_ROW_MASK) >> LCD_SegStat_ROW_SHIFT;
+ 826              		.loc 1 657 0
+ 827 0036 FB88     		ldrh	r3, [r7, #6]
+ 828 0038 1B0A     		lsrs	r3, r3, #8
+ 829 003a 9BB2     		uxth	r3, r3
+ 830 003c 03F00F03 		and	r3, r3, #15
+ 831 0040 3B82     		strh	r3, [r7, #16]	@ movhi
+ 658:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 659:Generated_Source\PSoC5/LCD_SegStat.c ****         if(pixelState == LCD_SegStat_PIXEL_STATE_INVERT)
+ 832              		.loc 1 659 0
+ 833 0042 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 834 0044 022B     		cmp	r3, #2
+ 835 0046 06D1     		bne	.L56
+ 660:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 661:Generated_Source\PSoC5/LCD_SegStat.c ****             /* Invert actual pixel state */
+ 662:Generated_Source\PSoC5/LCD_SegStat.c ****             pixelState = ~(LCD_SegStat_ReadPixel(pixelNumber));
+ 836              		.loc 1 662 0
+ 837 0048 FB88     		ldrh	r3, [r7, #6]
+ 838 004a 1846     		mov	r0, r3
+ 839 004c FFF7FEFF 		bl	LCD_SegStat_ReadPixel
+ 840 0050 0346     		mov	r3, r0
+ 841 0052 DB43     		mvns	r3, r3
+ 842 0054 7B71     		strb	r3, [r7, #5]
+ 843              	.L56:
+ 663:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 664:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 665:Generated_Source\PSoC5/LCD_SegStat.c ****         mask = ~(uint8) (((uint8) LCD_SegStat_PIXEL_STATE_ON) << bitAddr);
+ 844              		.loc 1 665 0
+ 845 0056 BB8A     		ldrh	r3, [r7, #20]
+ 846 0058 0122     		movs	r2, #1
+ 847 005a 02FA03F3 		lsl	r3, r2, r3
+ 848 005e DBB2     		uxtb	r3, r3
+ 849 0060 DB43     		mvns	r3, r3
+ 850 0062 FB73     		strb	r3, [r7, #15]
+ 666:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 28
+
+
+ 667:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Set pixel in first frame buffer line */
+ 668:Generated_Source\PSoC5/LCD_SegStat.c ****         LCD_SegStat_buffer[(row * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] =
+ 851              		.loc 1 668 0
+ 852 0064 3B8A     		ldrh	r3, [r7, #16]
+ 853 0066 1A01     		lsls	r2, r3, #4
+ 854 0068 7B8A     		ldrh	r3, [r7, #18]
+ 855 006a 1344     		add	r3, r3, r2
+ 669:Generated_Source\PSoC5/LCD_SegStat.c ****             (LCD_SegStat_buffer[(row * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 856              		.loc 1 669 0
+ 857 006c 3A8A     		ldrh	r2, [r7, #16]
+ 858 006e 1101     		lsls	r1, r2, #4
+ 859 0070 7A8A     		ldrh	r2, [r7, #18]
+ 860 0072 0A44     		add	r2, r2, r1
+ 861 0074 1A49     		ldr	r1, .L58
+ 862 0076 895C     		ldrb	r1, [r1, r2]	@ zero_extendqisi2
+ 668:Generated_Source\PSoC5/LCD_SegStat.c ****             (LCD_SegStat_buffer[(row * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 863              		.loc 1 668 0
+ 864 0078 FA7B     		ldrb	r2, [r7, #15]
+ 865 007a 0A40     		ands	r2, r2, r1
+ 866 007c D2B2     		uxtb	r2, r2
+ 867 007e 51B2     		sxtb	r1, r2
+ 670:Generated_Source\PSoC5/LCD_SegStat.c ****             ((uint8) (((uint8) pixelState) << bitAddr));
+ 868              		.loc 1 670 0
+ 869 0080 7879     		ldrb	r0, [r7, #5]	@ zero_extendqisi2
+ 870 0082 BA8A     		ldrh	r2, [r7, #20]
+ 871 0084 00FA02F2 		lsl	r2, r0, r2
+ 668:Generated_Source\PSoC5/LCD_SegStat.c ****             (LCD_SegStat_buffer[(row * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 872              		.loc 1 668 0
+ 873 0088 52B2     		sxtb	r2, r2
+ 874 008a 0A43     		orrs	r2, r2, r1
+ 875 008c 52B2     		sxtb	r2, r2
+ 876 008e D1B2     		uxtb	r1, r2
+ 877 0090 134A     		ldr	r2, .L58
+ 878 0092 D154     		strb	r1, [r2, r3]
+ 671:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 672:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Invert pixel state */
+ 673:Generated_Source\PSoC5/LCD_SegStat.c ****         pixelState ^= LCD_SegStat_PIXEL_STATE_ON;
+ 879              		.loc 1 673 0
+ 880 0094 7B79     		ldrb	r3, [r7, #5]
+ 881 0096 83F00103 		eor	r3, r3, #1
+ 882 009a 7B71     		strb	r3, [r7, #5]
+ 674:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 675:Generated_Source\PSoC5/LCD_SegStat.c ****         LCD_SegStat_buffer[((row + 1u) * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] =
+ 883              		.loc 1 675 0
+ 884 009c 3B8A     		ldrh	r3, [r7, #16]
+ 885 009e 0133     		adds	r3, r3, #1
+ 886 00a0 1A01     		lsls	r2, r3, #4
+ 887 00a2 7B8A     		ldrh	r3, [r7, #18]
+ 888 00a4 1344     		add	r3, r3, r2
+ 676:Generated_Source\PSoC5/LCD_SegStat.c ****             (LCD_SegStat_buffer[((row + 1u) * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 889              		.loc 1 676 0
+ 890 00a6 3A8A     		ldrh	r2, [r7, #16]
+ 891 00a8 0132     		adds	r2, r2, #1
+ 892 00aa 1101     		lsls	r1, r2, #4
+ 893 00ac 7A8A     		ldrh	r2, [r7, #18]
+ 894 00ae 0A44     		add	r2, r2, r1
+ 895 00b0 0B49     		ldr	r1, .L58
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 29
+
+
+ 896 00b2 895C     		ldrb	r1, [r1, r2]	@ zero_extendqisi2
+ 675:Generated_Source\PSoC5/LCD_SegStat.c ****             (LCD_SegStat_buffer[((row + 1u) * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 897              		.loc 1 675 0
+ 898 00b4 FA7B     		ldrb	r2, [r7, #15]
+ 899 00b6 0A40     		ands	r2, r2, r1
+ 900 00b8 D2B2     		uxtb	r2, r2
+ 901 00ba 51B2     		sxtb	r1, r2
+ 677:Generated_Source\PSoC5/LCD_SegStat.c ****             ((uint8) (((uint8) pixelState) << bitAddr));
+ 902              		.loc 1 677 0
+ 903 00bc 7879     		ldrb	r0, [r7, #5]	@ zero_extendqisi2
+ 904 00be BA8A     		ldrh	r2, [r7, #20]
+ 905 00c0 00FA02F2 		lsl	r2, r0, r2
+ 675:Generated_Source\PSoC5/LCD_SegStat.c ****             (LCD_SegStat_buffer[((row + 1u) * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] & mask) |
+ 906              		.loc 1 675 0
+ 907 00c4 52B2     		sxtb	r2, r2
+ 908 00c6 0A43     		orrs	r2, r2, r1
+ 909 00c8 52B2     		sxtb	r2, r2
+ 910 00ca D1B2     		uxtb	r1, r2
+ 911 00cc 044A     		ldr	r2, .L58
+ 912 00ce D154     		strb	r1, [r2, r3]
+ 678:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 679:Generated_Source\PSoC5/LCD_SegStat.c ****         status = CYRET_SUCCESS;
+ 913              		.loc 1 679 0
+ 914 00d0 0023     		movs	r3, #0
+ 915 00d2 FB75     		strb	r3, [r7, #23]
+ 916              	.L55:
+ 680:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 681:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 682:Generated_Source\PSoC5/LCD_SegStat.c ****     return(status);
+ 917              		.loc 1 682 0
+ 918 00d4 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 683:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 919              		.loc 1 683 0
+ 920 00d6 1846     		mov	r0, r3
+ 921 00d8 1837     		adds	r7, r7, #24
+ 922              		.cfi_def_cfa_offset 8
+ 923 00da BD46     		mov	sp, r7
+ 924              		.cfi_def_cfa_register 13
+ 925              		@ sp needed
+ 926 00dc 80BD     		pop	{r7, pc}
+ 927              	.L59:
+ 928 00de 00BF     		.align	2
+ 929              	.L58:
+ 930 00e0 00000000 		.word	LCD_SegStat_buffer
+ 931              		.cfi_endproc
+ 932              	.LFE9:
+ 933              		.size	LCD_SegStat_WritePixel, .-LCD_SegStat_WritePixel
+ 934              		.section	.text.LCD_SegStat_ReadPixel,"ax",%progbits
+ 935              		.align	2
+ 936              		.global	LCD_SegStat_ReadPixel
+ 937              		.thumb
+ 938              		.thumb_func
+ 939              		.type	LCD_SegStat_ReadPixel, %function
+ 940              	LCD_SegStat_ReadPixel:
+ 941              	.LFB10:
+ 684:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 685:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 30
+
+
+ 686:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 687:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_ReadPixel
+ 688:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 689:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 690:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 691:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function reads a pixels state in a large frame buffer. The Pixel is
+ 692:Generated_Source\PSoC5/LCD_SegStat.c **** *  addressed by a packed number.
+ 693:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 694:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 695:Generated_Source\PSoC5/LCD_SegStat.c **** *  pixelNumber: is the packed number that points to the pixels location in the
+ 696:Generated_Source\PSoC5/LCD_SegStat.c **** *               frame buffer. The lowest three bits in the LSB low nibble are
+ 697:Generated_Source\PSoC5/LCD_SegStat.c **** *               the bit position in the byte, the LSB upper nibble (4 bits) is
+ 698:Generated_Source\PSoC5/LCD_SegStat.c **** *               the byte address in the multiplex Row and the MSB low nibble
+ 699:Generated_Source\PSoC5/LCD_SegStat.c **** *               (4 bits) is the multiplex Row number.
+ 700:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 701:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 702:Generated_Source\PSoC5/LCD_SegStat.c **** *  Pixel State:
+ 703:Generated_Source\PSoC5/LCD_SegStat.c **** *      0x00 (LCD_SegStat_PIXEL_STATE_OFF) - for pixel off.
+ 704:Generated_Source\PSoC5/LCD_SegStat.c **** *      0x01 (LCD_SegStat_PIXEL_STATE_ON) - for pixel on.
+ 705:Generated_Source\PSoC5/LCD_SegStat.c **** *      0xFF (LCD_SegStat_PIXEL_UNKNOWN_STATE) - indicates that pixel
+ 706:Generated_Source\PSoC5/LCD_SegStat.c **** *                                                    isn't assigned.
+ 707:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 708:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 709:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_buffer[] - holds the state of every pixel of the LCD glass
+ 710:Generated_Source\PSoC5/LCD_SegStat.c **** *  which can be read by this function.
+ 711:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 712:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 713:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_ReadPixel(uint16 pixelNumber) 
+ 714:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 942              		.loc 1 714 0
+ 943              		.cfi_startproc
+ 944              		@ args = 0, pretend = 0, frame = 16
+ 945              		@ frame_needed = 1, uses_anonymous_args = 0
+ 946              		@ link register save eliminated.
+ 947 0000 80B4     		push	{r7}
+ 948              		.cfi_def_cfa_offset 4
+ 949              		.cfi_offset 7, -4
+ 950 0002 85B0     		sub	sp, sp, #20
+ 951              		.cfi_def_cfa_offset 24
+ 952 0004 00AF     		add	r7, sp, #0
+ 953              		.cfi_def_cfa_register 7
+ 954 0006 0346     		mov	r3, r0
+ 955 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 715:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 byteAddr;
+ 716:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 bitAddr;
+ 717:Generated_Source\PSoC5/LCD_SegStat.c ****     uint16 row;
+ 718:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 pixelState;
+ 719:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 720:Generated_Source\PSoC5/LCD_SegStat.c ****     if(pixelNumber != LCD_SegStat_NOT_CON)
+ 956              		.loc 1 720 0
+ 957 000a FB88     		ldrh	r3, [r7, #6]
+ 958 000c FF2B     		cmp	r3, #255
+ 959 000e 1ED0     		beq	.L61
+ 721:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 722:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Extract all required information from pixelNumber to address required pixel */
+ 723:Generated_Source\PSoC5/LCD_SegStat.c ****         bitAddr = (pixelNumber & LCD_SegStat_BIT_MASK);
+ 960              		.loc 1 723 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 31
+
+
+ 961 0010 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 962 0012 03F00703 		and	r3, r3, #7
+ 963 0016 BB81     		strh	r3, [r7, #12]	@ movhi
+ 724:Generated_Source\PSoC5/LCD_SegStat.c ****         byteAddr = (pixelNumber & LCD_SegStat_PORT_MASK) >> LCD_SegStat_PORT_SHIFT;
+ 964              		.loc 1 724 0
+ 965 0018 FB88     		ldrh	r3, [r7, #6]
+ 966 001a 1B09     		lsrs	r3, r3, #4
+ 967 001c 9BB2     		uxth	r3, r3
+ 968 001e 03F00F03 		and	r3, r3, #15
+ 969 0022 7B81     		strh	r3, [r7, #10]	@ movhi
+ 725:Generated_Source\PSoC5/LCD_SegStat.c ****         row = (pixelNumber & LCD_SegStat_ROW_MASK) >> LCD_SegStat_ROW_SHIFT;
+ 970              		.loc 1 725 0
+ 971 0024 FB88     		ldrh	r3, [r7, #6]
+ 972 0026 1B0A     		lsrs	r3, r3, #8
+ 973 0028 9BB2     		uxth	r3, r3
+ 974 002a 03F00F03 		and	r3, r3, #15
+ 975 002e 3B81     		strh	r3, [r7, #8]	@ movhi
+ 726:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 727:Generated_Source\PSoC5/LCD_SegStat.c ****         pixelState = ((LCD_SegStat_buffer[(row * LCD_SegStat_ROW_BYTE_LENGTH) + byteAddr] >> bitAdd
+ 976              		.loc 1 727 0
+ 977 0030 3B89     		ldrh	r3, [r7, #8]
+ 978 0032 1A01     		lsls	r2, r3, #4
+ 979 0034 7B89     		ldrh	r3, [r7, #10]
+ 980 0036 1344     		add	r3, r3, r2
+ 981 0038 094A     		ldr	r2, .L64
+ 982 003a D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 983 003c 1A46     		mov	r2, r3
+ 984 003e BB89     		ldrh	r3, [r7, #12]
+ 985 0040 42FA03F3 		asr	r3, r2, r3
+ 986 0044 DBB2     		uxtb	r3, r3
+ 987 0046 03F00103 		and	r3, r3, #1
+ 988 004a FB73     		strb	r3, [r7, #15]
+ 989 004c 01E0     		b	.L62
+ 990              	.L61:
+ 728:Generated_Source\PSoC5/LCD_SegStat.c ****                        LCD_SegStat_PIXEL_STATE_ON);
+ 729:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 730:Generated_Source\PSoC5/LCD_SegStat.c ****     else
+ 731:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 732:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Indicate that the pixel number is invalid */
+ 733:Generated_Source\PSoC5/LCD_SegStat.c ****         pixelState = LCD_SegStat_PIXEL_UNKNOWN_STATE;
+ 991              		.loc 1 733 0
+ 992 004e FF23     		movs	r3, #255
+ 993 0050 FB73     		strb	r3, [r7, #15]
+ 994              	.L62:
+ 734:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 735:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 736:Generated_Source\PSoC5/LCD_SegStat.c ****     return (pixelState);
+ 995              		.loc 1 736 0
+ 996 0052 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 737:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 997              		.loc 1 737 0
+ 998 0054 1846     		mov	r0, r3
+ 999 0056 1437     		adds	r7, r7, #20
+ 1000              		.cfi_def_cfa_offset 4
+ 1001 0058 BD46     		mov	sp, r7
+ 1002              		.cfi_def_cfa_register 13
+ 1003              		@ sp needed
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 32
+
+
+ 1004 005a 80BC     		pop	{r7}
+ 1005              		.cfi_restore 7
+ 1006              		.cfi_def_cfa_offset 0
+ 1007 005c 7047     		bx	lr
+ 1008              	.L65:
+ 1009 005e 00BF     		.align	2
+ 1010              	.L64:
+ 1011 0060 00000000 		.word	LCD_SegStat_buffer
+ 1012              		.cfi_endproc
+ 1013              	.LFE10:
+ 1014              		.size	LCD_SegStat_ReadPixel, .-LCD_SegStat_ReadPixel
+ 1015              		.section	.text.LCD_SegStat_WriteInvertState,"ax",%progbits
+ 1016              		.align	2
+ 1017              		.global	LCD_SegStat_WriteInvertState
+ 1018              		.thumb
+ 1019              		.thumb_func
+ 1020              		.type	LCD_SegStat_WriteInvertState, %function
+ 1021              	LCD_SegStat_WriteInvertState:
+ 1022              	.LFB11:
+ 738:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 739:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 740:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 741:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_WriteInvertState
+ 742:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 743:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 744:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 745:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function inverts the display based on invertState.
+ 746:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 747:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 748:Generated_Source\PSoC5/LCD_SegStat.c **** *  invertState: the values can be - 0 (#LCD_SegStat_NORMAL_STATE) for
+ 749:Generated_Source\PSoC5/LCD_SegStat.c **** *               normal noninverted display and 1
+ 750:Generated_Source\PSoC5/LCD_SegStat.c **** *                (#LCD_SegStat_INVERTED_STATE) for inverted display.
+ 751:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 752:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 753:Generated_Source\PSoC5/LCD_SegStat.c **** *  One of standard status for PSoC3 Component:
+ 754:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_SUCCESS - function completed successfully.
+ 755:Generated_Source\PSoC5/LCD_SegStat.c **** *      CYRET_BAD_PARAM - evaluation of invertState parameter is failed.
+ 756:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 757:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 758:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_WriteInvertState(uint8 invertState) 
+ 759:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 1023              		.loc 1 759 0
+ 1024              		.cfi_startproc
+ 1025              		@ args = 0, pretend = 0, frame = 16
+ 1026              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1027 0000 80B5     		push	{r7, lr}
+ 1028              		.cfi_def_cfa_offset 8
+ 1029              		.cfi_offset 7, -8
+ 1030              		.cfi_offset 14, -4
+ 1031 0002 84B0     		sub	sp, sp, #16
+ 1032              		.cfi_def_cfa_offset 24
+ 1033 0004 00AF     		add	r7, sp, #0
+ 1034              		.cfi_def_cfa_register 7
+ 1035 0006 0346     		mov	r3, r0
+ 1036 0008 FB71     		strb	r3, [r7, #7]
+ 760:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 status;
+ 761:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 33
+
+
+ 762:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Check if inverstState parameter is valid */
+ 763:Generated_Source\PSoC5/LCD_SegStat.c ****     if(invertState <= LCD_SegStat_INVERTED_STATE)
+ 1037              		.loc 1 763 0
+ 1038 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1039 000c 012B     		cmp	r3, #1
+ 1040 000e 12D8     		bhi	.L67
+ 764:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 765:Generated_Source\PSoC5/LCD_SegStat.c ****         /* If the staate is "Invert" then then set pixel - com0 to "1", otherwise
+ 766:Generated_Source\PSoC5/LCD_SegStat.c ****         * set it to "0".
+ 767:Generated_Source\PSoC5/LCD_SegStat.c ****         */
+ 768:Generated_Source\PSoC5/LCD_SegStat.c ****         if(LCD_SegStat_INVERTED_STATE == invertState)
+ 1041              		.loc 1 768 0
+ 1042 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1043 0012 012B     		cmp	r3, #1
+ 1044 0014 06D1     		bne	.L68
+ 769:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 770:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_WRITE_PIXEL(LCD_SegStat_commons[0u], LCD_SegStat_PIXEL_STATE_ON);
+ 1045              		.loc 1 770 0
+ 1046 0016 0B4B     		ldr	r3, .L72
+ 1047 0018 1B88     		ldrh	r3, [r3]
+ 1048 001a 0121     		movs	r1, #1
+ 1049 001c 1846     		mov	r0, r3
+ 1050 001e FFF7FEFF 		bl	LCD_SegStat_WritePixel
+ 1051 0022 05E0     		b	.L69
+ 1052              	.L68:
+ 771:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 772:Generated_Source\PSoC5/LCD_SegStat.c ****         else
+ 773:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 774:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_WRITE_PIXEL(LCD_SegStat_commons[0u], LCD_SegStat_PIXEL_STATE_OFF);
+ 1053              		.loc 1 774 0
+ 1054 0024 074B     		ldr	r3, .L72
+ 1055 0026 1B88     		ldrh	r3, [r3]
+ 1056 0028 0021     		movs	r1, #0
+ 1057 002a 1846     		mov	r0, r3
+ 1058 002c FFF7FEFF 		bl	LCD_SegStat_WritePixel
+ 1059              	.L69:
+ 775:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 776:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 777:Generated_Source\PSoC5/LCD_SegStat.c ****         status = CYRET_SUCCESS;
+ 1060              		.loc 1 777 0
+ 1061 0030 0023     		movs	r3, #0
+ 1062 0032 FB73     		strb	r3, [r7, #15]
+ 1063 0034 01E0     		b	.L70
+ 1064              	.L67:
+ 778:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 779:Generated_Source\PSoC5/LCD_SegStat.c ****     else
+ 780:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 781:Generated_Source\PSoC5/LCD_SegStat.c ****         status = CYRET_BAD_PARAM;
+ 1065              		.loc 1 781 0
+ 1066 0036 0123     		movs	r3, #1
+ 1067 0038 FB73     		strb	r3, [r7, #15]
+ 1068              	.L70:
+ 782:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 783:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 784:Generated_Source\PSoC5/LCD_SegStat.c ****     return(status);
+ 1069              		.loc 1 784 0
+ 1070 003a FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 34
+
+
+ 785:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 1071              		.loc 1 785 0
+ 1072 003c 1846     		mov	r0, r3
+ 1073 003e 1037     		adds	r7, r7, #16
+ 1074              		.cfi_def_cfa_offset 8
+ 1075 0040 BD46     		mov	sp, r7
+ 1076              		.cfi_def_cfa_register 13
+ 1077              		@ sp needed
+ 1078 0042 80BD     		pop	{r7, pc}
+ 1079              	.L73:
+ 1080              		.align	2
+ 1081              	.L72:
+ 1082 0044 00000000 		.word	LCD_SegStat_commons
+ 1083              		.cfi_endproc
+ 1084              	.LFE11:
+ 1085              		.size	LCD_SegStat_WriteInvertState, .-LCD_SegStat_WriteInvertState
+ 1086              		.section	.text.LCD_SegStat_ReadInvertState,"ax",%progbits
+ 1087              		.align	2
+ 1088              		.global	LCD_SegStat_ReadInvertState
+ 1089              		.thumb
+ 1090              		.thumb_func
+ 1091              		.type	LCD_SegStat_ReadInvertState, %function
+ 1092              	LCD_SegStat_ReadInvertState:
+ 1093              	.LFB12:
+ 786:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 787:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 788:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 789:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_ReadInvertState
+ 790:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 791:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 792:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 793:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function returns the current state of the display, possible states are
+ 794:Generated_Source\PSoC5/LCD_SegStat.c **** *  normal and inverted.
+ 795:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 796:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:
+ 797:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 798:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 799:Generated_Source\PSoC5/LCD_SegStat.c **** * Return:
+ 800:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_NORMAL_STATE (0) - for normal non-inverted display.
+ 801:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_INVERTED_STATE (1) -  for inverted display.
+ 802:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 803:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 804:Generated_Source\PSoC5/LCD_SegStat.c **** uint8 LCD_SegStat_ReadInvertState(void) 
+ 805:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 1094              		.loc 1 805 0
+ 1095              		.cfi_startproc
+ 1096              		@ args = 0, pretend = 0, frame = 8
+ 1097              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1098 0000 80B5     		push	{r7, lr}
+ 1099              		.cfi_def_cfa_offset 8
+ 1100              		.cfi_offset 7, -8
+ 1101              		.cfi_offset 14, -4
+ 1102 0002 82B0     		sub	sp, sp, #8
+ 1103              		.cfi_def_cfa_offset 16
+ 1104 0004 00AF     		add	r7, sp, #0
+ 1105              		.cfi_def_cfa_register 7
+ 806:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 state = LCD_SegStat_INVERTED_STATE;
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 35
+
+
+ 1106              		.loc 1 806 0
+ 1107 0006 0123     		movs	r3, #1
+ 1108 0008 FB71     		strb	r3, [r7, #7]
+ 807:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 808:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Get only invert bit of Driver Control Register */
+ 809:Generated_Source\PSoC5/LCD_SegStat.c ****     if(LCD_SegStat_PIXEL_STATE_OFF == LCD_SegStat_ReadPixel(LCD_SegStat_commons[0u]))
+ 1109              		.loc 1 809 0
+ 1110 000a 074B     		ldr	r3, .L77
+ 1111 000c 1B88     		ldrh	r3, [r3]
+ 1112 000e 1846     		mov	r0, r3
+ 1113 0010 FFF7FEFF 		bl	LCD_SegStat_ReadPixel
+ 1114 0014 0346     		mov	r3, r0
+ 1115 0016 002B     		cmp	r3, #0
+ 1116 0018 01D1     		bne	.L75
+ 810:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 811:Generated_Source\PSoC5/LCD_SegStat.c ****         state = LCD_SegStat_NORMAL_STATE;
+ 1117              		.loc 1 811 0
+ 1118 001a 0023     		movs	r3, #0
+ 1119 001c FB71     		strb	r3, [r7, #7]
+ 1120              	.L75:
+ 812:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 813:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 814:Generated_Source\PSoC5/LCD_SegStat.c ****     return(state);
+ 1121              		.loc 1 814 0
+ 1122 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 815:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 1123              		.loc 1 815 0
+ 1124 0020 1846     		mov	r0, r3
+ 1125 0022 0837     		adds	r7, r7, #8
+ 1126              		.cfi_def_cfa_offset 8
+ 1127 0024 BD46     		mov	sp, r7
+ 1128              		.cfi_def_cfa_register 13
+ 1129              		@ sp needed
+ 1130 0026 80BD     		pop	{r7, pc}
+ 1131              	.L78:
+ 1132              		.align	2
+ 1133              	.L77:
+ 1134 0028 00000000 		.word	LCD_SegStat_commons
+ 1135              		.cfi_endproc
+ 1136              	.LFE12:
+ 1137              		.size	LCD_SegStat_ReadInvertState, .-LCD_SegStat_ReadInvertState
+ 1138              		.section	.text.LCD_SegStat_Write7SegDigit_0,"ax",%progbits
+ 1139              		.align	2
+ 1140              		.global	LCD_SegStat_Write7SegDigit_0
+ 1141              		.thumb
+ 1142              		.thumb_func
+ 1143              		.type	LCD_SegStat_Write7SegDigit_0, %function
+ 1144              	LCD_SegStat_Write7SegDigit_0:
+ 1145              	.LFB13:
+ 816:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 817:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 818:Generated_Source\PSoC5/LCD_SegStat.c **** /* Start of customizer generated code */
+ 819:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 820:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_Write7SegDigit_0
+ 821:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 822:Generated_Source\PSoC5/LCD_SegStat.c **** * 
+ 823:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 36
+
+
+ 824:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function displays an 4-bit Hex digit in the range of 0-9 and A-F on 7 
+ 825:Generated_Source\PSoC5/LCD_SegStat.c **** *  segment display. The user must have defined what portion of the displays
+ 826:Generated_Source\PSoC5/LCD_SegStat.c **** *  segments make up the 7 segment display portion in the component customizer.
+ 827:Generated_Source\PSoC5/LCD_SegStat.c **** *  Multiple, separate 7 segment displays can be created in the frame buffer
+ 828:Generated_Source\PSoC5/LCD_SegStat.c **** *  and are addressed through the index (n) in the function name. Function/s only
+ 829:Generated_Source\PSoC5/LCD_SegStat.c **** *  included if component 7 segment customizer defines the 7 segment option.
+ 830:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 831:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:  
+ 832:Generated_Source\PSoC5/LCD_SegStat.c **** *  digit : unsigned integer value in the range of 0 to 16 to be displayed as a
+ 833:Generated_Source\PSoC5/LCD_SegStat.c **** *  hexadecimal digit. The ASCII numbers of a hexadecimal characters are also
+ 834:Generated_Source\PSoC5/LCD_SegStat.c **** *  valid. In case of a invalid digit value displays 0 in position specified.
+ 835:Generated_Source\PSoC5/LCD_SegStat.c **** *  position : Position of the digit as counted right to left starting at 0 on the
+ 836:Generated_Source\PSoC5/LCD_SegStat.c **** *  right. If the defined display does not contain a digit in the position then
+ 837:Generated_Source\PSoC5/LCD_SegStat.c **** *  the digit will not be displayed.
+ 838:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 839:Generated_Source\PSoC5/LCD_SegStat.c **** * Return: 
+ 840:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 841:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 842:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 843:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_7SegDigits[] - used as a look-up table for 7 Segment helper.
+ 844:Generated_Source\PSoC5/LCD_SegStat.c **** *  Holds decoded digit's pixel reflection for the helper.
+ 845:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 846:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_disp0[][] - holds pixels locations for 7 Segment helper in 
+ 847:Generated_Source\PSoC5/LCD_SegStat.c **** *  the Frame Buffer.
+ 848:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 849:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_DIGIT_NUM_0 - holds the maximum digit number for the helper.
+ 850:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 851:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 852:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 853:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 854:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 855:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_Write7SegDigit_0(uint8 digit, uint8 position) 
+ 856:Generated_Source\PSoC5/LCD_SegStat.c **** {
+ 1146              		.loc 1 856 0
+ 1147              		.cfi_startproc
+ 1148              		@ args = 0, pretend = 0, frame = 16
+ 1149              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1150 0000 80B5     		push	{r7, lr}
+ 1151              		.cfi_def_cfa_offset 8
+ 1152              		.cfi_offset 7, -8
+ 1153              		.cfi_offset 14, -4
+ 1154 0002 84B0     		sub	sp, sp, #16
+ 1155              		.cfi_def_cfa_offset 24
+ 1156 0004 00AF     		add	r7, sp, #0
+ 1157              		.cfi_def_cfa_register 7
+ 1158 0006 0346     		mov	r3, r0
+ 1159 0008 0A46     		mov	r2, r1
+ 1160 000a FB71     		strb	r3, [r7, #7]
+ 1161 000c 1346     		mov	r3, r2
+ 1162 000e BB71     		strb	r3, [r7, #6]
+ 857:Generated_Source\PSoC5/LCD_SegStat.c ****     static const uint16 CYCODE LCD_SegStat_disp0[4u][7u] = {{LCD_SegStat_H7SEG0_A, LCD_SegStat_H7SE
+ 858:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_H7SEG0_C, LCD_SegStat_H7SEG0_D, LCD_SegStat_H7SEG0_E, LCD_SegStat_H7SEG0_F, LCD_Seg
+ 859:Generated_Source\PSoC5/LCD_SegStat.c ****     {LCD_SegStat_H7SEG1_A, LCD_SegStat_H7SEG1_B, LCD_SegStat_H7SEG1_C, LCD_SegStat_H7SEG1_D, LCD_Se
+ 860:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_H7SEG1_F, LCD_SegStat_H7SEG1_G}, {LCD_SegStat_H7SEG2_A, LCD_SegStat_H7SEG2_B, LCD_S
+ 861:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_H7SEG2_D, LCD_SegStat_H7SEG2_E, LCD_SegStat_H7SEG2_F, LCD_SegStat_H7SEG2_G}, {LCD_S
+ 862:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_H7SEG3_B, LCD_SegStat_H7SEG3_C, LCD_SegStat_H7SEG3_D, LCD_SegStat_H7SEG3_E, LCD_Seg
+ 863:Generated_Source\PSoC5/LCD_SegStat.c ****     LCD_SegStat_H7SEG3_G}};
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 37
+
+
+ 864:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 i;
+ 865:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 val;
+ 866:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 867:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Check if digit is valid */
+ 868:Generated_Source\PSoC5/LCD_SegStat.c ****     if(digit <= 16u)
+ 1163              		.loc 1 868 0
+ 1164 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1165 0012 102B     		cmp	r3, #16
+ 1166 0014 0FD9     		bls	.L80
+ 869:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 870:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Do nothing: digit = digit */
+ 871:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 872:Generated_Source\PSoC5/LCD_SegStat.c ****     else if(digit <= 0x39u)
+ 1167              		.loc 1 872 0
+ 1168 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1169 0018 392B     		cmp	r3, #57
+ 1170 001a 03D8     		bhi	.L81
+ 873:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 874:Generated_Source\PSoC5/LCD_SegStat.c ****         digit -= 0x30u;
+ 1171              		.loc 1 874 0
+ 1172 001c FB79     		ldrb	r3, [r7, #7]
+ 1173 001e 303B     		subs	r3, r3, #48
+ 1174 0020 FB71     		strb	r3, [r7, #7]
+ 1175 0022 08E0     		b	.L80
+ 1176              	.L81:
+ 875:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 876:Generated_Source\PSoC5/LCD_SegStat.c ****     else if(digit <= 0x47u)
+ 1177              		.loc 1 876 0
+ 1178 0024 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1179 0026 472B     		cmp	r3, #71
+ 1180 0028 03D8     		bhi	.L82
+ 877:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 878:Generated_Source\PSoC5/LCD_SegStat.c ****         digit -= 0x37u;
+ 1181              		.loc 1 878 0
+ 1182 002a FB79     		ldrb	r3, [r7, #7]
+ 1183 002c 373B     		subs	r3, r3, #55
+ 1184 002e FB71     		strb	r3, [r7, #7]
+ 1185 0030 01E0     		b	.L80
+ 1186              	.L82:
+ 879:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 880:Generated_Source\PSoC5/LCD_SegStat.c ****     else
+ 881:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 882:Generated_Source\PSoC5/LCD_SegStat.c ****         digit = 0u;
+ 1187              		.loc 1 882 0
+ 1188 0032 0023     		movs	r3, #0
+ 1189 0034 FB71     		strb	r3, [r7, #7]
+ 1190              	.L80:
+ 883:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 884:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 885:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Check if position<LCD_SegStat_DIGIT_NUM_0, if not then do 'mod' operation */
+ 886:Generated_Source\PSoC5/LCD_SegStat.c ****     position = position % LCD_SegStat_DIGIT_NUM_0;
+ 1191              		.loc 1 886 0
+ 1192 0036 BB79     		ldrb	r3, [r7, #6]
+ 1193 0038 03F00303 		and	r3, r3, #3
+ 1194 003c BB71     		strb	r3, [r7, #6]
+ 887:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 888:Generated_Source\PSoC5/LCD_SegStat.c ****     /* Find position counted right to left */
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 38
+
+
+ 889:Generated_Source\PSoC5/LCD_SegStat.c ****     position = LCD_SegStat_DIGIT_NUM_0 - position - 1u;
+ 1195              		.loc 1 889 0
+ 1196 003e BB79     		ldrb	r3, [r7, #6]
+ 1197 0040 C3F10303 		rsb	r3, r3, #3
+ 1198 0044 BB71     		strb	r3, [r7, #6]
+ 890:Generated_Source\PSoC5/LCD_SegStat.c ****     for(i = 0u; i < LCD_SegStat_7SEG_PIX_NUM; i++)
+ 1199              		.loc 1 890 0
+ 1200 0046 0023     		movs	r3, #0
+ 1201 0048 FB73     		strb	r3, [r7, #15]
+ 1202 004a 1BE0     		b	.L83
+ 1203              	.L84:
+ 891:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 892:Generated_Source\PSoC5/LCD_SegStat.c ****         /* Select pixel state for the digit base on value in look-up table */
+ 893:Generated_Source\PSoC5/LCD_SegStat.c ****         val = ((LCD_SegStat_7SegDigits[digit] >> i) & LCD_SegStat_PIXEL_STATE_ON); 
+ 1204              		.loc 1 893 0 discriminator 3
+ 1205 004c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1206 004e 114A     		ldr	r2, .L85
+ 1207 0050 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 1208 0052 1A46     		mov	r2, r3
+ 1209 0054 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1210 0056 42FA03F3 		asr	r3, r2, r3
+ 1211 005a DBB2     		uxtb	r3, r3
+ 1212 005c 03F00103 		and	r3, r3, #1
+ 1213 0060 BB73     		strb	r3, [r7, #14]
+ 894:Generated_Source\PSoC5/LCD_SegStat.c ****         LCD_SegStat_WRITE_PIXEL(LCD_SegStat_disp0[position][i], val);
+ 1214              		.loc 1 894 0 discriminator 3
+ 1215 0062 BA79     		ldrb	r2, [r7, #6]	@ zero_extendqisi2
+ 1216 0064 F97B     		ldrb	r1, [r7, #15]	@ zero_extendqisi2
+ 1217 0066 0C48     		ldr	r0, .L85+4
+ 1218 0068 1346     		mov	r3, r2
+ 1219 006a DB00     		lsls	r3, r3, #3
+ 1220 006c 9B1A     		subs	r3, r3, r2
+ 1221 006e 0B44     		add	r3, r3, r1
+ 1222 0070 30F81330 		ldrh	r3, [r0, r3, lsl #1]
+ 1223 0074 BA7B     		ldrb	r2, [r7, #14]	@ zero_extendqisi2
+ 1224 0076 1146     		mov	r1, r2
+ 1225 0078 1846     		mov	r0, r3
+ 1226 007a FFF7FEFF 		bl	LCD_SegStat_WritePixel
+ 890:Generated_Source\PSoC5/LCD_SegStat.c ****     for(i = 0u; i < LCD_SegStat_7SEG_PIX_NUM; i++)
+ 1227              		.loc 1 890 0 discriminator 3
+ 1228 007e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1229 0080 0133     		adds	r3, r3, #1
+ 1230 0082 FB73     		strb	r3, [r7, #15]
+ 1231              	.L83:
+ 890:Generated_Source\PSoC5/LCD_SegStat.c ****     for(i = 0u; i < LCD_SegStat_7SEG_PIX_NUM; i++)
+ 1232              		.loc 1 890 0 is_stmt 0 discriminator 1
+ 1233 0084 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1234 0086 062B     		cmp	r3, #6
+ 1235 0088 E0D9     		bls	.L84
+ 895:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 896:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 1236              		.loc 1 896 0 is_stmt 1
+ 1237 008a 00BF     		nop
+ 1238 008c 1037     		adds	r7, r7, #16
+ 1239              		.cfi_def_cfa_offset 8
+ 1240 008e BD46     		mov	sp, r7
+ 1241              		.cfi_def_cfa_register 13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 39
+
+
+ 1242              		@ sp needed
+ 1243 0090 80BD     		pop	{r7, pc}
+ 1244              	.L86:
+ 1245 0092 00BF     		.align	2
+ 1246              	.L85:
+ 1247 0094 00000000 		.word	LCD_SegStat_7SegDigits
+ 1248 0098 18000000 		.word	LCD_SegStat_disp0.5219
+ 1249              		.cfi_endproc
+ 1250              	.LFE13:
+ 1251              		.size	LCD_SegStat_Write7SegDigit_0, .-LCD_SegStat_Write7SegDigit_0
+ 1252              		.section	.text.LCD_SegStat_Write7SegNumber_0,"ax",%progbits
+ 1253              		.align	2
+ 1254              		.global	LCD_SegStat_Write7SegNumber_0
+ 1255              		.thumb
+ 1256              		.thumb_func
+ 1257              		.type	LCD_SegStat_Write7SegNumber_0, %function
+ 1258              	LCD_SegStat_Write7SegNumber_0:
+ 1259              	.LFB14:
+ 897:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 898:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 899:Generated_Source\PSoC5/LCD_SegStat.c **** /*******************************************************************************
+ 900:Generated_Source\PSoC5/LCD_SegStat.c **** * Function Name: LCD_SegStat_Write7SegNumber_0
+ 901:Generated_Source\PSoC5/LCD_SegStat.c **** ********************************************************************************
+ 902:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 903:Generated_Source\PSoC5/LCD_SegStat.c **** * Summary:
+ 904:Generated_Source\PSoC5/LCD_SegStat.c **** *  This function displays a 16-bit integer value on a 1 to 5 digit 7 segment
+ 905:Generated_Source\PSoC5/LCD_SegStat.c **** *  display. The user must have defined what portion of the displays segments
+ 906:Generated_Source\PSoC5/LCD_SegStat.c **** *  make up the 7 segment display portion in the customizer. Multiple, separate 7
+ 907:Generated_Source\PSoC5/LCD_SegStat.c **** *  segment displays can be created in the frame buffer and are addressed through
+ 908:Generated_Source\PSoC5/LCD_SegStat.c **** *  the index (n) in the function name. Function/s only included if component 7
+ 909:Generated_Source\PSoC5/LCD_SegStat.c **** *  segment wizard defines the 7 segment option.
+ 910:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 911:Generated_Source\PSoC5/LCD_SegStat.c **** * Parameters:  
+ 912:Generated_Source\PSoC5/LCD_SegStat.c **** *  value : unsigned integer value to be displayed.
+ 913:Generated_Source\PSoC5/LCD_SegStat.c **** *  position : Position of the least significant digit as counted right to left
+ 914:Generated_Source\PSoC5/LCD_SegStat.c **** *  starting at 0 on the right. If the defined display contains fewer digits
+ 915:Generated_Source\PSoC5/LCD_SegStat.c **** *  then the value requires for display for the most significant digit/s will
+ 916:Generated_Source\PSoC5/LCD_SegStat.c **** *  not be displayed.
+ 917:Generated_Source\PSoC5/LCD_SegStat.c **** *  mode : 0 = no leading 0s are displayed, 1 = leading 0s are displayed.
+ 918:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 919:Generated_Source\PSoC5/LCD_SegStat.c **** * Return: 
+ 920:Generated_Source\PSoC5/LCD_SegStat.c **** *  None.
+ 921:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 922:Generated_Source\PSoC5/LCD_SegStat.c **** * Global variables:
+ 923:Generated_Source\PSoC5/LCD_SegStat.c **** *  LCD_SegStat_DIGIT_NUM_0 - holds the maximum digit number for the helper.
+ 924:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 925:Generated_Source\PSoC5/LCD_SegStat.c **** * Reentrant:
+ 926:Generated_Source\PSoC5/LCD_SegStat.c **** *  No.
+ 927:Generated_Source\PSoC5/LCD_SegStat.c **** *
+ 928:Generated_Source\PSoC5/LCD_SegStat.c **** *******************************************************************************/
+ 929:Generated_Source\PSoC5/LCD_SegStat.c **** void LCD_SegStat_Write7SegNumber_0(uint16 value, uint8 position, uint8 mode) 
+ 930:Generated_Source\PSoC5/LCD_SegStat.c **** { 
+ 1260              		.loc 1 930 0
+ 1261              		.cfi_startproc
+ 1262              		@ args = 0, pretend = 0, frame = 16
+ 1263              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1264 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 40
+
+
+ 1265              		.cfi_def_cfa_offset 8
+ 1266              		.cfi_offset 7, -8
+ 1267              		.cfi_offset 14, -4
+ 1268 0002 84B0     		sub	sp, sp, #16
+ 1269              		.cfi_def_cfa_offset 24
+ 1270 0004 00AF     		add	r7, sp, #0
+ 1271              		.cfi_def_cfa_register 7
+ 1272 0006 0346     		mov	r3, r0
+ 1273 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 1274 000a 0B46     		mov	r3, r1
+ 1275 000c 7B71     		strb	r3, [r7, #5]
+ 1276 000e 1346     		mov	r3, r2
+ 1277 0010 3B71     		strb	r3, [r7, #4]
+ 931:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 i;
+ 932:Generated_Source\PSoC5/LCD_SegStat.c ****     uint8 num;
+ 933:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 934:Generated_Source\PSoC5/LCD_SegStat.c ****     position = position % LCD_SegStat_DIGIT_NUM_0;
+ 1278              		.loc 1 934 0
+ 1279 0012 7B79     		ldrb	r3, [r7, #5]
+ 1280 0014 03F00303 		and	r3, r3, #3
+ 1281 0018 7B71     		strb	r3, [r7, #5]
+ 935:Generated_Source\PSoC5/LCD_SegStat.c **** 
+ 936:Generated_Source\PSoC5/LCD_SegStat.c ****     /* While current digit position in the range of display keep processing the output */
+ 937:Generated_Source\PSoC5/LCD_SegStat.c ****     for(i = position; i < LCD_SegStat_DIGIT_NUM_0; i++)
+ 1282              		.loc 1 937 0
+ 1283 001a 7B79     		ldrb	r3, [r7, #5]
+ 1284 001c FB73     		strb	r3, [r7, #15]
+ 1285 001e 26E0     		b	.L88
+ 1286              	.L91:
+ 938:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 939:Generated_Source\PSoC5/LCD_SegStat.c ****         num = (uint8) (value % 10u);
+ 1287              		.loc 1 939 0
+ 1288 0020 FA88     		ldrh	r2, [r7, #6]
+ 1289 0022 164B     		ldr	r3, .L92
+ 1290 0024 A3FB0213 		umull	r1, r3, r3, r2
+ 1291 0028 D908     		lsrs	r1, r3, #3
+ 1292 002a 0B46     		mov	r3, r1
+ 1293 002c 9B00     		lsls	r3, r3, #2
+ 1294 002e 0B44     		add	r3, r3, r1
+ 1295 0030 5B00     		lsls	r3, r3, #1
+ 1296 0032 D31A     		subs	r3, r2, r3
+ 1297 0034 9BB2     		uxth	r3, r3
+ 1298 0036 BB73     		strb	r3, [r7, #14]
+ 940:Generated_Source\PSoC5/LCD_SegStat.c ****         if((0u == value) && (0u == mode)) 
+ 1299              		.loc 1 940 0
+ 1300 0038 FB88     		ldrh	r3, [r7, #6]
+ 1301 003a 002B     		cmp	r3, #0
+ 1302 003c 08D1     		bne	.L89
+ 1303              		.loc 1 940 0 is_stmt 0 discriminator 1
+ 1304 003e 3B79     		ldrb	r3, [r7, #4]	@ zero_extendqisi2
+ 1305 0040 002B     		cmp	r3, #0
+ 1306 0042 05D1     		bne	.L89
+ 941:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 942:Generated_Source\PSoC5/LCD_SegStat.c ****             /* In case of 'no leading zeros' each extra digit will be cleared */ 
+ 943:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_Write7SegDigit_0(LCD_SegStat_7SEG_BLANK_DIG, i);
+ 1307              		.loc 1 943 0 is_stmt 1
+ 1308 0044 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 41
+
+
+ 1309 0046 1946     		mov	r1, r3
+ 1310 0048 1020     		movs	r0, #16
+ 1311 004a FFF7FEFF 		bl	LCD_SegStat_Write7SegDigit_0
+ 1312 004e 05E0     		b	.L90
+ 1313              	.L89:
+ 944:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 945:Generated_Source\PSoC5/LCD_SegStat.c ****         else
+ 946:Generated_Source\PSoC5/LCD_SegStat.c ****         {
+ 947:Generated_Source\PSoC5/LCD_SegStat.c ****             /* Display subsequent digit or '0' if 'no leading zeros' mode */ 
+ 948:Generated_Source\PSoC5/LCD_SegStat.c ****             LCD_SegStat_Write7SegDigit_0(num, i);
+ 1314              		.loc 1 948 0
+ 1315 0050 FA7B     		ldrb	r2, [r7, #15]	@ zero_extendqisi2
+ 1316 0052 BB7B     		ldrb	r3, [r7, #14]	@ zero_extendqisi2
+ 1317 0054 1146     		mov	r1, r2
+ 1318 0056 1846     		mov	r0, r3
+ 1319 0058 FFF7FEFF 		bl	LCD_SegStat_Write7SegDigit_0
+ 1320              	.L90:
+ 949:Generated_Source\PSoC5/LCD_SegStat.c ****         }
+ 950:Generated_Source\PSoC5/LCD_SegStat.c ****         value /= 10u; 
+ 1321              		.loc 1 950 0 discriminator 2
+ 1322 005c FB88     		ldrh	r3, [r7, #6]
+ 1323 005e 074A     		ldr	r2, .L92
+ 1324 0060 A2FB0323 		umull	r2, r3, r2, r3
+ 1325 0064 DB08     		lsrs	r3, r3, #3
+ 1326 0066 FB80     		strh	r3, [r7, #6]	@ movhi
+ 937:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 1327              		.loc 1 937 0 discriminator 2
+ 1328 0068 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1329 006a 0133     		adds	r3, r3, #1
+ 1330 006c FB73     		strb	r3, [r7, #15]
+ 1331              	.L88:
+ 937:Generated_Source\PSoC5/LCD_SegStat.c ****     {
+ 1332              		.loc 1 937 0 is_stmt 0 discriminator 1
+ 1333 006e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 1334 0070 032B     		cmp	r3, #3
+ 1335 0072 D5D9     		bls	.L91
+ 951:Generated_Source\PSoC5/LCD_SegStat.c ****     }
+ 952:Generated_Source\PSoC5/LCD_SegStat.c **** }
+ 1336              		.loc 1 952 0 is_stmt 1
+ 1337 0074 00BF     		nop
+ 1338 0076 1037     		adds	r7, r7, #16
+ 1339              		.cfi_def_cfa_offset 8
+ 1340 0078 BD46     		mov	sp, r7
+ 1341              		.cfi_def_cfa_register 13
+ 1342              		@ sp needed
+ 1343 007a 80BD     		pop	{r7, pc}
+ 1344              	.L93:
+ 1345              		.align	2
+ 1346              	.L92:
+ 1347 007c CDCCCCCC 		.word	-858993459
+ 1348              		.cfi_endproc
+ 1349              	.LFE14:
+ 1350              		.size	LCD_SegStat_Write7SegNumber_0, .-LCD_SegStat_Write7SegNumber_0
+ 1351              		.section	.rodata
+ 1352 0011 000000   		.align	2
+ 1353              		.type	LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK.5150, %object
+ 1354              		.size	LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK.5150, 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 42
+
+
+ 1355              	LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK.5150:
+ 1356 0014 00       		.byte	0
+ 1357 0015 01       		.byte	1
+ 1358 0016 03       		.byte	3
+ 1359 0017 04       		.byte	4
+ 1360              		.data
+ 1361              		.type	LCD_SegStat_termOut.5151, %object
+ 1362              		.size	LCD_SegStat_termOut.5151, 1
+ 1363              	LCD_SegStat_termOut.5151:
+ 1364 0002 04       		.byte	4
+ 1365              		.section	.rodata
+ 1366              		.align	2
+ 1367              		.type	LCD_SegStat_disp0.5219, %object
+ 1368              		.size	LCD_SegStat_disp0.5219, 56
+ 1369              	LCD_SegStat_disp0.5219:
+ 1370 0018 6600     		.short	102
+ 1371 001a 6500     		.short	101
+ 1372 001c 3300     		.short	51
+ 1373 001e 3200     		.short	50
+ 1374 0020 3100     		.short	49
+ 1375 0022 6700     		.short	103
+ 1376 0024 3000     		.short	48
+ 1377 0026 6200     		.short	98
+ 1378 0028 6100     		.short	97
+ 1379 002a 3700     		.short	55
+ 1380 002c 3600     		.short	54
+ 1381 002e 3500     		.short	53
+ 1382 0030 6300     		.short	99
+ 1383 0032 6400     		.short	100
+ 1384 0034 4500     		.short	69
+ 1385 0036 4400     		.short	68
+ 1386 0038 5300     		.short	83
+ 1387 003a 5200     		.short	82
+ 1388 003c 5100     		.short	81
+ 1389 003e 4600     		.short	70
+ 1390 0040 4700     		.short	71
+ 1391 0042 4100     		.short	65
+ 1392 0044 4000     		.short	64
+ 1393 0046 5700     		.short	87
+ 1394 0048 5600     		.short	86
+ 1395 004a 5500     		.short	85
+ 1396 004c 4200     		.short	66
+ 1397 004e 4300     		.short	67
+ 1398              		.text
+ 1399              	.Letext0:
+ 1400              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 1401              		.file 3 "Generated_Source\\PSoC5\\LCD_SegStat.h"
+ 1402              		.section	.debug_info,"",%progbits
+ 1403              	.Ldebug_info0:
+ 1404 0000 75050000 		.4byte	0x575
+ 1405 0004 0400     		.2byte	0x4
+ 1406 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1407 000a 04       		.byte	0x4
+ 1408 000b 01       		.uleb128 0x1
+ 1409 000c 3A000000 		.4byte	.LASF59
+ 1410 0010 0C       		.byte	0xc
+ 1411 0011 CA020000 		.4byte	.LASF60
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 43
+
+
+ 1412 0015 E7030000 		.4byte	.LASF61
+ 1413 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1414 001d 00000000 		.4byte	0
+ 1415 0021 00000000 		.4byte	.Ldebug_line0
+ 1416 0025 02       		.uleb128 0x2
+ 1417 0026 01       		.byte	0x1
+ 1418 0027 06       		.byte	0x6
+ 1419 0028 25010000 		.4byte	.LASF0
+ 1420 002c 02       		.uleb128 0x2
+ 1421 002d 01       		.byte	0x1
+ 1422 002e 08       		.byte	0x8
+ 1423 002f 2F030000 		.4byte	.LASF1
+ 1424 0033 02       		.uleb128 0x2
+ 1425 0034 02       		.byte	0x2
+ 1426 0035 05       		.byte	0x5
+ 1427 0036 3D030000 		.4byte	.LASF2
+ 1428 003a 02       		.uleb128 0x2
+ 1429 003b 02       		.byte	0x2
+ 1430 003c 07       		.byte	0x7
+ 1431 003d DE010000 		.4byte	.LASF3
+ 1432 0041 02       		.uleb128 0x2
+ 1433 0042 04       		.byte	0x4
+ 1434 0043 05       		.byte	0x5
+ 1435 0044 5D010000 		.4byte	.LASF4
+ 1436 0048 02       		.uleb128 0x2
+ 1437 0049 04       		.byte	0x4
+ 1438 004a 07       		.byte	0x7
+ 1439 004b C1010000 		.4byte	.LASF5
+ 1440 004f 02       		.uleb128 0x2
+ 1441 0050 08       		.byte	0x8
+ 1442 0051 05       		.byte	0x5
+ 1443 0052 17010000 		.4byte	.LASF6
+ 1444 0056 02       		.uleb128 0x2
+ 1445 0057 08       		.byte	0x8
+ 1446 0058 07       		.byte	0x7
+ 1447 0059 DF000000 		.4byte	.LASF7
+ 1448 005d 03       		.uleb128 0x3
+ 1449 005e 04       		.byte	0x4
+ 1450 005f 05       		.byte	0x5
+ 1451 0060 696E7400 		.ascii	"int\000"
+ 1452 0064 02       		.uleb128 0x2
+ 1453 0065 04       		.byte	0x4
+ 1454 0066 07       		.byte	0x7
+ 1455 0067 AB010000 		.4byte	.LASF8
+ 1456 006b 04       		.uleb128 0x4
+ 1457 006c 66010000 		.4byte	.LASF9
+ 1458 0070 02       		.byte	0x2
+ 1459 0071 9201     		.2byte	0x192
+ 1460 0073 2C000000 		.4byte	0x2c
+ 1461 0077 04       		.uleb128 0x4
+ 1462 0078 00000000 		.4byte	.LASF10
+ 1463 007c 02       		.byte	0x2
+ 1464 007d 9301     		.2byte	0x193
+ 1465 007f 3A000000 		.4byte	0x3a
+ 1466 0083 04       		.uleb128 0x4
+ 1467 0084 91010000 		.4byte	.LASF11
+ 1468 0088 02       		.byte	0x2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 44
+
+
+ 1469 0089 9401     		.2byte	0x194
+ 1470 008b 48000000 		.4byte	0x48
+ 1471 008f 02       		.uleb128 0x2
+ 1472 0090 04       		.byte	0x4
+ 1473 0091 04       		.byte	0x4
+ 1474 0092 EF020000 		.4byte	.LASF12
+ 1475 0096 02       		.uleb128 0x2
+ 1476 0097 08       		.byte	0x8
+ 1477 0098 04       		.byte	0x4
+ 1478 0099 6C010000 		.4byte	.LASF13
+ 1479 009d 02       		.uleb128 0x2
+ 1480 009e 01       		.byte	0x1
+ 1481 009f 08       		.byte	0x8
+ 1482 00a0 80030000 		.4byte	.LASF14
+ 1483 00a4 04       		.uleb128 0x4
+ 1484 00a5 77020000 		.4byte	.LASF15
+ 1485 00a9 02       		.byte	0x2
+ 1486 00aa 3E02     		.2byte	0x23e
+ 1487 00ac B0000000 		.4byte	0xb0
+ 1488 00b0 05       		.uleb128 0x5
+ 1489 00b1 83000000 		.4byte	0x83
+ 1490 00b5 06       		.uleb128 0x6
+ 1491 00b6 5F040000 		.4byte	.LASF62
+ 1492 00ba 02       		.byte	0x2
+ 1493 00bb 03       		.byte	0x3
+ 1494 00bc 32       		.byte	0x32
+ 1495 00bd DA000000 		.4byte	0xda
+ 1496 00c1 07       		.uleb128 0x7
+ 1497 00c2 D4030000 		.4byte	.LASF16
+ 1498 00c6 03       		.byte	0x3
+ 1499 00c7 34       		.byte	0x34
+ 1500 00c8 6B000000 		.4byte	0x6b
+ 1501 00cc 00       		.byte	0
+ 1502 00cd 07       		.uleb128 0x7
+ 1503 00ce 79030000 		.4byte	.LASF17
+ 1504 00d2 03       		.byte	0x3
+ 1505 00d3 35       		.byte	0x35
+ 1506 00d4 6B000000 		.4byte	0x6b
+ 1507 00d8 01       		.byte	0x1
+ 1508 00d9 00       		.byte	0
+ 1509 00da 02       		.uleb128 0x2
+ 1510 00db 08       		.byte	0x8
+ 1511 00dc 04       		.byte	0x4
+ 1512 00dd B2020000 		.4byte	.LASF18
+ 1513 00e1 02       		.uleb128 0x2
+ 1514 00e2 04       		.byte	0x4
+ 1515 00e3 07       		.byte	0x7
+ 1516 00e4 7D020000 		.4byte	.LASF19
+ 1517 00e8 08       		.uleb128 0x8
+ 1518 00e9 AD040000 		.4byte	.LASF29
+ 1519 00ed 01       		.byte	0x1
+ 1520 00ee C7       		.byte	0xc7
+ 1521 00ef 00000000 		.4byte	.LFB0
+ 1522 00f3 2C000000 		.4byte	.LFE0-.LFB0
+ 1523 00f7 01       		.uleb128 0x1
+ 1524 00f8 9C       		.byte	0x9c
+ 1525 00f9 09       		.uleb128 0x9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 45
+
+
+ 1526 00fa 0D020000 		.4byte	.LASF27
+ 1527 00fe 01       		.byte	0x1
+ 1528 00ff EE       		.byte	0xee
+ 1529 0100 6B000000 		.4byte	0x6b
+ 1530 0104 00000000 		.4byte	.LFB1
+ 1531 0108 28000000 		.4byte	.LFE1-.LFB1
+ 1532 010c 01       		.uleb128 0x1
+ 1533 010d 9C       		.byte	0x9c
+ 1534 010e 21010000 		.4byte	0x121
+ 1535 0112 0A       		.uleb128 0xa
+ 1536 0113 39040000 		.4byte	.LASF20
+ 1537 0117 01       		.byte	0x1
+ 1538 0118 F0       		.byte	0xf0
+ 1539 0119 6B000000 		.4byte	0x6b
+ 1540 011d 02       		.uleb128 0x2
+ 1541 011e 91       		.byte	0x91
+ 1542 011f 77       		.sleb128 -9
+ 1543 0120 00       		.byte	0
+ 1544 0121 0B       		.uleb128 0xb
+ 1545 0122 94040000 		.4byte	.LASF63
+ 1546 0126 01       		.byte	0x1
+ 1547 0127 2001     		.2byte	0x120
+ 1548 0129 6B000000 		.4byte	0x6b
+ 1549 012d 00000000 		.4byte	.LFB2
+ 1550 0131 EC010000 		.4byte	.LFE2-.LFB2
+ 1551 0135 01       		.uleb128 0x1
+ 1552 0136 9C       		.byte	0x9c
+ 1553 0137 C5010000 		.4byte	0x1c5
+ 1554 013b 0C       		.uleb128 0xc
+ 1555 013c 39040000 		.4byte	.LASF20
+ 1556 0140 01       		.byte	0x1
+ 1557 0141 2201     		.2byte	0x122
+ 1558 0143 6B000000 		.4byte	0x6b
+ 1559 0147 02       		.uleb128 0x2
+ 1560 0148 91       		.byte	0x91
+ 1561 0149 6F       		.sleb128 -17
+ 1562 014a 0D       		.uleb128 0xd
+ 1563 014b 6900     		.ascii	"i\000"
+ 1564 014d 01       		.byte	0x1
+ 1565 014e 2301     		.2byte	0x123
+ 1566 0150 6B000000 		.4byte	0x6b
+ 1567 0154 02       		.uleb128 0x2
+ 1568 0155 91       		.byte	0x91
+ 1569 0156 6E       		.sleb128 -18
+ 1570 0157 0D       		.uleb128 0xd
+ 1571 0158 6A00     		.ascii	"j\000"
+ 1572 015a 01       		.byte	0x1
+ 1573 015b 2401     		.2byte	0x124
+ 1574 015d 6B000000 		.4byte	0x6b
+ 1575 0161 02       		.uleb128 0x2
+ 1576 0162 91       		.byte	0x91
+ 1577 0163 6D       		.sleb128 -19
+ 1578 0164 0C       		.uleb128 0xc
+ 1579 0165 54010000 		.4byte	.LASF21
+ 1580 0169 01       		.byte	0x1
+ 1581 016a 2501     		.2byte	0x125
+ 1582 016c 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 46
+
+
+ 1583 0170 02       		.uleb128 0x2
+ 1584 0171 91       		.byte	0x91
+ 1585 0172 6C       		.sleb128 -20
+ 1586 0173 0C       		.uleb128 0xc
+ 1587 0174 98010000 		.4byte	.LASF22
+ 1588 0178 01       		.byte	0x1
+ 1589 0179 2601     		.2byte	0x126
+ 1590 017b 83000000 		.4byte	0x83
+ 1591 017f 02       		.uleb128 0x2
+ 1592 0180 91       		.byte	0x91
+ 1593 0181 68       		.sleb128 -24
+ 1594 0182 0C       		.uleb128 0xc
+ 1595 0183 20000000 		.4byte	.LASF23
+ 1596 0187 01       		.byte	0x1
+ 1597 0188 2701     		.2byte	0x127
+ 1598 018a 83000000 		.4byte	0x83
+ 1599 018e 02       		.uleb128 0x2
+ 1600 018f 91       		.byte	0x91
+ 1601 0190 64       		.sleb128 -28
+ 1602 0191 0C       		.uleb128 0xc
+ 1603 0192 6E030000 		.4byte	.LASF24
+ 1604 0196 01       		.byte	0x1
+ 1605 0197 2801     		.2byte	0x128
+ 1606 0199 6B000000 		.4byte	0x6b
+ 1607 019d 02       		.uleb128 0x2
+ 1608 019e 91       		.byte	0x91
+ 1609 019f 63       		.sleb128 -29
+ 1610 01a0 0C       		.uleb128 0xc
+ 1611 01a1 86020000 		.4byte	.LASF25
+ 1612 01a5 01       		.byte	0x1
+ 1613 01a6 2A01     		.2byte	0x12a
+ 1614 01a8 DA010000 		.4byte	0x1da
+ 1615 01ac 05       		.uleb128 0x5
+ 1616 01ad 03       		.byte	0x3
+ 1617 01ae 14000000 		.4byte	LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK.5150
+ 1618 01b2 0C       		.uleb128 0xc
+ 1619 01b3 4F020000 		.4byte	.LASF26
+ 1620 01b7 01       		.byte	0x1
+ 1621 01b8 3301     		.2byte	0x133
+ 1622 01ba 6B000000 		.4byte	0x6b
+ 1623 01be 05       		.uleb128 0x5
+ 1624 01bf 03       		.byte	0x3
+ 1625 01c0 02000000 		.4byte	LCD_SegStat_termOut.5151
+ 1626 01c4 00       		.byte	0
+ 1627 01c5 0E       		.uleb128 0xe
+ 1628 01c6 D5010000 		.4byte	0x1d5
+ 1629 01ca D5010000 		.4byte	0x1d5
+ 1630 01ce 0F       		.uleb128 0xf
+ 1631 01cf E1000000 		.4byte	0xe1
+ 1632 01d3 01       		.byte	0x1
+ 1633 01d4 00       		.byte	0
+ 1634 01d5 10       		.uleb128 0x10
+ 1635 01d6 B5000000 		.4byte	0xb5
+ 1636 01da 10       		.uleb128 0x10
+ 1637 01db C5010000 		.4byte	0x1c5
+ 1638 01df 11       		.uleb128 0x11
+ 1639 01e0 48040000 		.4byte	.LASF64
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 47
+
+
+ 1640 01e4 01       		.byte	0x1
+ 1641 01e5 A201     		.2byte	0x1a2
+ 1642 01e7 00000000 		.4byte	.LFB3
+ 1643 01eb 44000000 		.4byte	.LFE3-.LFB3
+ 1644 01ef 01       		.uleb128 0x1
+ 1645 01f0 9C       		.byte	0x9c
+ 1646 01f1 03020000 		.4byte	0x203
+ 1647 01f5 0D       		.uleb128 0xd
+ 1648 01f6 6900     		.ascii	"i\000"
+ 1649 01f8 01       		.byte	0x1
+ 1650 01f9 A401     		.2byte	0x1a4
+ 1651 01fb 6B000000 		.4byte	0x6b
+ 1652 01ff 02       		.uleb128 0x2
+ 1653 0200 91       		.byte	0x91
+ 1654 0201 77       		.sleb128 -9
+ 1655 0202 00       		.byte	0
+ 1656 0203 12       		.uleb128 0x12
+ 1657 0204 28000000 		.4byte	.LASF28
+ 1658 0208 01       		.byte	0x1
+ 1659 0209 CF01     		.2byte	0x1cf
+ 1660 020b 6B000000 		.4byte	0x6b
+ 1661 020f 00000000 		.4byte	.LFB4
+ 1662 0213 30000000 		.4byte	.LFE4-.LFB4
+ 1663 0217 01       		.uleb128 0x1
+ 1664 0218 9C       		.byte	0x9c
+ 1665 0219 2D020000 		.4byte	0x22d
+ 1666 021d 0C       		.uleb128 0xc
+ 1667 021e 39040000 		.4byte	.LASF20
+ 1668 0222 01       		.byte	0x1
+ 1669 0223 D101     		.2byte	0x1d1
+ 1670 0225 6B000000 		.4byte	0x6b
+ 1671 0229 02       		.uleb128 0x2
+ 1672 022a 91       		.byte	0x91
+ 1673 022b 77       		.sleb128 -9
+ 1674 022c 00       		.byte	0
+ 1675 022d 13       		.uleb128 0x13
+ 1676 022e F5020000 		.4byte	.LASF30
+ 1677 0232 01       		.byte	0x1
+ 1678 0233 F401     		.2byte	0x1f4
+ 1679 0235 00000000 		.4byte	.LFB5
+ 1680 0239 24000000 		.4byte	.LFE5-.LFB5
+ 1681 023d 01       		.uleb128 0x1
+ 1682 023e 9C       		.byte	0x9c
+ 1683 023f 14       		.uleb128 0x14
+ 1684 0240 8A030000 		.4byte	.LASF31
+ 1685 0244 01       		.byte	0x1
+ 1686 0245 1102     		.2byte	0x211
+ 1687 0247 00000000 		.4byte	.LFB6
+ 1688 024b 18000000 		.4byte	.LFE6-.LFB6
+ 1689 024f 01       		.uleb128 0x1
+ 1690 0250 9C       		.byte	0x9c
+ 1691 0251 14       		.uleb128 0x14
+ 1692 0252 06030000 		.4byte	.LASF32
+ 1693 0256 01       		.byte	0x1
+ 1694 0257 2502     		.2byte	0x225
+ 1695 0259 00000000 		.4byte	.LFB7
+ 1696 025d 18000000 		.4byte	.LFE7-.LFB7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 48
+
+
+ 1697 0261 01       		.uleb128 0x1
+ 1698 0262 9C       		.byte	0x9c
+ 1699 0263 15       		.uleb128 0x15
+ 1700 0264 07000000 		.4byte	.LASF44
+ 1701 0268 01       		.byte	0x1
+ 1702 0269 4302     		.2byte	0x243
+ 1703 026b 00000000 		.4byte	.LFB8
+ 1704 026f 4C000000 		.4byte	.LFE8-.LFB8
+ 1705 0273 01       		.uleb128 0x1
+ 1706 0274 9C       		.byte	0x9c
+ 1707 0275 87020000 		.4byte	0x287
+ 1708 0279 0D       		.uleb128 0xd
+ 1709 027a 6900     		.ascii	"i\000"
+ 1710 027c 01       		.byte	0x1
+ 1711 027d 4502     		.2byte	0x245
+ 1712 027f 77000000 		.4byte	0x77
+ 1713 0283 02       		.uleb128 0x2
+ 1714 0284 91       		.byte	0x91
+ 1715 0285 76       		.sleb128 -10
+ 1716 0286 00       		.byte	0
+ 1717 0287 12       		.uleb128 0x12
+ 1718 0288 31010000 		.4byte	.LASF33
+ 1719 028c 01       		.byte	0x1
+ 1720 028d 7902     		.2byte	0x279
+ 1721 028f 6B000000 		.4byte	0x6b
+ 1722 0293 00000000 		.4byte	.LFB9
+ 1723 0297 E4000000 		.4byte	.LFE9-.LFB9
+ 1724 029b 01       		.uleb128 0x1
+ 1725 029c 9C       		.byte	0x9c
+ 1726 029d 0B030000 		.4byte	0x30b
+ 1727 02a1 16       		.uleb128 0x16
+ 1728 02a2 BE020000 		.4byte	.LASF34
+ 1729 02a6 01       		.byte	0x1
+ 1730 02a7 7902     		.2byte	0x279
+ 1731 02a9 77000000 		.4byte	0x77
+ 1732 02ad 02       		.uleb128 0x2
+ 1733 02ae 91       		.byte	0x91
+ 1734 02af 66       		.sleb128 -26
+ 1735 02b0 16       		.uleb128 0x16
+ 1736 02b1 D3010000 		.4byte	.LASF35
+ 1737 02b5 01       		.byte	0x1
+ 1738 02b6 7902     		.2byte	0x279
+ 1739 02b8 6B000000 		.4byte	0x6b
+ 1740 02bc 02       		.uleb128 0x2
+ 1741 02bd 91       		.byte	0x91
+ 1742 02be 65       		.sleb128 -27
+ 1743 02bf 0C       		.uleb128 0xc
+ 1744 02c0 F6000000 		.4byte	.LASF36
+ 1745 02c4 01       		.byte	0x1
+ 1746 02c5 7B02     		.2byte	0x27b
+ 1747 02c7 77000000 		.4byte	0x77
+ 1748 02cb 02       		.uleb128 0x2
+ 1749 02cc 91       		.byte	0x91
+ 1750 02cd 72       		.sleb128 -14
+ 1751 02ce 0C       		.uleb128 0xc
+ 1752 02cf 40040000 		.4byte	.LASF37
+ 1753 02d3 01       		.byte	0x1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 49
+
+
+ 1754 02d4 7C02     		.2byte	0x27c
+ 1755 02d6 77000000 		.4byte	0x77
+ 1756 02da 02       		.uleb128 0x2
+ 1757 02db 91       		.byte	0x91
+ 1758 02dc 74       		.sleb128 -12
+ 1759 02dd 0D       		.uleb128 0xd
+ 1760 02de 726F7700 		.ascii	"row\000"
+ 1761 02e2 01       		.byte	0x1
+ 1762 02e3 7D02     		.2byte	0x27d
+ 1763 02e5 77000000 		.4byte	0x77
+ 1764 02e9 02       		.uleb128 0x2
+ 1765 02ea 91       		.byte	0x91
+ 1766 02eb 70       		.sleb128 -16
+ 1767 02ec 0C       		.uleb128 0xc
+ 1768 02ed A0010000 		.4byte	.LASF38
+ 1769 02f1 01       		.byte	0x1
+ 1770 02f2 7E02     		.2byte	0x27e
+ 1771 02f4 6B000000 		.4byte	0x6b
+ 1772 02f8 02       		.uleb128 0x2
+ 1773 02f9 91       		.byte	0x91
+ 1774 02fa 6F       		.sleb128 -17
+ 1775 02fb 0C       		.uleb128 0xc
+ 1776 02fc 39040000 		.4byte	.LASF20
+ 1777 0300 01       		.byte	0x1
+ 1778 0301 7F02     		.2byte	0x27f
+ 1779 0303 6B000000 		.4byte	0x6b
+ 1780 0307 02       		.uleb128 0x2
+ 1781 0308 91       		.byte	0x91
+ 1782 0309 77       		.sleb128 -9
+ 1783 030a 00       		.byte	0
+ 1784 030b 17       		.uleb128 0x17
+ 1785 030c 7E040000 		.4byte	.LASF39
+ 1786 0310 01       		.byte	0x1
+ 1787 0311 C902     		.2byte	0x2c9
+ 1788 0313 6B000000 		.4byte	0x6b
+ 1789 0317 00000000 		.4byte	.LFB10
+ 1790 031b 64000000 		.4byte	.LFE10-.LFB10
+ 1791 031f 01       		.uleb128 0x1
+ 1792 0320 9C       		.byte	0x9c
+ 1793 0321 71030000 		.4byte	0x371
+ 1794 0325 16       		.uleb128 0x16
+ 1795 0326 BE020000 		.4byte	.LASF34
+ 1796 032a 01       		.byte	0x1
+ 1797 032b C902     		.2byte	0x2c9
+ 1798 032d 77000000 		.4byte	0x77
+ 1799 0331 02       		.uleb128 0x2
+ 1800 0332 91       		.byte	0x91
+ 1801 0333 6E       		.sleb128 -18
+ 1802 0334 0C       		.uleb128 0xc
+ 1803 0335 F6000000 		.4byte	.LASF36
+ 1804 0339 01       		.byte	0x1
+ 1805 033a CB02     		.2byte	0x2cb
+ 1806 033c 77000000 		.4byte	0x77
+ 1807 0340 02       		.uleb128 0x2
+ 1808 0341 91       		.byte	0x91
+ 1809 0342 72       		.sleb128 -14
+ 1810 0343 0C       		.uleb128 0xc
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 50
+
+
+ 1811 0344 40040000 		.4byte	.LASF37
+ 1812 0348 01       		.byte	0x1
+ 1813 0349 CC02     		.2byte	0x2cc
+ 1814 034b 77000000 		.4byte	0x77
+ 1815 034f 02       		.uleb128 0x2
+ 1816 0350 91       		.byte	0x91
+ 1817 0351 74       		.sleb128 -12
+ 1818 0352 0D       		.uleb128 0xd
+ 1819 0353 726F7700 		.ascii	"row\000"
+ 1820 0357 01       		.byte	0x1
+ 1821 0358 CD02     		.2byte	0x2cd
+ 1822 035a 77000000 		.4byte	0x77
+ 1823 035e 02       		.uleb128 0x2
+ 1824 035f 91       		.byte	0x91
+ 1825 0360 70       		.sleb128 -16
+ 1826 0361 0C       		.uleb128 0xc
+ 1827 0362 D3010000 		.4byte	.LASF35
+ 1828 0366 01       		.byte	0x1
+ 1829 0367 CE02     		.2byte	0x2ce
+ 1830 0369 6B000000 		.4byte	0x6b
+ 1831 036d 02       		.uleb128 0x2
+ 1832 036e 91       		.byte	0x91
+ 1833 036f 77       		.sleb128 -9
+ 1834 0370 00       		.byte	0
+ 1835 0371 12       		.uleb128 0x12
+ 1836 0372 A0030000 		.4byte	.LASF40
+ 1837 0376 01       		.byte	0x1
+ 1838 0377 F602     		.2byte	0x2f6
+ 1839 0379 6B000000 		.4byte	0x6b
+ 1840 037d 00000000 		.4byte	.LFB11
+ 1841 0381 48000000 		.4byte	.LFE11-.LFB11
+ 1842 0385 01       		.uleb128 0x1
+ 1843 0386 9C       		.byte	0x9c
+ 1844 0387 AA030000 		.4byte	0x3aa
+ 1845 038b 16       		.uleb128 0x16
+ 1846 038c DB030000 		.4byte	.LASF41
+ 1847 0390 01       		.byte	0x1
+ 1848 0391 F602     		.2byte	0x2f6
+ 1849 0393 6B000000 		.4byte	0x6b
+ 1850 0397 02       		.uleb128 0x2
+ 1851 0398 91       		.byte	0x91
+ 1852 0399 6F       		.sleb128 -17
+ 1853 039a 0C       		.uleb128 0xc
+ 1854 039b 39040000 		.4byte	.LASF20
+ 1855 039f 01       		.byte	0x1
+ 1856 03a0 F802     		.2byte	0x2f8
+ 1857 03a2 6B000000 		.4byte	0x6b
+ 1858 03a6 02       		.uleb128 0x2
+ 1859 03a7 91       		.byte	0x91
+ 1860 03a8 77       		.sleb128 -9
+ 1861 03a9 00       		.byte	0
+ 1862 03aa 12       		.uleb128 0x12
+ 1863 03ab F1010000 		.4byte	.LASF42
+ 1864 03af 01       		.byte	0x1
+ 1865 03b0 2403     		.2byte	0x324
+ 1866 03b2 6B000000 		.4byte	0x6b
+ 1867 03b6 00000000 		.4byte	.LFB12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 51
+
+
+ 1868 03ba 2C000000 		.4byte	.LFE12-.LFB12
+ 1869 03be 01       		.uleb128 0x1
+ 1870 03bf 9C       		.byte	0x9c
+ 1871 03c0 D4030000 		.4byte	0x3d4
+ 1872 03c4 0C       		.uleb128 0xc
+ 1873 03c5 4E010000 		.4byte	.LASF43
+ 1874 03c9 01       		.byte	0x1
+ 1875 03ca 2603     		.2byte	0x326
+ 1876 03cc 6B000000 		.4byte	0x6b
+ 1877 03d0 02       		.uleb128 0x2
+ 1878 03d1 91       		.byte	0x91
+ 1879 03d2 77       		.sleb128 -9
+ 1880 03d3 00       		.byte	0
+ 1881 03d4 15       		.uleb128 0x15
+ 1882 03d5 32020000 		.4byte	.LASF45
+ 1883 03d9 01       		.byte	0x1
+ 1884 03da 5703     		.2byte	0x357
+ 1885 03dc 00000000 		.4byte	.LFB13
+ 1886 03e0 9C000000 		.4byte	.LFE13-.LFB13
+ 1887 03e4 01       		.uleb128 0x1
+ 1888 03e5 9C       		.byte	0x9c
+ 1889 03e6 37040000 		.4byte	0x437
+ 1890 03ea 16       		.uleb128 0x16
+ 1891 03eb 48010000 		.4byte	.LASF46
+ 1892 03ef 01       		.byte	0x1
+ 1893 03f0 5703     		.2byte	0x357
+ 1894 03f2 6B000000 		.4byte	0x6b
+ 1895 03f6 02       		.uleb128 0x2
+ 1896 03f7 91       		.byte	0x91
+ 1897 03f8 6F       		.sleb128 -17
+ 1898 03f9 16       		.uleb128 0x16
+ 1899 03fa B8010000 		.4byte	.LASF47
+ 1900 03fe 01       		.byte	0x1
+ 1901 03ff 5703     		.2byte	0x357
+ 1902 0401 6B000000 		.4byte	0x6b
+ 1903 0405 02       		.uleb128 0x2
+ 1904 0406 91       		.byte	0x91
+ 1905 0407 6E       		.sleb128 -18
+ 1906 0408 0C       		.uleb128 0xc
+ 1907 0409 1D030000 		.4byte	.LASF48
+ 1908 040d 01       		.byte	0x1
+ 1909 040e 5903     		.2byte	0x359
+ 1910 0410 52040000 		.4byte	0x452
+ 1911 0414 05       		.uleb128 0x5
+ 1912 0415 03       		.byte	0x3
+ 1913 0416 18000000 		.4byte	LCD_SegStat_disp0.5219
+ 1914 041a 0D       		.uleb128 0xd
+ 1915 041b 6900     		.ascii	"i\000"
+ 1916 041d 01       		.byte	0x1
+ 1917 041e 6003     		.2byte	0x360
+ 1918 0420 6B000000 		.4byte	0x6b
+ 1919 0424 02       		.uleb128 0x2
+ 1920 0425 91       		.byte	0x91
+ 1921 0426 77       		.sleb128 -9
+ 1922 0427 0D       		.uleb128 0xd
+ 1923 0428 76616C00 		.ascii	"val\000"
+ 1924 042c 01       		.byte	0x1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 52
+
+
+ 1925 042d 6103     		.2byte	0x361
+ 1926 042f 6B000000 		.4byte	0x6b
+ 1927 0433 02       		.uleb128 0x2
+ 1928 0434 91       		.byte	0x91
+ 1929 0435 76       		.sleb128 -10
+ 1930 0436 00       		.byte	0
+ 1931 0437 0E       		.uleb128 0xe
+ 1932 0438 4D040000 		.4byte	0x44d
+ 1933 043c 4D040000 		.4byte	0x44d
+ 1934 0440 0F       		.uleb128 0xf
+ 1935 0441 E1000000 		.4byte	0xe1
+ 1936 0445 03       		.byte	0x3
+ 1937 0446 0F       		.uleb128 0xf
+ 1938 0447 E1000000 		.4byte	0xe1
+ 1939 044b 06       		.byte	0x6
+ 1940 044c 00       		.byte	0
+ 1941 044d 10       		.uleb128 0x10
+ 1942 044e 77000000 		.4byte	0x77
+ 1943 0452 10       		.uleb128 0x10
+ 1944 0453 37040000 		.4byte	0x437
+ 1945 0457 15       		.uleb128 0x15
+ 1946 0458 73010000 		.4byte	.LASF49
+ 1947 045c 01       		.byte	0x1
+ 1948 045d A103     		.2byte	0x3a1
+ 1949 045f 00000000 		.4byte	.LFB14
+ 1950 0463 80000000 		.4byte	.LFE14-.LFB14
+ 1951 0467 01       		.uleb128 0x1
+ 1952 0468 9C       		.byte	0x9c
+ 1953 0469 B7040000 		.4byte	0x4b7
+ 1954 046d 16       		.uleb128 0x16
+ 1955 046e A5010000 		.4byte	.LASF50
+ 1956 0472 01       		.byte	0x1
+ 1957 0473 A103     		.2byte	0x3a1
+ 1958 0475 77000000 		.4byte	0x77
+ 1959 0479 02       		.uleb128 0x2
+ 1960 047a 91       		.byte	0x91
+ 1961 047b 6E       		.sleb128 -18
+ 1962 047c 16       		.uleb128 0x16
+ 1963 047d B8010000 		.4byte	.LASF47
+ 1964 0481 01       		.byte	0x1
+ 1965 0482 A103     		.2byte	0x3a1
+ 1966 0484 6B000000 		.4byte	0x6b
+ 1967 0488 02       		.uleb128 0x2
+ 1968 0489 91       		.byte	0x91
+ 1969 048a 6D       		.sleb128 -19
+ 1970 048b 16       		.uleb128 0x16
+ 1971 048c 85030000 		.4byte	.LASF51
+ 1972 0490 01       		.byte	0x1
+ 1973 0491 A103     		.2byte	0x3a1
+ 1974 0493 6B000000 		.4byte	0x6b
+ 1975 0497 02       		.uleb128 0x2
+ 1976 0498 91       		.byte	0x91
+ 1977 0499 6C       		.sleb128 -20
+ 1978 049a 0D       		.uleb128 0xd
+ 1979 049b 6900     		.ascii	"i\000"
+ 1980 049d 01       		.byte	0x1
+ 1981 049e A303     		.2byte	0x3a3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 53
+
+
+ 1982 04a0 6B000000 		.4byte	0x6b
+ 1983 04a4 02       		.uleb128 0x2
+ 1984 04a5 91       		.byte	0x91
+ 1985 04a6 77       		.sleb128 -9
+ 1986 04a7 0D       		.uleb128 0xd
+ 1987 04a8 6E756D00 		.ascii	"num\000"
+ 1988 04ac 01       		.byte	0x1
+ 1989 04ad A403     		.2byte	0x3a4
+ 1990 04af 6B000000 		.4byte	0x6b
+ 1991 04b3 02       		.uleb128 0x2
+ 1992 04b4 91       		.byte	0x91
+ 1993 04b5 76       		.sleb128 -10
+ 1994 04b6 00       		.byte	0
+ 1995 04b7 0E       		.uleb128 0xe
+ 1996 04b8 C7040000 		.4byte	0x4c7
+ 1997 04bc C7040000 		.4byte	0x4c7
+ 1998 04c0 0F       		.uleb128 0xf
+ 1999 04c1 E1000000 		.4byte	0xe1
+ 2000 04c5 10       		.byte	0x10
+ 2001 04c6 00       		.byte	0
+ 2002 04c7 10       		.uleb128 0x10
+ 2003 04c8 6B000000 		.4byte	0x6b
+ 2004 04cc 0A       		.uleb128 0xa
+ 2005 04cd BD030000 		.4byte	.LASF52
+ 2006 04d1 01       		.byte	0x1
+ 2007 04d2 1D       		.byte	0x1d
+ 2008 04d3 DD040000 		.4byte	0x4dd
+ 2009 04d7 05       		.uleb128 0x5
+ 2010 04d8 03       		.byte	0x3
+ 2011 04d9 00000000 		.4byte	LCD_SegStat_7SegDigits
+ 2012 04dd 10       		.uleb128 0x10
+ 2013 04de B7040000 		.4byte	0x4b7
+ 2014 04e2 0E       		.uleb128 0xe
+ 2015 04e3 6B000000 		.4byte	0x6b
+ 2016 04e7 F2040000 		.4byte	0x4f2
+ 2017 04eb 0F       		.uleb128 0xf
+ 2018 04ec E1000000 		.4byte	0xe1
+ 2019 04f0 1F       		.byte	0x1f
+ 2020 04f1 00       		.byte	0
+ 2021 04f2 0A       		.uleb128 0xa
+ 2022 04f3 5B030000 		.4byte	.LASF53
+ 2023 04f7 01       		.byte	0x1
+ 2024 04f8 A4       		.byte	0xa4
+ 2025 04f9 E2040000 		.4byte	0x4e2
+ 2026 04fd 05       		.uleb128 0x5
+ 2027 04fe 03       		.byte	0x3
+ 2028 04ff 00000000 		.4byte	LCD_SegStat_buffer
+ 2029 0503 0E       		.uleb128 0xe
+ 2030 0504 6B000000 		.4byte	0x6b
+ 2031 0508 13050000 		.4byte	0x513
+ 2032 050c 0F       		.uleb128 0xf
+ 2033 050d E1000000 		.4byte	0xe1
+ 2034 0511 03       		.byte	0x3
+ 2035 0512 00       		.byte	0
+ 2036 0513 0A       		.uleb128 0xa
+ 2037 0514 20020000 		.4byte	.LASF54
+ 2038 0518 01       		.byte	0x1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 54
+
+
+ 2039 0519 A7       		.byte	0xa7
+ 2040 051a 03050000 		.4byte	0x503
+ 2041 051e 05       		.uleb128 0x5
+ 2042 051f 03       		.byte	0x3
+ 2043 0520 20000000 		.4byte	LCD_SegStat_lcdTd
+ 2044 0524 0A       		.uleb128 0xa
+ 2045 0525 C8000000 		.4byte	.LASF55
+ 2046 0529 01       		.byte	0x1
+ 2047 052a AA       		.byte	0xaa
+ 2048 052b 6B000000 		.4byte	0x6b
+ 2049 052f 05       		.uleb128 0x5
+ 2050 0530 03       		.byte	0x3
+ 2051 0531 24000000 		.4byte	LCD_SegStat_lcdChannel
+ 2052 0535 0E       		.uleb128 0xe
+ 2053 0536 77000000 		.4byte	0x77
+ 2054 053a 45050000 		.4byte	0x545
+ 2055 053e 0F       		.uleb128 0xf
+ 2056 053f E1000000 		.4byte	0xe1
+ 2057 0543 00       		.byte	0
+ 2058 0544 00       		.byte	0
+ 2059 0545 0A       		.uleb128 0xa
+ 2060 0546 47030000 		.4byte	.LASF56
+ 2061 054a 01       		.byte	0x1
+ 2062 054b B3       		.byte	0xb3
+ 2063 054c 35050000 		.4byte	0x535
+ 2064 0550 05       		.uleb128 0x5
+ 2065 0551 03       		.byte	0x3
+ 2066 0552 00000000 		.4byte	LCD_SegStat_commons
+ 2067 0556 18       		.uleb128 0x18
+ 2068 0557 FF000000 		.4byte	.LASF57
+ 2069 055b 01       		.byte	0x1
+ 2070 055c AF       		.byte	0xaf
+ 2071 055d 6B000000 		.4byte	0x6b
+ 2072 0561 05       		.uleb128 0x5
+ 2073 0562 03       		.byte	0x3
+ 2074 0563 00000000 		.4byte	LCD_SegStat_enableState
+ 2075 0567 18       		.uleb128 0x18
+ 2076 0568 63020000 		.4byte	.LASF58
+ 2077 056c 01       		.byte	0x1
+ 2078 056d AC       		.byte	0xac
+ 2079 056e 6B000000 		.4byte	0x6b
+ 2080 0572 05       		.uleb128 0x5
+ 2081 0573 03       		.byte	0x3
+ 2082 0574 00000000 		.4byte	LCD_SegStat_initVar
+ 2083 0578 00       		.byte	0
+ 2084              		.section	.debug_abbrev,"",%progbits
+ 2085              	.Ldebug_abbrev0:
+ 2086 0000 01       		.uleb128 0x1
+ 2087 0001 11       		.uleb128 0x11
+ 2088 0002 01       		.byte	0x1
+ 2089 0003 25       		.uleb128 0x25
+ 2090 0004 0E       		.uleb128 0xe
+ 2091 0005 13       		.uleb128 0x13
+ 2092 0006 0B       		.uleb128 0xb
+ 2093 0007 03       		.uleb128 0x3
+ 2094 0008 0E       		.uleb128 0xe
+ 2095 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 55
+
+
+ 2096 000a 0E       		.uleb128 0xe
+ 2097 000b 55       		.uleb128 0x55
+ 2098 000c 17       		.uleb128 0x17
+ 2099 000d 11       		.uleb128 0x11
+ 2100 000e 01       		.uleb128 0x1
+ 2101 000f 10       		.uleb128 0x10
+ 2102 0010 17       		.uleb128 0x17
+ 2103 0011 00       		.byte	0
+ 2104 0012 00       		.byte	0
+ 2105 0013 02       		.uleb128 0x2
+ 2106 0014 24       		.uleb128 0x24
+ 2107 0015 00       		.byte	0
+ 2108 0016 0B       		.uleb128 0xb
+ 2109 0017 0B       		.uleb128 0xb
+ 2110 0018 3E       		.uleb128 0x3e
+ 2111 0019 0B       		.uleb128 0xb
+ 2112 001a 03       		.uleb128 0x3
+ 2113 001b 0E       		.uleb128 0xe
+ 2114 001c 00       		.byte	0
+ 2115 001d 00       		.byte	0
+ 2116 001e 03       		.uleb128 0x3
+ 2117 001f 24       		.uleb128 0x24
+ 2118 0020 00       		.byte	0
+ 2119 0021 0B       		.uleb128 0xb
+ 2120 0022 0B       		.uleb128 0xb
+ 2121 0023 3E       		.uleb128 0x3e
+ 2122 0024 0B       		.uleb128 0xb
+ 2123 0025 03       		.uleb128 0x3
+ 2124 0026 08       		.uleb128 0x8
+ 2125 0027 00       		.byte	0
+ 2126 0028 00       		.byte	0
+ 2127 0029 04       		.uleb128 0x4
+ 2128 002a 16       		.uleb128 0x16
+ 2129 002b 00       		.byte	0
+ 2130 002c 03       		.uleb128 0x3
+ 2131 002d 0E       		.uleb128 0xe
+ 2132 002e 3A       		.uleb128 0x3a
+ 2133 002f 0B       		.uleb128 0xb
+ 2134 0030 3B       		.uleb128 0x3b
+ 2135 0031 05       		.uleb128 0x5
+ 2136 0032 49       		.uleb128 0x49
+ 2137 0033 13       		.uleb128 0x13
+ 2138 0034 00       		.byte	0
+ 2139 0035 00       		.byte	0
+ 2140 0036 05       		.uleb128 0x5
+ 2141 0037 35       		.uleb128 0x35
+ 2142 0038 00       		.byte	0
+ 2143 0039 49       		.uleb128 0x49
+ 2144 003a 13       		.uleb128 0x13
+ 2145 003b 00       		.byte	0
+ 2146 003c 00       		.byte	0
+ 2147 003d 06       		.uleb128 0x6
+ 2148 003e 13       		.uleb128 0x13
+ 2149 003f 01       		.byte	0x1
+ 2150 0040 03       		.uleb128 0x3
+ 2151 0041 0E       		.uleb128 0xe
+ 2152 0042 0B       		.uleb128 0xb
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 56
+
+
+ 2153 0043 0B       		.uleb128 0xb
+ 2154 0044 3A       		.uleb128 0x3a
+ 2155 0045 0B       		.uleb128 0xb
+ 2156 0046 3B       		.uleb128 0x3b
+ 2157 0047 0B       		.uleb128 0xb
+ 2158 0048 01       		.uleb128 0x1
+ 2159 0049 13       		.uleb128 0x13
+ 2160 004a 00       		.byte	0
+ 2161 004b 00       		.byte	0
+ 2162 004c 07       		.uleb128 0x7
+ 2163 004d 0D       		.uleb128 0xd
+ 2164 004e 00       		.byte	0
+ 2165 004f 03       		.uleb128 0x3
+ 2166 0050 0E       		.uleb128 0xe
+ 2167 0051 3A       		.uleb128 0x3a
+ 2168 0052 0B       		.uleb128 0xb
+ 2169 0053 3B       		.uleb128 0x3b
+ 2170 0054 0B       		.uleb128 0xb
+ 2171 0055 49       		.uleb128 0x49
+ 2172 0056 13       		.uleb128 0x13
+ 2173 0057 38       		.uleb128 0x38
+ 2174 0058 0B       		.uleb128 0xb
+ 2175 0059 00       		.byte	0
+ 2176 005a 00       		.byte	0
+ 2177 005b 08       		.uleb128 0x8
+ 2178 005c 2E       		.uleb128 0x2e
+ 2179 005d 00       		.byte	0
+ 2180 005e 3F       		.uleb128 0x3f
+ 2181 005f 19       		.uleb128 0x19
+ 2182 0060 03       		.uleb128 0x3
+ 2183 0061 0E       		.uleb128 0xe
+ 2184 0062 3A       		.uleb128 0x3a
+ 2185 0063 0B       		.uleb128 0xb
+ 2186 0064 3B       		.uleb128 0x3b
+ 2187 0065 0B       		.uleb128 0xb
+ 2188 0066 27       		.uleb128 0x27
+ 2189 0067 19       		.uleb128 0x19
+ 2190 0068 11       		.uleb128 0x11
+ 2191 0069 01       		.uleb128 0x1
+ 2192 006a 12       		.uleb128 0x12
+ 2193 006b 06       		.uleb128 0x6
+ 2194 006c 40       		.uleb128 0x40
+ 2195 006d 18       		.uleb128 0x18
+ 2196 006e 9642     		.uleb128 0x2116
+ 2197 0070 19       		.uleb128 0x19
+ 2198 0071 00       		.byte	0
+ 2199 0072 00       		.byte	0
+ 2200 0073 09       		.uleb128 0x9
+ 2201 0074 2E       		.uleb128 0x2e
+ 2202 0075 01       		.byte	0x1
+ 2203 0076 3F       		.uleb128 0x3f
+ 2204 0077 19       		.uleb128 0x19
+ 2205 0078 03       		.uleb128 0x3
+ 2206 0079 0E       		.uleb128 0xe
+ 2207 007a 3A       		.uleb128 0x3a
+ 2208 007b 0B       		.uleb128 0xb
+ 2209 007c 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 57
+
+
+ 2210 007d 0B       		.uleb128 0xb
+ 2211 007e 27       		.uleb128 0x27
+ 2212 007f 19       		.uleb128 0x19
+ 2213 0080 49       		.uleb128 0x49
+ 2214 0081 13       		.uleb128 0x13
+ 2215 0082 11       		.uleb128 0x11
+ 2216 0083 01       		.uleb128 0x1
+ 2217 0084 12       		.uleb128 0x12
+ 2218 0085 06       		.uleb128 0x6
+ 2219 0086 40       		.uleb128 0x40
+ 2220 0087 18       		.uleb128 0x18
+ 2221 0088 9642     		.uleb128 0x2116
+ 2222 008a 19       		.uleb128 0x19
+ 2223 008b 01       		.uleb128 0x1
+ 2224 008c 13       		.uleb128 0x13
+ 2225 008d 00       		.byte	0
+ 2226 008e 00       		.byte	0
+ 2227 008f 0A       		.uleb128 0xa
+ 2228 0090 34       		.uleb128 0x34
+ 2229 0091 00       		.byte	0
+ 2230 0092 03       		.uleb128 0x3
+ 2231 0093 0E       		.uleb128 0xe
+ 2232 0094 3A       		.uleb128 0x3a
+ 2233 0095 0B       		.uleb128 0xb
+ 2234 0096 3B       		.uleb128 0x3b
+ 2235 0097 0B       		.uleb128 0xb
+ 2236 0098 49       		.uleb128 0x49
+ 2237 0099 13       		.uleb128 0x13
+ 2238 009a 02       		.uleb128 0x2
+ 2239 009b 18       		.uleb128 0x18
+ 2240 009c 00       		.byte	0
+ 2241 009d 00       		.byte	0
+ 2242 009e 0B       		.uleb128 0xb
+ 2243 009f 2E       		.uleb128 0x2e
+ 2244 00a0 01       		.byte	0x1
+ 2245 00a1 03       		.uleb128 0x3
+ 2246 00a2 0E       		.uleb128 0xe
+ 2247 00a3 3A       		.uleb128 0x3a
+ 2248 00a4 0B       		.uleb128 0xb
+ 2249 00a5 3B       		.uleb128 0x3b
+ 2250 00a6 05       		.uleb128 0x5
+ 2251 00a7 27       		.uleb128 0x27
+ 2252 00a8 19       		.uleb128 0x19
+ 2253 00a9 49       		.uleb128 0x49
+ 2254 00aa 13       		.uleb128 0x13
+ 2255 00ab 11       		.uleb128 0x11
+ 2256 00ac 01       		.uleb128 0x1
+ 2257 00ad 12       		.uleb128 0x12
+ 2258 00ae 06       		.uleb128 0x6
+ 2259 00af 40       		.uleb128 0x40
+ 2260 00b0 18       		.uleb128 0x18
+ 2261 00b1 9642     		.uleb128 0x2116
+ 2262 00b3 19       		.uleb128 0x19
+ 2263 00b4 01       		.uleb128 0x1
+ 2264 00b5 13       		.uleb128 0x13
+ 2265 00b6 00       		.byte	0
+ 2266 00b7 00       		.byte	0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 58
+
+
+ 2267 00b8 0C       		.uleb128 0xc
+ 2268 00b9 34       		.uleb128 0x34
+ 2269 00ba 00       		.byte	0
+ 2270 00bb 03       		.uleb128 0x3
+ 2271 00bc 0E       		.uleb128 0xe
+ 2272 00bd 3A       		.uleb128 0x3a
+ 2273 00be 0B       		.uleb128 0xb
+ 2274 00bf 3B       		.uleb128 0x3b
+ 2275 00c0 05       		.uleb128 0x5
+ 2276 00c1 49       		.uleb128 0x49
+ 2277 00c2 13       		.uleb128 0x13
+ 2278 00c3 02       		.uleb128 0x2
+ 2279 00c4 18       		.uleb128 0x18
+ 2280 00c5 00       		.byte	0
+ 2281 00c6 00       		.byte	0
+ 2282 00c7 0D       		.uleb128 0xd
+ 2283 00c8 34       		.uleb128 0x34
+ 2284 00c9 00       		.byte	0
+ 2285 00ca 03       		.uleb128 0x3
+ 2286 00cb 08       		.uleb128 0x8
+ 2287 00cc 3A       		.uleb128 0x3a
+ 2288 00cd 0B       		.uleb128 0xb
+ 2289 00ce 3B       		.uleb128 0x3b
+ 2290 00cf 05       		.uleb128 0x5
+ 2291 00d0 49       		.uleb128 0x49
+ 2292 00d1 13       		.uleb128 0x13
+ 2293 00d2 02       		.uleb128 0x2
+ 2294 00d3 18       		.uleb128 0x18
+ 2295 00d4 00       		.byte	0
+ 2296 00d5 00       		.byte	0
+ 2297 00d6 0E       		.uleb128 0xe
+ 2298 00d7 01       		.uleb128 0x1
+ 2299 00d8 01       		.byte	0x1
+ 2300 00d9 49       		.uleb128 0x49
+ 2301 00da 13       		.uleb128 0x13
+ 2302 00db 01       		.uleb128 0x1
+ 2303 00dc 13       		.uleb128 0x13
+ 2304 00dd 00       		.byte	0
+ 2305 00de 00       		.byte	0
+ 2306 00df 0F       		.uleb128 0xf
+ 2307 00e0 21       		.uleb128 0x21
+ 2308 00e1 00       		.byte	0
+ 2309 00e2 49       		.uleb128 0x49
+ 2310 00e3 13       		.uleb128 0x13
+ 2311 00e4 2F       		.uleb128 0x2f
+ 2312 00e5 0B       		.uleb128 0xb
+ 2313 00e6 00       		.byte	0
+ 2314 00e7 00       		.byte	0
+ 2315 00e8 10       		.uleb128 0x10
+ 2316 00e9 26       		.uleb128 0x26
+ 2317 00ea 00       		.byte	0
+ 2318 00eb 49       		.uleb128 0x49
+ 2319 00ec 13       		.uleb128 0x13
+ 2320 00ed 00       		.byte	0
+ 2321 00ee 00       		.byte	0
+ 2322 00ef 11       		.uleb128 0x11
+ 2323 00f0 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 59
+
+
+ 2324 00f1 01       		.byte	0x1
+ 2325 00f2 03       		.uleb128 0x3
+ 2326 00f3 0E       		.uleb128 0xe
+ 2327 00f4 3A       		.uleb128 0x3a
+ 2328 00f5 0B       		.uleb128 0xb
+ 2329 00f6 3B       		.uleb128 0x3b
+ 2330 00f7 05       		.uleb128 0x5
+ 2331 00f8 27       		.uleb128 0x27
+ 2332 00f9 19       		.uleb128 0x19
+ 2333 00fa 11       		.uleb128 0x11
+ 2334 00fb 01       		.uleb128 0x1
+ 2335 00fc 12       		.uleb128 0x12
+ 2336 00fd 06       		.uleb128 0x6
+ 2337 00fe 40       		.uleb128 0x40
+ 2338 00ff 18       		.uleb128 0x18
+ 2339 0100 9642     		.uleb128 0x2116
+ 2340 0102 19       		.uleb128 0x19
+ 2341 0103 01       		.uleb128 0x1
+ 2342 0104 13       		.uleb128 0x13
+ 2343 0105 00       		.byte	0
+ 2344 0106 00       		.byte	0
+ 2345 0107 12       		.uleb128 0x12
+ 2346 0108 2E       		.uleb128 0x2e
+ 2347 0109 01       		.byte	0x1
+ 2348 010a 3F       		.uleb128 0x3f
+ 2349 010b 19       		.uleb128 0x19
+ 2350 010c 03       		.uleb128 0x3
+ 2351 010d 0E       		.uleb128 0xe
+ 2352 010e 3A       		.uleb128 0x3a
+ 2353 010f 0B       		.uleb128 0xb
+ 2354 0110 3B       		.uleb128 0x3b
+ 2355 0111 05       		.uleb128 0x5
+ 2356 0112 27       		.uleb128 0x27
+ 2357 0113 19       		.uleb128 0x19
+ 2358 0114 49       		.uleb128 0x49
+ 2359 0115 13       		.uleb128 0x13
+ 2360 0116 11       		.uleb128 0x11
+ 2361 0117 01       		.uleb128 0x1
+ 2362 0118 12       		.uleb128 0x12
+ 2363 0119 06       		.uleb128 0x6
+ 2364 011a 40       		.uleb128 0x40
+ 2365 011b 18       		.uleb128 0x18
+ 2366 011c 9642     		.uleb128 0x2116
+ 2367 011e 19       		.uleb128 0x19
+ 2368 011f 01       		.uleb128 0x1
+ 2369 0120 13       		.uleb128 0x13
+ 2370 0121 00       		.byte	0
+ 2371 0122 00       		.byte	0
+ 2372 0123 13       		.uleb128 0x13
+ 2373 0124 2E       		.uleb128 0x2e
+ 2374 0125 00       		.byte	0
+ 2375 0126 3F       		.uleb128 0x3f
+ 2376 0127 19       		.uleb128 0x19
+ 2377 0128 03       		.uleb128 0x3
+ 2378 0129 0E       		.uleb128 0xe
+ 2379 012a 3A       		.uleb128 0x3a
+ 2380 012b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 60
+
+
+ 2381 012c 3B       		.uleb128 0x3b
+ 2382 012d 05       		.uleb128 0x5
+ 2383 012e 27       		.uleb128 0x27
+ 2384 012f 19       		.uleb128 0x19
+ 2385 0130 11       		.uleb128 0x11
+ 2386 0131 01       		.uleb128 0x1
+ 2387 0132 12       		.uleb128 0x12
+ 2388 0133 06       		.uleb128 0x6
+ 2389 0134 40       		.uleb128 0x40
+ 2390 0135 18       		.uleb128 0x18
+ 2391 0136 9642     		.uleb128 0x2116
+ 2392 0138 19       		.uleb128 0x19
+ 2393 0139 00       		.byte	0
+ 2394 013a 00       		.byte	0
+ 2395 013b 14       		.uleb128 0x14
+ 2396 013c 2E       		.uleb128 0x2e
+ 2397 013d 00       		.byte	0
+ 2398 013e 3F       		.uleb128 0x3f
+ 2399 013f 19       		.uleb128 0x19
+ 2400 0140 03       		.uleb128 0x3
+ 2401 0141 0E       		.uleb128 0xe
+ 2402 0142 3A       		.uleb128 0x3a
+ 2403 0143 0B       		.uleb128 0xb
+ 2404 0144 3B       		.uleb128 0x3b
+ 2405 0145 05       		.uleb128 0x5
+ 2406 0146 27       		.uleb128 0x27
+ 2407 0147 19       		.uleb128 0x19
+ 2408 0148 11       		.uleb128 0x11
+ 2409 0149 01       		.uleb128 0x1
+ 2410 014a 12       		.uleb128 0x12
+ 2411 014b 06       		.uleb128 0x6
+ 2412 014c 40       		.uleb128 0x40
+ 2413 014d 18       		.uleb128 0x18
+ 2414 014e 9742     		.uleb128 0x2117
+ 2415 0150 19       		.uleb128 0x19
+ 2416 0151 00       		.byte	0
+ 2417 0152 00       		.byte	0
+ 2418 0153 15       		.uleb128 0x15
+ 2419 0154 2E       		.uleb128 0x2e
+ 2420 0155 01       		.byte	0x1
+ 2421 0156 3F       		.uleb128 0x3f
+ 2422 0157 19       		.uleb128 0x19
+ 2423 0158 03       		.uleb128 0x3
+ 2424 0159 0E       		.uleb128 0xe
+ 2425 015a 3A       		.uleb128 0x3a
+ 2426 015b 0B       		.uleb128 0xb
+ 2427 015c 3B       		.uleb128 0x3b
+ 2428 015d 05       		.uleb128 0x5
+ 2429 015e 27       		.uleb128 0x27
+ 2430 015f 19       		.uleb128 0x19
+ 2431 0160 11       		.uleb128 0x11
+ 2432 0161 01       		.uleb128 0x1
+ 2433 0162 12       		.uleb128 0x12
+ 2434 0163 06       		.uleb128 0x6
+ 2435 0164 40       		.uleb128 0x40
+ 2436 0165 18       		.uleb128 0x18
+ 2437 0166 9642     		.uleb128 0x2116
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 61
+
+
+ 2438 0168 19       		.uleb128 0x19
+ 2439 0169 01       		.uleb128 0x1
+ 2440 016a 13       		.uleb128 0x13
+ 2441 016b 00       		.byte	0
+ 2442 016c 00       		.byte	0
+ 2443 016d 16       		.uleb128 0x16
+ 2444 016e 05       		.uleb128 0x5
+ 2445 016f 00       		.byte	0
+ 2446 0170 03       		.uleb128 0x3
+ 2447 0171 0E       		.uleb128 0xe
+ 2448 0172 3A       		.uleb128 0x3a
+ 2449 0173 0B       		.uleb128 0xb
+ 2450 0174 3B       		.uleb128 0x3b
+ 2451 0175 05       		.uleb128 0x5
+ 2452 0176 49       		.uleb128 0x49
+ 2453 0177 13       		.uleb128 0x13
+ 2454 0178 02       		.uleb128 0x2
+ 2455 0179 18       		.uleb128 0x18
+ 2456 017a 00       		.byte	0
+ 2457 017b 00       		.byte	0
+ 2458 017c 17       		.uleb128 0x17
+ 2459 017d 2E       		.uleb128 0x2e
+ 2460 017e 01       		.byte	0x1
+ 2461 017f 3F       		.uleb128 0x3f
+ 2462 0180 19       		.uleb128 0x19
+ 2463 0181 03       		.uleb128 0x3
+ 2464 0182 0E       		.uleb128 0xe
+ 2465 0183 3A       		.uleb128 0x3a
+ 2466 0184 0B       		.uleb128 0xb
+ 2467 0185 3B       		.uleb128 0x3b
+ 2468 0186 05       		.uleb128 0x5
+ 2469 0187 27       		.uleb128 0x27
+ 2470 0188 19       		.uleb128 0x19
+ 2471 0189 49       		.uleb128 0x49
+ 2472 018a 13       		.uleb128 0x13
+ 2473 018b 11       		.uleb128 0x11
+ 2474 018c 01       		.uleb128 0x1
+ 2475 018d 12       		.uleb128 0x12
+ 2476 018e 06       		.uleb128 0x6
+ 2477 018f 40       		.uleb128 0x40
+ 2478 0190 18       		.uleb128 0x18
+ 2479 0191 9742     		.uleb128 0x2117
+ 2480 0193 19       		.uleb128 0x19
+ 2481 0194 01       		.uleb128 0x1
+ 2482 0195 13       		.uleb128 0x13
+ 2483 0196 00       		.byte	0
+ 2484 0197 00       		.byte	0
+ 2485 0198 18       		.uleb128 0x18
+ 2486 0199 34       		.uleb128 0x34
+ 2487 019a 00       		.byte	0
+ 2488 019b 03       		.uleb128 0x3
+ 2489 019c 0E       		.uleb128 0xe
+ 2490 019d 3A       		.uleb128 0x3a
+ 2491 019e 0B       		.uleb128 0xb
+ 2492 019f 3B       		.uleb128 0x3b
+ 2493 01a0 0B       		.uleb128 0xb
+ 2494 01a1 49       		.uleb128 0x49
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 62
+
+
+ 2495 01a2 13       		.uleb128 0x13
+ 2496 01a3 3F       		.uleb128 0x3f
+ 2497 01a4 19       		.uleb128 0x19
+ 2498 01a5 02       		.uleb128 0x2
+ 2499 01a6 18       		.uleb128 0x18
+ 2500 01a7 00       		.byte	0
+ 2501 01a8 00       		.byte	0
+ 2502 01a9 00       		.byte	0
+ 2503              		.section	.debug_aranges,"",%progbits
+ 2504 0000 8C000000 		.4byte	0x8c
+ 2505 0004 0200     		.2byte	0x2
+ 2506 0006 00000000 		.4byte	.Ldebug_info0
+ 2507 000a 04       		.byte	0x4
+ 2508 000b 00       		.byte	0
+ 2509 000c 0000     		.2byte	0
+ 2510 000e 0000     		.2byte	0
+ 2511 0010 00000000 		.4byte	.LFB0
+ 2512 0014 2C000000 		.4byte	.LFE0-.LFB0
+ 2513 0018 00000000 		.4byte	.LFB1
+ 2514 001c 28000000 		.4byte	.LFE1-.LFB1
+ 2515 0020 00000000 		.4byte	.LFB2
+ 2516 0024 EC010000 		.4byte	.LFE2-.LFB2
+ 2517 0028 00000000 		.4byte	.LFB3
+ 2518 002c 44000000 		.4byte	.LFE3-.LFB3
+ 2519 0030 00000000 		.4byte	.LFB4
+ 2520 0034 30000000 		.4byte	.LFE4-.LFB4
+ 2521 0038 00000000 		.4byte	.LFB5
+ 2522 003c 24000000 		.4byte	.LFE5-.LFB5
+ 2523 0040 00000000 		.4byte	.LFB6
+ 2524 0044 18000000 		.4byte	.LFE6-.LFB6
+ 2525 0048 00000000 		.4byte	.LFB7
+ 2526 004c 18000000 		.4byte	.LFE7-.LFB7
+ 2527 0050 00000000 		.4byte	.LFB8
+ 2528 0054 4C000000 		.4byte	.LFE8-.LFB8
+ 2529 0058 00000000 		.4byte	.LFB9
+ 2530 005c E4000000 		.4byte	.LFE9-.LFB9
+ 2531 0060 00000000 		.4byte	.LFB10
+ 2532 0064 64000000 		.4byte	.LFE10-.LFB10
+ 2533 0068 00000000 		.4byte	.LFB11
+ 2534 006c 48000000 		.4byte	.LFE11-.LFB11
+ 2535 0070 00000000 		.4byte	.LFB12
+ 2536 0074 2C000000 		.4byte	.LFE12-.LFB12
+ 2537 0078 00000000 		.4byte	.LFB13
+ 2538 007c 9C000000 		.4byte	.LFE13-.LFB13
+ 2539 0080 00000000 		.4byte	.LFB14
+ 2540 0084 80000000 		.4byte	.LFE14-.LFB14
+ 2541 0088 00000000 		.4byte	0
+ 2542 008c 00000000 		.4byte	0
+ 2543              		.section	.debug_ranges,"",%progbits
+ 2544              	.Ldebug_ranges0:
+ 2545 0000 00000000 		.4byte	.LFB0
+ 2546 0004 2C000000 		.4byte	.LFE0
+ 2547 0008 00000000 		.4byte	.LFB1
+ 2548 000c 28000000 		.4byte	.LFE1
+ 2549 0010 00000000 		.4byte	.LFB2
+ 2550 0014 EC010000 		.4byte	.LFE2
+ 2551 0018 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 63
+
+
+ 2552 001c 44000000 		.4byte	.LFE3
+ 2553 0020 00000000 		.4byte	.LFB4
+ 2554 0024 30000000 		.4byte	.LFE4
+ 2555 0028 00000000 		.4byte	.LFB5
+ 2556 002c 24000000 		.4byte	.LFE5
+ 2557 0030 00000000 		.4byte	.LFB6
+ 2558 0034 18000000 		.4byte	.LFE6
+ 2559 0038 00000000 		.4byte	.LFB7
+ 2560 003c 18000000 		.4byte	.LFE7
+ 2561 0040 00000000 		.4byte	.LFB8
+ 2562 0044 4C000000 		.4byte	.LFE8
+ 2563 0048 00000000 		.4byte	.LFB9
+ 2564 004c E4000000 		.4byte	.LFE9
+ 2565 0050 00000000 		.4byte	.LFB10
+ 2566 0054 64000000 		.4byte	.LFE10
+ 2567 0058 00000000 		.4byte	.LFB11
+ 2568 005c 48000000 		.4byte	.LFE11
+ 2569 0060 00000000 		.4byte	.LFB12
+ 2570 0064 2C000000 		.4byte	.LFE12
+ 2571 0068 00000000 		.4byte	.LFB13
+ 2572 006c 9C000000 		.4byte	.LFE13
+ 2573 0070 00000000 		.4byte	.LFB14
+ 2574 0074 80000000 		.4byte	.LFE14
+ 2575 0078 00000000 		.4byte	0
+ 2576 007c 00000000 		.4byte	0
+ 2577              		.section	.debug_line,"",%progbits
+ 2578              	.Ldebug_line0:
+ 2579 0000 84020000 		.section	.debug_str,"MS",%progbits,1
+ 2579      02005900 
+ 2579      00000201 
+ 2579      FB0E0D00 
+ 2579      01010101 
+ 2580              	.LASF10:
+ 2581 0000 75696E74 		.ascii	"uint16\000"
+ 2581      313600
+ 2582              	.LASF44:
+ 2583 0007 4C43445F 		.ascii	"LCD_SegStat_ClearDisplay\000"
+ 2583      53656753 
+ 2583      7461745F 
+ 2583      436C6561 
+ 2583      72446973 
+ 2584              	.LASF23:
+ 2585 0020 64737441 		.ascii	"dstAddr\000"
+ 2585      64647200 
+ 2586              	.LASF28:
+ 2587 0028 4C43445F 		.ascii	"LCD_SegStat_Start\000"
+ 2587      53656753 
+ 2587      7461745F 
+ 2587      53746172 
+ 2587      7400
+ 2588              	.LASF59:
+ 2589 003a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2589      43313120 
+ 2589      352E342E 
+ 2589      31203230 
+ 2589      31363036 
+ 2590 006d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 64
+
+
+ 2590      20726576 
+ 2590      6973696F 
+ 2590      6E203233 
+ 2590      37373135 
+ 2591 00a0 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2591      66756E63 
+ 2591      74696F6E 
+ 2591      2D736563 
+ 2591      74696F6E 
+ 2592              	.LASF55:
+ 2593 00c8 4C43445F 		.ascii	"LCD_SegStat_lcdChannel\000"
+ 2593      53656753 
+ 2593      7461745F 
+ 2593      6C636443 
+ 2593      68616E6E 
+ 2594              	.LASF7:
+ 2595 00df 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2595      206C6F6E 
+ 2595      6720756E 
+ 2595      7369676E 
+ 2595      65642069 
+ 2596              	.LASF36:
+ 2597 00f6 62797465 		.ascii	"byteAddr\000"
+ 2597      41646472 
+ 2597      00
+ 2598              	.LASF57:
+ 2599 00ff 4C43445F 		.ascii	"LCD_SegStat_enableState\000"
+ 2599      53656753 
+ 2599      7461745F 
+ 2599      656E6162 
+ 2599      6C655374 
+ 2600              	.LASF6:
+ 2601 0117 6C6F6E67 		.ascii	"long long int\000"
+ 2601      206C6F6E 
+ 2601      6720696E 
+ 2601      7400
+ 2602              	.LASF0:
+ 2603 0125 7369676E 		.ascii	"signed char\000"
+ 2603      65642063 
+ 2603      68617200 
+ 2604              	.LASF33:
+ 2605 0131 4C43445F 		.ascii	"LCD_SegStat_WritePixel\000"
+ 2605      53656753 
+ 2605      7461745F 
+ 2605      57726974 
+ 2605      65506978 
+ 2606              	.LASF46:
+ 2607 0148 64696769 		.ascii	"digit\000"
+ 2607      7400
+ 2608              	.LASF43:
+ 2609 014e 73746174 		.ascii	"state\000"
+ 2609      6500
+ 2610              	.LASF21:
+ 2611 0154 6572726F 		.ascii	"errorCnt\000"
+ 2611      72436E74 
+ 2611      00
+ 2612              	.LASF4:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 65
+
+
+ 2613 015d 6C6F6E67 		.ascii	"long int\000"
+ 2613      20696E74 
+ 2613      00
+ 2614              	.LASF9:
+ 2615 0166 75696E74 		.ascii	"uint8\000"
+ 2615      3800
+ 2616              	.LASF13:
+ 2617 016c 646F7562 		.ascii	"double\000"
+ 2617      6C6500
+ 2618              	.LASF49:
+ 2619 0173 4C43445F 		.ascii	"LCD_SegStat_Write7SegNumber_0\000"
+ 2619      53656753 
+ 2619      7461745F 
+ 2619      57726974 
+ 2619      65375365 
+ 2620              	.LASF11:
+ 2621 0191 75696E74 		.ascii	"uint32\000"
+ 2621      333200
+ 2622              	.LASF22:
+ 2623 0198 73726341 		.ascii	"srcAddr\000"
+ 2623      64647200 
+ 2624              	.LASF38:
+ 2625 01a0 6D61736B 		.ascii	"mask\000"
+ 2625      00
+ 2626              	.LASF50:
+ 2627 01a5 76616C75 		.ascii	"value\000"
+ 2627      6500
+ 2628              	.LASF8:
+ 2629 01ab 756E7369 		.ascii	"unsigned int\000"
+ 2629      676E6564 
+ 2629      20696E74 
+ 2629      00
+ 2630              	.LASF47:
+ 2631 01b8 706F7369 		.ascii	"position\000"
+ 2631      74696F6E 
+ 2631      00
+ 2632              	.LASF5:
+ 2633 01c1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2633      20756E73 
+ 2633      69676E65 
+ 2633      6420696E 
+ 2633      7400
+ 2634              	.LASF35:
+ 2635 01d3 70697865 		.ascii	"pixelState\000"
+ 2635      6C537461 
+ 2635      746500
+ 2636              	.LASF3:
+ 2637 01de 73686F72 		.ascii	"short unsigned int\000"
+ 2637      7420756E 
+ 2637      7369676E 
+ 2637      65642069 
+ 2637      6E7400
+ 2638              	.LASF42:
+ 2639 01f1 4C43445F 		.ascii	"LCD_SegStat_ReadInvertState\000"
+ 2639      53656753 
+ 2639      7461745F 
+ 2639      52656164 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 66
+
+
+ 2639      496E7665 
+ 2640              	.LASF27:
+ 2641 020d 4C43445F 		.ascii	"LCD_SegStat_Enable\000"
+ 2641      53656753 
+ 2641      7461745F 
+ 2641      456E6162 
+ 2641      6C6500
+ 2642              	.LASF54:
+ 2643 0220 4C43445F 		.ascii	"LCD_SegStat_lcdTd\000"
+ 2643      53656753 
+ 2643      7461745F 
+ 2643      6C636454 
+ 2643      6400
+ 2644              	.LASF45:
+ 2645 0232 4C43445F 		.ascii	"LCD_SegStat_Write7SegDigit_0\000"
+ 2645      53656753 
+ 2645      7461745F 
+ 2645      57726974 
+ 2645      65375365 
+ 2646              	.LASF26:
+ 2647 024f 4C43445F 		.ascii	"LCD_SegStat_termOut\000"
+ 2647      53656753 
+ 2647      7461745F 
+ 2647      7465726D 
+ 2647      4F757400 
+ 2648              	.LASF58:
+ 2649 0263 4C43445F 		.ascii	"LCD_SegStat_initVar\000"
+ 2649      53656753 
+ 2649      7461745F 
+ 2649      696E6974 
+ 2649      56617200 
+ 2650              	.LASF15:
+ 2651 0277 72656733 		.ascii	"reg32\000"
+ 2651      3200
+ 2652              	.LASF19:
+ 2653 027d 73697A65 		.ascii	"sizetype\000"
+ 2653      74797065 
+ 2653      00
+ 2654              	.LASF25:
+ 2655 0286 4C43445F 		.ascii	"LCD_SegStat_StSegLcdPort_DMA_TD_PROTO_BLOCK\000"
+ 2655      53656753 
+ 2655      7461745F 
+ 2655      53745365 
+ 2655      674C6364 
+ 2656              	.LASF18:
+ 2657 02b2 6C6F6E67 		.ascii	"long double\000"
+ 2657      20646F75 
+ 2657      626C6500 
+ 2658              	.LASF34:
+ 2659 02be 70697865 		.ascii	"pixelNumber\000"
+ 2659      6C4E756D 
+ 2659      62657200 
+ 2660              	.LASF60:
+ 2661 02ca 47656E65 		.ascii	"Generated_Source\\PSoC5\\LCD_SegStat.c\000"
+ 2661      72617465 
+ 2661      645F536F 
+ 2661      75726365 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 67
+
+
+ 2661      5C50536F 
+ 2662              	.LASF12:
+ 2663 02ef 666C6F61 		.ascii	"float\000"
+ 2663      7400
+ 2664              	.LASF30:
+ 2665 02f5 4C43445F 		.ascii	"LCD_SegStat_Stop\000"
+ 2665      53656753 
+ 2665      7461745F 
+ 2665      53746F70 
+ 2665      00
+ 2666              	.LASF32:
+ 2667 0306 4C43445F 		.ascii	"LCD_SegStat_DisableInt\000"
+ 2667      53656753 
+ 2667      7461745F 
+ 2667      44697361 
+ 2667      626C6549 
+ 2668              	.LASF48:
+ 2669 031d 4C43445F 		.ascii	"LCD_SegStat_disp0\000"
+ 2669      53656753 
+ 2669      7461745F 
+ 2669      64697370 
+ 2669      3000
+ 2670              	.LASF1:
+ 2671 032f 756E7369 		.ascii	"unsigned char\000"
+ 2671      676E6564 
+ 2671      20636861 
+ 2671      7200
+ 2672              	.LASF2:
+ 2673 033d 73686F72 		.ascii	"short int\000"
+ 2673      7420696E 
+ 2673      7400
+ 2674              	.LASF56:
+ 2675 0347 4C43445F 		.ascii	"LCD_SegStat_commons\000"
+ 2675      53656753 
+ 2675      7461745F 
+ 2675      636F6D6D 
+ 2675      6F6E7300 
+ 2676              	.LASF53:
+ 2677 035b 4C43445F 		.ascii	"LCD_SegStat_buffer\000"
+ 2677      53656753 
+ 2677      7461745F 
+ 2677      62756666 
+ 2677      657200
+ 2678              	.LASF24:
+ 2679 036e 636F6D54 		.ascii	"comTdCount\000"
+ 2679      64436F75 
+ 2679      6E7400
+ 2680              	.LASF17:
+ 2681 0379 6C656E67 		.ascii	"length\000"
+ 2681      746800
+ 2682              	.LASF14:
+ 2683 0380 63686172 		.ascii	"char\000"
+ 2683      00
+ 2684              	.LASF51:
+ 2685 0385 6D6F6465 		.ascii	"mode\000"
+ 2685      00
+ 2686              	.LASF31:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 68
+
+
+ 2687 038a 4C43445F 		.ascii	"LCD_SegStat_EnableInt\000"
+ 2687      53656753 
+ 2687      7461745F 
+ 2687      456E6162 
+ 2687      6C65496E 
+ 2688              	.LASF40:
+ 2689 03a0 4C43445F 		.ascii	"LCD_SegStat_WriteInvertState\000"
+ 2689      53656753 
+ 2689      7461745F 
+ 2689      57726974 
+ 2689      65496E76 
+ 2690              	.LASF52:
+ 2691 03bd 4C43445F 		.ascii	"LCD_SegStat_7SegDigits\000"
+ 2691      53656753 
+ 2691      7461745F 
+ 2691      37536567 
+ 2691      44696769 
+ 2692              	.LASF16:
+ 2693 03d4 6F666673 		.ascii	"offset\000"
+ 2693      657400
+ 2694              	.LASF41:
+ 2695 03db 696E7665 		.ascii	"invertState\000"
+ 2695      72745374 
+ 2695      61746500 
+ 2696              	.LASF61:
+ 2697 03e7 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
+ 2697      73657273 
+ 2697      5C544F53 
+ 2697      48494241 
+ 2697      5C446F63 
+ 2698 0415 4176616E 		.ascii	"Avance\\StaticSegLCD_Example01.cydsn\000"
+ 2698      63655C53 
+ 2698      74617469 
+ 2698      63536567 
+ 2698      4C43445F 
+ 2699              	.LASF20:
+ 2700 0439 73746174 		.ascii	"status\000"
+ 2700      757300
+ 2701              	.LASF37:
+ 2702 0440 62697441 		.ascii	"bitAddr\000"
+ 2702      64647200 
+ 2703              	.LASF64:
+ 2704 0448 4C43445F 		.ascii	"LCD_SegStat_DmaDispose\000"
+ 2704      53656753 
+ 2704      7461745F 
+ 2704      446D6144 
+ 2704      6973706F 
+ 2705              	.LASF62:
+ 2706 045f 4C43445F 		.ascii	"LCD_SegStat_DMA_TD_PROTO_ENTRY\000"
+ 2706      53656753 
+ 2706      7461745F 
+ 2706      444D415F 
+ 2706      54445F50 
+ 2707              	.LASF39:
+ 2708 047e 4C43445F 		.ascii	"LCD_SegStat_ReadPixel\000"
+ 2708      53656753 
+ 2708      7461745F 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJUQOSH.s 			page 69
+
+
+ 2708      52656164 
+ 2708      50697865 
+ 2709              	.LASF63:
+ 2710 0494 4C43445F 		.ascii	"LCD_SegStat_DmaConfigure\000"
+ 2710      53656753 
+ 2710      7461745F 
+ 2710      446D6143 
+ 2710      6F6E6669 
+ 2711              	.LASF29:
+ 2712 04ad 4C43445F 		.ascii	"LCD_SegStat_Init\000"
+ 2712      53656753 
+ 2712      7461745F 
+ 2712      496E6974 
+ 2712      00
+ 2713              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

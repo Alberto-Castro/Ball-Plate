@@ -64,8 +64,8 @@ Port Name  Setup to Clk  Clock Name:Phase
 
 Port Name     Clock to Out  Clock Name:Phase               
 ------------  ------------  -----------------------------  
-Out_X(0)_PAD  20696         timer_clock(fixed-function):R  
-Out_Y(0)_PAD  21247         timer_clock(fixed-function):R  
+Out_X(0)_PAD  22236         timer_clock(fixed-function):R  
+Out_Y(0)_PAD  21566         timer_clock(fixed-function):R  
 
 
                          3.3::Pad to Pad

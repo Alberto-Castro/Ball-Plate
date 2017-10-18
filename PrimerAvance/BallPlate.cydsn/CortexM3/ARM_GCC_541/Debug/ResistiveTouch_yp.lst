@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
   28:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *
   29:Generated_Source\PSoC5/ResistiveTouch_yp.c **** * Summary:
   30:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *  Assign a new value to the digital port's data output register.  
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 2
 
 
   31:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *
@@ -94,7 +94,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
   46              	.L3:
   47              		.align	2
   48              	.L2:
-  49 0014 00510040 		.word	1073762560
+  49 0014 40510040 		.word	1073762624
   50              		.cfi_endproc
   51              	.LFE0:
   52              		.size	ResistiveTouch_yp_Write, .-ResistiveTouch_yp_Write
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
   52:Generated_Source\PSoC5/ResistiveTouch_yp.c **** * 
   53:Generated_Source\PSoC5/ResistiveTouch_yp.c **** * Parameters:  
   54:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *  mode:  Change the pins to one of the following drive modes.
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 3
 
 
   55:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *
@@ -156,7 +156,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
   76              	.L6:
   77 0012 00BF     		.align	2
   78              	.L5:
-  79 0014 03500040 		.word	1073762307
+  79 0014 23500040 		.word	1073762339
   80              		.cfi_endproc
   81              	.LFE1:
   82              		.size	ResistiveTouch_yp_SetDriveMode, .-ResistiveTouch_yp_SetDriveMode
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
   79:Generated_Source\PSoC5/ResistiveTouch_yp.c **** * Summary:
   80:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *  Read the current value on the pins of the Digital Port in right justified 
   81:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *  form.
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 4
 
 
   82:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *
@@ -210,7 +210,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  102              	.L9:
  103 000a 00BF     		.align	2
  104              	.L8:
- 105 000c 01510040 		.word	1073762561
+ 105 000c 41510040 		.word	1073762625
  106              		.cfi_endproc
  107              	.LFE2:
  108              		.size	ResistiveTouch_yp_Read, .-ResistiveTouch_yp_Read
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  110:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *  Returns the current value assigned to the Digital Port's data output register
  111:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *  
  112:Generated_Source\PSoC5/ResistiveTouch_yp.c **** *******************************************************************************/
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 5
 
 
  113:Generated_Source\PSoC5/ResistiveTouch_yp.c **** uint8 ResistiveTouch_yp_ReadDataReg(void) 
@@ -259,7 +259,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  128              	.L12:
  129 000a 00BF     		.align	2
  130              	.L11:
- 131 000c 00510040 		.word	1073762560
+ 131 000c 40510040 		.word	1073762624
  132              		.cfi_endproc
  133              	.LFE3:
  134              		.size	ResistiveTouch_yp_ReadDataReg, .-ResistiveTouch_yp_ReadDataReg
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  167 003d 17010000 		.4byte	.LASF3
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 6
 
 
  170 0043 05       		.byte	0x5
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  224 00ae CF000000 		.4byte	0xcf
  225 00b2 07       		.uleb128 0x7
  226 00b3 2F000000 		.4byte	.LASF16
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 7
 
 
  227 00b7 01       		.byte	0x1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  281 0005 13       		.uleb128 0x13
  282 0006 0B       		.uleb128 0xb
  283 0007 03       		.uleb128 0x3
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 8
 
 
  284 0008 0E       		.uleb128 0xe
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  338 003e 2E       		.uleb128 0x2e
  339 003f 01       		.byte	0x1
  340 0040 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 9
 
 
  341 0041 19       		.uleb128 0x19
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  395 0078 3F       		.uleb128 0x3f
  396 0079 19       		.uleb128 0x19
  397 007a 03       		.uleb128 0x3
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 10
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 10
 
 
  398 007b 0E       		.uleb128 0xe
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  452 000a 04       		.byte	0x4
  453 000b 00       		.byte	0
  454 000c 0000     		.2byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 11
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 11
 
 
  455 000e 0000     		.2byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  492      73746976 
  492      65546F75 
  492      63685F79 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 12
 
 
  492      705F5265 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 1
  511      20696E74 
  511      00
  512              	.LASF7:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccf36zSZ.s 			page 13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccNVOhzk.s 			page 13
 
 
  513 0183 6C6F6E67 		.ascii	"long long unsigned int\000"
