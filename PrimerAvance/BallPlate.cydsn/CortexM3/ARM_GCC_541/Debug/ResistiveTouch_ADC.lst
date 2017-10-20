@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
   29:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
   30:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
   31:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** /***************************************
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 2
 
 
   32:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Global data allocation
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
   86:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
   87:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Return:
   88:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  None
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 3
 
 
   89:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  143:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                                           ResistiveTouch_ADC_CFG2);
  144:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     #endif /* ResistiveTouch_ADC_DEFAULT_NUM_CONFIGS > 1 */
  145:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     #if(ResistiveTouch_ADC_DEFAULT_NUM_CONFIGS > 2)
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 4
 
 
  146:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_GainCompensation(ResistiveTouch_ADC_CFG3_INPUT_RANGE,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  200:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
  201:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     /* Disable PRES, Enable power to VCMBUF0, REFBUF0 and REFBUF1, enable PRES */
  202:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_RESET_CR4_REG |= ResistiveTouch_ADC_IGNORE_PRESA1;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 5
 
 
  203:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_RESET_CR5_REG |= ResistiveTouch_ADC_IGNORE_PRESA2;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  257:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****               (ResistiveTouch_ADC_CFG4_INPUT_RANGE == ResistiveTouch_ADC_IR_VSSA_TO_2VREF) &&
  258:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****              ((ResistiveTouch_ADC_CFG4_REFERENCE != ResistiveTouch_ADC_EXT_REF_ON_P03) &&
  259:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****              (ResistiveTouch_ADC_CFG4_REFERENCE != ResistiveTouch_ADC_EXT_REF_ON_P32))))
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 6
 
 
  260:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  314:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  configure the ADC for configuration 1 by default, unless the
  315:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  ResistiveTouch_ADC_SelectConfiguration( ) function has been called to change
  316:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  the default setting.
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 7
 
 
  317:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  371:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     /* Disable PRES, Disable power to VCMBUF0, REFBUF0 and REFBUF1,
  372:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****        enable PRES */
  373:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_RESET_CR4_REG |= ResistiveTouch_ADC_IGNORE_PRESA1;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 8
 
 
  374:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_RESET_CR5_REG |= ResistiveTouch_ADC_IGNORE_PRESA2;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  428:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *******************************************************************************/
  429:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** void ResistiveTouch_ADC_SetBufferGain(uint8 gain) 
  430:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** {
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 9
 
 
  431:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     uint8 tmpReg;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  485:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  0x8000 -> 1.000
  486:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  0xFFFF -> 1.99997
  487:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  When executing the function, the old GCOR value is multiplied by
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 10
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 10
 
 
  488:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  gainAdjust and reloaded into the GCOR register.
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  542:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  11 (0x0B) then the returned value will be shifted by for bits to the left.
  543:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  (Actual GCOR value = 0x0812, returned value = 0x8120)
  544:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 11
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 11
 
 
  545:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Parameters:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  599:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  conversion, the ADC will be reset and not provide a result for that partial
  600:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  conversion.
  601:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 12
 
 
  602:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Parameters:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  656:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         }
  657:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         else
  658:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         {
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 13
 
 
  659:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             status = ResistiveTouch_ADC_DEC_SR_REG & ResistiveTouch_ADC_DEC_CONV_DONE;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  713:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     if(ResistiveTouch_ADC_stopConversion != 0u)
  714:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     {
  715:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_convDone = 0u;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 14
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 14
 
 
  716:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  770:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         if(coherency == ResistiveTouch_ADC_DEC_SAMP_KEY_HIGH)
  771:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         {   /* Dummy read of the MSB byte to unlock the coherency */
  772:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             (void)ResistiveTouch_ADC_DEC_SAMPH_REG;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 15
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 15
 
 
  773:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  827:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             result = CY_GET_REG16(ResistiveTouch_ADC_DEC_SAMPH_16B_PTR);
  828:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             result = (result << 16u) | (CY_GET_REG16(ResistiveTouch_ADC_DEC_SAMP_16B_PTR));
  829:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         #endif /* CY_PSOC3 */
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 16
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 16
 
 
  830:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     }
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  884:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
  885:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Return:
  886:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  None
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 17
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 17
 
 
  887:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  941:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** ********************************************************************************
  942:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
  943:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Summary:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 18
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 18
 
 
  944:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  Converts the ADC counts output to mVolts as a 16-bit integer. For
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  998:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
  999:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
 1000:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** /*******************************************************************************
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 19
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 19
 
 
 1001:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Function Name: ResistiveTouch_ADC_CountsTo_Volts
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1055:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     Volts = (float32)adcCounts / (float32)ResistiveTouch_ADC_CountsPerVolt;
 1056:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
 1057:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     return( Volts );
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 20
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 20
 
 
 1058:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** }
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1112:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     {
 1113:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         resolution = ResistiveTouch_ADC_CFG3_RESOLUTION;
 1114:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         #if(ResistiveTouch_ADC_CFG3_DEC_DIV != 0)
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 21
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 21
 
 
 1115:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             adcCounts /= ResistiveTouch_ADC_CFG3_DEC_DIV;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1169:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 coefA = ResistiveTouch_ADC_1UV_COUNTS / ResistiveTouch_ADC_DIVISOR_32;
 1170:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 coefB = ResistiveTouch_ADC_DIVISOR_32;
 1171:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 break;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 22
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 22
 
 
 1172:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         #endif /* ResistiveTouch_ADC__BITS_16 */    
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1226:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Summary:
 1227:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  Initializes all registers based on customizer settings
 1228:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 23
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 23
 
 
 1229:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Parameters:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1283:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         */
 1284:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         #if(ResistiveTouch_ADC_DEFAULT_INPUT_MODE)
 1285:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             #if (ResistiveTouch_ADC_CFG1_INPUT_RANGE == ResistiveTouch_ADC_IR_VSSA_TO_2VREF)
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 24
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 24
 
 
 1286:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 ResistiveTouch_ADC_AMux_Select(1u);
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1340:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_DSM_CR17_REG    = ResistiveTouch_ADC_CFG2_DSM_CR17;
 1341:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             /* Set DSM_REF0_REG by disabling and enabling the PRESS cirucit */
 1342:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_SetDSMRef0Reg(ResistiveTouch_ADC_CFG2_DSM_REF0);
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 25
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 25
 
 
 1343:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_DSM_REF2_REG    = ResistiveTouch_ADC_CFG2_DSM_REF2;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1397:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_DEC_OCOR_REG    = ResistiveTouch_ADC_CFG3_DEC_OCOR;
 1398:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_DEC_OCORM_REG   = ResistiveTouch_ADC_CFG3_DEC_OCORM;
 1399:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_DEC_OCORH_REG   = ResistiveTouch_ADC_CFG3_DEC_OCORH;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 26
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 26
 
 
 1400:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_DEC_COHER_REG   = ResistiveTouch_ADC_CFG3_DEC_COHER;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1454:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         }
 1455:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     #endif /* ResistiveTouch_ADC_DEFAULT_NUM_CONFIGS > 2 */
 1456:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 27
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 27
 
 
 1457:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     #if(ResistiveTouch_ADC_DEFAULT_NUM_CONFIGS > 3)
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1511:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_CountsPerVolt = (int32)ResistiveTouch_ADC_CFG4_COUNTS_PER_VOLT;
 1512:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
 1513:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****             ResistiveTouch_ADC_Ext_CP_Clk_SetDividerRegister(ResistiveTouch_ADC_CFG4_CP_CLK_DIVIDER
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 28
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 28
 
 
 1514:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1568:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
 1569:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         /* Stop the ADC  */
 1570:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_Stop();
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 29
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 29
 
 
 1571:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
   32 0000 10B5     		push	{r4, lr}
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 4, -8
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 30
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 30
 
 
   35              		.cfi_offset 14, -4
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
   70              		.loc 1 1638 0
   71 002a 2448     		ldr	r0, .L18+4
   72 002c 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 31
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 31
 
 
   73 002e 40B2     		sxtb	r0, r0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  107              	.L11:
 1659:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 }
 1660:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 else
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 32
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 32
 
 
 1661:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****                 {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1684:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 		normalised = (int32)idealDecGain + ((int32)flash * 32);
  139              		.loc 1 1684 0
  140 0070 01EB4011 		add	r1, r1, r0, lsl #5
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 33
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 33
 
 
  141              	.LVL19:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1699:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         /* Save the gain correction register value */
 1700:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_gcor[config - 1u].gcor = gcorValue;
  181              		.loc 1 1700 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 34
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 34
 
 
  182 00a4 013C     		subs	r4, r4, #1
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1720:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** * Return:
 1721:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *  None
 1722:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 35
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 35
 
 
 1723:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** ******************************************************************************/
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  256 002e 2B70     		strb	r3, [r5]
 1738:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_RESET_CR5_REG &= (uint8)~(ResistiveTouch_ADC_IGNORE_PRESA2 | ResistiveTouch_
  257              		.loc 1 1738 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 36
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 36
 
 
  258 0030 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  306 0010 1A70     		strb	r2, [r3]
 1250:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_DEC_SHIFT2_REG  = ResistiveTouch_ADC_CFG1_DEC_SHIFT2;
  307              		.loc 1 1250 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 37
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 37
 
 
  308 0012 0622     		movs	r2, #6
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1263:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_DSM_CR10_REG    = ResistiveTouch_ADC_CFG1_DSM_CR10;
  351              		.loc 1 1263 0
  352 0054 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 38
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 38
 
 
  353 0056 1C70     		strb	r4, [r3]
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1277:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         ResistiveTouch_ADC_DSM_BUF2_REG    = ResistiveTouch_ADC_CFG1_DSM_BUF2;
  396              		.loc 1 1277 0
  397 0094 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 39
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 39
 
 
  398 0096 1E70     		strb	r6, [r3]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  445              		.thumb_func
  446              		.type	ResistiveTouch_ADC_Init, %function
  447              	ResistiveTouch_ADC_Init:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 40
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 40
 
 
  448              	.LFB0:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  113:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_DSM_REF1_REG    = ResistiveTouch_ADC_CFG1_DSM_REF1;
  493              		.loc 1 113 0
  494 0032 204A     		ldr	r2, .L31+12
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 41
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 41
 
 
  495 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  538 0080 FFF7FEFF 		bl	ResistiveTouch_ADC_GainCompensation
  539              	.LVL51:
  161:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     CY_SET_REG16(ResistiveTouch_ADC_DEC_GCOR_16B_PTR, ResistiveTouch_ADC_gcor[ResistiveTouch_ADC_Co
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 42
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 42
 
 
  540              		.loc 1 161 0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  590              		.cfi_offset 5, -12
  591              		.cfi_offset 6, -8
  592              		.cfi_offset 14, -4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 43
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 43
 
 
  188:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  637 0050 FFF7FEFF 		bl	CyDelayUs
  638              	.LVL56:
  274:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_RESET_CR5_REG &= (uint8)~ResistiveTouch_ADC_IGNORE_PRESA2;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 44
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 44
 
 
  639              		.loc 1 274 0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  683              		.loc 1 300 0
  684 00aa 3046     		mov	r0, r6
  685 00ac FFF7FEFF 		bl	CyExitCriticalSection
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 45
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 45
 
 
  686              	.LVL57:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  735 0018 024B     		ldr	r3, .L41
  736 001a 9A71     		strb	r2, [r3, #6]
  737              	.L38:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 46
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 46
 
 
  341:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** }
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  786 0024 2B70     		strb	r3, [r5]
  374:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
  787              		.loc 1 374 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 47
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 47
 
 
  788 0026 2C4C     		ldr	r4, .L45+8
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  832              		.loc 1 397 0
  833 0080 174A     		ldr	r2, .L45+16
  834 0082 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 48
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 48
 
 
  835 0084 03F0F903 		and	r3, r3, #249
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  883              		.global	ResistiveTouch_ADC_SetBufferGain
  884              		.thumb
  885              		.thumb_func
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 49
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 49
 
 
  886              		.type	ResistiveTouch_ADC_SetBufferGain, %function
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  934              	.LVL71:
  470:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_DEC_COHER_REG = tmpReg;
  935              		.loc 1 470 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 50
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 50
 
 
  936 0008 00F00300 		and	r0, r0, #3
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  986              	.LVL78:
  513:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
  987              		.loc 1 513 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 51
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 51
 
 
  988 001c 2146     		mov	r1, r4
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1034 005c AFF30080 		.align	3
  1035              	.L57:
  1036 0060 8F537424 		.word	611603343
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 52
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 52
 
 
  1037 0064 97FFFF3F 		.word	1073741719
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1085              		.cfi_endproc
  1086              	.LFE7:
  1087              		.size	ResistiveTouch_ADC_ReadGCOR, .-ResistiveTouch_ADC_ReadGCOR
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 53
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 53
 
 
  1088              		.section	.text.ResistiveTouch_ADC_StartConvert,"ax",%progbits
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1138              	.LFE9:
  1139              		.size	ResistiveTouch_ADC_StopConvert, .-ResistiveTouch_ADC_StopConvert
  1140              		.section	.text.ResistiveTouch_ADC_IsEndConversion,"ax",%progbits
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 54
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 54
 
 
  1141              		.align	2
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1188 0028 00000000 		.word	.LANCHOR0
  1189 002c 014E0040 		.word	1073761793
  1190              		.cfi_endproc
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 55
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 55
 
 
  1191              	.LFE10:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1237 0024 13F0FF0F 		tst	r3, #255
  1238 0028 02D0     		beq	.L79
  715:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     }
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 56
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 56
 
 
  1239              		.loc 1 715 0
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1287              		.loc 1 767 0
  1288 0014 0A4A     		ldr	r2, .L86+4
  1289 0016 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 57
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 57
 
 
  1290              	.LVL110:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1337              		.cfi_startproc
  1338              		@ args = 0, pretend = 0, frame = 0
  1339              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 58
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 58
 
 
  1340              		@ link register save eliminated.
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1385 0036 0B4B     		ldr	r3, .L93+12
  1386              	.LVL123:
  1387 0038 1888     		ldrh	r0, [r3]
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 59
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 59
 
 
  1388 003a 83B2     		uxth	r3, r0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1436 0004 7047     		bx	lr
  1437              	.L97:
  1438 0006 00BF     		.align	2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 60
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 60
 
 
  1439              	.L96:
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1488              		.loc 1 994 0
  1489 0006 4FF47A73 		mov	r3, #1000
  1490 000a 03FB00F0 		mul	r0, r3, r0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 61
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 61
 
 
  1491              	.LVL130:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1541 0018 2046     		mov	r0, r4
  1542 001a FFF7FEFF 		bl	__aeabi_fdiv
  1543              	.LVL137:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 62
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 62
 
 
 1058:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1591 001e 0C23     		movs	r3, #12
  1592 0020 00E0     		b	.L109
  1593              	.L114:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 63
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 63
 
 
 1106:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****         #if(ResistiveTouch_ADC_CFG2_DEC_DIV != 0)
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1637 0052 1268     		ldr	r2, [r2]
  1638 0054 02FB04F2 		mul	r2, r2, r4
  1639 0058 92FBF1F0 		sdiv	r0, r2, r1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 64
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 64
 
 
  1640              	.LVL146:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1689 0010 0122     		movs	r2, #1
  1690 0012 0F4B     		ldr	r3, .L125
  1691 0014 DA71     		strb	r2, [r3, #7]
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 65
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 65
 
 
  1692              	.L122:
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1737 0054 00000000 		.word	.LANCHOR1
  1738 0058 0E4E0040 		.word	1073761806
  1739 005c 0C4E0040 		.word	1073761804
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 66
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 66
 
 
  1740              		.cfi_endproc
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1766              	.LVL157:
 1769:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     (void)ResistiveTouch_ADC_IsEndConversion(ResistiveTouch_ADC_WAIT_FOR_RESULT);
  1767              		.loc 1 1769 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 67
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 67
 
 
  1768 0010 0020     		movs	r0, #0
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
 1794:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** *******************************************************************************/
 1795:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** int16 ResistiveTouch_ADC_Read16(void) 
 1796:Generated_Source\PSoC5/ResistiveTouch_ADC.c **** {
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 68
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 68
 
 
  1798              		.loc 1 1796 0
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1841              		.thumb_func
  1842              		.type	ResistiveTouch_ADC_Read32, %function
  1843              	ResistiveTouch_ADC_Read32:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 69
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 69
 
 
  1844              	.LFB25:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1869              	.LVL172:
 1837:Generated_Source\PSoC5/ResistiveTouch_ADC.c ****     ResistiveTouch_ADC_StopConvert();
  1870              		.loc 1 1837 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 70
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 70
 
 
  1871 001c FFF7FEFF 		bl	ResistiveTouch_ADC_StopConvert
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1922              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  1923              		.file 3 "Generated_Source\\PSoC5\\ResistiveTouch_ADC.h"
  1924              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 71
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 71
 
 
  1925              		.file 5 "Generated_Source\\PSoC5\\ResistiveTouch_ADC_AMux.h"
@@ -4211,17 +4211,17 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1932 0006 00000000 		.4byte	.Ldebug_abbrev0
  1933 000a 04       		.byte	0x4
  1934 000b 01       		.uleb128 0x1
- 1935 000c 33050000 		.4byte	.LASF101
+ 1935 000c 7D050000 		.4byte	.LASF101
  1936 0010 0C       		.byte	0xc
- 1937 0011 1F070000 		.4byte	.LASF102
- 1938 0015 E7070000 		.4byte	.LASF103
+ 1937 0011 69070000 		.4byte	.LASF102
+ 1938 0015 10020000 		.4byte	.LASF103
  1939 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1940 001d 00000000 		.4byte	0
  1941 0021 00000000 		.4byte	.Ldebug_line0
  1942 0025 02       		.uleb128 0x2
  1943 0026 04       		.byte	0x4
  1944 0027 04       		.byte	0x4
- 1945 0028 88040000 		.4byte	.LASF0
+ 1945 0028 D2040000 		.4byte	.LASF0
  1946 002c 02       		.uleb128 0x2
  1947 002d 01       		.byte	0x1
  1948 002e 06       		.byte	0x6
@@ -4229,15 +4229,15 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1950 0033 02       		.uleb128 0x2
  1951 0034 01       		.byte	0x1
  1952 0035 08       		.byte	0x8
- 1953 0036 F0040000 		.4byte	.LASF2
+ 1953 0036 3A050000 		.4byte	.LASF2
  1954 003a 02       		.uleb128 0x2
  1955 003b 02       		.byte	0x2
  1956 003c 05       		.byte	0x5
- 1957 003d FE040000 		.4byte	.LASF3
+ 1957 003d 48050000 		.4byte	.LASF3
  1958 0041 02       		.uleb128 0x2
  1959 0042 02       		.byte	0x2
  1960 0043 07       		.byte	0x7
- 1961 0044 F0020000 		.4byte	.LASF4
+ 1961 0044 3A030000 		.4byte	.LASF4
  1962 0048 02       		.uleb128 0x2
  1963 0049 04       		.byte	0x4
  1964 004a 05       		.byte	0x5
@@ -4245,7 +4245,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1966 004f 02       		.uleb128 0x2
  1967 0050 04       		.byte	0x4
  1968 0051 07       		.byte	0x7
- 1969 0052 77020000 		.4byte	.LASF6
+ 1969 0052 C1020000 		.4byte	.LASF6
  1970 0056 02       		.uleb128 0x2
  1971 0057 08       		.byte	0x8
  1972 0058 05       		.byte	0x5
@@ -4258,13 +4258,13 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1979 0065 04       		.byte	0x4
  1980 0066 05       		.byte	0x5
  1981 0067 696E7400 		.ascii	"int\000"
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 72
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 72
 
 
  1982 006b 02       		.uleb128 0x2
  1983 006c 04       		.byte	0x4
  1984 006d 07       		.byte	0x7
- 1985 006e 18020000 		.4byte	.LASF9
+ 1985 006e 62020000 		.4byte	.LASF9
  1986 0072 04       		.uleb128 0x4
  1987 0073 71010000 		.4byte	.LASF10
  1988 0077 02       		.byte	0x2
@@ -4281,12 +4281,12 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  1999 0090 9401     		.2byte	0x194
  2000 0092 4F000000 		.4byte	0x4f
  2001 0096 04       		.uleb128 0x4
- 2002 0097 24030000 		.4byte	.LASF13
+ 2002 0097 6E030000 		.4byte	.LASF13
  2003 009b 02       		.byte	0x2
  2004 009c 9501     		.2byte	0x195
  2005 009e 2C000000 		.4byte	0x2c
  2006 00a2 04       		.uleb128 0x4
- 2007 00a3 A6070000 		.4byte	.LASF14
+ 2007 00a3 F0070000 		.4byte	.LASF14
  2008 00a7 02       		.byte	0x2
  2009 00a8 9601     		.2byte	0x196
  2010 00aa 3A000000 		.4byte	0x3a
@@ -4296,7 +4296,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2014 00b4 9701     		.2byte	0x197
  2015 00b6 48000000 		.4byte	0x48
  2016 00ba 04       		.uleb128 0x4
- 2017 00bb A0030000 		.4byte	.LASF16
+ 2017 00bb EA030000 		.4byte	.LASF16
  2018 00bf 02       		.byte	0x2
  2019 00c0 9801     		.2byte	0x198
  2020 00c2 25000000 		.4byte	0x25
@@ -4307,9 +4307,9 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2025 00cd 02       		.uleb128 0x2
  2026 00ce 01       		.byte	0x1
  2027 00cf 08       		.byte	0x8
- 2028 00d0 5C060000 		.4byte	.LASF18
+ 2028 00d0 A6060000 		.4byte	.LASF18
  2029 00d4 04       		.uleb128 0x4
- 2030 00d5 CC040000 		.4byte	.LASF19
+ 2030 00d5 16050000 		.4byte	.LASF19
  2031 00d9 02       		.byte	0x2
  2032 00da 3C02     		.2byte	0x23c
  2033 00dc E0000000 		.4byte	0xe0
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2036 00e5 04       		.uleb128 0x4
  2037 00e6 6B010000 		.4byte	.LASF20
  2038 00ea 02       		.byte	0x2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 73
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 73
 
 
  2039 00eb 3D02     		.2byte	0x23d
@@ -4326,7 +4326,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2041 00f1 05       		.uleb128 0x5
  2042 00f2 7E000000 		.4byte	0x7e
  2043 00f6 04       		.uleb128 0x4
- 2044 00f7 9A030000 		.4byte	.LASF21
+ 2044 00f7 E4030000 		.4byte	.LASF21
  2045 00fb 02       		.byte	0x2
  2046 00fc 3E02     		.2byte	0x23e
  2047 00fe 02010000 		.4byte	0x102
@@ -4335,11 +4335,11 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2050 0107 02       		.uleb128 0x2
  2051 0108 08       		.byte	0x8
  2052 0109 04       		.byte	0x4
- 2053 010a CC030000 		.4byte	.LASF22
+ 2053 010a 16040000 		.4byte	.LASF22
  2054 010e 02       		.uleb128 0x2
  2055 010f 04       		.byte	0x4
  2056 0110 07       		.byte	0x7
- 2057 0111 A8030000 		.4byte	.LASF23
+ 2057 0111 F2030000 		.4byte	.LASF23
  2058 0115 06       		.uleb128 0x6
  2059 0116 04       		.byte	0x4
  2060 0117 03       		.byte	0x3
@@ -4352,7 +4352,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2067 0124 7E000000 		.4byte	0x7e
  2068 0128 00       		.byte	0
  2069 0129 07       		.uleb128 0x7
- 2070 012a 6F060000 		.4byte	.LASF25
+ 2070 012a B9060000 		.4byte	.LASF25
  2071 012e 03       		.byte	0x3
  2072 012f 32       		.byte	0x32
  2073 0130 72000000 		.4byte	0x72
@@ -4378,11 +4378,11 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2093 015d 5106     		.2byte	0x651
  2094 015f 72000000 		.4byte	0x72
  2095 0163 00000000 		.4byte	.LLST0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 74
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 74
 
 
  2096 0167 0A       		.uleb128 0xa
- 2097 0168 D1040000 		.4byte	.LASF28
+ 2097 0168 1B050000 		.4byte	.LASF28
  2098 016c 01       		.byte	0x1
  2099 016d 5106     		.2byte	0x651
  2100 016f 7E000000 		.4byte	0x7e
@@ -4394,37 +4394,37 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2106 017f 7E000000 		.4byte	0x7e
  2107 0183 74000000 		.4byte	.LLST2
  2108 0187 0A       		.uleb128 0xa
- 2109 0188 EF050000 		.4byte	.LASF30
+ 2109 0188 39060000 		.4byte	.LASF30
  2110 018c 01       		.byte	0x1
  2111 018d 5206     		.2byte	0x652
  2112 018f 72000000 		.4byte	0x72
  2113 0193 AE000000 		.4byte	.LLST3
  2114 0197 0A       		.uleb128 0xa
- 2115 0198 68060000 		.4byte	.LASF31
+ 2115 0198 B2060000 		.4byte	.LASF31
  2116 019c 01       		.byte	0x1
  2117 019d 5206     		.2byte	0x652
  2118 019f 72000000 		.4byte	0x72
  2119 01a3 01010000 		.4byte	.LLST4
  2120 01a7 0B       		.uleb128 0xb
- 2121 01a8 94030000 		.4byte	.LASF32
+ 2121 01a8 DE030000 		.4byte	.LASF32
  2122 01ac 01       		.byte	0x1
  2123 01ad 5406     		.2byte	0x654
  2124 01af 96000000 		.4byte	0x96
  2125 01b3 2D010000 		.4byte	.LLST5
  2126 01b7 0B       		.uleb128 0xb
- 2127 01b8 DE040000 		.4byte	.LASF33
+ 2127 01b8 28050000 		.4byte	.LASF33
  2128 01bc 01       		.byte	0x1
  2129 01bd 5506     		.2byte	0x655
  2130 01bf AE000000 		.4byte	0xae
  2131 01c3 A3010000 		.4byte	.LLST6
  2132 01c7 0B       		.uleb128 0xb
- 2133 01c8 29030000 		.4byte	.LASF34
+ 2133 01c8 73030000 		.4byte	.LASF34
  2134 01cc 01       		.byte	0x1
  2135 01cd 5606     		.2byte	0x656
  2136 01cf 7E000000 		.4byte	0x7e
  2137 01d3 B6010000 		.4byte	.LLST7
  2138 01d7 0B       		.uleb128 0xb
- 2139 01d8 08050000 		.4byte	.LASF35
+ 2139 01d8 52050000 		.4byte	.LASF35
  2140 01dc 01       		.byte	0x1
  2141 01dd 5706     		.2byte	0x657
  2142 01df 8A000000 		.4byte	0x8a
@@ -4438,12 +4438,12 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2150 01f3 01       		.uleb128 0x1
  2151 01f4 30       		.byte	0x30
  2152 01f5 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 75
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 75
 
 
  2153 01f6 00       		.byte	0
  2154 01f7 09       		.uleb128 0x9
- 2155 01f8 FA050000 		.4byte	.LASF37
+ 2155 01f8 44060000 		.4byte	.LASF37
  2156 01fc 01       		.byte	0x1
  2157 01fd BC06     		.2byte	0x6bc
  2158 01ff 00000000 		.4byte	.LFB22
@@ -4488,7 +4488,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2197 0258 00       		.byte	0
  2198 0259 00       		.byte	0
  2199 025a 09       		.uleb128 0x9
- 2200 025b B7060000 		.4byte	.LASF40
+ 2200 025b 01070000 		.4byte	.LASF40
  2201 025f 01       		.byte	0x1
  2202 0260 DA04     		.2byte	0x4da
  2203 0262 00000000 		.4byte	.LFB19
@@ -4497,8 +4497,8 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2206 026b 9C       		.byte	0x9c
  2207 026c EB020000 		.4byte	0x2eb
  2208 0270 0A       		.uleb128 0xa
- 2209 0271 68060000 		.4byte	.LASF31
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 76
+ 2209 0271 B2060000 		.4byte	.LASF31
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 76
 
 
  2210 0275 01       		.byte	0x1
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2264 02d6 51       		.byte	0x51
  2265 02d7 02       		.uleb128 0x2
  2266 02d8 75       		.byte	0x75
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 77
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 77
 
 
  2267 02d9 00       		.sleb128 0
@@ -4574,7 +4574,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2277 02e9 00       		.byte	0
  2278 02ea 00       		.byte	0
  2279 02eb 10       		.uleb128 0x10
- 2280 02ec 4B070000 		.4byte	.LASF41
+ 2280 02ec 95070000 		.4byte	.LASF41
  2281 02f0 01       		.byte	0x1
  2282 02f1 5B       		.byte	0x5b
  2283 02f2 00000000 		.4byte	.LFB0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2321 033c 37       		.byte	0x37
  2322 033d 00       		.byte	0
  2323 033e 0F       		.uleb128 0xf
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 78
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 78
 
 
  2324 033f 84000000 		.4byte	.LVL51
@@ -4659,7 +4659,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2359 0370 5A020000 		.4byte	0x25a
  2360 0374 00       		.byte	0
  2361 0375 10       		.uleb128 0x10
- 2362 0376 42060000 		.4byte	.LASF42
+ 2362 0376 8C060000 		.4byte	.LASF42
  2363 037a 01       		.byte	0x1
  2364 037b B8       		.byte	0xb8
  2365 037c 00000000 		.4byte	.LFB1
@@ -4668,7 +4668,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2368 0385 9C       		.byte	0x9c
  2369 0386 D1030000 		.4byte	0x3d1
  2370 038a 11       		.uleb128 0x11
- 2371 038b 68060000 		.4byte	.LASF31
+ 2371 038b B2060000 		.4byte	.LASF31
  2372 038f 01       		.byte	0x1
  2373 0390 BA       		.byte	0xba
  2374 0391 72000000 		.4byte	0x72
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2378 039b BB       		.byte	0xbb
  2379 039c 72000000 		.4byte	0x72
  2380 03a0 47020000 		.4byte	.LLST12
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 79
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 79
 
 
  2381 03a4 0E       		.uleb128 0xe
@@ -4722,7 +4722,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2419 03f5 75030000 		.4byte	0x375
  2420 03f9 00       		.byte	0
  2421 03fa 13       		.uleb128 0x13
- 2422 03fb 7C030000 		.4byte	.LASF44
+ 2422 03fb C6030000 		.4byte	.LASF44
  2423 03ff 01       		.byte	0x1
  2424 0400 6A01     		.2byte	0x16a
  2425 0402 00000000 		.4byte	.LFB3
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2435 041c 5A020000 		.4byte	.LLST13
  2436 0420 0E       		.uleb128 0xe
  2437 0421 06000000 		.4byte	.LVL61
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 80
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 80
 
 
  2438 0425 AE090000 		.4byte	0x9ae
@@ -4764,7 +4764,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2458 044b 00       		.byte	0
  2459 044c 00       		.byte	0
  2460 044d 13       		.uleb128 0x13
- 2461 044e 67040000 		.4byte	.LASF45
+ 2461 044e B1040000 		.4byte	.LASF45
  2462 0452 01       		.byte	0x1
  2463 0453 AD01     		.2byte	0x1ad
  2464 0455 00000000 		.4byte	.LFB4
@@ -4773,13 +4773,13 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2467 045e 9C       		.byte	0x9c
  2468 045f 84040000 		.4byte	0x484
  2469 0463 0A       		.uleb128 0xa
- 2470 0464 45040000 		.4byte	.LASF46
+ 2470 0464 8F040000 		.4byte	.LASF46
  2471 0468 01       		.byte	0x1
  2472 0469 AD01     		.2byte	0x1ad
  2473 046b 72000000 		.4byte	0x72
  2474 046f 6D020000 		.4byte	.LLST14
  2475 0473 0B       		.uleb128 0xb
- 2476 0474 E0070000 		.4byte	.LASF47
+ 2476 0474 2A080000 		.4byte	.LASF47
  2477 0478 01       		.byte	0x1
  2478 0479 AF01     		.2byte	0x1af
  2479 047b 72000000 		.4byte	0x72
@@ -4795,23 +4795,23 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2489 0495 9C       		.byte	0x9c
  2490 0496 BB040000 		.4byte	0x4bb
  2491 049a 0A       		.uleb128 0xa
- 2492 049b 2A040000 		.4byte	.LASF49
+ 2492 049b 74040000 		.4byte	.LASF49
  2493 049f 01       		.byte	0x1
  2494 04a0 D101     		.2byte	0x1d1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 81
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 81
 
 
  2495 04a2 72000000 		.4byte	0x72
  2496 04a6 AC020000 		.4byte	.LLST16
  2497 04aa 0B       		.uleb128 0xb
- 2498 04ab E0070000 		.4byte	.LASF47
+ 2498 04ab 2A080000 		.4byte	.LASF47
  2499 04af 01       		.byte	0x1
  2500 04b0 D301     		.2byte	0x1d3
  2501 04b2 72000000 		.4byte	0x72
  2502 04b6 CD020000 		.4byte	.LLST17
  2503 04ba 00       		.byte	0
  2504 04bb 14       		.uleb128 0x14
- 2505 04bc 27060000 		.4byte	.LASF53
+ 2505 04bc 71060000 		.4byte	.LASF53
  2506 04c0 01       		.byte	0x1
  2507 04c1 F901     		.2byte	0x1f9
  2508 04c3 72000000 		.4byte	0x72
@@ -4821,25 +4821,25 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2512 04d0 9C       		.byte	0x9c
  2513 04d1 16050000 		.4byte	0x516
  2514 04d5 0A       		.uleb128 0xa
- 2515 04d6 6A070000 		.4byte	.LASF50
+ 2515 04d6 B4070000 		.4byte	.LASF50
  2516 04da 01       		.byte	0x1
  2517 04db F901     		.2byte	0x1f9
  2518 04dd BA000000 		.4byte	0xba
  2519 04e1 EB020000 		.4byte	.LLST18
  2520 04e5 0B       		.uleb128 0xb
- 2521 04e6 E0070000 		.4byte	.LASF47
+ 2521 04e6 2A080000 		.4byte	.LASF47
  2522 04ea 01       		.byte	0x1
  2523 04eb FB01     		.2byte	0x1fb
  2524 04ed 7E000000 		.4byte	0x7e
  2525 04f1 19030000 		.4byte	.LLST19
  2526 04f5 0B       		.uleb128 0xb
- 2527 04f6 63070000 		.4byte	.LASF51
+ 2527 04f6 AD070000 		.4byte	.LASF51
  2528 04fa 01       		.byte	0x1
  2529 04fb FC01     		.2byte	0x1fc
  2530 04fd 72000000 		.4byte	0x72
  2531 0501 51030000 		.4byte	.LLST20
  2532 0505 0B       		.uleb128 0xb
- 2533 0506 A7060000 		.4byte	.LASF52
+ 2533 0506 F1060000 		.4byte	.LASF52
  2534 050a 01       		.byte	0x1
  2535 050b FD01     		.2byte	0x1fd
  2536 050d BA000000 		.4byte	0xba
@@ -4856,16 +4856,16 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2547 052b 9C       		.byte	0x9c
  2548 052c 51050000 		.4byte	0x551
  2549 0530 0B       		.uleb128 0xb
- 2550 0531 61060000 		.4byte	.LASF55
+ 2550 0531 AB060000 		.4byte	.LASF55
  2551 0535 01       		.byte	0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 82
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 82
 
 
  2552 0536 2A02     		.2byte	0x22a
  2553 0538 72000000 		.4byte	0x72
  2554 053c AF030000 		.4byte	.LLST22
  2555 0540 0B       		.uleb128 0xb
- 2556 0541 29030000 		.4byte	.LASF34
+ 2556 0541 73030000 		.4byte	.LASF34
  2557 0545 01       		.byte	0x1
  2558 0546 2B02     		.2byte	0x22b
  2559 0548 7E000000 		.4byte	0x7e
@@ -4880,7 +4880,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2568 0561 01       		.uleb128 0x1
  2569 0562 9C       		.byte	0x9c
  2570 0563 16       		.uleb128 0x16
- 2571 0564 8E040000 		.4byte	.LASF57
+ 2571 0564 D8040000 		.4byte	.LASF57
  2572 0568 01       		.byte	0x1
  2573 0569 6102     		.2byte	0x261
  2574 056b 00000000 		.4byte	.LFB9
@@ -4888,7 +4888,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2576 0573 01       		.uleb128 0x1
  2577 0574 9C       		.byte	0x9c
  2578 0575 15       		.uleb128 0x15
- 2579 0576 33030000 		.4byte	.LASF58
+ 2579 0576 7D030000 		.4byte	.LASF58
  2580 057a 01       		.byte	0x1
  2581 057b 8402     		.2byte	0x284
  2582 057d 72000000 		.4byte	0x72
@@ -4898,40 +4898,40 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2586 058a 9C       		.byte	0x9c
  2587 058b B0050000 		.4byte	0x5b0
  2588 058f 0A       		.uleb128 0xa
- 2589 0590 10020000 		.4byte	.LASF59
+ 2589 0590 5A020000 		.4byte	.LASF59
  2590 0594 01       		.byte	0x1
  2591 0595 8402     		.2byte	0x284
  2592 0597 72000000 		.4byte	0x72
  2593 059b E0030000 		.4byte	.LLST24
  2594 059f 0B       		.uleb128 0xb
- 2595 05a0 63070000 		.4byte	.LASF51
+ 2595 05a0 AD070000 		.4byte	.LASF51
  2596 05a4 01       		.byte	0x1
  2597 05a5 8602     		.2byte	0x286
  2598 05a7 72000000 		.4byte	0x72
  2599 05ab 01040000 		.4byte	.LLST25
  2600 05af 00       		.byte	0
  2601 05b0 15       		.uleb128 0x15
- 2602 05b1 D5060000 		.4byte	.LASF60
+ 2602 05b1 1F070000 		.4byte	.LASF60
  2603 05b5 01       		.byte	0x1
  2604 05b6 B302     		.2byte	0x2b3
  2605 05b8 96000000 		.4byte	0x96
  2606 05bc 00000000 		.4byte	.LFB11
  2607 05c0 48000000 		.4byte	.LFE11-.LFB11
  2608 05c4 01       		.uleb128 0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 83
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 83
 
 
  2609 05c5 9C       		.byte	0x9c
  2610 05c6 E9050000 		.4byte	0x5e9
  2611 05ca 17       		.uleb128 0x17
- 2612 05cb 2C080000 		.4byte	.LASF61
+ 2612 05cb 31080000 		.4byte	.LASF61
  2613 05cf 01       		.byte	0x1
  2614 05d0 B502     		.2byte	0x2b5
  2615 05d2 96000000 		.4byte	0x96
  2616 05d6 01       		.uleb128 0x1
  2617 05d7 50       		.byte	0x50
  2618 05d8 0B       		.uleb128 0xb
- 2619 05d9 2A040000 		.4byte	.LASF49
+ 2619 05d9 74040000 		.4byte	.LASF49
  2620 05dd 01       		.byte	0x1
  2621 05de B602     		.2byte	0x2b6
  2622 05e0 72000000 		.4byte	0x72
@@ -4948,20 +4948,20 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2633 05fe 9C       		.byte	0x9c
  2634 05ff 24060000 		.4byte	0x624
  2635 0603 0B       		.uleb128 0xb
- 2636 0604 2C080000 		.4byte	.LASF61
+ 2636 0604 31080000 		.4byte	.LASF61
  2637 0608 01       		.byte	0x1
  2638 0609 EB02     		.2byte	0x2eb
  2639 060b 7E000000 		.4byte	0x7e
  2640 060f 3D040000 		.4byte	.LLST27
  2641 0613 0B       		.uleb128 0xb
- 2642 0614 2A040000 		.4byte	.LASF49
+ 2642 0614 74040000 		.4byte	.LASF49
  2643 0618 01       		.byte	0x1
  2644 0619 EC02     		.2byte	0x2ec
  2645 061b 72000000 		.4byte	0x72
  2646 061f 66040000 		.4byte	.LLST28
  2647 0623 00       		.byte	0
  2648 0624 15       		.uleb128 0x15
- 2649 0625 56030000 		.4byte	.LASF63
+ 2649 0625 A0030000 		.4byte	.LASF63
  2650 0629 01       		.byte	0x1
  2651 062a 2503     		.2byte	0x325
  2652 062c AE000000 		.4byte	0xae
@@ -4971,14 +4971,14 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2656 0639 9C       		.byte	0x9c
  2657 063a 5F060000 		.4byte	0x65f
  2658 063e 0B       		.uleb128 0xb
- 2659 063f 2C080000 		.4byte	.LASF61
+ 2659 063f 31080000 		.4byte	.LASF61
  2660 0643 01       		.byte	0x1
  2661 0644 2703     		.2byte	0x327
  2662 0646 8A000000 		.4byte	0x8a
  2663 064a 84040000 		.4byte	.LLST29
  2664 064e 0B       		.uleb128 0xb
- 2665 064f 2A040000 		.4byte	.LASF49
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 84
+ 2665 064f 74040000 		.4byte	.LASF49
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 84
 
 
  2666 0653 01       		.byte	0x1
@@ -4987,7 +4987,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2669 065a E5040000 		.4byte	.LLST30
  2670 065e 00       		.byte	0
  2671 065f 13       		.uleb128 0x13
- 2672 0660 4A040000 		.4byte	.LASF64
+ 2672 0660 94040000 		.4byte	.LASF64
  2673 0664 01       		.byte	0x1
  2674 0665 8203     		.2byte	0x382
  2675 0667 00000000 		.4byte	.LFB14
@@ -4996,7 +4996,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2678 0670 9C       		.byte	0x9c
  2679 0671 84060000 		.4byte	0x684
  2680 0675 18       		.uleb128 0x18
- 2681 0676 B0060000 		.4byte	.LASF65
+ 2681 0676 FA060000 		.4byte	.LASF65
  2682 067a 01       		.byte	0x1
  2683 067b 8203     		.2byte	0x382
  2684 067d AE000000 		.4byte	0xae
@@ -5004,7 +5004,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2686 0682 50       		.byte	0x50
  2687 0683 00       		.byte	0
  2688 0684 13       		.uleb128 0x13
- 2689 0685 0F040000 		.4byte	.LASF66
+ 2689 0685 59040000 		.4byte	.LASF66
  2690 0689 01       		.byte	0x1
  2691 068a A503     		.2byte	0x3a5
  2692 068c 00000000 		.4byte	.LFB15
@@ -5031,14 +5031,14 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2713 06be 9C       		.byte	0x9c
  2714 06bf E2060000 		.4byte	0x6e2
  2715 06c3 0A       		.uleb128 0xa
- 2716 06c4 F3060000 		.4byte	.LASF69
+ 2716 06c4 3D070000 		.4byte	.LASF69
  2717 06c8 01       		.byte	0x1
  2718 06c9 C003     		.2byte	0x3c0
  2719 06cb AE000000 		.4byte	0xae
  2720 06cf 0E050000 		.4byte	.LLST31
  2721 06d3 17       		.uleb128 0x17
- 2722 06d4 75030000 		.4byte	.LASF70
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 85
+ 2722 06d4 BF030000 		.4byte	.LASF70
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 85
 
 
  2723 06d8 01       		.byte	0x1
@@ -5048,7 +5048,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2727 06e0 50       		.byte	0x50
  2728 06e1 00       		.byte	0
  2729 06e2 14       		.uleb128 0x14
- 2730 06e3 FD060000 		.4byte	.LASF71
+ 2730 06e3 47070000 		.4byte	.LASF71
  2731 06e7 01       		.byte	0x1
  2732 06e8 FD03     		.2byte	0x3fd
  2733 06ea BA000000 		.4byte	0xba
@@ -5058,7 +5058,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2737 06f7 9C       		.byte	0x9c
  2738 06f8 1B070000 		.4byte	0x71b
  2739 06fc 0A       		.uleb128 0xa
- 2740 06fd F3060000 		.4byte	.LASF69
+ 2740 06fd 3D070000 		.4byte	.LASF69
  2741 0701 01       		.byte	0x1
  2742 0702 FD03     		.2byte	0x3fd
  2743 0704 AE000000 		.4byte	0xae
@@ -5072,7 +5072,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2751 0719 50       		.byte	0x50
  2752 071a 00       		.byte	0
  2753 071b 15       		.uleb128 0x15
- 2754 071c 10050000 		.4byte	.LASF73
+ 2754 071c 5A050000 		.4byte	.LASF73
  2755 0720 01       		.byte	0x1
  2756 0721 3F04     		.2byte	0x43f
  2757 0723 AE000000 		.4byte	0xae
@@ -5082,34 +5082,34 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2761 0730 9C       		.byte	0x9c
  2762 0731 86070000 		.4byte	0x786
  2763 0735 0A       		.uleb128 0xa
- 2764 0736 F3060000 		.4byte	.LASF69
+ 2764 0736 3D070000 		.4byte	.LASF69
  2765 073a 01       		.byte	0x1
  2766 073b 3F04     		.2byte	0x43f
  2767 073d AE000000 		.4byte	0xae
  2768 0741 5A050000 		.4byte	.LLST33
  2769 0745 0B       		.uleb128 0xb
- 2770 0746 58020000 		.4byte	.LASF74
+ 2770 0746 A2020000 		.4byte	.LASF74
  2771 074a 01       		.byte	0x1
  2772 074b 4204     		.2byte	0x442
  2773 074d AE000000 		.4byte	0xae
  2774 0751 7B050000 		.4byte	.LLST34
  2775 0755 0B       		.uleb128 0xb
- 2776 0756 1B060000 		.4byte	.LASF75
+ 2776 0756 65060000 		.4byte	.LASF75
  2777 075a 01       		.byte	0x1
  2778 075b 4304     		.2byte	0x443
  2779 075d AE000000 		.4byte	0xae
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 86
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 86
 
 
  2780 0761 9E050000 		.4byte	.LLST35
  2781 0765 0B       		.uleb128 0xb
- 2782 0766 21060000 		.4byte	.LASF76
+ 2782 0766 6B060000 		.4byte	.LASF76
  2783 076a 01       		.byte	0x1
  2784 076b 4404     		.2byte	0x444
  2785 076d AE000000 		.4byte	0xae
  2786 0771 C1050000 		.4byte	.LLST36
  2787 0775 0B       		.uleb128 0xb
- 2788 0776 EF050000 		.4byte	.LASF30
+ 2788 0776 39060000 		.4byte	.LASF30
  2789 077a 01       		.byte	0x1
  2790 077b 4504     		.2byte	0x445
  2791 077d 72000000 		.4byte	0x72
@@ -5125,13 +5125,13 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2801 0797 9C       		.byte	0x9c
  2802 0798 FB070000 		.4byte	0x7fb
  2803 079c 0A       		.uleb128 0xa
- 2804 079d 68060000 		.4byte	.LASF31
+ 2804 079d B2060000 		.4byte	.LASF31
  2805 07a1 01       		.byte	0x1
  2806 07a2 1006     		.2byte	0x610
  2807 07a4 72000000 		.4byte	0x72
  2808 07a8 F3050000 		.4byte	.LLST38
  2809 07ac 0A       		.uleb128 0xa
- 2810 07ad 9F060000 		.4byte	.LASF78
+ 2810 07ad E9060000 		.4byte	.LASF78
  2811 07b1 01       		.byte	0x1
  2812 07b2 1006     		.2byte	0x610
  2813 07b4 72000000 		.4byte	0x72
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2834 07e7 51050000 		.4byte	0x551
  2835 07eb 0C       		.uleb128 0xc
  2836 07ec 4E000000 		.4byte	.LVL156
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 87
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 87
 
 
  2837 07f0 A3090000 		.4byte	0x9a3
@@ -5170,7 +5170,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2843 07f9 00       		.byte	0
  2844 07fa 00       		.byte	0
  2845 07fb 15       		.uleb128 0x15
- 2846 07fc 25020000 		.4byte	.LASF79
+ 2846 07fc 6F020000 		.4byte	.LASF79
  2847 0800 01       		.byte	0x1
  2848 0801 E206     		.2byte	0x6e2
  2849 0803 96000000 		.4byte	0x96
@@ -5180,7 +5180,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2853 0810 9C       		.byte	0x9c
  2854 0811 54080000 		.4byte	0x854
  2855 0815 0B       		.uleb128 0xb
- 2856 0816 2C080000 		.4byte	.LASF61
+ 2856 0816 31080000 		.4byte	.LASF61
  2857 081a 01       		.byte	0x1
  2858 081b E406     		.2byte	0x6e4
  2859 081d 96000000 		.4byte	0x96
@@ -5206,7 +5206,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2879 084f 63050000 		.4byte	0x563
  2880 0853 00       		.byte	0
  2881 0854 15       		.uleb128 0x15
- 2882 0855 C6070000 		.4byte	.LASF80
+ 2882 0855 10080000 		.4byte	.LASF80
  2883 0859 01       		.byte	0x1
  2884 085a 0307     		.2byte	0x703
  2885 085c A2000000 		.4byte	0xa2
@@ -5216,9 +5216,9 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2889 0869 9C       		.byte	0x9c
  2890 086a AD080000 		.4byte	0x8ad
  2891 086e 0B       		.uleb128 0xb
- 2892 086f 2C080000 		.4byte	.LASF61
+ 2892 086f 31080000 		.4byte	.LASF61
  2893 0873 01       		.byte	0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 88
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 88
 
 
  2894 0874 0507     		.2byte	0x705
@@ -5245,7 +5245,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2915 08a8 63050000 		.4byte	0x563
  2916 08ac 00       		.byte	0
  2917 08ad 15       		.uleb128 0x15
- 2918 08ae AC070000 		.4byte	.LASF81
+ 2918 08ae F6070000 		.4byte	.LASF81
  2919 08b2 01       		.byte	0x1
  2920 08b3 2407     		.2byte	0x724
  2921 08b5 AE000000 		.4byte	0xae
@@ -5255,7 +5255,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2925 08c2 9C       		.byte	0x9c
  2926 08c3 06090000 		.4byte	0x906
  2927 08c7 0B       		.uleb128 0xb
- 2928 08c8 2C080000 		.4byte	.LASF61
+ 2928 08c8 31080000 		.4byte	.LASF61
  2929 08cc 01       		.byte	0x1
  2930 08cd 2607     		.2byte	0x726
  2931 08cf AE000000 		.4byte	0xae
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2948 08f8 24060000 		.4byte	0x624
  2949 08fc 0E       		.uleb128 0xe
  2950 08fd 20000000 		.4byte	.LVL173
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 89
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 89
 
 
  2951 0901 63050000 		.4byte	0x563
@@ -5291,7 +5291,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2958 0914 00       		.byte	0
  2959 0915 00       		.byte	0
  2960 0916 1B       		.uleb128 0x1b
- 2961 0917 5F020000 		.4byte	.LASF82
+ 2961 0917 A9020000 		.4byte	.LASF82
  2962 091b 01       		.byte	0x1
  2963 091c 3D       		.byte	0x3d
  2964 091d 06090000 		.4byte	0x906
@@ -5299,7 +5299,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2966 0922 03       		.byte	0x3
  2967 0923 00000000 		.4byte	ResistiveTouch_ADC_gcor
  2968 0927 1C       		.uleb128 0x1c
- 2969 0928 B1030000 		.4byte	.LASF83
+ 2969 0928 FB030000 		.4byte	.LASF83
  2970 092c 01       		.byte	0x1
  2971 092d 2C       		.byte	0x2c
  2972 092e 72000000 		.4byte	0x72
@@ -5307,7 +5307,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2974 0933 03       		.byte	0x3
  2975 0934 00000000 		.4byte	ResistiveTouch_ADC_initVar
  2976 0938 1C       		.uleb128 0x1c
- 2977 0939 D8030000 		.4byte	.LASF84
+ 2977 0939 22040000 		.4byte	.LASF84
  2978 093d 01       		.byte	0x1
  2979 093e 24       		.byte	0x24
  2980 093f E0000000 		.4byte	0xe0
@@ -5315,7 +5315,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2982 0944 03       		.byte	0x3
  2983 0945 00000000 		.4byte	ResistiveTouch_ADC_convDone
  2984 0949 1C       		.uleb128 0x1c
- 2985 094a CE020000 		.4byte	.LASF85
+ 2985 094a 18030000 		.4byte	.LASF85
  2986 094e 01       		.byte	0x1
  2987 094f 29       		.byte	0x29
  2988 0950 E0000000 		.4byte	0xe0
@@ -5323,7 +5323,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  2990 0955 03       		.byte	0x3
  2991 0956 00000000 		.4byte	ResistiveTouch_ADC_stopConversion
  2992 095a 1C       		.uleb128 0x1c
- 2993 095b F4030000 		.4byte	.LASF86
+ 2993 095b 3E040000 		.4byte	.LASF86
  2994 095f 01       		.byte	0x1
  2995 0960 2F       		.byte	0x2f
  2996 0961 E0000000 		.4byte	0xe0
@@ -5338,11 +5338,11 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3005 0976 05       		.uleb128 0x5
  3006 0977 03       		.byte	0x3
  3007 0978 00000000 		.4byte	ResistiveTouch_ADC_Config
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 90
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 90
 
 
  3008 097c 1C       		.uleb128 0x1c
- 3009 097d 3E020000 		.4byte	.LASF88
+ 3009 097d 88020000 		.4byte	.LASF88
  3010 0981 01       		.byte	0x1
  3011 0982 34       		.byte	0x34
  3012 0983 8D090000 		.4byte	0x98d
@@ -5352,7 +5352,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3016 098d 05       		.uleb128 0x5
  3017 098e AE000000 		.4byte	0xae
  3018 0992 1C       		.uleb128 0x1c
- 3019 0993 03030000 		.4byte	.LASF89
+ 3019 0993 4D030000 		.4byte	.LASF89
  3020 0997 01       		.byte	0x1
  3021 0998 35       		.byte	0x35
  3022 0999 8D090000 		.4byte	0x98d
@@ -5360,13 +5360,13 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3024 099e 03       		.byte	0x3
  3025 099f 00000000 		.4byte	ResistiveTouch_ADC_CountsPerVolt
  3026 09a3 1D       		.uleb128 0x1d
- 3027 09a4 E9040000 		.4byte	.LASF90
- 3028 09a8 E9040000 		.4byte	.LASF90
+ 3027 09a4 33050000 		.4byte	.LASF90
+ 3028 09a8 33050000 		.4byte	.LASF90
  3029 09ac 04       		.byte	0x4
  3030 09ad 7F       		.byte	0x7f
  3031 09ae 1D       		.uleb128 0x1d
- 3032 09af B7020000 		.4byte	.LASF91
- 3033 09b3 B7020000 		.4byte	.LASF91
+ 3032 09af 01030000 		.4byte	.LASF91
+ 3033 09b3 01030000 		.4byte	.LASF91
  3034 09b7 04       		.byte	0x4
  3035 09b8 7D       		.byte	0x7d
  3036 09b9 1D       		.uleb128 0x1d
@@ -5380,41 +5380,41 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3044 09cd 04       		.byte	0x4
  3045 09ce 7E       		.byte	0x7e
  3046 09cf 1D       		.uleb128 0x1d
- 3047 09d0 AD040000 		.4byte	.LASF94
- 3048 09d4 AD040000 		.4byte	.LASF94
+ 3047 09d0 F7040000 		.4byte	.LASF94
+ 3048 09d4 F7040000 		.4byte	.LASF94
  3049 09d8 05       		.byte	0x5
  3050 09d9 57       		.byte	0x57
  3051 09da 1D       		.uleb128 0x1d
- 3052 09db 75070000 		.4byte	.LASF95
- 3053 09df 75070000 		.4byte	.LASF95
+ 3052 09db BF070000 		.4byte	.LASF95
+ 3053 09df BF070000 		.4byte	.LASF95
  3054 09e3 06       		.byte	0x6
  3055 09e4 2F       		.byte	0x2f
  3056 09e5 1D       		.uleb128 0x1d
- 3057 09e6 89020000 		.4byte	.LASF96
- 3058 09ea 89020000 		.4byte	.LASF96
+ 3057 09e6 D3020000 		.4byte	.LASF96
+ 3058 09ea D3020000 		.4byte	.LASF96
  3059 09ee 07       		.byte	0x7
  3060 09ef 2F       		.byte	0x2f
  3061 09f0 1D       		.uleb128 0x1d
  3062 09f1 ED000000 		.4byte	.LASF97
  3063 09f5 ED000000 		.4byte	.LASF97
  3064 09f9 04       		.byte	0x4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 91
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 91
 
 
  3065 09fa 88       		.byte	0x88
  3066 09fb 1D       		.uleb128 0x1d
- 3067 09fc C1050000 		.4byte	.LASF98
- 3068 0a00 C1050000 		.4byte	.LASF98
+ 3067 09fc 0B060000 		.4byte	.LASF98
+ 3068 0a00 0B060000 		.4byte	.LASF98
  3069 0a04 06       		.byte	0x6
  3070 0a05 32       		.byte	0x32
  3071 0a06 1D       		.uleb128 0x1d
- 3072 0a07 74060000 		.4byte	.LASF99
- 3073 0a0b 74060000 		.4byte	.LASF99
+ 3072 0a07 BE060000 		.4byte	.LASF99
+ 3073 0a0b BE060000 		.4byte	.LASF99
  3074 0a0f 07       		.byte	0x7
  3075 0a10 32       		.byte	0x32
  3076 0a11 1D       		.uleb128 0x1d
- 3077 0a12 34040000 		.4byte	.LASF100
- 3078 0a16 34040000 		.4byte	.LASF100
+ 3077 0a12 7E040000 		.4byte	.LASF100
+ 3078 0a16 7E040000 		.4byte	.LASF100
  3079 0a1a 04       		.byte	0x4
  3080 0a1b 8B       		.byte	0x8b
  3081 0a1c 00       		.byte	0
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3119 0023 3E       		.uleb128 0x3e
  3120 0024 0B       		.uleb128 0xb
  3121 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 92
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 92
 
 
  3122 0026 08       		.uleb128 0x8
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3176 005c 03       		.uleb128 0x3
  3177 005d 0E       		.uleb128 0xe
  3178 005e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 93
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 93
 
 
  3179 005f 0B       		.uleb128 0xb
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3233 0096 49       		.uleb128 0x49
  3234 0097 13       		.uleb128 0x13
  3235 0098 02       		.uleb128 0x2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 94
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 94
 
 
  3236 0099 17       		.uleb128 0x17
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3290 00d8 11       		.uleb128 0x11
  3291 00d9 01       		.uleb128 0x1
  3292 00da 12       		.uleb128 0x12
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 95
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 95
 
 
  3293 00db 06       		.uleb128 0x6
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3347 0112 40       		.uleb128 0x40
  3348 0113 18       		.uleb128 0x18
  3349 0114 9742     		.uleb128 0x2117
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 96
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 96
 
 
  3350 0116 19       		.uleb128 0x19
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3404 014e 19       		.uleb128 0x19
  3405 014f 01       		.uleb128 0x1
  3406 0150 13       		.uleb128 0x13
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 97
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 97
 
 
  3407 0151 00       		.byte	0
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3461 0188 00       		.byte	0
  3462 0189 19       		.uleb128 0x19
  3463 018a 01       		.uleb128 0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 98
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 98
 
 
  3464 018b 01       		.byte	0x1
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3518 01c1 19       		.uleb128 0x19
  3519 01c2 6E       		.uleb128 0x6e
  3520 01c3 0E       		.uleb128 0xe
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 99
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 99
 
 
  3521 01c4 03       		.uleb128 0x3
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3575 0066 0400     		.2byte	0x4
  3576 0068 F3       		.byte	0xf3
  3577 0069 01       		.uleb128 0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 100
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 100
 
 
  3578 006a 51       		.byte	0x51
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3632 00e8 0100     		.2byte	0x1
  3633 00ea 53       		.byte	0x53
  3634 00eb B3000000 		.4byte	.LVL33-1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 101
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 101
 
 
  3635 00ef DC000000 		.4byte	.LFE21
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3689 0179 50       		.byte	0x50
  3690 017a 6C000000 		.4byte	.LVL16
  3691 017e 6E000000 		.4byte	.LVL17
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 102
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 102
 
 
  3692 0182 0100     		.2byte	0x1
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3746 020f 00000000 		.4byte	0
  3747              	.LLST10:
  3748 0213 0A000000 		.4byte	.LVL37
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 103
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 103
 
 
  3749 0217 40000000 		.4byte	.LVL40
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3803 02a1 0100     		.2byte	0x1
  3804 02a3 50       		.byte	0x50
  3805 02a4 00000000 		.4byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 104
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 104
 
 
  3806 02a8 00000000 		.4byte	0
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3860 0327 03       		.byte	0x3
  3861 0328 00000000 		.4byte	.LANCHOR0
  3862 032c 22       		.byte	0x22
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 105
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 105
 
 
  3863 032d 44000000 		.4byte	.LVL85
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3917 03b7 0100     		.2byte	0x1
  3918 03b9 53       		.byte	0x53
  3919 03ba 00000000 		.4byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 106
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 106
 
 
  3920 03be 00000000 		.4byte	0
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  3974 044c 20000000 		.4byte	.LVL111
  3975 0450 0100     		.2byte	0x1
  3976 0452 52       		.byte	0x52
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 107
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 107
 
 
  3977 0453 20000000 		.4byte	.LVL111
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4031 04da 0100     		.2byte	0x1
  4032 04dc 50       		.byte	0x50
  4033 04dd 00000000 		.4byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 108
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 108
 
 
  4034 04e1 00000000 		.4byte	0
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4088 056d 0400     		.2byte	0x4
  4089 056f F3       		.byte	0xf3
  4090 0570 01       		.uleb128 0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 109
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 109
 
 
  4091 0571 50       		.byte	0x50
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4145 05f7 1D000000 		.4byte	.LVL150-1
  4146 05fb 0100     		.2byte	0x1
  4147 05fd 50       		.byte	0x50
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 110
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 110
 
 
  4148 05fe 1D000000 		.4byte	.LVL150-1
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4202 067e 24000000 		.4byte	.LVL168
  4203 0682 0100     		.2byte	0x1
  4204 0684 54       		.byte	0x54
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 111
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 111
 
 
  4205 0685 00000000 		.4byte	0
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4259 0084 48000000 		.4byte	.LFE11-.LFB11
  4260 0088 00000000 		.4byte	.LFB12
  4261 008c 50000000 		.4byte	.LFE12-.LFB12
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 112
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 112
 
 
  4262 0090 00000000 		.4byte	.LFB13
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4316 0078 00000000 		.4byte	.LFB12
  4317 007c 50000000 		.4byte	.LFE12
  4318 0080 00000000 		.4byte	.LFB13
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 113
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 113
 
 
  4319 0084 6C000000 		.4byte	.LFE13
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4354      63685F41 
  4354      44435F53 
  4355              	.LASF24:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 114
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 114
 
 
  4356 006c 67636F72 		.ascii	"gcor\000"
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4377              	.LASF62:
  4378 0143 52657369 		.ascii	"ResistiveTouch_ADC_GetResult16\000"
  4378      73746976 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 115
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 115
 
 
  4378      65546F75 
@@ -6894,389 +6894,389 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 1
  4401              	.LASF38:
  4402 020a 76616C75 		.ascii	"value\000"
  4402      6500
- 4403              	.LASF59:
- 4404 0210 7265744D 		.ascii	"retMode\000"
- 4404      6F646500 
- 4405              	.LASF9:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 116
+ 4403              	.LASF103:
+ 4404 0210 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
+ 4404      73657273 
+ 4404      5C544F53 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 116
 
 
- 4406 0218 756E7369 		.ascii	"unsigned int\000"
- 4406      676E6564 
- 4406      20696E74 
- 4406      00
- 4407              	.LASF79:
- 4408 0225 52657369 		.ascii	"ResistiveTouch_ADC_Read8\000"
- 4408      73746976 
- 4408      65546F75 
- 4408      63685F41 
- 4408      44435F52 
- 4409              	.LASF88:
- 4410 023e 52657369 		.ascii	"ResistiveTouch_ADC_Offset\000"
- 4410      73746976 
- 4410      65546F75 
- 4410      63685F41 
- 4410      44435F4F 
- 4411              	.LASF74:
- 4412 0258 75566F6C 		.ascii	"uVolts\000"
- 4412      747300
- 4413              	.LASF82:
- 4414 025f 52657369 		.ascii	"ResistiveTouch_ADC_gcor\000"
- 4414      73746976 
- 4414      65546F75 
- 4414      63685F41 
- 4414      44435F67 
- 4415              	.LASF6:
- 4416 0277 6C6F6E67 		.ascii	"long unsigned int\000"
- 4416      20756E73 
- 4416      69676E65 
- 4416      6420696E 
- 4416      7400
- 4417              	.LASF96:
- 4418 0289 52657369 		.ascii	"ResistiveTouch_ADC_theACLK_SetDividerRegister\000"
- 4418      73746976 
- 4418      65546F75 
- 4418      63685F41 
- 4418      44435F74 
- 4419              	.LASF91:
- 4420 02b7 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 4420      74657243 
- 4420      72697469 
- 4420      63616C53 
- 4420      65637469 
- 4421              	.LASF85:
- 4422 02ce 52657369 		.ascii	"ResistiveTouch_ADC_stopConversion\000"
- 4422      73746976 
- 4422      65546F75 
- 4422      63685F41 
- 4422      44435F73 
- 4423              	.LASF4:
- 4424 02f0 73686F72 		.ascii	"short unsigned int\000"
- 4424      7420756E 
- 4424      7369676E 
- 4424      65642069 
- 4424      6E7400
- 4425              	.LASF89:
- 4426 0303 52657369 		.ascii	"ResistiveTouch_ADC_CountsPerVolt\000"
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 117
+ 4404      48494241 
+ 4404      5C446F63 
+ 4405 023d 5072696D 		.ascii	"PrimerAvance\\BallPlate.cydsn\000"
+ 4405      65724176 
+ 4405      616E6365 
+ 4405      5C42616C 
+ 4405      6C506C61 
+ 4406              	.LASF59:
+ 4407 025a 7265744D 		.ascii	"retMode\000"
+ 4407      6F646500 
+ 4408              	.LASF9:
+ 4409 0262 756E7369 		.ascii	"unsigned int\000"
+ 4409      676E6564 
+ 4409      20696E74 
+ 4409      00
+ 4410              	.LASF79:
+ 4411 026f 52657369 		.ascii	"ResistiveTouch_ADC_Read8\000"
+ 4411      73746976 
+ 4411      65546F75 
+ 4411      63685F41 
+ 4411      44435F52 
+ 4412              	.LASF88:
+ 4413 0288 52657369 		.ascii	"ResistiveTouch_ADC_Offset\000"
+ 4413      73746976 
+ 4413      65546F75 
+ 4413      63685F41 
+ 4413      44435F4F 
+ 4414              	.LASF74:
+ 4415 02a2 75566F6C 		.ascii	"uVolts\000"
+ 4415      747300
+ 4416              	.LASF82:
+ 4417 02a9 52657369 		.ascii	"ResistiveTouch_ADC_gcor\000"
+ 4417      73746976 
+ 4417      65546F75 
+ 4417      63685F41 
+ 4417      44435F67 
+ 4418              	.LASF6:
+ 4419 02c1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4419      20756E73 
+ 4419      69676E65 
+ 4419      6420696E 
+ 4419      7400
+ 4420              	.LASF96:
+ 4421 02d3 52657369 		.ascii	"ResistiveTouch_ADC_theACLK_SetDividerRegister\000"
+ 4421      73746976 
+ 4421      65546F75 
+ 4421      63685F41 
+ 4421      44435F74 
+ 4422              	.LASF91:
+ 4423 0301 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 4423      74657243 
+ 4423      72697469 
+ 4423      63616C53 
+ 4423      65637469 
+ 4424              	.LASF85:
+ 4425 0318 52657369 		.ascii	"ResistiveTouch_ADC_stopConversion\000"
+ 4425      73746976 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 117
 
 
- 4426      73746976 
- 4426      65546F75 
- 4426      63685F41 
- 4426      44435F43 
- 4427              	.LASF13:
- 4428 0324 696E7438 		.ascii	"int8\000"
- 4428      00
- 4429              	.LASF34:
- 4430 0329 67636F72 		.ascii	"gcorValue\000"
- 4430      56616C75 
- 4430      6500
- 4431              	.LASF58:
- 4432 0333 52657369 		.ascii	"ResistiveTouch_ADC_IsEndConversion\000"
- 4432      73746976 
- 4432      65546F75 
- 4432      63685F41 
- 4432      44435F49 
- 4433              	.LASF63:
- 4434 0356 52657369 		.ascii	"ResistiveTouch_ADC_GetResult32\000"
- 4434      73746976 
- 4434      65546F75 
- 4434      63685F41 
- 4434      44435F47 
- 4435              	.LASF70:
- 4436 0375 6D566F6C 		.ascii	"mVolts\000"
- 4436      747300
- 4437              	.LASF44:
- 4438 037c 52657369 		.ascii	"ResistiveTouch_ADC_Stop\000"
- 4438      73746976 
- 4438      65546F75 
- 4438      63685F41 
- 4438      44435F53 
- 4439              	.LASF32:
- 4440 0394 666C6173 		.ascii	"flash\000"
- 4440      6800
- 4441              	.LASF21:
- 4442 039a 72656733 		.ascii	"reg32\000"
- 4442      3200
- 4443              	.LASF16:
- 4444 03a0 666C6F61 		.ascii	"float32\000"
- 4444      74333200 
- 4445              	.LASF23:
- 4446 03a8 73697A65 		.ascii	"sizetype\000"
- 4446      74797065 
- 4446      00
- 4447              	.LASF83:
- 4448 03b1 52657369 		.ascii	"ResistiveTouch_ADC_initVar\000"
- 4448      73746976 
- 4448      65546F75 
- 4448      63685F41 
- 4448      44435F69 
- 4449              	.LASF22:
- 4450 03cc 6C6F6E67 		.ascii	"long double\000"
- 4450      20646F75 
- 4450      626C6500 
- 4451              	.LASF84:
- 4452 03d8 52657369 		.ascii	"ResistiveTouch_ADC_convDone\000"
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 118
+ 4425      65546F75 
+ 4425      63685F41 
+ 4425      44435F73 
+ 4426              	.LASF4:
+ 4427 033a 73686F72 		.ascii	"short unsigned int\000"
+ 4427      7420756E 
+ 4427      7369676E 
+ 4427      65642069 
+ 4427      6E7400
+ 4428              	.LASF89:
+ 4429 034d 52657369 		.ascii	"ResistiveTouch_ADC_CountsPerVolt\000"
+ 4429      73746976 
+ 4429      65546F75 
+ 4429      63685F41 
+ 4429      44435F43 
+ 4430              	.LASF13:
+ 4431 036e 696E7438 		.ascii	"int8\000"
+ 4431      00
+ 4432              	.LASF34:
+ 4433 0373 67636F72 		.ascii	"gcorValue\000"
+ 4433      56616C75 
+ 4433      6500
+ 4434              	.LASF58:
+ 4435 037d 52657369 		.ascii	"ResistiveTouch_ADC_IsEndConversion\000"
+ 4435      73746976 
+ 4435      65546F75 
+ 4435      63685F41 
+ 4435      44435F49 
+ 4436              	.LASF63:
+ 4437 03a0 52657369 		.ascii	"ResistiveTouch_ADC_GetResult32\000"
+ 4437      73746976 
+ 4437      65546F75 
+ 4437      63685F41 
+ 4437      44435F47 
+ 4438              	.LASF70:
+ 4439 03bf 6D566F6C 		.ascii	"mVolts\000"
+ 4439      747300
+ 4440              	.LASF44:
+ 4441 03c6 52657369 		.ascii	"ResistiveTouch_ADC_Stop\000"
+ 4441      73746976 
+ 4441      65546F75 
+ 4441      63685F41 
+ 4441      44435F53 
+ 4442              	.LASF32:
+ 4443 03de 666C6173 		.ascii	"flash\000"
+ 4443      6800
+ 4444              	.LASF21:
+ 4445 03e4 72656733 		.ascii	"reg32\000"
+ 4445      3200
+ 4446              	.LASF16:
+ 4447 03ea 666C6F61 		.ascii	"float32\000"
+ 4447      74333200 
+ 4448              	.LASF23:
+ 4449 03f2 73697A65 		.ascii	"sizetype\000"
+ 4449      74797065 
+ 4449      00
+ 4450              	.LASF83:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 118
 
 
- 4452      73746976 
- 4452      65546F75 
- 4452      63685F41 
- 4452      44435F63 
- 4453              	.LASF86:
- 4454 03f4 52657369 		.ascii	"ResistiveTouch_ADC_started\000"
- 4454      73746976 
- 4454      65546F75 
- 4454      63685F41 
- 4454      44435F73 
- 4455              	.LASF66:
- 4456 040f 52657369 		.ascii	"ResistiveTouch_ADC_SetGain\000"
- 4456      73746976 
- 4456      65546F75 
- 4456      63685F41 
- 4456      44435F53 
- 4457              	.LASF49:
- 4458 042a 636F6865 		.ascii	"coherency\000"
- 4458      72656E63 
- 4458      7900
- 4459              	.LASF100:
- 4460 0434 4379496E 		.ascii	"CyIntSetPriority\000"
- 4460      74536574 
- 4460      5072696F 
- 4460      72697479 
- 4460      00
- 4461              	.LASF46:
- 4462 0445 6761696E 		.ascii	"gain\000"
- 4462      00
- 4463              	.LASF64:
- 4464 044a 52657369 		.ascii	"ResistiveTouch_ADC_SetOffset\000"
- 4464      73746976 
- 4464      65546F75 
- 4464      63685F41 
- 4464      44435F53 
- 4465              	.LASF45:
- 4466 0467 52657369 		.ascii	"ResistiveTouch_ADC_SetBufferGain\000"
- 4466      73746976 
- 4466      65546F75 
- 4466      63685F41 
- 4466      44435F53 
- 4467              	.LASF0:
- 4468 0488 666C6F61 		.ascii	"float\000"
- 4468      7400
- 4469              	.LASF57:
- 4470 048e 52657369 		.ascii	"ResistiveTouch_ADC_StopConvert\000"
- 4470      73746976 
- 4470      65546F75 
- 4470      63685F41 
- 4470      44435F53 
- 4471              	.LASF94:
- 4472 04ad 52657369 		.ascii	"ResistiveTouch_ADC_AMux_Select\000"
- 4472      73746976 
- 4472      65546F75 
- 4472      63685F41 
- 4472      44435F41 
- 4473              	.LASF19:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 119
+ 4451 03fb 52657369 		.ascii	"ResistiveTouch_ADC_initVar\000"
+ 4451      73746976 
+ 4451      65546F75 
+ 4451      63685F41 
+ 4451      44435F69 
+ 4452              	.LASF22:
+ 4453 0416 6C6F6E67 		.ascii	"long double\000"
+ 4453      20646F75 
+ 4453      626C6500 
+ 4454              	.LASF84:
+ 4455 0422 52657369 		.ascii	"ResistiveTouch_ADC_convDone\000"
+ 4455      73746976 
+ 4455      65546F75 
+ 4455      63685F41 
+ 4455      44435F63 
+ 4456              	.LASF86:
+ 4457 043e 52657369 		.ascii	"ResistiveTouch_ADC_started\000"
+ 4457      73746976 
+ 4457      65546F75 
+ 4457      63685F41 
+ 4457      44435F73 
+ 4458              	.LASF66:
+ 4459 0459 52657369 		.ascii	"ResistiveTouch_ADC_SetGain\000"
+ 4459      73746976 
+ 4459      65546F75 
+ 4459      63685F41 
+ 4459      44435F53 
+ 4460              	.LASF49:
+ 4461 0474 636F6865 		.ascii	"coherency\000"
+ 4461      72656E63 
+ 4461      7900
+ 4462              	.LASF100:
+ 4463 047e 4379496E 		.ascii	"CyIntSetPriority\000"
+ 4463      74536574 
+ 4463      5072696F 
+ 4463      72697479 
+ 4463      00
+ 4464              	.LASF46:
+ 4465 048f 6761696E 		.ascii	"gain\000"
+ 4465      00
+ 4466              	.LASF64:
+ 4467 0494 52657369 		.ascii	"ResistiveTouch_ADC_SetOffset\000"
+ 4467      73746976 
+ 4467      65546F75 
+ 4467      63685F41 
+ 4467      44435F53 
+ 4468              	.LASF45:
+ 4469 04b1 52657369 		.ascii	"ResistiveTouch_ADC_SetBufferGain\000"
+ 4469      73746976 
+ 4469      65546F75 
+ 4469      63685F41 
+ 4469      44435F53 
+ 4470              	.LASF0:
+ 4471 04d2 666C6F61 		.ascii	"float\000"
+ 4471      7400
+ 4472              	.LASF57:
+ 4473 04d8 52657369 		.ascii	"ResistiveTouch_ADC_StopConvert\000"
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 119
 
 
- 4474 04cc 72656738 		.ascii	"reg8\000"
- 4474      00
- 4475              	.LASF28:
- 4476 04d1 69646561 		.ascii	"idealDecGain\000"
- 4476      6C446563 
- 4476      4761696E 
- 4476      00
- 4477              	.LASF33:
- 4478 04de 6E6F726D 		.ascii	"normalised\000"
- 4478      616C6973 
- 4478      656400
- 4479              	.LASF90:
- 4480 04e9 43794861 		.ascii	"CyHalt\000"
- 4480      6C7400
- 4481              	.LASF2:
- 4482 04f0 756E7369 		.ascii	"unsigned char\000"
- 4482      676E6564 
- 4482      20636861 
- 4482      7200
- 4483              	.LASF3:
- 4484 04fe 73686F72 		.ascii	"short int\000"
- 4484      7420696E 
- 4484      7400
- 4485              	.LASF35:
- 4486 0508 67636F72 		.ascii	"gcorTmp\000"
- 4486      546D7000 
- 4487              	.LASF73:
- 4488 0510 52657369 		.ascii	"ResistiveTouch_ADC_CountsTo_uVolts\000"
- 4488      73746976 
- 4488      65546F75 
- 4488      63685F41 
- 4488      44435F43 
- 4489              	.LASF101:
- 4490 0533 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 4490      43313120 
- 4490      352E342E 
- 4490      31203230 
- 4490      31363036 
- 4491 0566 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 4491      20726576 
- 4491      6973696F 
- 4491      6E203233 
- 4491      37373135 
- 4492 0599 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 4492      66756E63 
- 4492      74696F6E 
- 4492      2D736563 
- 4492      74696F6E 
- 4493              	.LASF98:
- 4494 05c1 52657369 		.ascii	"ResistiveTouch_ADC_Ext_CP_Clk_SetModeRegister\000"
- 4494      73746976 
- 4494      65546F75 
- 4494      63685F41 
- 4494      44435F45 
- 4495              	.LASF30:
- 4496 05ef 7265736F 		.ascii	"resolution\000"
- 4496      6C757469 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 120
+ 4473      73746976 
+ 4473      65546F75 
+ 4473      63685F41 
+ 4473      44435F53 
+ 4474              	.LASF94:
+ 4475 04f7 52657369 		.ascii	"ResistiveTouch_ADC_AMux_Select\000"
+ 4475      73746976 
+ 4475      65546F75 
+ 4475      63685F41 
+ 4475      44435F41 
+ 4476              	.LASF19:
+ 4477 0516 72656738 		.ascii	"reg8\000"
+ 4477      00
+ 4478              	.LASF28:
+ 4479 051b 69646561 		.ascii	"idealDecGain\000"
+ 4479      6C446563 
+ 4479      4761696E 
+ 4479      00
+ 4480              	.LASF33:
+ 4481 0528 6E6F726D 		.ascii	"normalised\000"
+ 4481      616C6973 
+ 4481      656400
+ 4482              	.LASF90:
+ 4483 0533 43794861 		.ascii	"CyHalt\000"
+ 4483      6C7400
+ 4484              	.LASF2:
+ 4485 053a 756E7369 		.ascii	"unsigned char\000"
+ 4485      676E6564 
+ 4485      20636861 
+ 4485      7200
+ 4486              	.LASF3:
+ 4487 0548 73686F72 		.ascii	"short int\000"
+ 4487      7420696E 
+ 4487      7400
+ 4488              	.LASF35:
+ 4489 0552 67636F72 		.ascii	"gcorTmp\000"
+ 4489      546D7000 
+ 4490              	.LASF73:
+ 4491 055a 52657369 		.ascii	"ResistiveTouch_ADC_CountsTo_uVolts\000"
+ 4491      73746976 
+ 4491      65546F75 
+ 4491      63685F41 
+ 4491      44435F43 
+ 4492              	.LASF101:
+ 4493 057d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 4493      43313120 
+ 4493      352E342E 
+ 4493      31203230 
+ 4493      31363036 
+ 4494 05b0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 4494      20726576 
+ 4494      6973696F 
+ 4494      6E203233 
+ 4494      37373135 
+ 4495 05e3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 4495      66756E63 
+ 4495      74696F6E 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 120
 
 
- 4496      6F6E00
- 4497              	.LASF37:
- 4498 05fa 52657369 		.ascii	"ResistiveTouch_ADC_SetDSMRef0Reg\000"
- 4498      73746976 
- 4498      65546F75 
- 4498      63685F41 
- 4498      44435F53 
- 4499              	.LASF75:
- 4500 061b 636F6566 		.ascii	"coefA\000"
- 4500      4100
- 4501              	.LASF76:
- 4502 0621 636F6566 		.ascii	"coefB\000"
- 4502      4200
- 4503              	.LASF53:
- 4504 0627 52657369 		.ascii	"ResistiveTouch_ADC_SetGCOR\000"
- 4504      73746976 
- 4504      65546F75 
- 4504      63685F41 
- 4504      44435F53 
- 4505              	.LASF42:
- 4506 0642 52657369 		.ascii	"ResistiveTouch_ADC_Enable\000"
- 4506      73746976 
- 4506      65546F75 
- 4506      63685F41 
- 4506      44435F45 
- 4507              	.LASF18:
- 4508 065c 63686172 		.ascii	"char\000"
- 4508      00
- 4509              	.LASF55:
- 4510 0661 6756616C 		.ascii	"gValue\000"
- 4510      756500
- 4511              	.LASF31:
- 4512 0668 636F6E66 		.ascii	"config\000"
- 4512      696700
- 4513              	.LASF25:
- 4514 066f 6776616C 		.ascii	"gval\000"
- 4514      00
- 4515              	.LASF99:
- 4516 0674 52657369 		.ascii	"ResistiveTouch_ADC_theACLK_SetModeRegister\000"
- 4516      73746976 
- 4516      65546F75 
- 4516      63685F41 
- 4516      44435F74 
- 4517              	.LASF78:
- 4518 069f 72657374 		.ascii	"restart\000"
- 4518      61727400 
- 4519              	.LASF52:
- 4520 06a7 746D7056 		.ascii	"tmpValue\000"
- 4520      616C7565 
- 4520      00
- 4521              	.LASF65:
- 4522 06b0 6F666673 		.ascii	"offset\000"
- 4522      657400
- 4523              	.LASF40:
- 4524 06b7 52657369 		.ascii	"ResistiveTouch_ADC_InitConfig\000"
- 4524      73746976 
- 4524      65546F75 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 121
+ 4495      2D736563 
+ 4495      74696F6E 
+ 4496              	.LASF98:
+ 4497 060b 52657369 		.ascii	"ResistiveTouch_ADC_Ext_CP_Clk_SetModeRegister\000"
+ 4497      73746976 
+ 4497      65546F75 
+ 4497      63685F41 
+ 4497      44435F45 
+ 4498              	.LASF30:
+ 4499 0639 7265736F 		.ascii	"resolution\000"
+ 4499      6C757469 
+ 4499      6F6E00
+ 4500              	.LASF37:
+ 4501 0644 52657369 		.ascii	"ResistiveTouch_ADC_SetDSMRef0Reg\000"
+ 4501      73746976 
+ 4501      65546F75 
+ 4501      63685F41 
+ 4501      44435F53 
+ 4502              	.LASF75:
+ 4503 0665 636F6566 		.ascii	"coefA\000"
+ 4503      4100
+ 4504              	.LASF76:
+ 4505 066b 636F6566 		.ascii	"coefB\000"
+ 4505      4200
+ 4506              	.LASF53:
+ 4507 0671 52657369 		.ascii	"ResistiveTouch_ADC_SetGCOR\000"
+ 4507      73746976 
+ 4507      65546F75 
+ 4507      63685F41 
+ 4507      44435F53 
+ 4508              	.LASF42:
+ 4509 068c 52657369 		.ascii	"ResistiveTouch_ADC_Enable\000"
+ 4509      73746976 
+ 4509      65546F75 
+ 4509      63685F41 
+ 4509      44435F45 
+ 4510              	.LASF18:
+ 4511 06a6 63686172 		.ascii	"char\000"
+ 4511      00
+ 4512              	.LASF55:
+ 4513 06ab 6756616C 		.ascii	"gValue\000"
+ 4513      756500
+ 4514              	.LASF31:
+ 4515 06b2 636F6E66 		.ascii	"config\000"
+ 4515      696700
+ 4516              	.LASF25:
+ 4517 06b9 6776616C 		.ascii	"gval\000"
+ 4517      00
+ 4518              	.LASF99:
+ 4519 06be 52657369 		.ascii	"ResistiveTouch_ADC_theACLK_SetModeRegister\000"
+ 4519      73746976 
+ 4519      65546F75 
+ 4519      63685F41 
+ 4519      44435F74 
+ 4520              	.LASF78:
+ 4521 06e9 72657374 		.ascii	"restart\000"
+ 4521      61727400 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 121
 
 
- 4524      63685F41 
- 4524      44435F49 
- 4525              	.LASF60:
- 4526 06d5 52657369 		.ascii	"ResistiveTouch_ADC_GetResult8\000"
- 4526      73746976 
- 4526      65546F75 
- 4526      63685F41 
- 4526      44435F47 
- 4527              	.LASF69:
- 4528 06f3 61646343 		.ascii	"adcCounts\000"
- 4528      6F756E74 
- 4528      7300
- 4529              	.LASF71:
- 4530 06fd 52657369 		.ascii	"ResistiveTouch_ADC_CountsTo_Volts\000"
- 4530      73746976 
- 4530      65546F75 
- 4530      63685F41 
- 4530      44435F43 
- 4531              	.LASF102:
- 4532 071f 47656E65 		.ascii	"Generated_Source\\PSoC5\\ResistiveTouch_ADC.c\000"
- 4532      72617465 
- 4532      645F536F 
- 4532      75726365 
- 4532      5C50536F 
- 4533              	.LASF41:
- 4534 074b 52657369 		.ascii	"ResistiveTouch_ADC_Init\000"
- 4534      73746976 
- 4534      65546F75 
- 4534      63685F41 
- 4534      44435F49 
- 4535              	.LASF51:
- 4536 0763 73746174 		.ascii	"status\000"
- 4536      757300
- 4537              	.LASF50:
- 4538 076a 6761696E 		.ascii	"gainAdjust\000"
- 4538      41646A75 
- 4538      737400
- 4539              	.LASF95:
- 4540 0775 52657369 		.ascii	"ResistiveTouch_ADC_Ext_CP_Clk_SetDividerRegister\000"
- 4540      73746976 
- 4540      65546F75 
- 4540      63685F41 
- 4540      44435F45 
- 4541              	.LASF14:
- 4542 07a6 696E7431 		.ascii	"int16\000"
- 4542      3600
- 4543              	.LASF81:
- 4544 07ac 52657369 		.ascii	"ResistiveTouch_ADC_Read32\000"
- 4544      73746976 
- 4544      65546F75 
- 4544      63685F41 
- 4544      44435F52 
- 4545              	.LASF80:
- 4546 07c6 52657369 		.ascii	"ResistiveTouch_ADC_Read16\000"
- 4546      73746976 
- 4546      65546F75 
- 4546      63685F41 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccAaDFIK.s 			page 122
+ 4522              	.LASF52:
+ 4523 06f1 746D7056 		.ascii	"tmpValue\000"
+ 4523      616C7565 
+ 4523      00
+ 4524              	.LASF65:
+ 4525 06fa 6F666673 		.ascii	"offset\000"
+ 4525      657400
+ 4526              	.LASF40:
+ 4527 0701 52657369 		.ascii	"ResistiveTouch_ADC_InitConfig\000"
+ 4527      73746976 
+ 4527      65546F75 
+ 4527      63685F41 
+ 4527      44435F49 
+ 4528              	.LASF60:
+ 4529 071f 52657369 		.ascii	"ResistiveTouch_ADC_GetResult8\000"
+ 4529      73746976 
+ 4529      65546F75 
+ 4529      63685F41 
+ 4529      44435F47 
+ 4530              	.LASF69:
+ 4531 073d 61646343 		.ascii	"adcCounts\000"
+ 4531      6F756E74 
+ 4531      7300
+ 4532              	.LASF71:
+ 4533 0747 52657369 		.ascii	"ResistiveTouch_ADC_CountsTo_Volts\000"
+ 4533      73746976 
+ 4533      65546F75 
+ 4533      63685F41 
+ 4533      44435F43 
+ 4534              	.LASF102:
+ 4535 0769 47656E65 		.ascii	"Generated_Source\\PSoC5\\ResistiveTouch_ADC.c\000"
+ 4535      72617465 
+ 4535      645F536F 
+ 4535      75726365 
+ 4535      5C50536F 
+ 4536              	.LASF41:
+ 4537 0795 52657369 		.ascii	"ResistiveTouch_ADC_Init\000"
+ 4537      73746976 
+ 4537      65546F75 
+ 4537      63685F41 
+ 4537      44435F49 
+ 4538              	.LASF51:
+ 4539 07ad 73746174 		.ascii	"status\000"
+ 4539      757300
+ 4540              	.LASF50:
+ 4541 07b4 6761696E 		.ascii	"gainAdjust\000"
+ 4541      41646A75 
+ 4541      737400
+ 4542              	.LASF95:
+ 4543 07bf 52657369 		.ascii	"ResistiveTouch_ADC_Ext_CP_Clk_SetDividerRegister\000"
+ 4543      73746976 
+ 4543      65546F75 
+ 4543      63685F41 
+ 4543      44435F45 
+ 4544              	.LASF14:
+ 4545 07f0 696E7431 		.ascii	"int16\000"
+ 4545      3600
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccVsi3J3.s 			page 122
 
 
- 4546      44435F52 
- 4547              	.LASF47:
- 4548 07e0 746D7052 		.ascii	"tmpReg\000"
- 4548      656700
- 4549              	.LASF103:
- 4550 07e7 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
- 4550      73657273 
- 4550      5C544F53 
- 4550      48494241 
- 4550      5C446F63 
- 4551 0815 4176616E 		.ascii	"Avance\\BallPlate.cydsn\000"
- 4551      63655C42 
- 4551      616C6C50 
- 4551      6C617465 
- 4551      2E637964 
+ 4546              	.LASF81:
+ 4547 07f6 52657369 		.ascii	"ResistiveTouch_ADC_Read32\000"
+ 4547      73746976 
+ 4547      65546F75 
+ 4547      63685F41 
+ 4547      44435F52 
+ 4548              	.LASF80:
+ 4549 0810 52657369 		.ascii	"ResistiveTouch_ADC_Read16\000"
+ 4549      73746976 
+ 4549      65546F75 
+ 4549      63685F41 
+ 4549      44435F52 
+ 4550              	.LASF47:
+ 4551 082a 746D7052 		.ascii	"tmpReg\000"
+ 4551      656700
  4552              	.LASF61:
- 4553 082c 72657375 		.ascii	"result\000"
+ 4553 0831 72657375 		.ascii	"result\000"
  4553      6C7400
  4554              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
   28:Generated_Source\PSoC5/PWM_Y_PM.c **** *  Saves the current user configuration of the component.
   29:Generated_Source\PSoC5/PWM_Y_PM.c **** *
   30:Generated_Source\PSoC5/PWM_Y_PM.c **** * Parameters:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 2
 
 
   31:Generated_Source\PSoC5/PWM_Y_PM.c **** *  None
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
   68:Generated_Source\PSoC5/PWM_Y_PM.c **** 
   69:Generated_Source\PSoC5/PWM_Y_PM.c **** 
   70:Generated_Source\PSoC5/PWM_Y_PM.c **** /*******************************************************************************
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 3
 
 
   71:Generated_Source\PSoC5/PWM_Y_PM.c **** * Function Name: PWM_Y_RestoreConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  108:Generated_Source\PSoC5/PWM_Y_PM.c ****             #endif /* (PWM_Y_KillModeMinTime) */
  109:Generated_Source\PSoC5/PWM_Y_PM.c **** 
  110:Generated_Source\PSoC5/PWM_Y_PM.c ****             #if(PWM_Y_UseControl)
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 4
 
 
  111:Generated_Source\PSoC5/PWM_Y_PM.c ****                 PWM_Y_WriteControlRegister(PWM_Y_backup.PWMControlRegister);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  145:Generated_Source\PSoC5/PWM_Y_PM.c ****         {
  146:Generated_Source\PSoC5/PWM_Y_PM.c ****             /* Component is disabled */
  147:Generated_Source\PSoC5/PWM_Y_PM.c ****             PWM_Y_backup.PWMEnableState = 0u;
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 5
 
 
   82              		.loc 1 147 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  177:Generated_Source\PSoC5/PWM_Y_PM.c **** *******************************************************************************/
  178:Generated_Source\PSoC5/PWM_Y_PM.c **** void PWM_Y_Wakeup(void) 
  179:Generated_Source\PSoC5/PWM_Y_PM.c **** {
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 6
 
 
  107              		.loc 1 179 0
@@ -350,40 +350,40 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  146 0006 00000000 		.4byte	.Ldebug_abbrev0
  147 000a 04       		.byte	0x4
  148 000b 01       		.uleb128 0x1
- 149 000c AB000000 		.4byte	.LASF23
+ 149 000c 66000000 		.4byte	.LASF23
  150 0010 0C       		.byte	0xc
  151 0011 2A000000 		.4byte	.LASF24
- 152 0015 4C000000 		.4byte	.LASF25
+ 152 0015 37010000 		.4byte	.LASF25
  153 0019 00000000 		.4byte	.Ldebug_ranges0+0
  154 001d 00000000 		.4byte	0
  155 0021 00000000 		.4byte	.Ldebug_line0
  156 0025 02       		.uleb128 0x2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 7
 
 
  157 0026 01       		.byte	0x1
  158 0027 06       		.byte	0x6
- 159 0028 E9010000 		.4byte	.LASF0
+ 159 0028 EE010000 		.4byte	.LASF0
  160 002c 02       		.uleb128 0x2
  161 002d 01       		.byte	0x1
  162 002e 08       		.byte	0x8
- 163 002f 93010000 		.4byte	.LASF1
+ 163 002f 98010000 		.4byte	.LASF1
  164 0033 02       		.uleb128 0x2
  165 0034 02       		.byte	0x2
  166 0035 05       		.byte	0x5
- 167 0036 18020000 		.4byte	.LASF2
+ 167 0036 1D020000 		.4byte	.LASF2
  168 003a 02       		.uleb128 0x2
  169 003b 02       		.byte	0x2
  170 003c 07       		.byte	0x7
- 171 003d D6010000 		.4byte	.LASF3
+ 171 003d DB010000 		.4byte	.LASF3
  172 0041 02       		.uleb128 0x2
  173 0042 04       		.byte	0x4
  174 0043 05       		.byte	0x5
- 175 0044 B3010000 		.4byte	.LASF4
+ 175 0044 B8010000 		.4byte	.LASF4
  176 0048 02       		.uleb128 0x2
  177 0049 04       		.byte	0x4
  178 004a 07       		.byte	0x7
- 179 004b 3F010000 		.4byte	.LASF5
+ 179 004b FA000000 		.4byte	.LASF5
  180 004f 02       		.uleb128 0x2
  181 0050 08       		.byte	0x8
  182 0051 05       		.byte	0x5
@@ -391,7 +391,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  184 0056 02       		.uleb128 0x2
  185 0057 08       		.byte	0x8
  186 0058 07       		.byte	0x7
- 187 0059 51010000 		.4byte	.LASF7
+ 187 0059 0C010000 		.4byte	.LASF7
  188 005d 03       		.uleb128 0x3
  189 005e 04       		.byte	0x4
  190 005f 05       		.byte	0x5
@@ -401,27 +401,27 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  194 0066 07       		.byte	0x7
  195 0067 0E000000 		.4byte	.LASF8
  196 006b 04       		.uleb128 0x4
- 197 006c 39010000 		.4byte	.LASF12
+ 197 006c F4000000 		.4byte	.LASF12
  198 0070 02       		.byte	0x2
  199 0071 9201     		.2byte	0x192
  200 0073 2C000000 		.4byte	0x2c
  201 0077 02       		.uleb128 0x2
  202 0078 04       		.byte	0x4
  203 0079 04       		.byte	0x4
- 204 007a 7C010000 		.4byte	.LASF9
+ 204 007a 81010000 		.4byte	.LASF9
  205 007e 02       		.uleb128 0x2
  206 007f 08       		.byte	0x8
  207 0080 04       		.byte	0x4
- 208 0081 CF010000 		.4byte	.LASF10
+ 208 0081 D4010000 		.4byte	.LASF10
  209 0085 02       		.uleb128 0x2
  210 0086 01       		.byte	0x1
  211 0087 08       		.byte	0x8
- 212 0088 A1010000 		.4byte	.LASF11
+ 212 0088 A6010000 		.4byte	.LASF11
  213 008c 04       		.uleb128 0x4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 8
 
 
- 214 008d 22020000 		.4byte	.LASF13
+ 214 008d 27020000 		.4byte	.LASF13
  215 0091 02       		.byte	0x2
  216 0092 3C02     		.2byte	0x23c
  217 0094 98000000 		.4byte	0x98
@@ -430,11 +430,11 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  220 009d 02       		.uleb128 0x2
  221 009e 08       		.byte	0x8
  222 009f 04       		.byte	0x4
- 223 00a0 01020000 		.4byte	.LASF14
+ 223 00a0 06020000 		.4byte	.LASF14
  224 00a4 02       		.uleb128 0x2
  225 00a5 04       		.byte	0x4
  226 00a6 07       		.byte	0x7
- 227 00a7 27020000 		.4byte	.LASF15
+ 227 00a7 2C020000 		.4byte	.LASF15
  228 00ab 06       		.uleb128 0x6
  229 00ac 01       		.byte	0x1
  230 00ad 03       		.byte	0x3
@@ -448,12 +448,12 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  238 00be 00       		.byte	0
  239 00bf 00       		.byte	0
  240 00c0 08       		.uleb128 0x8
- 241 00c1 BC010000 		.4byte	.LASF16
+ 241 00c1 C1010000 		.4byte	.LASF16
  242 00c5 03       		.byte	0x3
  243 00c6 8B       		.byte	0x8b
  244 00c7 AB000000 		.4byte	0xab
  245 00cb 09       		.uleb128 0x9
- 246 00cc 82010000 		.4byte	.LASF17
+ 246 00cc 87010000 		.4byte	.LASF17
  247 00d0 01       		.byte	0x1
  248 00d1 2A       		.byte	0x2a
  249 00d2 00000000 		.4byte	.LFB0
@@ -461,7 +461,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  251 00da 01       		.uleb128 0x1
  252 00db 9C       		.byte	0x9c
  253 00dc 09       		.uleb128 0x9
- 254 00dd 68010000 		.4byte	.LASF18
+ 254 00dd 23010000 		.4byte	.LASF18
  255 00e1 01       		.byte	0x1
  256 00e2 58       		.byte	0x58
  257 00e3 00000000 		.4byte	.LFB1
@@ -469,7 +469,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  259 00eb 01       		.uleb128 0x1
  260 00ec 9C       		.byte	0x9c
  261 00ed 0A       		.uleb128 0xa
- 262 00ee F5010000 		.4byte	.LASF19
+ 262 00ee FA010000 		.4byte	.LASF19
  263 00f2 01       		.byte	0x1
  264 00f3 88       		.byte	0x88
  265 00f4 00000000 		.4byte	.LFB2
@@ -478,14 +478,14 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  268 00fd 9C       		.byte	0x9c
  269 00fe 0C010000 		.4byte	0x10c
  270 0102 0B       		.uleb128 0xb
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 9
 
 
  271 0103 1E000000 		.4byte	.LVL0
  272 0107 3C010000 		.4byte	0x13c
  273 010b 00       		.byte	0
  274 010c 0A       		.uleb128 0xa
- 275 010d A6010000 		.4byte	.LASF20
+ 275 010d AB010000 		.4byte	.LASF20
  276 0111 01       		.byte	0x1
  277 0112 B2       		.byte	0xb2
  278 0113 00000000 		.4byte	.LFB3
@@ -498,7 +498,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  285 0126 47010000 		.4byte	0x147
  286 012a 00       		.byte	0
  287 012b 0C       		.uleb128 0xc
- 288 012c 91000000 		.4byte	.LASF27
+ 288 012c 4C000000 		.4byte	.LASF27
  289 0130 01       		.byte	0x1
  290 0131 14       		.byte	0x14
  291 0132 C0000000 		.4byte	0xc0
@@ -506,13 +506,13 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  293 0137 03       		.byte	0x3
  294 0138 00000000 		.4byte	PWM_Y_backup
  295 013c 0D       		.uleb128 0xd
- 296 013d 0D020000 		.4byte	.LASF21
- 297 0141 0D020000 		.4byte	.LASF21
+ 296 013d 12020000 		.4byte	.LASF21
+ 297 0141 12020000 		.4byte	.LASF21
  298 0145 03       		.byte	0x3
  299 0146 93       		.byte	0x93
  300 0147 0D       		.uleb128 0xd
- 301 0148 9E000000 		.4byte	.LASF22
- 302 014c 9E000000 		.4byte	.LASF22
+ 301 0148 59000000 		.4byte	.LASF22
+ 302 014c 59000000 		.4byte	.LASF22
  303 0150 03       		.byte	0x3
  304 0151 DB       		.byte	0xdb
  305 0152 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  325 0011 00       		.byte	0
  326 0012 00       		.byte	0
  327 0013 02       		.uleb128 0x2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 10
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 10
 
 
  328 0014 24       		.uleb128 0x24
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  382 004a 07       		.uleb128 0x7
  383 004b 0D       		.uleb128 0xd
  384 004c 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 11
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 11
 
 
  385 004d 03       		.uleb128 0x3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  439 0084 0E       		.uleb128 0xe
  440 0085 3A       		.uleb128 0x3a
  441 0086 0B       		.uleb128 0xb
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 12
 
 
  442 0087 3B       		.uleb128 0x3b
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  496 00c0 0B       		.uleb128 0xb
  497 00c1 00       		.byte	0
  498 00c2 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 13
 
 
  499 00c3 00       		.byte	0
@@ -778,141 +778,141 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 1
  540 002a 47656E65 		.ascii	"Generated_Source\\PSoC5\\PWM_Y_PM.c\000"
  540      72617465 
  540      645F536F 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 14
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 14
 
 
  540      75726365 
  540      5C50536F 
- 541              	.LASF25:
- 542 004c 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
- 542      73657273 
- 542      5C544F53 
- 542      48494241 
- 542      5C446F63 
- 543 007a 4176616E 		.ascii	"Avance\\BallPlate.cydsn\000"
- 543      63655C42 
- 543      616C6C50 
- 543      6C617465 
- 543      2E637964 
- 544              	.LASF27:
- 545 0091 50574D5F 		.ascii	"PWM_Y_backup\000"
- 545      595F6261 
- 545      636B7570 
- 545      00
- 546              	.LASF22:
- 547 009e 50574D5F 		.ascii	"PWM_Y_Enable\000"
- 547      595F456E 
- 547      61626C65 
- 547      00
- 548              	.LASF23:
- 549 00ab 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 549      43313120 
- 549      352E342E 
- 549      31203230 
- 549      31363036 
- 550 00de 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 550      20726576 
- 550      6973696F 
- 550      6E203233 
- 550      37373135 
- 551 0111 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 551      66756E63 
- 551      74696F6E 
- 551      2D736563 
- 551      74696F6E 
- 552              	.LASF12:
- 553 0139 75696E74 		.ascii	"uint8\000"
- 553      3800
- 554              	.LASF5:
- 555 013f 6C6F6E67 		.ascii	"long unsigned int\000"
- 555      20756E73 
- 555      69676E65 
- 555      6420696E 
- 555      7400
- 556              	.LASF7:
- 557 0151 6C6F6E67 		.ascii	"long long unsigned int\000"
- 557      206C6F6E 
- 557      6720756E 
- 557      7369676E 
- 557      65642069 
- 558              	.LASF18:
- 559 0168 50574D5F 		.ascii	"PWM_Y_RestoreConfig\000"
- 559      595F5265 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 15
+ 541              	.LASF27:
+ 542 004c 50574D5F 		.ascii	"PWM_Y_backup\000"
+ 542      595F6261 
+ 542      636B7570 
+ 542      00
+ 543              	.LASF22:
+ 544 0059 50574D5F 		.ascii	"PWM_Y_Enable\000"
+ 544      595F456E 
+ 544      61626C65 
+ 544      00
+ 545              	.LASF23:
+ 546 0066 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 546      43313120 
+ 546      352E342E 
+ 546      31203230 
+ 546      31363036 
+ 547 0099 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 547      20726576 
+ 547      6973696F 
+ 547      6E203233 
+ 547      37373135 
+ 548 00cc 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 548      66756E63 
+ 548      74696F6E 
+ 548      2D736563 
+ 548      74696F6E 
+ 549              	.LASF12:
+ 550 00f4 75696E74 		.ascii	"uint8\000"
+ 550      3800
+ 551              	.LASF5:
+ 552 00fa 6C6F6E67 		.ascii	"long unsigned int\000"
+ 552      20756E73 
+ 552      69676E65 
+ 552      6420696E 
+ 552      7400
+ 553              	.LASF7:
+ 554 010c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 554      206C6F6E 
+ 554      6720756E 
+ 554      7369676E 
+ 554      65642069 
+ 555              	.LASF18:
+ 556 0123 50574D5F 		.ascii	"PWM_Y_RestoreConfig\000"
+ 556      595F5265 
+ 556      73746F72 
+ 556      65436F6E 
+ 556      66696700 
+ 557              	.LASF25:
+ 558 0137 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
+ 558      73657273 
+ 558      5C544F53 
+ 558      48494241 
+ 558      5C446F63 
+ 559 0164 5072696D 		.ascii	"PrimerAvance\\BallPlate.cydsn\000"
+ 559      65724176 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 15
 
 
- 559      73746F72 
- 559      65436F6E 
- 559      66696700 
+ 559      616E6365 
+ 559      5C42616C 
+ 559      6C506C61 
  560              	.LASF9:
- 561 017c 666C6F61 		.ascii	"float\000"
+ 561 0181 666C6F61 		.ascii	"float\000"
  561      7400
  562              	.LASF17:
- 563 0182 50574D5F 		.ascii	"PWM_Y_SaveConfig\000"
+ 563 0187 50574D5F 		.ascii	"PWM_Y_SaveConfig\000"
  563      595F5361 
  563      7665436F 
  563      6E666967 
  563      00
  564              	.LASF1:
- 565 0193 756E7369 		.ascii	"unsigned char\000"
+ 565 0198 756E7369 		.ascii	"unsigned char\000"
  565      676E6564 
  565      20636861 
  565      7200
  566              	.LASF11:
- 567 01a1 63686172 		.ascii	"char\000"
+ 567 01a6 63686172 		.ascii	"char\000"
  567      00
  568              	.LASF20:
- 569 01a6 50574D5F 		.ascii	"PWM_Y_Wakeup\000"
+ 569 01ab 50574D5F 		.ascii	"PWM_Y_Wakeup\000"
  569      595F5761 
  569      6B657570 
  569      00
  570              	.LASF4:
- 571 01b3 6C6F6E67 		.ascii	"long int\000"
+ 571 01b8 6C6F6E67 		.ascii	"long int\000"
  571      20696E74 
  571      00
  572              	.LASF16:
- 573 01bc 50574D5F 		.ascii	"PWM_Y_backupStruct\000"
+ 573 01c1 50574D5F 		.ascii	"PWM_Y_backupStruct\000"
  573      595F6261 
  573      636B7570 
  573      53747275 
  573      637400
  574              	.LASF10:
- 575 01cf 646F7562 		.ascii	"double\000"
+ 575 01d4 646F7562 		.ascii	"double\000"
  575      6C6500
  576              	.LASF3:
- 577 01d6 73686F72 		.ascii	"short unsigned int\000"
+ 577 01db 73686F72 		.ascii	"short unsigned int\000"
  577      7420756E 
  577      7369676E 
  577      65642069 
  577      6E7400
  578              	.LASF0:
- 579 01e9 7369676E 		.ascii	"signed char\000"
+ 579 01ee 7369676E 		.ascii	"signed char\000"
  579      65642063 
  579      68617200 
  580              	.LASF19:
- 581 01f5 50574D5F 		.ascii	"PWM_Y_Sleep\000"
+ 581 01fa 50574D5F 		.ascii	"PWM_Y_Sleep\000"
  581      595F536C 
  581      65657000 
  582              	.LASF14:
- 583 0201 6C6F6E67 		.ascii	"long double\000"
+ 583 0206 6C6F6E67 		.ascii	"long double\000"
  583      20646F75 
  583      626C6500 
  584              	.LASF21:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccI2yArp.s 			page 16
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc6YidHD.s 			page 16
 
 
- 585 020d 50574D5F 		.ascii	"PWM_Y_Stop\000"
+ 585 0212 50574D5F 		.ascii	"PWM_Y_Stop\000"
  585      595F5374 
  585      6F7000
  586              	.LASF2:
- 587 0218 73686F72 		.ascii	"short int\000"
+ 587 021d 73686F72 		.ascii	"short int\000"
  587      7420696E 
  587      7400
  588              	.LASF13:
- 589 0222 72656738 		.ascii	"reg8\000"
+ 589 0227 72656738 		.ascii	"reg8\000"
  589      00
  590              	.LASF15:
- 591 0227 73697A65 		.ascii	"sizetype\000"
+ 591 022c 73697A65 		.ascii	"sizetype\000"
  591      74797065 
  591      00
  592              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
