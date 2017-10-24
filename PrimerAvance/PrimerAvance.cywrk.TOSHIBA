@@ -184,6 +184,34 @@
 <VisibleNodeIds>
 <v>PrimerAvance</v>
 <v>PrimerAvance\BallPlate</v>
+<v>PrimerAvance\BallPlate\CortexM3</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_Timer.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_LCDPort.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_PM.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_X.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_Y.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_X.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_X_PM.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Y.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Y_PM.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch_ADC.lst</v>
+<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch_ADC_AMux.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -259,12 +287,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\BallPlate.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\BallPlate.cydsn\main.c" />
 <name v=".\BallPlate.cydsn\BallPlate.cydwr" />
-<name v=".\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cydwr" />
-<name v=".\StaticSegLCD_Example01.cydsn\main.c" />
+<name v=".\BallPlate.cydsn\TopDesign\TopDesign.cysch" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -272,7 +297,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1013, 400" SelectedTabbedMdiWindow="73fb4c2a-ba0c-4ee7-b6d5-7c1214627f97"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5177127e-d73a-4d5e-a6cc-98f711e7b705" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch" Guid="dc00986b-61a3-43ba-b4d1-0a1ed8aeda53" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\main.c" Guid="12f0c085-20c0-4cd3-bef7-45ed12882139" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\BallPlate.cydwr" Guid="73fb4c2a-ba0c-4ee7-b6d5-7c1214627f97" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch" Guid="d118476d-17ec-41b1-a579-382664198f28" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cydwr" Guid="1077bc8c-a193-4956-b995-92ea76931d1f" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\main.c" Guid="e213ab23-78e4-4be2-aa5c-2620f6da4a9d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="825, 400" SelectedTabbedMdiWindow="3443f784-3b0a-4850-a3b0-da48e8c5143a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5177127e-d73a-4d5e-a6cc-98f711e7b705" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\main.c" Guid="3443f784-3b0a-4850-a3b0-da48e8c5143a" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\BallPlate.cydwr" Guid="2ee40fc1-ed0a-4f07-9c89-897e1f6a4cd9" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch" Guid="148aff2a-1f5b-471b-ad0b-7f02ecf35d15" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

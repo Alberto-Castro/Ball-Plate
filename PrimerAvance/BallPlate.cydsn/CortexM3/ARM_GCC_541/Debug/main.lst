@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 1
 
 
    1              		.syntax unified
@@ -21,8 +21,8 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 1
   18              		.cfi_sections	.debug_frame
   19              		.global	__aeabi_i2f
   20              		.global	__aeabi_fmul
-  21              		.global	__aeabi_fsub
-  22              		.global	__aeabi_fadd
+  21              		.global	__aeabi_fadd
+  22              		.global	__aeabi_fsub
   23              		.global	__aeabi_f2d
   24              		.global	__aeabi_dmul
   25              		.global	__aeabi_dadd
@@ -49,1915 +49,2110 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 1
   11:main.c        **** */
   12:main.c        **** #include "project.h"
   13:main.c        **** #include <stdio.h>
-  14:main.c        **** 
-  15:main.c        **** int16 coordx,coordy;
-  16:main.c        **** int16 cuentx,cuenty;
-  17:main.c        **** float datax,datay,ex=0,ey=0,adx=0,ady=0,accx=0,accy=0,accx1=0,accy1=0,accx2=0,accy2=0,ex1=0,ey1=0;
-  18:main.c        **** const float cruce=0, ref=0, Ts=0.0125,escx=0.075,escy=0.091,adc=(5/65536);
-  19:main.c        **** const float Kpx=0.0813,Kdx=0.0456,Nx=59.1,Kpy=0.06188,Kdy=0.018121,Ny=95.1926;
-  20:main.c        **** char8 str1[12],str2[12],str3[12];
-  21:main.c        **** 
-  22:main.c        **** void Control(){
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 2
+  14:main.c        **** #include <math.h>
+  15:main.c        **** 
+  16:main.c        **** 
+  17:main.c        **** int16 coordx,coordy; //Coordenadas medidas de la placa
+  18:main.c        **** int16 cuentx,cuenty; //Salidas al PWM
+  19:main.c        **** int8 touch;
+  20:main.c        **** float datax,datay,ex,ey,adx,ady,accx,accy,accx1,accy1,accx2,accy2,ex1,ey1,adcx,adcy,crucex,crucey; 
+  21:main.c        **** const float ref=0, Ts=0.0125,escx=2,escy=2;
+  22:main.c        **** const float Kpx=0.0813,Kdx=0.0456,Nx=59.1,Kpy=0.06188,Kdy=0.018121,Ny=95.1926;
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 2
 
 
-  36              		.loc 1 22 0
+  23:main.c        **** char8 str1[80],str2[80],str3[80];
+  24:main.c        **** 
+  25:main.c        **** void Control(){
+  36              		.loc 1 25 0
   37              		.cfi_startproc
   38              		@ args = 0, pretend = 0, frame = 0
   39              		@ frame_needed = 0, uses_anonymous_args = 0
-  40 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-  41              		.cfi_def_cfa_offset 24
-  42              		.cfi_offset 3, -24
-  43              		.cfi_offset 4, -20
-  44              		.cfi_offset 5, -16
-  45              		.cfi_offset 6, -12
-  46              		.cfi_offset 7, -8
-  47              		.cfi_offset 14, -4
-  23:main.c        ****     ResistiveTouch_ActivateX();//Configura los pines para medir x
-  48              		.loc 1 23 0
-  49 0002 FFF7FEFF 		bl	ResistiveTouch_ActivateX
-  50              	.LVL0:
-  24:main.c        ****     coordx=ResistiveTouch_Measure();//toma los datos de la placa
-  51              		.loc 1 24 0
-  52 0006 FFF7FEFF 		bl	ResistiveTouch_Measure
+  40 0000 38B5     		push	{r3, r4, r5, lr}
+  41              		.cfi_def_cfa_offset 16
+  42              		.cfi_offset 3, -16
+  43              		.cfi_offset 4, -12
+  44              		.cfi_offset 5, -8
+  45              		.cfi_offset 14, -4
+  26:main.c        ****     ResistiveTouch_ActivateX();//Configura los pines para medir x
+  46              		.loc 1 26 0
+  47 0002 FFF7FEFF 		bl	ResistiveTouch_ActivateX
+  48              	.LVL0:
+  27:main.c        ****         
+  28:main.c        ****     //Calculo en Y
+  29:main.c        ****     datay=(adcy*coordy)+crucey;//Conversión (y linealiza) de coordenada a tensión
+  49              		.loc 1 29 0
+  50 0006 6C4B     		ldr	r3, .L7+16
+  51 0008 B3F90000 		ldrsh	r0, [r3]
+  52 000c FFF7FEFF 		bl	__aeabi_i2f
   53              	.LVL1:
-  54 000a 614C     		ldr	r4, .L7+16
-  55 000c 2080     		strh	r0, [r4]	@ movhi
-  25:main.c        ****     
-  26:main.c        ****     ResistiveTouch_ActivateY();//Configura los pines para medir y
-  56              		.loc 1 26 0
-  57 000e FFF7FEFF 		bl	ResistiveTouch_ActivateY
-  58              	.LVL2:
-  27:main.c        ****     coordy=ResistiveTouch_Measure();//toma los datos de la placa
-  59              		.loc 1 27 0
-  60 0012 FFF7FEFF 		bl	ResistiveTouch_Measure
+  54 0010 6A4B     		ldr	r3, .L7+20
+  55 0012 1968     		ldr	r1, [r3]	@ float
+  56 0014 FFF7FEFF 		bl	__aeabi_fmul
+  57              	.LVL2:
+  58 0018 694B     		ldr	r3, .L7+24
+  59 001a 1968     		ldr	r1, [r3]	@ float
+  60 001c FFF7FEFF 		bl	__aeabi_fadd
   61              	.LVL3:
-  62 0016 0646     		mov	r6, r0
-  63 0018 5E4B     		ldr	r3, .L7+20
-  64 001a 1880     		strh	r0, [r3]	@ movhi
-  28:main.c        ****     
-  29:main.c        ****     //Calculo en X
-  30:main.c        ****     datax=(adc*coordx)-cruce;//linealiza el valor
+  62 0020 0146     		mov	r1, r0
+  63 0022 684B     		ldr	r3, .L7+28
+  64 0024 1860     		str	r0, [r3]	@ float
+  30:main.c        ****     ey=ref-datay;//calcula el error segun la referencia dada
   65              		.loc 1 30 0
-  66 001c B4F90000 		ldrsh	r0, [r4]
-  67 0020 FFF7FEFF 		bl	__aeabi_i2f
+  66 0026 0020     		movs	r0, #0
+  67 0028 FFF7FEFF 		bl	__aeabi_fsub
   68              	.LVL4:
-  69 0024 0021     		movs	r1, #0
-  70 0026 FFF7FEFF 		bl	__aeabi_fmul
-  71              	.LVL5:
-  72 002a 0146     		mov	r1, r0
-  73 002c 5A4B     		ldr	r3, .L7+24
-  74 002e 1860     		str	r0, [r3]	@ float
-  31:main.c        ****     ex=ref-datax;//calcula el error segun la referencia dada
-  75              		.loc 1 31 0
-  76 0030 0020     		movs	r0, #0
-  77 0032 FFF7FEFF 		bl	__aeabi_fsub
-  78              	.LVL6:
-  79 0036 0546     		mov	r5, r0
-  80 0038 584C     		ldr	r4, .L7+28
-  81 003a 2060     		str	r0, [r4]	@ float
-  32:main.c        ****     adx=-(Nx*Ts-1)*accx1+Kdx*Nx*(ex-ex1);//calculo de la parte derivativa
-  82              		.loc 1 32 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 3
+  69 002c 0446     		mov	r4, r0
+  70 002e 664B     		ldr	r3, .L7+32
+  71 0030 1860     		str	r0, [r3]	@ float
+  31:main.c        ****     ady=-(Ny*Ts-1)*accy1+Kdy*Ny*(ey-ey1);//calculo de la parte derivativa
+  72              		.loc 1 31 0
+  73 0032 6649     		ldr	r1, .L7+36
+  74 0034 664B     		ldr	r3, .L7+40
+  75 0036 1868     		ldr	r0, [r3]	@ float
+  76 0038 FFF7FEFF 		bl	__aeabi_fmul
+  77              	.LVL5:
+  78 003c 0546     		mov	r5, r0
+  79 003e 654B     		ldr	r3, .L7+44
+  80 0040 1968     		ldr	r1, [r3]	@ float
+  81 0042 2046     		mov	r0, r4
+  82 0044 FFF7FEFF 		bl	__aeabi_fsub
+  83              	.LVL6:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 3
 
 
-  83 003c 5849     		ldr	r1, .L7+32
-  84 003e 6068     		ldr	r0, [r4, #4]	@ float
-  85 0040 FFF7FEFF 		bl	__aeabi_fmul
+  84 0048 6349     		ldr	r1, .L7+48
+  85 004a FFF7FEFF 		bl	__aeabi_fmul
   86              	.LVL7:
-  87 0044 0746     		mov	r7, r0
-  88 0046 A168     		ldr	r1, [r4, #8]	@ float
-  89 0048 2846     		mov	r0, r5
-  90 004a FFF7FEFF 		bl	__aeabi_fsub
-  91              	.LVL8:
-  92 004e 5549     		ldr	r1, .L7+36
-  93 0050 FFF7FEFF 		bl	__aeabi_fmul
-  94              	.LVL9:
-  95 0054 0146     		mov	r1, r0
-  96 0056 3846     		mov	r0, r7
-  97 0058 FFF7FEFF 		bl	__aeabi_fadd
-  98              	.LVL10:
-  99 005c 0746     		mov	r7, r0
- 100 005e E060     		str	r0, [r4, #12]	@ float
-  33:main.c        ****     accx=escx*(Kpx*ex+adx);//calculo de la accion de control
- 101              		.loc 1 33 0
- 102 0060 5149     		ldr	r1, .L7+40
- 103 0062 2846     		mov	r0, r5
- 104 0064 FFF7FEFF 		bl	__aeabi_fmul
+  87 004e 0146     		mov	r1, r0
+  88 0050 2846     		mov	r0, r5
+  89 0052 FFF7FEFF 		bl	__aeabi_fadd
+  90              	.LVL8:
+  91 0056 0546     		mov	r5, r0
+  92 0058 604B     		ldr	r3, .L7+52
+  93 005a 1860     		str	r0, [r3]	@ float
+  32:main.c        ****     accy=escy*(Kpy*ey+ady);//calculo de la accion de control
+  94              		.loc 1 32 0
+  95 005c 6049     		ldr	r1, .L7+56
+  96 005e 2046     		mov	r0, r4
+  97 0060 FFF7FEFF 		bl	__aeabi_fmul
+  98              	.LVL9:
+  99 0064 0146     		mov	r1, r0
+ 100 0066 2846     		mov	r0, r5
+ 101 0068 FFF7FEFF 		bl	__aeabi_fadd
+ 102              	.LVL10:
+ 103 006c 0146     		mov	r1, r0
+ 104 006e FFF7FEFF 		bl	__aeabi_fadd
  105              	.LVL11:
- 106 0068 0146     		mov	r1, r0
- 107 006a 3846     		mov	r0, r7
- 108 006c FFF7FEFF 		bl	__aeabi_fadd
- 109              	.LVL12:
- 110 0070 4E49     		ldr	r1, .L7+44
- 111 0072 FFF7FEFF 		bl	__aeabi_fmul
- 112              	.LVL13:
- 113 0076 2061     		str	r0, [r4, #16]	@ float
-  34:main.c        ****     //accx2=accx*1.571;
-  35:main.c        ****     
-  36:main.c        ****     cuentx=318.31*accx+1500;
- 114              		.loc 1 36 0
- 115 0078 FFF7FEFF 		bl	__aeabi_f2d
- 116              	.LVL14:
- 117 007c 40A3     		adr	r3, .L7
- 118 007e D3E90023 		ldrd	r2, [r3]
- 119 0082 FFF7FEFF 		bl	__aeabi_dmul
- 120              	.LVL15:
- 121 0086 40A3     		adr	r3, .L7+8
- 122 0088 D3E90023 		ldrd	r2, [r3]
- 123 008c FFF7FEFF 		bl	__aeabi_dadd
- 124              	.LVL16:
- 125 0090 FFF7FEFF 		bl	__aeabi_d2iz
- 126              	.LVL17:
- 127 0094 00B2     		sxth	r0, r0
- 128 0096 464B     		ldr	r3, .L7+48
- 129 0098 1880     		strh	r0, [r3]	@ movhi
-  37:main.c        ****     if (cuentx <= 1000){
- 130              		.loc 1 37 0
- 131 009a B0F57A7F 		cmp	r0, #1000
- 132 009e 02DC     		bgt	.L2
-  38:main.c        ****         cuentx = 1000;
- 133              		.loc 1 38 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 4
+ 106 0072 0546     		mov	r5, r0
+ 107 0074 5B4B     		ldr	r3, .L7+60
+ 108 0076 1860     		str	r0, [r3]	@ float
+  33:main.c        ****     
+  34:main.c        ****     cuenty=318.31*accy+1500;
+ 109              		.loc 1 34 0
+ 110 0078 FFF7FEFF 		bl	__aeabi_f2d
+ 111              	.LVL12:
+ 112 007c 4AA3     		adr	r3, .L7
+ 113 007e D3E90023 		ldrd	r2, [r3]
+ 114 0082 FFF7FEFF 		bl	__aeabi_dmul
+ 115              	.LVL13:
+ 116 0086 4AA3     		adr	r3, .L7+8
+ 117 0088 D3E90023 		ldrd	r2, [r3]
+ 118 008c FFF7FEFF 		bl	__aeabi_dadd
+ 119              	.LVL14:
+ 120 0090 FFF7FEFF 		bl	__aeabi_d2iz
+ 121              	.LVL15:
+ 122 0094 00B2     		sxth	r0, r0
+ 123 0096 544B     		ldr	r3, .L7+64
+ 124 0098 1880     		strh	r0, [r3]	@ movhi
+  35:main.c        ****     if (cuenty <= 1000){
+ 125              		.loc 1 35 0
+ 126 009a B0F57A7F 		cmp	r0, #1000
+ 127 009e 02DC     		bgt	.L2
+  36:main.c        ****         cuenty = 1000;
+ 128              		.loc 1 36 0
+ 129 00a0 4FF47A72 		mov	r2, #1000
+ 130 00a4 1A80     		strh	r2, [r3]	@ movhi
+ 131              	.L2:
+  37:main.c        ****     }
+  38:main.c        ****     if (cuenty >= 2000){
+ 132              		.loc 1 38 0
+ 133 00a6 504B     		ldr	r3, .L7+64
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 4
 
 
- 134 00a0 4FF47A72 		mov	r2, #1000
- 135 00a4 1A80     		strh	r2, [r3]	@ movhi
- 136              	.L2:
-  39:main.c        ****     }
-  40:main.c        ****     if (cuentx >= 2000){
- 137              		.loc 1 40 0
- 138 00a6 424B     		ldr	r3, .L7+48
- 139 00a8 B3F90030 		ldrsh	r3, [r3]
- 140 00ac B3F5FA6F 		cmp	r3, #2000
- 141 00b0 03DB     		blt	.L3
-  41:main.c        ****         cuentx = 2000;
- 142              		.loc 1 41 0
- 143 00b2 4FF4FA62 		mov	r2, #2000
- 144 00b6 3E4B     		ldr	r3, .L7+48
- 145 00b8 1A80     		strh	r2, [r3]	@ movhi
- 146              	.L3:
-  42:main.c        ****     }
-  43:main.c        ****     
-  44:main.c        ****     //Calculo en Y
-  45:main.c        ****     datay=(adc*coordy)-cruce;//toma los datos de la placa y linealiza el valor
- 147              		.loc 1 45 0
- 148 00ba 3046     		mov	r0, r6
- 149 00bc FFF7FEFF 		bl	__aeabi_i2f
- 150              	.LVL18:
- 151 00c0 0021     		movs	r1, #0
- 152 00c2 FFF7FEFF 		bl	__aeabi_fmul
- 153              	.LVL19:
- 154 00c6 0146     		mov	r1, r0
- 155 00c8 3A4B     		ldr	r3, .L7+52
- 156 00ca 1860     		str	r0, [r3]	@ float
-  46:main.c        ****     ey=ref-datay;//calcula el error segun la referencia dada
- 157              		.loc 1 46 0
- 158 00cc 0020     		movs	r0, #0
- 159 00ce FFF7FEFF 		bl	__aeabi_fsub
- 160              	.LVL20:
- 161 00d2 0546     		mov	r5, r0
- 162 00d4 314C     		ldr	r4, .L7+28
- 163 00d6 6061     		str	r0, [r4, #20]	@ float
-  47:main.c        ****     ady=-(Ny*Ts-1)*accy1+Kdy*Ny*(ey-ey1);//calculo de la parte derivativa
- 164              		.loc 1 47 0
- 165 00d8 3749     		ldr	r1, .L7+56
- 166 00da A069     		ldr	r0, [r4, #24]	@ float
- 167 00dc FFF7FEFF 		bl	__aeabi_fmul
- 168              	.LVL21:
- 169 00e0 0646     		mov	r6, r0
- 170 00e2 E169     		ldr	r1, [r4, #28]	@ float
- 171 00e4 2846     		mov	r0, r5
- 172 00e6 FFF7FEFF 		bl	__aeabi_fsub
- 173              	.LVL22:
- 174 00ea 3449     		ldr	r1, .L7+60
- 175 00ec FFF7FEFF 		bl	__aeabi_fmul
- 176              	.LVL23:
- 177 00f0 0146     		mov	r1, r0
- 178 00f2 3046     		mov	r0, r6
- 179 00f4 FFF7FEFF 		bl	__aeabi_fadd
- 180              	.LVL24:
- 181 00f8 0646     		mov	r6, r0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 5
+ 134 00a8 B3F90030 		ldrsh	r3, [r3]
+ 135 00ac B3F5FA6F 		cmp	r3, #2000
+ 136 00b0 03DB     		blt	.L3
+  39:main.c        ****         cuenty = 2000;
+ 137              		.loc 1 39 0
+ 138 00b2 4FF4FA62 		mov	r2, #2000
+ 139 00b6 4C4B     		ldr	r3, .L7+64
+ 140 00b8 1A80     		strh	r2, [r3]	@ movhi
+ 141              	.L3:
+  40:main.c        ****     }
+  41:main.c        ****    
+  42:main.c        ****     accy1=accy;//guarda la accion de control anterior de y
+ 142              		.loc 1 42 0
+ 143 00ba 454B     		ldr	r3, .L7+40
+ 144 00bc 1D60     		str	r5, [r3]	@ float
+  43:main.c        ****     ey1=ey;//guarda el error anterior de y
+ 145              		.loc 1 43 0
+ 146 00be 454B     		ldr	r3, .L7+44
+ 147 00c0 1C60     		str	r4, [r3]	@ float
+  44:main.c        ****     
+  45:main.c        ****     coordx=ResistiveTouch_Measure();//toma los datos de la placa
+ 148              		.loc 1 45 0
+ 149 00c2 FFF7FEFF 		bl	ResistiveTouch_Measure
+ 150              	.LVL16:
+ 151 00c6 494C     		ldr	r4, .L7+68
+ 152 00c8 2080     		strh	r0, [r4]	@ movhi
+  46:main.c        ****     
+  47:main.c        ****     ResistiveTouch_ActivateY();//Configura los pines para medir y
+ 153              		.loc 1 47 0
+ 154 00ca FFF7FEFF 		bl	ResistiveTouch_ActivateY
+ 155              	.LVL17:
+  48:main.c        ****     
+  49:main.c        ****     //Calculo en X
+  50:main.c        ****     datax=(adcx*coordx)+(crucex);//Conversión (y linealiza) de coordenada a tensión
+ 156              		.loc 1 50 0
+ 157 00ce B4F90000 		ldrsh	r0, [r4]
+ 158 00d2 FFF7FEFF 		bl	__aeabi_i2f
+ 159              	.LVL18:
+ 160 00d6 464B     		ldr	r3, .L7+72
+ 161 00d8 1968     		ldr	r1, [r3]	@ float
+ 162 00da FFF7FEFF 		bl	__aeabi_fmul
+ 163              	.LVL19:
+ 164 00de 454B     		ldr	r3, .L7+76
+ 165 00e0 1968     		ldr	r1, [r3]	@ float
+ 166 00e2 FFF7FEFF 		bl	__aeabi_fadd
+ 167              	.LVL20:
+ 168 00e6 0146     		mov	r1, r0
+ 169 00e8 434B     		ldr	r3, .L7+80
+ 170 00ea 1860     		str	r0, [r3]	@ float
+  51:main.c        ****     ex=ref-datax;//calcula el error segun la referencia dada
+ 171              		.loc 1 51 0
+ 172 00ec 0020     		movs	r0, #0
+ 173 00ee FFF7FEFF 		bl	__aeabi_fsub
+ 174              	.LVL21:
+ 175 00f2 0446     		mov	r4, r0
+ 176 00f4 414B     		ldr	r3, .L7+84
+ 177 00f6 1860     		str	r0, [r3]	@ float
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 5
 
 
- 182 00fa 2062     		str	r0, [r4, #32]	@ float
-  48:main.c        ****     accy=escy*(Kpy*ey+ady);//calculo de la accion de control
- 183              		.loc 1 48 0
- 184 00fc 3049     		ldr	r1, .L7+64
- 185 00fe 2846     		mov	r0, r5
- 186 0100 FFF7FEFF 		bl	__aeabi_fmul
- 187              	.LVL25:
- 188 0104 0146     		mov	r1, r0
- 189 0106 3046     		mov	r0, r6
- 190 0108 FFF7FEFF 		bl	__aeabi_fadd
- 191              	.LVL26:
- 192 010c 2D49     		ldr	r1, .L7+68
- 193 010e FFF7FEFF 		bl	__aeabi_fmul
- 194              	.LVL27:
- 195 0112 6062     		str	r0, [r4, #36]	@ float
-  49:main.c        ****     //accy2=accy*1.571;
-  50:main.c        ****     
-  51:main.c        ****     cuenty=318.31*accy+1500;
- 196              		.loc 1 51 0
- 197 0114 FFF7FEFF 		bl	__aeabi_f2d
- 198              	.LVL28:
- 199 0118 19A3     		adr	r3, .L7
- 200 011a D3E90023 		ldrd	r2, [r3]
- 201 011e FFF7FEFF 		bl	__aeabi_dmul
- 202              	.LVL29:
- 203 0122 19A3     		adr	r3, .L7+8
- 204 0124 D3E90023 		ldrd	r2, [r3]
- 205 0128 FFF7FEFF 		bl	__aeabi_dadd
- 206              	.LVL30:
- 207 012c FFF7FEFF 		bl	__aeabi_d2iz
- 208              	.LVL31:
- 209 0130 00B2     		sxth	r0, r0
- 210 0132 254B     		ldr	r3, .L7+72
- 211 0134 1880     		strh	r0, [r3]	@ movhi
-  52:main.c        ****     if (cuenty <= 1000){
- 212              		.loc 1 52 0
- 213 0136 B0F57A7F 		cmp	r0, #1000
- 214 013a 02DC     		bgt	.L4
-  53:main.c        ****         cuenty = 1000;
- 215              		.loc 1 53 0
- 216 013c 4FF47A72 		mov	r2, #1000
- 217 0140 1A80     		strh	r2, [r3]	@ movhi
- 218              	.L4:
-  54:main.c        ****     }
-  55:main.c        ****     if (cuenty >= 2000){
- 219              		.loc 1 55 0
- 220 0142 214B     		ldr	r3, .L7+72
- 221 0144 B3F90030 		ldrsh	r3, [r3]
- 222 0148 B3F5FA6F 		cmp	r3, #2000
- 223 014c 03DB     		blt	.L5
-  56:main.c        ****         cuenty = 2000;
- 224              		.loc 1 56 0
- 225 014e 4FF4FA62 		mov	r2, #2000
- 226 0152 1D4B     		ldr	r3, .L7+72
- 227 0154 1A80     		strh	r2, [r3]	@ movhi
- 228              	.L5:
-  57:main.c        ****     }
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 6
+  52:main.c        ****     adx=-(Nx*Ts-1)*accx1+Kdx*Nx*(ex-ex1);//calculo de la parte derivativa
+ 178              		.loc 1 52 0
+ 179 00f8 4149     		ldr	r1, .L7+88
+ 180 00fa 424B     		ldr	r3, .L7+92
+ 181 00fc 1868     		ldr	r0, [r3]	@ float
+ 182 00fe FFF7FEFF 		bl	__aeabi_fmul
+ 183              	.LVL22:
+ 184 0102 0546     		mov	r5, r0
+ 185 0104 404B     		ldr	r3, .L7+96
+ 186 0106 1968     		ldr	r1, [r3]	@ float
+ 187 0108 2046     		mov	r0, r4
+ 188 010a FFF7FEFF 		bl	__aeabi_fsub
+ 189              	.LVL23:
+ 190 010e 3F49     		ldr	r1, .L7+100
+ 191 0110 FFF7FEFF 		bl	__aeabi_fmul
+ 192              	.LVL24:
+ 193 0114 0146     		mov	r1, r0
+ 194 0116 2846     		mov	r0, r5
+ 195 0118 FFF7FEFF 		bl	__aeabi_fadd
+ 196              	.LVL25:
+ 197 011c 0546     		mov	r5, r0
+ 198 011e 3C4B     		ldr	r3, .L7+104
+ 199 0120 1860     		str	r0, [r3]	@ float
+  53:main.c        ****     accx=escx*(Kpx*ex+adx);//calculo de la accion de control
+ 200              		.loc 1 53 0
+ 201 0122 3C49     		ldr	r1, .L7+108
+ 202 0124 2046     		mov	r0, r4
+ 203 0126 FFF7FEFF 		bl	__aeabi_fmul
+ 204              	.LVL26:
+ 205 012a 0146     		mov	r1, r0
+ 206 012c 2846     		mov	r0, r5
+ 207 012e FFF7FEFF 		bl	__aeabi_fadd
+ 208              	.LVL27:
+ 209 0132 0146     		mov	r1, r0
+ 210 0134 FFF7FEFF 		bl	__aeabi_fadd
+ 211              	.LVL28:
+ 212 0138 0546     		mov	r5, r0
+ 213 013a 374B     		ldr	r3, .L7+112
+ 214 013c 1860     		str	r0, [r3]	@ float
+  54:main.c        ****     
+  55:main.c        ****     cuentx=318.31*accx+1500;
+ 215              		.loc 1 55 0
+ 216 013e FFF7FEFF 		bl	__aeabi_f2d
+ 217              	.LVL29:
+ 218 0142 19A3     		adr	r3, .L7
+ 219 0144 D3E90023 		ldrd	r2, [r3]
+ 220 0148 FFF7FEFF 		bl	__aeabi_dmul
+ 221              	.LVL30:
+ 222 014c 18A3     		adr	r3, .L7+8
+ 223 014e D3E90023 		ldrd	r2, [r3]
+ 224 0152 FFF7FEFF 		bl	__aeabi_dadd
+ 225              	.LVL31:
+ 226 0156 FFF7FEFF 		bl	__aeabi_d2iz
+ 227              	.LVL32:
+ 228 015a 00B2     		sxth	r0, r0
+ 229 015c 2F4B     		ldr	r3, .L7+116
+ 230 015e 1880     		strh	r0, [r3]	@ movhi
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 6
 
 
-  58:main.c        ****     
-  59:main.c        ****     //Escribe las cuentas en los PWM
-  60:main.c        ****     PWM_X_WriteCompare(cuentx);
- 229              		.loc 1 60 0
- 230 0156 164B     		ldr	r3, .L7+48
- 231 0158 1888     		ldrh	r0, [r3]
- 232 015a FFF7FEFF 		bl	PWM_X_WriteCompare
- 233              	.LVL32:
-  61:main.c        ****     PWM_X_WriteCompare(cuenty);
- 234              		.loc 1 61 0
- 235 015e 1A4B     		ldr	r3, .L7+72
- 236 0160 1888     		ldrh	r0, [r3]
- 237 0162 FFF7FEFF 		bl	PWM_X_WriteCompare
- 238              	.LVL33:
+  56:main.c        ****     if (cuentx <= 1000){
+ 231              		.loc 1 56 0
+ 232 0160 B0F57A7F 		cmp	r0, #1000
+ 233 0164 02DC     		bgt	.L4
+  57:main.c        ****         cuentx = 1000;
+ 234              		.loc 1 57 0
+ 235 0166 4FF47A72 		mov	r2, #1000
+ 236 016a 1A80     		strh	r2, [r3]	@ movhi
+ 237              	.L4:
+  58:main.c        ****     }
+  59:main.c        ****     if (cuentx >= 2000){
+ 238              		.loc 1 59 0
+ 239 016c 2B4B     		ldr	r3, .L7+116
+ 240 016e B3F90030 		ldrsh	r3, [r3]
+ 241 0172 B3F5FA6F 		cmp	r3, #2000
+ 242 0176 03DB     		blt	.L5
+  60:main.c        ****         cuentx = 2000;
+ 243              		.loc 1 60 0
+ 244 0178 4FF4FA62 		mov	r2, #2000
+ 245 017c 274B     		ldr	r3, .L7+116
+ 246 017e 1A80     		strh	r2, [r3]	@ movhi
+ 247              	.L5:
+  61:main.c        ****     }
   62:main.c        ****     
-  63:main.c        ****     
-  64:main.c        ****     accx1=accx;//guarda la accion de control anterior de x
- 239              		.loc 1 64 0
- 240 0166 0D4B     		ldr	r3, .L7+28
- 241 0168 1A69     		ldr	r2, [r3, #16]	@ float
- 242 016a 5A60     		str	r2, [r3, #4]	@ float
-  65:main.c        ****     ex1=ex;//guarda el error anterior de x
- 243              		.loc 1 65 0
- 244 016c 1A68     		ldr	r2, [r3]	@ float
- 245 016e 9A60     		str	r2, [r3, #8]	@ float
-  66:main.c        ****     accy1=accy;//guarda la accion de control anterior de y
- 246              		.loc 1 66 0
- 247 0170 5A6A     		ldr	r2, [r3, #36]	@ float
- 248 0172 9A61     		str	r2, [r3, #24]	@ float
-  67:main.c        ****     ey1=ey;//guarda el error anterior de y
- 249              		.loc 1 67 0
- 250 0174 5A69     		ldr	r2, [r3, #20]	@ float
- 251 0176 DA61     		str	r2, [r3, #28]	@ float
- 252 0178 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 253              	.L8:
- 254 017a 00BFAFF3 		.align	3
- 254      0080
- 255              	.L7:
- 256 0180 295C8FC2 		.word	-1030792151
- 257 0184 F5E47340 		.word	1081337077
- 258 0188 00000000 		.word	0
- 259 018c 00709740 		.word	1083666432
- 260 0190 00000000 		.word	coordx
- 261 0194 00000000 		.word	coordy
- 262 0198 00000000 		.word	datax
- 263 019c 00000000 		.word	.LANCHOR0
- 264 01a0 90C2853E 		.word	1048953488
- 265 01a4 397A2C40 		.word	1076656697
- 266 01a8 9D80A63D 		.word	1034322077
- 267 01ac 9A99993D 		.word	1033476506
- 268 01b0 00000000 		.word	cuentx
- 269 01b4 00000000 		.word	datay
- 270 01b8 187742BE 		.word	-1102940392
- 271 01bc 50CCDC3F 		.word	1071434832
- 272 01c0 E2757D3D 		.word	1031632354
- 273 01c4 355EBA3D 		.word	1035623989
- 274 01c8 00000000 		.word	cuenty
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 7
-
-
- 275              		.cfi_endproc
- 276              	.LFE64:
- 277              		.size	Control, .-Control
- 278              		.section	.text.isr_Muestreo,"ax",%progbits
- 279              		.align	2
- 280              		.global	isr_Muestreo
- 281              		.thumb
- 282              		.thumb_func
- 283              		.type	isr_Muestreo, %function
- 284              	isr_Muestreo:
- 285              	.LFB65:
+  63:main.c        ****     accx1=accx;//guarda la accion de control anterior de x
+ 248              		.loc 1 63 0
+ 249 0180 204B     		ldr	r3, .L7+92
+ 250 0182 1D60     		str	r5, [r3]	@ float
+  64:main.c        ****     ex1=ex;//guarda el error anterior de x
+ 251              		.loc 1 64 0
+ 252 0184 204B     		ldr	r3, .L7+96
+ 253 0186 1C60     		str	r4, [r3]	@ float
+  65:main.c        ****     
+  66:main.c        ****     coordy=ResistiveTouch_Measure();//toma los datos de la placa
+ 254              		.loc 1 66 0
+ 255 0188 FFF7FEFF 		bl	ResistiveTouch_Measure
+ 256              	.LVL33:
+ 257 018c 0A4B     		ldr	r3, .L7+16
+ 258 018e 1880     		strh	r0, [r3]	@ movhi
+  67:main.c        ****         
   68:main.c        ****     
-  69:main.c        ****     
-  70:main.c        **** 
-  71:main.c        **** }
+  69:main.c        ****     //Escribe las cuentas en los PWM
+  70:main.c        ****     PWM_X_WriteCompare(cuentx);
+ 259              		.loc 1 70 0
+ 260 0190 224B     		ldr	r3, .L7+116
+ 261 0192 1888     		ldrh	r0, [r3]
+ 262 0194 FFF7FEFF 		bl	PWM_X_WriteCompare
+ 263              	.LVL34:
+  71:main.c        ****     PWM_Y_WriteCompare(cuenty);
+ 264              		.loc 1 71 0
+ 265 0198 134B     		ldr	r3, .L7+64
+ 266 019a 1888     		ldrh	r0, [r3]
+ 267 019c FFF7FEFF 		bl	PWM_Y_WriteCompare
+ 268              	.LVL35:
+ 269 01a0 38BD     		pop	{r3, r4, r5, pc}
+ 270              	.L8:
+ 271 01a2 00BFAFF3 		.align	3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 7
+
+
+ 271      0080
+ 272              	.L7:
+ 273 01a8 295C8FC2 		.word	-1030792151
+ 274 01ac F5E47340 		.word	1081337077
+ 275 01b0 00000000 		.word	0
+ 276 01b4 00709740 		.word	1083666432
+ 277 01b8 00000000 		.word	coordy
+ 278 01bc 00000000 		.word	adcy
+ 279 01c0 00000000 		.word	crucey
+ 280 01c4 00000000 		.word	datay
+ 281 01c8 00000000 		.word	ey
+ 282 01cc 187742BE 		.word	-1102940392
+ 283 01d0 00000000 		.word	accy1
+ 284 01d4 00000000 		.word	ey1
+ 285 01d8 50CCDC3F 		.word	1071434832
+ 286 01dc 00000000 		.word	ady
+ 287 01e0 E2757D3D 		.word	1031632354
+ 288 01e4 00000000 		.word	accy
+ 289 01e8 00000000 		.word	cuenty
+ 290 01ec 00000000 		.word	coordx
+ 291 01f0 00000000 		.word	adcx
+ 292 01f4 00000000 		.word	crucex
+ 293 01f8 00000000 		.word	datax
+ 294 01fc 00000000 		.word	ex
+ 295 0200 90C2853E 		.word	1048953488
+ 296 0204 00000000 		.word	accx1
+ 297 0208 00000000 		.word	ex1
+ 298 020c 397A2C40 		.word	1076656697
+ 299 0210 00000000 		.word	adx
+ 300 0214 9D80A63D 		.word	1034322077
+ 301 0218 00000000 		.word	accx
+ 302 021c 00000000 		.word	cuentx
+ 303              		.cfi_endproc
+ 304              	.LFE64:
+ 305              		.size	Control, .-Control
+ 306              		.section	.text.isr_Muestreo,"ax",%progbits
+ 307              		.align	2
+ 308              		.global	isr_Muestreo
+ 309              		.thumb
+ 310              		.thumb_func
+ 311              		.type	isr_Muestreo, %function
+ 312              	isr_Muestreo:
+ 313              	.LFB65:
   72:main.c        **** 
-  73:main.c        **** CY_ISR(isr_Muestreo){
- 286              		.loc 1 73 0
- 287              		.cfi_startproc
- 288              		@ args = 0, pretend = 0, frame = 0
- 289              		@ frame_needed = 0, uses_anonymous_args = 0
- 290 0000 08B5     		push	{r3, lr}
- 291              		.cfi_def_cfa_offset 8
- 292              		.cfi_offset 3, -8
- 293              		.cfi_offset 14, -4
-  74:main.c        ****     Control();
- 294              		.loc 1 74 0
- 295 0002 FFF7FEFF 		bl	Control
- 296              	.LVL34:
- 297 0006 08BD     		pop	{r3, pc}
- 298              		.cfi_endproc
- 299              	.LFE65:
- 300              		.size	isr_Muestreo, .-isr_Muestreo
- 301              		.section	.text.main,"ax",%progbits
- 302              		.align	2
- 303              		.global	main
- 304              		.thumb
- 305              		.thumb_func
- 306              		.type	main, %function
- 307              	main:
- 308              	.LFB66:
-  75:main.c        **** }
-  76:main.c        **** 
-  77:main.c        **** int main(void)
-  78:main.c        **** {
- 309              		.loc 1 78 0
- 310              		.cfi_startproc
- 311              		@ Volatile: function does not return.
- 312              		@ args = 0, pretend = 0, frame = 0
- 313              		@ frame_needed = 0, uses_anonymous_args = 0
- 314 0000 08B5     		push	{r3, lr}
- 315              		.cfi_def_cfa_offset 8
- 316              		.cfi_offset 3, -8
- 317              		.cfi_offset 14, -4
-  79:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-  80:main.c        ****     PWM_X_Start();
- 318              		.loc 1 80 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 8
+  73:main.c        **** }
+  74:main.c        **** 
+  75:main.c        **** CY_ISR(isr_Muestreo){
+ 314              		.loc 1 75 0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318 0000 10B5     		push	{r4, lr}
+ 319              		.cfi_def_cfa_offset 8
+ 320              		.cfi_offset 4, -8
+ 321              		.cfi_offset 14, -4
+  76:main.c        ****     touch=ResistiveTouch_TouchDetect();
+ 322              		.loc 1 76 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 8
 
 
- 319 0002 FFF7FEFF 		bl	PWM_X_Start
- 320              	.LVL35:
-  81:main.c        ****     PWM_Y_Start();
- 321              		.loc 1 81 0
- 322 0006 FFF7FEFF 		bl	PWM_Y_Start
- 323              	.LVL36:
-  82:main.c        ****     ResistiveTouch_Start();
- 324              		.loc 1 82 0
- 325 000a FFF7FEFF 		bl	ResistiveTouch_Start
- 326              	.LVL37:
-  83:main.c        ****     Timer_Start();
- 327              		.loc 1 83 0
- 328 000e FFF7FEFF 		bl	Timer_Start
- 329              	.LVL38:
-  84:main.c        ****     LCD_Char_Start();
- 330              		.loc 1 84 0
- 331 0012 FFF7FEFF 		bl	LCD_Char_Start
- 332              	.LVL39:
-  85:main.c        ****     isr_Timer_StartEx(isr_Muestreo);
- 333              		.loc 1 85 0
- 334 0016 1548     		ldr	r0, .L14
- 335 0018 FFF7FEFF 		bl	isr_Timer_StartEx
- 336              	.LVL40:
-  86:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
- 337              		.loc 1 86 0
- 338              		.syntax unified
- 339              	@ 86 "main.c" 1
- 340 001c 62B6     		CPSIE   i
- 341              	@ 0 "" 2
- 342              		.thumb
- 343              		.syntax unified
- 344              	.L12:
-  87:main.c        ****     CY_ISR_PROTO(isr_Muestreo);
-  88:main.c        ****     
-  89:main.c        ****    
-  90:main.c        ****     
-  91:main.c        ****     for(;;)
-  92:main.c        ****     {
-  93:main.c        ****         sprintf(str1,"%.7f ",datax);
- 345              		.loc 1 93 0 discriminator 1
- 346 001e 144B     		ldr	r3, .L14+4
- 347 0020 1868     		ldr	r0, [r3]	@ float
- 348 0022 FFF7FEFF 		bl	__aeabi_f2d
- 349              	.LVL41:
- 350 0026 134D     		ldr	r5, .L14+8
- 351 0028 0246     		mov	r2, r0
- 352 002a 0B46     		mov	r3, r1
- 353 002c 1249     		ldr	r1, .L14+12
- 354 002e 2846     		mov	r0, r5
- 355 0030 FFF7FEFF 		bl	sprintf
- 356              	.LVL42:
-  94:main.c        ****         sprintf(str2,"%d",coordx);
- 357              		.loc 1 94 0 discriminator 1
- 358 0034 114C     		ldr	r4, .L14+16
- 359 0036 124B     		ldr	r3, .L14+20
- 360 0038 B3F90020 		ldrsh	r2, [r3]
- 361 003c 1149     		ldr	r1, .L14+24
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 9
+ 323 0002 FFF7FEFF 		bl	ResistiveTouch_TouchDetect
+ 324              	.LVL36:
+ 325 0006 40B2     		sxtb	r0, r0
+ 326 0008 0B4B     		ldr	r3, .L13
+ 327 000a 1870     		strb	r0, [r3]
+  77:main.c        ****     if (touch==1){
+ 328              		.loc 1 77 0
+ 329 000c 0128     		cmp	r0, #1
+ 330 000e 02D1     		bne	.L10
+  78:main.c        ****         Control();
+ 331              		.loc 1 78 0
+ 332 0010 FFF7FEFF 		bl	Control
+ 333              	.LVL37:
+ 334 0014 10BD     		pop	{r4, pc}
+ 335              	.L10:
+  79:main.c        ****     }
+  80:main.c        ****     else{
+  81:main.c        ****         datax=0;
+ 336              		.loc 1 81 0
+ 337 0016 0023     		movs	r3, #0
+ 338 0018 084A     		ldr	r2, .L13+4
+ 339 001a 1360     		str	r3, [r2]	@ float
+  82:main.c        ****         datay=0;
+ 340              		.loc 1 82 0
+ 341 001c 084A     		ldr	r2, .L13+8
+ 342 001e 1360     		str	r3, [r2]	@ float
+  83:main.c        ****         cuentx=1500;
+ 343              		.loc 1 83 0
+ 344 0020 40F2DC50 		movw	r0, #1500
+ 345 0024 074B     		ldr	r3, .L13+12
+ 346 0026 1880     		strh	r0, [r3]	@ movhi
+  84:main.c        ****         cuenty=1500;
+ 347              		.loc 1 84 0
+ 348 0028 074C     		ldr	r4, .L13+16
+ 349 002a 2080     		strh	r0, [r4]	@ movhi
+  85:main.c        ****         PWM_X_WriteCompare(cuentx);
+ 350              		.loc 1 85 0
+ 351 002c FFF7FEFF 		bl	PWM_X_WriteCompare
+ 352              	.LVL38:
+  86:main.c        ****         PWM_Y_WriteCompare(cuenty);
+ 353              		.loc 1 86 0
+ 354 0030 2088     		ldrh	r0, [r4]
+ 355 0032 FFF7FEFF 		bl	PWM_Y_WriteCompare
+ 356              	.LVL39:
+ 357 0036 10BD     		pop	{r4, pc}
+ 358              	.L14:
+ 359              		.align	2
+ 360              	.L13:
+ 361 0038 00000000 		.word	touch
+ 362 003c 00000000 		.word	datax
+ 363 0040 00000000 		.word	datay
+ 364 0044 00000000 		.word	cuentx
+ 365 0048 00000000 		.word	cuenty
+ 366              		.cfi_endproc
+ 367              	.LFE65:
+ 368              		.size	isr_Muestreo, .-isr_Muestreo
+ 369              		.section	.text.main,"ax",%progbits
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 9
 
 
- 362 003e 2046     		mov	r0, r4
- 363 0040 FFF7FEFF 		bl	sprintf
- 364              	.LVL43:
-  95:main.c        ****         //sprintf(str3,"%.7f ",accx);
-  96:main.c        ****         LCD_Char_Position(0u,0u);
- 365              		.loc 1 96 0 discriminator 1
- 366 0044 0021     		movs	r1, #0
- 367 0046 0846     		mov	r0, r1
- 368 0048 FFF7FEFF 		bl	LCD_Char_Position
- 369              	.LVL44:
-  97:main.c        ****         LCD_Char_PrintString(str1);
- 370              		.loc 1 97 0 discriminator 1
- 371 004c 2846     		mov	r0, r5
- 372 004e FFF7FEFF 		bl	LCD_Char_PrintString
- 373              	.LVL45:
-  98:main.c        ****         LCD_Char_Position(1u,0u);
- 374              		.loc 1 98 0 discriminator 1
- 375 0052 0021     		movs	r1, #0
- 376 0054 0120     		movs	r0, #1
- 377 0056 FFF7FEFF 		bl	LCD_Char_Position
- 378              	.LVL46:
-  99:main.c        ****         LCD_Char_PrintString(str2);
- 379              		.loc 1 99 0 discriminator 1
- 380 005a 2046     		mov	r0, r4
- 381 005c FFF7FEFF 		bl	LCD_Char_PrintString
- 382              	.LVL47:
- 100:main.c        ****         //LCD_Char_Position(1u,5u);
- 101:main.c        ****         //LCD_Char_PrintString(str3);
- 102:main.c        ****         CyDelay(500u);
- 383              		.loc 1 102 0 discriminator 1
- 384 0060 4FF4FA70 		mov	r0, #500
- 385 0064 FFF7FEFF 		bl	CyDelay
- 386              	.LVL48:
- 387 0068 D9E7     		b	.L12
- 388              	.L15:
- 389 006a 00BF     		.align	2
- 390              	.L14:
- 391 006c 00000000 		.word	isr_Muestreo
- 392 0070 00000000 		.word	datax
- 393 0074 00000000 		.word	str1
- 394 0078 00000000 		.word	.LC0
- 395 007c 00000000 		.word	str2
- 396 0080 00000000 		.word	coordx
- 397 0084 08000000 		.word	.LC1
- 398              		.cfi_endproc
- 399              	.LFE66:
- 400              		.size	main, .-main
- 401              		.comm	str3,12,4
- 402              		.comm	str2,12,4
- 403              		.comm	str1,12,4
- 404              		.global	Ny
- 405              		.global	Kdy
- 406              		.global	Kpy
- 407              		.global	Nx
- 408              		.global	Kdx
- 409              		.global	Kpx
- 410              		.global	adc
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 10
+ 370              		.align	2
+ 371              		.global	main
+ 372              		.thumb
+ 373              		.thumb_func
+ 374              		.type	main, %function
+ 375              	main:
+ 376              	.LFB66:
+  87:main.c        ****     }
+  88:main.c        **** }
+  89:main.c        **** 
+  90:main.c        **** int main(void)
+  91:main.c        **** {
+ 377              		.loc 1 91 0
+ 378              		.cfi_startproc
+ 379              		@ Volatile: function does not return.
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382 0000 08B5     		push	{r3, lr}
+ 383              		.cfi_def_cfa_offset 8
+ 384              		.cfi_offset 3, -8
+ 385              		.cfi_offset 14, -4
+  92:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  93:main.c        ****     PWM_X_Start();
+ 386              		.loc 1 93 0
+ 387 0002 FFF7FEFF 		bl	PWM_X_Start
+ 388              	.LVL40:
+  94:main.c        ****     PWM_Y_Start();
+ 389              		.loc 1 94 0
+ 390 0006 FFF7FEFF 		bl	PWM_Y_Start
+ 391              	.LVL41:
+  95:main.c        ****     ResistiveTouch_Start();
+ 392              		.loc 1 95 0
+ 393 000a FFF7FEFF 		bl	ResistiveTouch_Start
+ 394              	.LVL42:
+  96:main.c        ****     Timer_Start();
+ 395              		.loc 1 96 0
+ 396 000e FFF7FEFF 		bl	Timer_Start
+ 397              	.LVL43:
+  97:main.c        ****     LCD_Char_Start();
+ 398              		.loc 1 97 0
+ 399 0012 FFF7FEFF 		bl	LCD_Char_Start
+ 400              	.LVL44:
+  98:main.c        ****     isr_Timer_StartEx(isr_Muestreo);
+ 401              		.loc 1 98 0
+ 402 0016 2D48     		ldr	r0, .L18
+ 403 0018 FFF7FEFF 		bl	isr_Timer_StartEx
+ 404              	.LVL45:
+  99:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 405              		.loc 1 99 0
+ 406              		.syntax unified
+ 407              	@ 99 "main.c" 1
+ 408 001c 62B6     		CPSIE   i
+ 409              	@ 0 "" 2
+ 100:main.c        ****     CY_ISR_PROTO(isr_Muestreo);
+ 101:main.c        ****     
+ 102:main.c        ****     coordx = 0;
+ 410              		.loc 1 102 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 10
 
 
- 411              		.global	escy
- 412              		.global	escx
- 413              		.global	Ts
- 414              		.global	ref
- 415              		.global	cruce
- 416              		.global	ey1
- 417              		.global	ex1
- 418              		.global	accy2
- 419              		.global	accx2
- 420              		.global	accy1
- 421              		.global	accx1
- 422              		.global	accy
- 423              		.global	accx
- 424              		.global	ady
- 425              		.global	adx
- 426              		.global	ey
- 427              		.global	ex
- 428              		.comm	datay,4,4
- 429              		.comm	datax,4,4
- 430              		.comm	cuenty,2,2
- 431              		.comm	cuentx,2,2
- 432              		.comm	coordy,2,2
- 433              		.comm	coordx,2,2
- 434              		.section	.rodata
- 435              		.align	2
- 436              		.type	Ny, %object
- 437              		.size	Ny, 4
- 438              	Ny:
- 439 0000 9C62BE42 		.word	1119773340
- 440              		.type	Kdy, %object
- 441              		.size	Kdy, 4
- 442              	Kdy:
- 443 0004 7E72943C 		.word	1016361598
- 444              		.type	Kpy, %object
- 445              		.size	Kpy, 4
- 446              	Kpy:
- 447 0008 E2757D3D 		.word	1031632354
- 448              		.type	Nx, %object
- 449              		.size	Nx, 4
- 450              	Nx:
- 451 000c 66666C42 		.word	1114400358
- 452              		.type	Kdx, %object
- 453              		.size	Kdx, 4
- 454              	Kdx:
- 455 0010 11C73A3D 		.word	1027262225
- 456              		.type	Kpx, %object
- 457              		.size	Kpx, 4
- 458              	Kpx:
- 459 0014 9D80A63D 		.word	1034322077
- 460              		.type	adc, %object
- 461              		.size	adc, 4
- 462              	adc:
- 463 0018 00000000 		.space	4
- 464              		.type	escy, %object
- 465              		.size	escy, 4
- 466              	escy:
- 467 001c 355EBA3D 		.word	1035623989
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 11
+ 411              		.thumb
+ 412              		.syntax unified
+ 413 001e 0023     		movs	r3, #0
+ 414 0020 2B4A     		ldr	r2, .L18+4
+ 415 0022 1380     		strh	r3, [r2]	@ movhi
+ 103:main.c        ****     coordy = 0;
+ 416              		.loc 1 103 0
+ 417 0024 2B4A     		ldr	r2, .L18+8
+ 418 0026 1380     		strh	r3, [r2]	@ movhi
+ 104:main.c        ****     datax=0,datay=0,ex=0,ey=0,adx=0,ady=0,accx=0,accy=0,accx1=0,accy1=0,accx2=0,accy2=0,ex1=0,ey1=0
+ 419              		.loc 1 104 0
+ 420 0028 0023     		movs	r3, #0
+ 421 002a 2B4A     		ldr	r2, .L18+12
+ 422 002c 1360     		str	r3, [r2]	@ float
+ 423 002e 2B4A     		ldr	r2, .L18+16
+ 424 0030 1360     		str	r3, [r2]	@ float
+ 425 0032 2B4A     		ldr	r2, .L18+20
+ 426 0034 1360     		str	r3, [r2]	@ float
+ 427 0036 2B4A     		ldr	r2, .L18+24
+ 428 0038 1360     		str	r3, [r2]	@ float
+ 429 003a 2B4A     		ldr	r2, .L18+28
+ 430 003c 1360     		str	r3, [r2]	@ float
+ 431 003e 2B4A     		ldr	r2, .L18+32
+ 432 0040 1360     		str	r3, [r2]	@ float
+ 433 0042 2B4A     		ldr	r2, .L18+36
+ 434 0044 1360     		str	r3, [r2]	@ float
+ 435 0046 2B4A     		ldr	r2, .L18+40
+ 436 0048 1360     		str	r3, [r2]	@ float
+ 437 004a 2B4A     		ldr	r2, .L18+44
+ 438 004c 1360     		str	r3, [r2]	@ float
+ 439 004e 2B4A     		ldr	r2, .L18+48
+ 440 0050 1360     		str	r3, [r2]	@ float
+ 441 0052 2B4A     		ldr	r2, .L18+52
+ 442 0054 1360     		str	r3, [r2]	@ float
+ 443 0056 2B4A     		ldr	r2, .L18+56
+ 444 0058 1360     		str	r3, [r2]	@ float
+ 445 005a 2B4A     		ldr	r2, .L18+60
+ 446 005c 1360     		str	r3, [r2]	@ float
+ 447 005e 2B4A     		ldr	r2, .L18+64
+ 448 0060 1360     		str	r3, [r2]	@ float
+ 105:main.c        ****     adcx=0.00131,adcy=0.00136,crucex = -2.53, crucey = -2.513;
+ 449              		.loc 1 105 0
+ 450 0062 2B4A     		ldr	r2, .L18+68
+ 451 0064 2B4B     		ldr	r3, .L18+72
+ 452 0066 1A60     		str	r2, [r3]	@ float
+ 453 0068 2B4A     		ldr	r2, .L18+76
+ 454 006a 2C4B     		ldr	r3, .L18+80
+ 455 006c 1A60     		str	r2, [r3]	@ float
+ 456 006e 2C4A     		ldr	r2, .L18+84
+ 457 0070 2C4B     		ldr	r3, .L18+88
+ 458 0072 1A60     		str	r2, [r3]	@ float
+ 459 0074 2C4A     		ldr	r2, .L18+92
+ 460 0076 2D4B     		ldr	r3, .L18+96
+ 461 0078 1A60     		str	r2, [r3]	@ float
+ 462              	.L16:
+ 106:main.c        ****     
+ 107:main.c        ****     for(;;)
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 11
 
 
- 468              		.type	escx, %object
- 469              		.size	escx, 4
- 470              	escx:
- 471 0020 9A99993D 		.word	1033476506
- 472              		.type	Ts, %object
- 473              		.size	Ts, 4
- 474              	Ts:
- 475 0024 CDCC4C3C 		.word	1011666125
- 476              		.type	ref, %object
- 477              		.size	ref, 4
- 478              	ref:
- 479 0028 00000000 		.space	4
- 480              		.type	cruce, %object
- 481              		.size	cruce, 4
- 482              	cruce:
- 483 002c 00000000 		.space	4
- 484              		.section	.rodata.str1.4,"aMS",%progbits,1
- 485              		.align	2
- 486              	.LC0:
- 487 0000 252E3766 		.ascii	"%.7f \000"
- 487      2000
- 488 0006 0000     		.space	2
- 489              	.LC1:
- 490 0008 256400   		.ascii	"%d\000"
- 491              		.bss
- 492              		.align	2
- 493              		.set	.LANCHOR0,. + 0
- 494              		.type	ex, %object
- 495              		.size	ex, 4
- 496              	ex:
- 497 0000 00000000 		.space	4
- 498              		.type	accx1, %object
- 499              		.size	accx1, 4
- 500              	accx1:
- 501 0004 00000000 		.space	4
- 502              		.type	ex1, %object
- 503              		.size	ex1, 4
- 504              	ex1:
- 505 0008 00000000 		.space	4
- 506              		.type	adx, %object
- 507              		.size	adx, 4
- 508              	adx:
- 509 000c 00000000 		.space	4
- 510              		.type	accx, %object
- 511              		.size	accx, 4
- 512              	accx:
- 513 0010 00000000 		.space	4
- 514              		.type	ey, %object
- 515              		.size	ey, 4
- 516              	ey:
- 517 0014 00000000 		.space	4
- 518              		.type	accy1, %object
- 519              		.size	accy1, 4
- 520              	accy1:
- 521 0018 00000000 		.space	4
- 522              		.type	ey1, %object
- 523              		.size	ey1, 4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 12
+ 108:main.c        ****     {
+ 109:main.c        ****         sprintf(str1,"Coord.X: %f",datax);
+ 463              		.loc 1 109 0 discriminator 1
+ 464 007a 174B     		ldr	r3, .L18+12
+ 465 007c 1868     		ldr	r0, [r3]	@ float
+ 466 007e FFF7FEFF 		bl	__aeabi_f2d
+ 467              	.LVL46:
+ 468 0082 2B4D     		ldr	r5, .L18+100
+ 469 0084 0246     		mov	r2, r0
+ 470 0086 0B46     		mov	r3, r1
+ 471 0088 2A49     		ldr	r1, .L18+104
+ 472 008a 2846     		mov	r0, r5
+ 473 008c FFF7FEFF 		bl	sprintf
+ 474              	.LVL47:
+ 110:main.c        ****         sprintf(str2,"Coord.Y: %f",datay);
+ 475              		.loc 1 110 0 discriminator 1
+ 476 0090 124B     		ldr	r3, .L18+16
+ 477 0092 1868     		ldr	r0, [r3]	@ float
+ 478 0094 FFF7FEFF 		bl	__aeabi_f2d
+ 479              	.LVL48:
+ 480 0098 274C     		ldr	r4, .L18+108
+ 481 009a 0246     		mov	r2, r0
+ 482 009c 0B46     		mov	r3, r1
+ 483 009e 2749     		ldr	r1, .L18+112
+ 484 00a0 2046     		mov	r0, r4
+ 485 00a2 FFF7FEFF 		bl	sprintf
+ 486              	.LVL49:
+ 111:main.c        ****         LCD_Char_Position(0u,0u);
+ 487              		.loc 1 111 0 discriminator 1
+ 488 00a6 0021     		movs	r1, #0
+ 489 00a8 0846     		mov	r0, r1
+ 490 00aa FFF7FEFF 		bl	LCD_Char_Position
+ 491              	.LVL50:
+ 112:main.c        ****         LCD_Char_PrintString(str1);
+ 492              		.loc 1 112 0 discriminator 1
+ 493 00ae 2846     		mov	r0, r5
+ 494 00b0 FFF7FEFF 		bl	LCD_Char_PrintString
+ 495              	.LVL51:
+ 113:main.c        ****         LCD_Char_Position(1u,0u);
+ 496              		.loc 1 113 0 discriminator 1
+ 497 00b4 0021     		movs	r1, #0
+ 498 00b6 0120     		movs	r0, #1
+ 499 00b8 FFF7FEFF 		bl	LCD_Char_Position
+ 500              	.LVL52:
+ 114:main.c        ****         LCD_Char_PrintString(str2);
+ 501              		.loc 1 114 0 discriminator 1
+ 502 00bc 2046     		mov	r0, r4
+ 503 00be FFF7FEFF 		bl	LCD_Char_PrintString
+ 504              	.LVL53:
+ 115:main.c        ****         CyDelay(500u);
+ 505              		.loc 1 115 0 discriminator 1
+ 506 00c2 4FF4FA70 		mov	r0, #500
+ 507 00c6 FFF7FEFF 		bl	CyDelay
+ 508              	.LVL54:
+ 509 00ca D6E7     		b	.L16
+ 510              	.L19:
+ 511              		.align	2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 12
 
 
- 524              	ey1:
- 525 001c 00000000 		.space	4
- 526              		.type	ady, %object
- 527              		.size	ady, 4
- 528              	ady:
- 529 0020 00000000 		.space	4
- 530              		.type	accy, %object
- 531              		.size	accy, 4
- 532              	accy:
- 533 0024 00000000 		.space	4
- 534              		.type	accy2, %object
- 535              		.size	accy2, 4
- 536              	accy2:
- 537 0028 00000000 		.space	4
- 538              		.type	accx2, %object
- 539              		.size	accx2, 4
- 540              	accx2:
- 541 002c 00000000 		.space	4
- 542              		.text
- 543              	.Letext0:
- 544              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 545              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
- 546              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 547              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
- 548              		.file 6 "Generated_Source\\PSoC5/ResistiveTouch.h"
- 549              		.file 7 "Generated_Source\\PSoC5/PWM_X.h"
- 550              		.file 8 "Generated_Source\\PSoC5/PWM_Y.h"
- 551              		.file 9 "Generated_Source\\PSoC5/Timer.h"
- 552              		.file 10 "Generated_Source\\PSoC5/LCD_Char.h"
- 553              		.file 11 "Generated_Source\\PSoC5/isr_Timer.h"
- 554              		.file 12 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4
- 555              		.file 13 "Generated_Source\\PSoC5/CyLib.h"
- 556              		.section	.debug_info,"",%progbits
- 557              	.Ldebug_info0:
- 558 0000 18050000 		.4byte	0x518
- 559 0004 0400     		.2byte	0x4
- 560 0006 00000000 		.4byte	.Ldebug_abbrev0
- 561 000a 04       		.byte	0x4
- 562 000b 01       		.uleb128 0x1
- 563 000c 80020000 		.4byte	.LASF51
- 564 0010 0C       		.byte	0xc
- 565 0011 C3010000 		.4byte	.LASF52
- 566 0015 0E020000 		.4byte	.LASF53
- 567 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 568 001d 00000000 		.4byte	0
- 569 0021 00000000 		.4byte	.Ldebug_line0
- 570 0025 02       		.uleb128 0x2
- 571 0026 01       		.byte	0x1
- 572 0027 06       		.byte	0x6
- 573 0028 31010000 		.4byte	.LASF0
- 574 002c 02       		.uleb128 0x2
- 575 002d 01       		.byte	0x1
- 576 002e 08       		.byte	0x8
- 577 002f E2000000 		.4byte	.LASF1
- 578 0033 02       		.uleb128 0x2
- 579 0034 02       		.byte	0x2
- 580 0035 05       		.byte	0x5
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 13
+ 512              	.L18:
+ 513 00cc 00000000 		.word	isr_Muestreo
+ 514 00d0 00000000 		.word	coordx
+ 515 00d4 00000000 		.word	coordy
+ 516 00d8 00000000 		.word	datax
+ 517 00dc 00000000 		.word	datay
+ 518 00e0 00000000 		.word	ex
+ 519 00e4 00000000 		.word	ey
+ 520 00e8 00000000 		.word	adx
+ 521 00ec 00000000 		.word	ady
+ 522 00f0 00000000 		.word	accx
+ 523 00f4 00000000 		.word	accy
+ 524 00f8 00000000 		.word	accx1
+ 525 00fc 00000000 		.word	accy1
+ 526 0100 00000000 		.word	accx2
+ 527 0104 00000000 		.word	accy2
+ 528 0108 00000000 		.word	ex1
+ 529 010c 00000000 		.word	ey1
+ 530 0110 4EB4AB3A 		.word	984331342
+ 531 0114 00000000 		.word	adcx
+ 532 0118 0742B23A 		.word	984760839
+ 533 011c 00000000 		.word	adcy
+ 534 0120 85EB21C0 		.word	-1071518843
+ 535 0124 00000000 		.word	crucex
+ 536 0128 FED420C0 		.word	-1071590146
+ 537 012c 00000000 		.word	crucey
+ 538 0130 00000000 		.word	str1
+ 539 0134 00000000 		.word	.LC0
+ 540 0138 00000000 		.word	str2
+ 541 013c 0C000000 		.word	.LC1
+ 542              		.cfi_endproc
+ 543              	.LFE66:
+ 544              		.size	main, .-main
+ 545              		.comm	str3,80,4
+ 546              		.comm	str2,80,4
+ 547              		.comm	str1,80,4
+ 548              		.global	Ny
+ 549              		.global	Kdy
+ 550              		.global	Kpy
+ 551              		.global	Nx
+ 552              		.global	Kdx
+ 553              		.global	Kpx
+ 554              		.global	escy
+ 555              		.global	escx
+ 556              		.global	Ts
+ 557              		.global	ref
+ 558              		.comm	crucey,4,4
+ 559              		.comm	crucex,4,4
+ 560              		.comm	adcy,4,4
+ 561              		.comm	adcx,4,4
+ 562              		.comm	ey1,4,4
+ 563              		.comm	ex1,4,4
+ 564              		.comm	accy2,4,4
+ 565              		.comm	accx2,4,4
+ 566              		.comm	accy1,4,4
+ 567              		.comm	accx1,4,4
+ 568              		.comm	accy,4,4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 13
 
 
- 581 0036 0E000000 		.4byte	.LASF2
- 582 003a 02       		.uleb128 0x2
- 583 003b 02       		.byte	0x2
- 584 003c 07       		.byte	0x7
- 585 003d 79010000 		.4byte	.LASF3
- 586 0041 03       		.uleb128 0x3
- 587 0042 04020000 		.4byte	.LASF9
- 588 0046 02       		.byte	0x2
- 589 0047 3F       		.byte	0x3f
- 590 0048 4C000000 		.4byte	0x4c
- 591 004c 02       		.uleb128 0x2
- 592 004d 04       		.byte	0x4
- 593 004e 05       		.byte	0x5
- 594 004f 8F000000 		.4byte	.LASF4
- 595 0053 02       		.uleb128 0x2
- 596 0054 04       		.byte	0x4
- 597 0055 07       		.byte	0x7
- 598 0056 61010000 		.4byte	.LASF5
- 599 005a 02       		.uleb128 0x2
- 600 005b 08       		.byte	0x8
- 601 005c 05       		.byte	0x5
- 602 005d 68000000 		.4byte	.LASF6
- 603 0061 02       		.uleb128 0x2
- 604 0062 08       		.byte	0x8
- 605 0063 07       		.byte	0x7
- 606 0064 3D010000 		.4byte	.LASF7
- 607 0068 04       		.uleb128 0x4
- 608 0069 04       		.byte	0x4
- 609 006a 05       		.byte	0x5
- 610 006b 696E7400 		.ascii	"int\000"
- 611 006f 02       		.uleb128 0x2
- 612 0070 04       		.byte	0x4
- 613 0071 07       		.byte	0x7
- 614 0072 54010000 		.4byte	.LASF8
- 615 0076 03       		.uleb128 0x3
- 616 0077 91010000 		.4byte	.LASF10
- 617 007b 03       		.byte	0x3
- 618 007c 2C       		.byte	0x2c
- 619 007d 41000000 		.4byte	0x41
- 620 0081 05       		.uleb128 0x5
- 621 0082 52000000 		.4byte	.LASF11
- 622 0086 04       		.byte	0x4
- 623 0087 9601     		.2byte	0x196
- 624 0089 33000000 		.4byte	0x33
- 625 008d 02       		.uleb128 0x2
- 626 008e 04       		.byte	0x4
- 627 008f 04       		.byte	0x4
- 628 0090 62000000 		.4byte	.LASF12
- 629 0094 02       		.uleb128 0x2
- 630 0095 08       		.byte	0x8
- 631 0096 04       		.byte	0x4
- 632 0097 DC010000 		.4byte	.LASF13
- 633 009b 05       		.uleb128 0x5
- 634 009c 20000000 		.4byte	.LASF14
- 635 00a0 04       		.byte	0x4
- 636 00a1 A301     		.2byte	0x1a3
- 637 00a3 A7000000 		.4byte	0xa7
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 14
+ 569              		.comm	accx,4,4
+ 570              		.comm	ady,4,4
+ 571              		.comm	adx,4,4
+ 572              		.comm	ey,4,4
+ 573              		.comm	ex,4,4
+ 574              		.comm	datay,4,4
+ 575              		.comm	datax,4,4
+ 576              		.comm	touch,1,1
+ 577              		.comm	cuenty,2,2
+ 578              		.comm	cuentx,2,2
+ 579              		.comm	coordy,2,2
+ 580              		.comm	coordx,2,2
+ 581              		.section	.rodata
+ 582              		.align	2
+ 583              		.type	Ny, %object
+ 584              		.size	Ny, 4
+ 585              	Ny:
+ 586 0000 9C62BE42 		.word	1119773340
+ 587              		.type	Kdy, %object
+ 588              		.size	Kdy, 4
+ 589              	Kdy:
+ 590 0004 7E72943C 		.word	1016361598
+ 591              		.type	Kpy, %object
+ 592              		.size	Kpy, 4
+ 593              	Kpy:
+ 594 0008 E2757D3D 		.word	1031632354
+ 595              		.type	Nx, %object
+ 596              		.size	Nx, 4
+ 597              	Nx:
+ 598 000c 66666C42 		.word	1114400358
+ 599              		.type	Kdx, %object
+ 600              		.size	Kdx, 4
+ 601              	Kdx:
+ 602 0010 11C73A3D 		.word	1027262225
+ 603              		.type	Kpx, %object
+ 604              		.size	Kpx, 4
+ 605              	Kpx:
+ 606 0014 9D80A63D 		.word	1034322077
+ 607              		.type	escy, %object
+ 608              		.size	escy, 4
+ 609              	escy:
+ 610 0018 00000040 		.word	1073741824
+ 611              		.type	escx, %object
+ 612              		.size	escx, 4
+ 613              	escx:
+ 614 001c 00000040 		.word	1073741824
+ 615              		.type	Ts, %object
+ 616              		.size	Ts, 4
+ 617              	Ts:
+ 618 0020 CDCC4C3C 		.word	1011666125
+ 619              		.type	ref, %object
+ 620              		.size	ref, 4
+ 621              	ref:
+ 622 0024 00000000 		.space	4
+ 623              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 624              		.align	2
+ 625              	.LC0:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 14
 
 
- 638 00a7 02       		.uleb128 0x2
- 639 00a8 01       		.byte	0x1
- 640 00a9 08       		.byte	0x8
- 641 00aa 8C010000 		.4byte	.LASF15
- 642 00ae 02       		.uleb128 0x2
- 643 00af 08       		.byte	0x8
- 644 00b0 04       		.byte	0x4
- 645 00b1 11010000 		.4byte	.LASF16
- 646 00b5 02       		.uleb128 0x2
- 647 00b6 04       		.byte	0x4
- 648 00b7 07       		.byte	0x7
- 649 00b8 58020000 		.4byte	.LASF17
- 650 00bc 06       		.uleb128 0x6
- 651 00bd 18000000 		.4byte	.LASF54
- 652 00c1 01       		.byte	0x1
- 653 00c2 16       		.byte	0x16
- 654 00c3 00000000 		.4byte	.LFB64
- 655 00c7 CC010000 		.4byte	.LFE64-.LFB64
- 656 00cb 01       		.uleb128 0x1
- 657 00cc 9C       		.byte	0x9c
- 658 00cd 08010000 		.4byte	0x108
- 659 00d1 07       		.uleb128 0x7
- 660 00d2 06000000 		.4byte	.LVL0
- 661 00d6 81040000 		.4byte	0x481
- 662 00da 07       		.uleb128 0x7
- 663 00db 0A000000 		.4byte	.LVL1
- 664 00df 8C040000 		.4byte	0x48c
- 665 00e3 07       		.uleb128 0x7
- 666 00e4 12000000 		.4byte	.LVL2
- 667 00e8 97040000 		.4byte	0x497
- 668 00ec 07       		.uleb128 0x7
- 669 00ed 16000000 		.4byte	.LVL3
- 670 00f1 8C040000 		.4byte	0x48c
- 671 00f5 07       		.uleb128 0x7
- 672 00f6 5E010000 		.4byte	.LVL32
- 673 00fa A2040000 		.4byte	0x4a2
- 674 00fe 07       		.uleb128 0x7
- 675 00ff 66010000 		.4byte	.LVL33
- 676 0103 A2040000 		.4byte	0x4a2
- 677 0107 00       		.byte	0
- 678 0108 08       		.uleb128 0x8
- 679 0109 76000000 		.4byte	.LASF55
- 680 010d 01       		.byte	0x1
- 681 010e 49       		.byte	0x49
- 682 010f 00000000 		.4byte	.LFB65
- 683 0113 08000000 		.4byte	.LFE65-.LFB65
- 684 0117 01       		.uleb128 0x1
- 685 0118 9C       		.byte	0x9c
- 686 0119 27010000 		.4byte	0x127
- 687 011d 07       		.uleb128 0x7
- 688 011e 06000000 		.4byte	.LVL34
- 689 0122 BC000000 		.4byte	0xbc
- 690 0126 00       		.byte	0
- 691 0127 09       		.uleb128 0x9
- 692 0128 26000000 		.4byte	.LASF56
- 693 012c 01       		.byte	0x1
- 694 012d 4D       		.byte	0x4d
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 15
+ 626 0000 436F6F72 		.ascii	"Coord.X: %f\000"
+ 626      642E583A 
+ 626      20256600 
+ 627              	.LC1:
+ 628 000c 436F6F72 		.ascii	"Coord.Y: %f\000"
+ 628      642E593A 
+ 628      20256600 
+ 629              		.text
+ 630              	.Letext0:
+ 631              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 632              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
+ 633              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 634              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 635              		.file 6 "Generated_Source\\PSoC5/ResistiveTouch.h"
+ 636              		.file 7 "Generated_Source\\PSoC5/PWM_X.h"
+ 637              		.file 8 "Generated_Source\\PSoC5/PWM_Y.h"
+ 638              		.file 9 "Generated_Source\\PSoC5/Timer.h"
+ 639              		.file 10 "Generated_Source\\PSoC5/LCD_Char.h"
+ 640              		.file 11 "Generated_Source\\PSoC5/isr_Timer.h"
+ 641              		.file 12 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4
+ 642              		.file 13 "Generated_Source\\PSoC5/CyLib.h"
+ 643              		.section	.debug_info,"",%progbits
+ 644              	.Ldebug_info0:
+ 645 0000 94050000 		.4byte	0x594
+ 646 0004 0400     		.2byte	0x4
+ 647 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 648 000a 04       		.byte	0x4
+ 649 000b 01       		.uleb128 0x1
+ 650 000c BF020000 		.4byte	.LASF58
+ 651 0010 0C       		.byte	0xc
+ 652 0011 02020000 		.4byte	.LASF59
+ 653 0015 4D020000 		.4byte	.LASF60
+ 654 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 655 001d 00000000 		.4byte	0
+ 656 0021 00000000 		.4byte	.Ldebug_line0
+ 657 0025 02       		.uleb128 0x2
+ 658 0026 01       		.byte	0x1
+ 659 0027 06       		.byte	0x6
+ 660 0028 4F010000 		.4byte	.LASF0
+ 661 002c 02       		.uleb128 0x2
+ 662 002d 01       		.byte	0x1
+ 663 002e 08       		.byte	0x8
+ 664 002f F2000000 		.4byte	.LASF1
+ 665 0033 02       		.uleb128 0x2
+ 666 0034 02       		.byte	0x2
+ 667 0035 05       		.byte	0x5
+ 668 0036 0E000000 		.4byte	.LASF2
+ 669 003a 02       		.uleb128 0x2
+ 670 003b 02       		.byte	0x2
+ 671 003c 07       		.byte	0x7
+ 672 003d A5010000 		.4byte	.LASF3
+ 673 0041 03       		.uleb128 0x3
+ 674 0042 43020000 		.4byte	.LASF9
+ 675 0046 02       		.byte	0x2
+ 676 0047 3F       		.byte	0x3f
+ 677 0048 4C000000 		.4byte	0x4c
+ 678 004c 02       		.uleb128 0x2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 15
 
 
- 695 012e 68000000 		.4byte	0x68
- 696 0132 00000000 		.4byte	.LFB66
- 697 0136 88000000 		.4byte	.LFE66-.LFB66
- 698 013a 01       		.uleb128 0x1
- 699 013b 9C       		.byte	0x9c
- 700 013c 2F020000 		.4byte	0x22f
- 701 0140 0A       		.uleb128 0xa
- 702 0141 76000000 		.4byte	.LASF55
- 703 0145 01       		.byte	0x1
- 704 0146 57       		.byte	0x57
- 705 0147 07       		.uleb128 0x7
- 706 0148 06000000 		.4byte	.LVL35
- 707 014c AD040000 		.4byte	0x4ad
- 708 0150 07       		.uleb128 0x7
- 709 0151 0A000000 		.4byte	.LVL36
- 710 0155 B8040000 		.4byte	0x4b8
- 711 0159 07       		.uleb128 0x7
- 712 015a 0E000000 		.4byte	.LVL37
- 713 015e C3040000 		.4byte	0x4c3
- 714 0162 07       		.uleb128 0x7
- 715 0163 12000000 		.4byte	.LVL38
- 716 0167 CE040000 		.4byte	0x4ce
- 717 016b 07       		.uleb128 0x7
- 718 016c 16000000 		.4byte	.LVL39
- 719 0170 D9040000 		.4byte	0x4d9
- 720 0174 0B       		.uleb128 0xb
- 721 0175 1C000000 		.4byte	.LVL40
- 722 0179 E4040000 		.4byte	0x4e4
- 723 017d 8B010000 		.4byte	0x18b
- 724 0181 0C       		.uleb128 0xc
- 725 0182 01       		.uleb128 0x1
- 726 0183 50       		.byte	0x50
- 727 0184 05       		.uleb128 0x5
- 728 0185 03       		.byte	0x3
- 729 0186 00000000 		.4byte	isr_Muestreo
- 730 018a 00       		.byte	0
- 731 018b 0B       		.uleb128 0xb
- 732 018c 34000000 		.4byte	.LVL42
- 733 0190 EF040000 		.4byte	0x4ef
- 734 0194 A8010000 		.4byte	0x1a8
- 735 0198 0C       		.uleb128 0xc
- 736 0199 01       		.uleb128 0x1
- 737 019a 50       		.byte	0x50
- 738 019b 02       		.uleb128 0x2
- 739 019c 75       		.byte	0x75
- 740 019d 00       		.sleb128 0
- 741 019e 0C       		.uleb128 0xc
- 742 019f 01       		.uleb128 0x1
- 743 01a0 51       		.byte	0x51
- 744 01a1 05       		.uleb128 0x5
- 745 01a2 03       		.byte	0x3
- 746 01a3 00000000 		.4byte	.LC0
- 747 01a7 00       		.byte	0
- 748 01a8 0B       		.uleb128 0xb
- 749 01a9 44000000 		.4byte	.LVL43
- 750 01ad EF040000 		.4byte	0x4ef
- 751 01b1 C5010000 		.4byte	0x1c5
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 16
+ 679 004d 04       		.byte	0x4
+ 680 004e 05       		.byte	0x5
+ 681 004f 9F000000 		.4byte	.LASF4
+ 682 0053 02       		.uleb128 0x2
+ 683 0054 04       		.byte	0x4
+ 684 0055 07       		.byte	0x7
+ 685 0056 84010000 		.4byte	.LASF5
+ 686 005a 02       		.uleb128 0x2
+ 687 005b 08       		.byte	0x8
+ 688 005c 05       		.byte	0x5
+ 689 005d 73000000 		.4byte	.LASF6
+ 690 0061 02       		.uleb128 0x2
+ 691 0062 08       		.byte	0x8
+ 692 0063 07       		.byte	0x7
+ 693 0064 5B010000 		.4byte	.LASF7
+ 694 0068 04       		.uleb128 0x4
+ 695 0069 04       		.byte	0x4
+ 696 006a 05       		.byte	0x5
+ 697 006b 696E7400 		.ascii	"int\000"
+ 698 006f 02       		.uleb128 0x2
+ 699 0070 04       		.byte	0x4
+ 700 0071 07       		.byte	0x7
+ 701 0072 77010000 		.4byte	.LASF8
+ 702 0076 03       		.uleb128 0x3
+ 703 0077 D0010000 		.4byte	.LASF10
+ 704 007b 03       		.byte	0x3
+ 705 007c 2C       		.byte	0x2c
+ 706 007d 41000000 		.4byte	0x41
+ 707 0081 05       		.uleb128 0x5
+ 708 0082 81000000 		.4byte	.LASF11
+ 709 0086 04       		.byte	0x4
+ 710 0087 9501     		.2byte	0x195
+ 711 0089 25000000 		.4byte	0x25
+ 712 008d 05       		.uleb128 0x5
+ 713 008e 57000000 		.4byte	.LASF12
+ 714 0092 04       		.byte	0x4
+ 715 0093 9601     		.2byte	0x196
+ 716 0095 33000000 		.4byte	0x33
+ 717 0099 02       		.uleb128 0x2
+ 718 009a 04       		.byte	0x4
+ 719 009b 04       		.byte	0x4
+ 720 009c 6D000000 		.4byte	.LASF13
+ 721 00a0 02       		.uleb128 0x2
+ 722 00a1 08       		.byte	0x8
+ 723 00a2 04       		.byte	0x4
+ 724 00a3 1B020000 		.4byte	.LASF14
+ 725 00a7 05       		.uleb128 0x5
+ 726 00a8 20000000 		.4byte	.LASF15
+ 727 00ac 04       		.byte	0x4
+ 728 00ad A301     		.2byte	0x1a3
+ 729 00af B3000000 		.4byte	0xb3
+ 730 00b3 02       		.uleb128 0x2
+ 731 00b4 01       		.byte	0x1
+ 732 00b5 08       		.byte	0x8
+ 733 00b6 CB010000 		.4byte	.LASF16
+ 734 00ba 02       		.uleb128 0x2
+ 735 00bb 08       		.byte	0x8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 16
 
 
- 752 01b5 0C       		.uleb128 0xc
- 753 01b6 01       		.uleb128 0x1
- 754 01b7 50       		.byte	0x50
- 755 01b8 02       		.uleb128 0x2
- 756 01b9 74       		.byte	0x74
- 757 01ba 00       		.sleb128 0
- 758 01bb 0C       		.uleb128 0xc
- 759 01bc 01       		.uleb128 0x1
- 760 01bd 51       		.byte	0x51
- 761 01be 05       		.uleb128 0x5
- 762 01bf 03       		.byte	0x3
- 763 01c0 08000000 		.4byte	.LC1
- 764 01c4 00       		.byte	0
- 765 01c5 0B       		.uleb128 0xb
- 766 01c6 4C000000 		.4byte	.LVL44
- 767 01ca FA040000 		.4byte	0x4fa
- 768 01ce DD010000 		.4byte	0x1dd
- 769 01d2 0C       		.uleb128 0xc
- 770 01d3 01       		.uleb128 0x1
- 771 01d4 50       		.byte	0x50
- 772 01d5 01       		.uleb128 0x1
- 773 01d6 30       		.byte	0x30
- 774 01d7 0C       		.uleb128 0xc
- 775 01d8 01       		.uleb128 0x1
- 776 01d9 51       		.byte	0x51
- 777 01da 01       		.uleb128 0x1
- 778 01db 30       		.byte	0x30
- 779 01dc 00       		.byte	0
- 780 01dd 0B       		.uleb128 0xb
- 781 01de 52000000 		.4byte	.LVL45
- 782 01e2 05050000 		.4byte	0x505
- 783 01e6 F1010000 		.4byte	0x1f1
- 784 01ea 0C       		.uleb128 0xc
- 785 01eb 01       		.uleb128 0x1
- 786 01ec 50       		.byte	0x50
- 787 01ed 02       		.uleb128 0x2
- 788 01ee 75       		.byte	0x75
- 789 01ef 00       		.sleb128 0
- 790 01f0 00       		.byte	0
- 791 01f1 0B       		.uleb128 0xb
- 792 01f2 5A000000 		.4byte	.LVL46
- 793 01f6 FA040000 		.4byte	0x4fa
- 794 01fa 09020000 		.4byte	0x209
- 795 01fe 0C       		.uleb128 0xc
- 796 01ff 01       		.uleb128 0x1
- 797 0200 50       		.byte	0x50
- 798 0201 01       		.uleb128 0x1
- 799 0202 31       		.byte	0x31
- 800 0203 0C       		.uleb128 0xc
- 801 0204 01       		.uleb128 0x1
- 802 0205 51       		.byte	0x51
- 803 0206 01       		.uleb128 0x1
- 804 0207 30       		.byte	0x30
- 805 0208 00       		.byte	0
- 806 0209 0B       		.uleb128 0xb
- 807 020a 60000000 		.4byte	.LVL47
- 808 020e 05050000 		.4byte	0x505
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 17
+ 736 00bc 04       		.byte	0x4
+ 737 00bd 2F010000 		.4byte	.LASF17
+ 738 00c1 02       		.uleb128 0x2
+ 739 00c2 04       		.byte	0x4
+ 740 00c3 07       		.byte	0x7
+ 741 00c4 97020000 		.4byte	.LASF18
+ 742 00c8 06       		.uleb128 0x6
+ 743 00c9 18000000 		.4byte	.LASF61
+ 744 00cd 01       		.byte	0x1
+ 745 00ce 19       		.byte	0x19
+ 746 00cf 00000000 		.4byte	.LFB64
+ 747 00d3 20020000 		.4byte	.LFE64-.LFB64
+ 748 00d7 01       		.uleb128 0x1
+ 749 00d8 9C       		.byte	0x9c
+ 750 00d9 14010000 		.4byte	0x114
+ 751 00dd 07       		.uleb128 0x7
+ 752 00de 06000000 		.4byte	.LVL0
+ 753 00e2 E7040000 		.4byte	0x4e7
+ 754 00e6 07       		.uleb128 0x7
+ 755 00e7 C6000000 		.4byte	.LVL16
+ 756 00eb F2040000 		.4byte	0x4f2
+ 757 00ef 07       		.uleb128 0x7
+ 758 00f0 CE000000 		.4byte	.LVL17
+ 759 00f4 FD040000 		.4byte	0x4fd
+ 760 00f8 07       		.uleb128 0x7
+ 761 00f9 8C010000 		.4byte	.LVL33
+ 762 00fd F2040000 		.4byte	0x4f2
+ 763 0101 07       		.uleb128 0x7
+ 764 0102 98010000 		.4byte	.LVL34
+ 765 0106 08050000 		.4byte	0x508
+ 766 010a 07       		.uleb128 0x7
+ 767 010b A0010000 		.4byte	.LVL35
+ 768 010f 13050000 		.4byte	0x513
+ 769 0113 00       		.byte	0
+ 770 0114 08       		.uleb128 0x8
+ 771 0115 86000000 		.4byte	.LASF62
+ 772 0119 01       		.byte	0x1
+ 773 011a 4B       		.byte	0x4b
+ 774 011b 00000000 		.4byte	.LFB65
+ 775 011f 4C000000 		.4byte	.LFE65-.LFB65
+ 776 0123 01       		.uleb128 0x1
+ 777 0124 9C       		.byte	0x9c
+ 778 0125 5A010000 		.4byte	0x15a
+ 779 0129 07       		.uleb128 0x7
+ 780 012a 06000000 		.4byte	.LVL36
+ 781 012e 1E050000 		.4byte	0x51e
+ 782 0132 07       		.uleb128 0x7
+ 783 0133 14000000 		.4byte	.LVL37
+ 784 0137 C8000000 		.4byte	0xc8
+ 785 013b 09       		.uleb128 0x9
+ 786 013c 30000000 		.4byte	.LVL38
+ 787 0140 08050000 		.4byte	0x508
+ 788 0144 50010000 		.4byte	0x150
+ 789 0148 0A       		.uleb128 0xa
+ 790 0149 01       		.uleb128 0x1
+ 791 014a 50       		.byte	0x50
+ 792 014b 03       		.uleb128 0x3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 17
 
 
- 809 0212 1D020000 		.4byte	0x21d
- 810 0216 0C       		.uleb128 0xc
- 811 0217 01       		.uleb128 0x1
- 812 0218 50       		.byte	0x50
- 813 0219 02       		.uleb128 0x2
- 814 021a 74       		.byte	0x74
- 815 021b 00       		.sleb128 0
- 816 021c 00       		.byte	0
- 817 021d 0D       		.uleb128 0xd
- 818 021e 68000000 		.4byte	.LVL48
- 819 0222 10050000 		.4byte	0x510
- 820 0226 0C       		.uleb128 0xc
- 821 0227 01       		.uleb128 0x1
- 822 0228 50       		.byte	0x50
- 823 0229 03       		.uleb128 0x3
- 824 022a 0A       		.byte	0xa
- 825 022b F401     		.2byte	0x1f4
- 826 022d 00       		.byte	0
- 827 022e 00       		.byte	0
- 828 022f 0E       		.uleb128 0xe
- 829 0230 73020000 		.4byte	.LASF18
- 830 0234 05       		.byte	0x5
- 831 0235 1207     		.2byte	0x712
- 832 0237 3B020000 		.4byte	0x23b
- 833 023b 0F       		.uleb128 0xf
- 834 023c 76000000 		.4byte	0x76
- 835 0240 10       		.uleb128 0x10
- 836 0241 F6010000 		.4byte	.LASF19
- 837 0245 01       		.byte	0x1
- 838 0246 0F       		.byte	0xf
- 839 0247 81000000 		.4byte	0x81
- 840 024b 05       		.uleb128 0x5
- 841 024c 03       		.byte	0x3
- 842 024d 00000000 		.4byte	coordx
- 843 0251 10       		.uleb128 0x10
- 844 0252 FD010000 		.4byte	.LASF20
- 845 0256 01       		.byte	0x1
- 846 0257 0F       		.byte	0xf
- 847 0258 81000000 		.4byte	0x81
- 848 025c 05       		.uleb128 0x5
- 849 025d 03       		.byte	0x3
- 850 025e 00000000 		.4byte	coordy
- 851 0262 10       		.uleb128 0x10
- 852 0263 00000000 		.4byte	.LASF21
- 853 0267 01       		.byte	0x1
- 854 0268 10       		.byte	0x10
- 855 0269 81000000 		.4byte	0x81
- 856 026d 05       		.uleb128 0x5
- 857 026e 03       		.byte	0x3
- 858 026f 00000000 		.4byte	cuentx
- 859 0273 10       		.uleb128 0x10
- 860 0274 07000000 		.4byte	.LASF22
- 861 0278 01       		.byte	0x1
- 862 0279 10       		.byte	0x10
- 863 027a 81000000 		.4byte	0x81
- 864 027e 05       		.uleb128 0x5
- 865 027f 03       		.byte	0x3
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 18
+ 793 014c 0A       		.byte	0xa
+ 794 014d DC05     		.2byte	0x5dc
+ 795 014f 00       		.byte	0
+ 796 0150 07       		.uleb128 0x7
+ 797 0151 36000000 		.4byte	.LVL39
+ 798 0155 13050000 		.4byte	0x513
+ 799 0159 00       		.byte	0
+ 800 015a 0B       		.uleb128 0xb
+ 801 015b 2B000000 		.4byte	.LASF63
+ 802 015f 01       		.byte	0x1
+ 803 0160 5A       		.byte	0x5a
+ 804 0161 68000000 		.4byte	0x68
+ 805 0165 00000000 		.4byte	.LFB66
+ 806 0169 40010000 		.4byte	.LFE66-.LFB66
+ 807 016d 01       		.uleb128 0x1
+ 808 016e 9C       		.byte	0x9c
+ 809 016f 62020000 		.4byte	0x262
+ 810 0173 0C       		.uleb128 0xc
+ 811 0174 86000000 		.4byte	.LASF62
+ 812 0178 01       		.byte	0x1
+ 813 0179 64       		.byte	0x64
+ 814 017a 07       		.uleb128 0x7
+ 815 017b 06000000 		.4byte	.LVL40
+ 816 017f 29050000 		.4byte	0x529
+ 817 0183 07       		.uleb128 0x7
+ 818 0184 0A000000 		.4byte	.LVL41
+ 819 0188 34050000 		.4byte	0x534
+ 820 018c 07       		.uleb128 0x7
+ 821 018d 0E000000 		.4byte	.LVL42
+ 822 0191 3F050000 		.4byte	0x53f
+ 823 0195 07       		.uleb128 0x7
+ 824 0196 12000000 		.4byte	.LVL43
+ 825 019a 4A050000 		.4byte	0x54a
+ 826 019e 07       		.uleb128 0x7
+ 827 019f 16000000 		.4byte	.LVL44
+ 828 01a3 55050000 		.4byte	0x555
+ 829 01a7 09       		.uleb128 0x9
+ 830 01a8 1C000000 		.4byte	.LVL45
+ 831 01ac 60050000 		.4byte	0x560
+ 832 01b0 BE010000 		.4byte	0x1be
+ 833 01b4 0A       		.uleb128 0xa
+ 834 01b5 01       		.uleb128 0x1
+ 835 01b6 50       		.byte	0x50
+ 836 01b7 05       		.uleb128 0x5
+ 837 01b8 03       		.byte	0x3
+ 838 01b9 00000000 		.4byte	isr_Muestreo
+ 839 01bd 00       		.byte	0
+ 840 01be 09       		.uleb128 0x9
+ 841 01bf 90000000 		.4byte	.LVL47
+ 842 01c3 6B050000 		.4byte	0x56b
+ 843 01c7 DB010000 		.4byte	0x1db
+ 844 01cb 0A       		.uleb128 0xa
+ 845 01cc 01       		.uleb128 0x1
+ 846 01cd 50       		.byte	0x50
+ 847 01ce 02       		.uleb128 0x2
+ 848 01cf 75       		.byte	0x75
+ 849 01d0 00       		.sleb128 0
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 18
 
 
- 866 0280 00000000 		.4byte	cuenty
- 867 0284 10       		.uleb128 0x10
- 868 0285 3A000000 		.4byte	.LASF23
- 869 0289 01       		.byte	0x1
- 870 028a 11       		.byte	0x11
- 871 028b 8D000000 		.4byte	0x8d
- 872 028f 05       		.uleb128 0x5
- 873 0290 03       		.byte	0x3
- 874 0291 00000000 		.4byte	datax
- 875 0295 10       		.uleb128 0x10
- 876 0296 40000000 		.4byte	.LASF24
- 877 029a 01       		.byte	0x1
- 878 029b 11       		.byte	0x11
- 879 029c 8D000000 		.4byte	0x8d
- 880 02a0 05       		.uleb128 0x5
- 881 02a1 03       		.byte	0x3
- 882 02a2 00000000 		.4byte	datay
- 883 02a6 11       		.uleb128 0x11
- 884 02a7 657800   		.ascii	"ex\000"
- 885 02aa 01       		.byte	0x1
- 886 02ab 11       		.byte	0x11
- 887 02ac 8D000000 		.4byte	0x8d
- 888 02b0 05       		.uleb128 0x5
- 889 02b1 03       		.byte	0x3
- 890 02b2 00000000 		.4byte	ex
- 891 02b6 11       		.uleb128 0x11
- 892 02b7 657900   		.ascii	"ey\000"
- 893 02ba 01       		.byte	0x1
- 894 02bb 11       		.byte	0x11
- 895 02bc 8D000000 		.4byte	0x8d
- 896 02c0 05       		.uleb128 0x5
- 897 02c1 03       		.byte	0x3
- 898 02c2 00000000 		.4byte	ey
- 899 02c6 11       		.uleb128 0x11
- 900 02c7 61647800 		.ascii	"adx\000"
- 901 02cb 01       		.byte	0x1
- 902 02cc 11       		.byte	0x11
- 903 02cd 8D000000 		.4byte	0x8d
- 904 02d1 05       		.uleb128 0x5
- 905 02d2 03       		.byte	0x3
- 906 02d3 00000000 		.4byte	adx
- 907 02d7 11       		.uleb128 0x11
- 908 02d8 61647900 		.ascii	"ady\000"
- 909 02dc 01       		.byte	0x1
- 910 02dd 11       		.byte	0x11
- 911 02de 8D000000 		.4byte	0x8d
- 912 02e2 05       		.uleb128 0x5
- 913 02e3 03       		.byte	0x3
- 914 02e4 00000000 		.4byte	ady
- 915 02e8 10       		.uleb128 0x10
- 916 02e9 58000000 		.4byte	.LASF25
- 917 02ed 01       		.byte	0x1
- 918 02ee 11       		.byte	0x11
- 919 02ef 8D000000 		.4byte	0x8d
- 920 02f3 05       		.uleb128 0x5
- 921 02f4 03       		.byte	0x3
- 922 02f5 00000000 		.4byte	accx
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 19
+ 850 01d1 0A       		.uleb128 0xa
+ 851 01d2 01       		.uleb128 0x1
+ 852 01d3 51       		.byte	0x51
+ 853 01d4 05       		.uleb128 0x5
+ 854 01d5 03       		.byte	0x3
+ 855 01d6 00000000 		.4byte	.LC0
+ 856 01da 00       		.byte	0
+ 857 01db 09       		.uleb128 0x9
+ 858 01dc A6000000 		.4byte	.LVL49
+ 859 01e0 6B050000 		.4byte	0x56b
+ 860 01e4 F8010000 		.4byte	0x1f8
+ 861 01e8 0A       		.uleb128 0xa
+ 862 01e9 01       		.uleb128 0x1
+ 863 01ea 50       		.byte	0x50
+ 864 01eb 02       		.uleb128 0x2
+ 865 01ec 74       		.byte	0x74
+ 866 01ed 00       		.sleb128 0
+ 867 01ee 0A       		.uleb128 0xa
+ 868 01ef 01       		.uleb128 0x1
+ 869 01f0 51       		.byte	0x51
+ 870 01f1 05       		.uleb128 0x5
+ 871 01f2 03       		.byte	0x3
+ 872 01f3 0C000000 		.4byte	.LC1
+ 873 01f7 00       		.byte	0
+ 874 01f8 09       		.uleb128 0x9
+ 875 01f9 AE000000 		.4byte	.LVL50
+ 876 01fd 76050000 		.4byte	0x576
+ 877 0201 10020000 		.4byte	0x210
+ 878 0205 0A       		.uleb128 0xa
+ 879 0206 01       		.uleb128 0x1
+ 880 0207 50       		.byte	0x50
+ 881 0208 01       		.uleb128 0x1
+ 882 0209 30       		.byte	0x30
+ 883 020a 0A       		.uleb128 0xa
+ 884 020b 01       		.uleb128 0x1
+ 885 020c 51       		.byte	0x51
+ 886 020d 01       		.uleb128 0x1
+ 887 020e 30       		.byte	0x30
+ 888 020f 00       		.byte	0
+ 889 0210 09       		.uleb128 0x9
+ 890 0211 B4000000 		.4byte	.LVL51
+ 891 0215 81050000 		.4byte	0x581
+ 892 0219 24020000 		.4byte	0x224
+ 893 021d 0A       		.uleb128 0xa
+ 894 021e 01       		.uleb128 0x1
+ 895 021f 50       		.byte	0x50
+ 896 0220 02       		.uleb128 0x2
+ 897 0221 75       		.byte	0x75
+ 898 0222 00       		.sleb128 0
+ 899 0223 00       		.byte	0
+ 900 0224 09       		.uleb128 0x9
+ 901 0225 BC000000 		.4byte	.LVL52
+ 902 0229 76050000 		.4byte	0x576
+ 903 022d 3C020000 		.4byte	0x23c
+ 904 0231 0A       		.uleb128 0xa
+ 905 0232 01       		.uleb128 0x1
+ 906 0233 50       		.byte	0x50
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 19
 
 
- 923 02f9 10       		.uleb128 0x10
- 924 02fa 5D000000 		.4byte	.LASF26
- 925 02fe 01       		.byte	0x1
- 926 02ff 11       		.byte	0x11
- 927 0300 8D000000 		.4byte	0x8d
- 928 0304 05       		.uleb128 0x5
- 929 0305 03       		.byte	0x3
- 930 0306 00000000 		.4byte	accy
- 931 030a 10       		.uleb128 0x10
- 932 030b 1D010000 		.4byte	.LASF27
- 933 030f 01       		.byte	0x1
- 934 0310 11       		.byte	0x11
- 935 0311 8D000000 		.4byte	0x8d
- 936 0315 05       		.uleb128 0x5
- 937 0316 03       		.byte	0x3
- 938 0317 00000000 		.4byte	accx1
- 939 031b 10       		.uleb128 0x10
- 940 031c D6010000 		.4byte	.LASF28
- 941 0320 01       		.byte	0x1
- 942 0321 11       		.byte	0x11
- 943 0322 8D000000 		.4byte	0x8d
- 944 0326 05       		.uleb128 0x5
- 945 0327 03       		.byte	0x3
- 946 0328 00000000 		.4byte	accy1
- 947 032c 10       		.uleb128 0x10
- 948 032d 23010000 		.4byte	.LASF29
- 949 0331 01       		.byte	0x1
- 950 0332 11       		.byte	0x11
- 951 0333 8D000000 		.4byte	0x8d
- 952 0337 05       		.uleb128 0x5
- 953 0338 03       		.byte	0x3
- 954 0339 00000000 		.4byte	accx2
- 955 033d 10       		.uleb128 0x10
- 956 033e CA000000 		.4byte	.LASF30
- 957 0342 01       		.byte	0x1
- 958 0343 11       		.byte	0x11
- 959 0344 8D000000 		.4byte	0x8d
- 960 0348 05       		.uleb128 0x5
- 961 0349 03       		.byte	0x3
- 962 034a 00000000 		.4byte	accy2
- 963 034e 11       		.uleb128 0x11
- 964 034f 65783100 		.ascii	"ex1\000"
- 965 0353 01       		.byte	0x1
- 966 0354 11       		.byte	0x11
- 967 0355 8D000000 		.4byte	0x8d
- 968 0359 05       		.uleb128 0x5
- 969 035a 03       		.byte	0x3
- 970 035b 00000000 		.4byte	ex1
- 971 035f 11       		.uleb128 0x11
- 972 0360 65793100 		.ascii	"ey1\000"
- 973 0364 01       		.byte	0x1
- 974 0365 11       		.byte	0x11
- 975 0366 8D000000 		.4byte	0x8d
- 976 036a 05       		.uleb128 0x5
- 977 036b 03       		.byte	0x3
- 978 036c 00000000 		.4byte	ey1
- 979 0370 10       		.uleb128 0x10
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 20
+ 907 0234 01       		.uleb128 0x1
+ 908 0235 31       		.byte	0x31
+ 909 0236 0A       		.uleb128 0xa
+ 910 0237 01       		.uleb128 0x1
+ 911 0238 51       		.byte	0x51
+ 912 0239 01       		.uleb128 0x1
+ 913 023a 30       		.byte	0x30
+ 914 023b 00       		.byte	0
+ 915 023c 09       		.uleb128 0x9
+ 916 023d C2000000 		.4byte	.LVL53
+ 917 0241 81050000 		.4byte	0x581
+ 918 0245 50020000 		.4byte	0x250
+ 919 0249 0A       		.uleb128 0xa
+ 920 024a 01       		.uleb128 0x1
+ 921 024b 50       		.byte	0x50
+ 922 024c 02       		.uleb128 0x2
+ 923 024d 74       		.byte	0x74
+ 924 024e 00       		.sleb128 0
+ 925 024f 00       		.byte	0
+ 926 0250 0D       		.uleb128 0xd
+ 927 0251 CA000000 		.4byte	.LVL54
+ 928 0255 8C050000 		.4byte	0x58c
+ 929 0259 0A       		.uleb128 0xa
+ 930 025a 01       		.uleb128 0x1
+ 931 025b 50       		.byte	0x50
+ 932 025c 03       		.uleb128 0x3
+ 933 025d 0A       		.byte	0xa
+ 934 025e F401     		.2byte	0x1f4
+ 935 0260 00       		.byte	0
+ 936 0261 00       		.byte	0
+ 937 0262 0E       		.uleb128 0xe
+ 938 0263 B2020000 		.4byte	.LASF19
+ 939 0267 05       		.byte	0x5
+ 940 0268 1207     		.2byte	0x712
+ 941 026a 6E020000 		.4byte	0x26e
+ 942 026e 0F       		.uleb128 0xf
+ 943 026f 76000000 		.4byte	0x76
+ 944 0273 10       		.uleb128 0x10
+ 945 0274 35020000 		.4byte	.LASF20
+ 946 0278 01       		.byte	0x1
+ 947 0279 11       		.byte	0x11
+ 948 027a 8D000000 		.4byte	0x8d
+ 949 027e 05       		.uleb128 0x5
+ 950 027f 03       		.byte	0x3
+ 951 0280 00000000 		.4byte	coordx
+ 952 0284 10       		.uleb128 0x10
+ 953 0285 3C020000 		.4byte	.LASF21
+ 954 0289 01       		.byte	0x1
+ 955 028a 11       		.byte	0x11
+ 956 028b 8D000000 		.4byte	0x8d
+ 957 028f 05       		.uleb128 0x5
+ 958 0290 03       		.byte	0x3
+ 959 0291 00000000 		.4byte	coordy
+ 960 0295 10       		.uleb128 0x10
+ 961 0296 00000000 		.4byte	.LASF22
+ 962 029a 01       		.byte	0x1
+ 963 029b 12       		.byte	0x12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 20
 
 
- 980 0371 73010000 		.4byte	.LASF31
- 981 0375 01       		.byte	0x1
- 982 0376 12       		.byte	0x12
- 983 0377 81030000 		.4byte	0x381
- 984 037b 05       		.uleb128 0x5
- 985 037c 03       		.byte	0x3
- 986 037d 00000000 		.4byte	cruce
- 987 0381 12       		.uleb128 0x12
- 988 0382 8D000000 		.4byte	0x8d
- 989 0386 11       		.uleb128 0x11
- 990 0387 72656600 		.ascii	"ref\000"
- 991 038b 01       		.byte	0x1
- 992 038c 12       		.byte	0x12
- 993 038d 81030000 		.4byte	0x381
- 994 0391 05       		.uleb128 0x5
- 995 0392 03       		.byte	0x3
- 996 0393 00000000 		.4byte	ref
- 997 0397 11       		.uleb128 0x11
- 998 0398 547300   		.ascii	"Ts\000"
- 999 039b 01       		.byte	0x1
- 1000 039c 12       		.byte	0x12
- 1001 039d 81030000 		.4byte	0x381
- 1002 03a1 05       		.uleb128 0x5
- 1003 03a2 03       		.byte	0x3
- 1004 03a3 00000000 		.4byte	Ts
- 1005 03a7 10       		.uleb128 0x10
- 1006 03a8 07010000 		.4byte	.LASF32
- 1007 03ac 01       		.byte	0x1
- 1008 03ad 12       		.byte	0x12
- 1009 03ae 81030000 		.4byte	0x381
- 1010 03b2 05       		.uleb128 0x5
- 1011 03b3 03       		.byte	0x3
- 1012 03b4 00000000 		.4byte	escx
- 1013 03b8 10       		.uleb128 0x10
- 1014 03b9 0C010000 		.4byte	.LASF33
- 1015 03bd 01       		.byte	0x1
- 1016 03be 12       		.byte	0x12
- 1017 03bf 81030000 		.4byte	0x381
- 1018 03c3 05       		.uleb128 0x5
- 1019 03c4 03       		.byte	0x3
- 1020 03c5 00000000 		.4byte	escy
- 1021 03c9 11       		.uleb128 0x11
- 1022 03ca 61646300 		.ascii	"adc\000"
- 1023 03ce 01       		.byte	0x1
- 1024 03cf 12       		.byte	0x12
- 1025 03d0 81030000 		.4byte	0x381
- 1026 03d4 05       		.uleb128 0x5
- 1027 03d5 03       		.byte	0x3
- 1028 03d6 00000000 		.4byte	adc
- 1029 03da 11       		.uleb128 0x11
- 1030 03db 4B707800 		.ascii	"Kpx\000"
- 1031 03df 01       		.byte	0x1
- 1032 03e0 13       		.byte	0x13
- 1033 03e1 81030000 		.4byte	0x381
- 1034 03e5 05       		.uleb128 0x5
- 1035 03e6 03       		.byte	0x3
- 1036 03e7 00000000 		.4byte	Kpx
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 21
+ 964 029c 8D000000 		.4byte	0x8d
+ 965 02a0 05       		.uleb128 0x5
+ 966 02a1 03       		.byte	0x3
+ 967 02a2 00000000 		.4byte	cuentx
+ 968 02a6 10       		.uleb128 0x10
+ 969 02a7 07000000 		.4byte	.LASF23
+ 970 02ab 01       		.byte	0x1
+ 971 02ac 12       		.byte	0x12
+ 972 02ad 8D000000 		.4byte	0x8d
+ 973 02b1 05       		.uleb128 0x5
+ 974 02b2 03       		.byte	0x3
+ 975 02b3 00000000 		.4byte	cuenty
+ 976 02b7 10       		.uleb128 0x10
+ 977 02b8 67000000 		.4byte	.LASF24
+ 978 02bc 01       		.byte	0x1
+ 979 02bd 13       		.byte	0x13
+ 980 02be 81000000 		.4byte	0x81
+ 981 02c2 05       		.uleb128 0x5
+ 982 02c3 03       		.byte	0x3
+ 983 02c4 00000000 		.4byte	touch
+ 984 02c8 10       		.uleb128 0x10
+ 985 02c9 3F000000 		.4byte	.LASF25
+ 986 02cd 01       		.byte	0x1
+ 987 02ce 14       		.byte	0x14
+ 988 02cf 99000000 		.4byte	0x99
+ 989 02d3 05       		.uleb128 0x5
+ 990 02d4 03       		.byte	0x3
+ 991 02d5 00000000 		.4byte	datax
+ 992 02d9 10       		.uleb128 0x10
+ 993 02da 45000000 		.4byte	.LASF26
+ 994 02de 01       		.byte	0x1
+ 995 02df 14       		.byte	0x14
+ 996 02e0 99000000 		.4byte	0x99
+ 997 02e4 05       		.uleb128 0x5
+ 998 02e5 03       		.byte	0x3
+ 999 02e6 00000000 		.4byte	datay
+ 1000 02ea 11       		.uleb128 0x11
+ 1001 02eb 657800   		.ascii	"ex\000"
+ 1002 02ee 01       		.byte	0x1
+ 1003 02ef 14       		.byte	0x14
+ 1004 02f0 99000000 		.4byte	0x99
+ 1005 02f4 05       		.uleb128 0x5
+ 1006 02f5 03       		.byte	0x3
+ 1007 02f6 00000000 		.4byte	ex
+ 1008 02fa 11       		.uleb128 0x11
+ 1009 02fb 657900   		.ascii	"ey\000"
+ 1010 02fe 01       		.byte	0x1
+ 1011 02ff 14       		.byte	0x14
+ 1012 0300 99000000 		.4byte	0x99
+ 1013 0304 05       		.uleb128 0x5
+ 1014 0305 03       		.byte	0x3
+ 1015 0306 00000000 		.4byte	ey
+ 1016 030a 11       		.uleb128 0x11
+ 1017 030b 61647800 		.ascii	"adx\000"
+ 1018 030f 01       		.byte	0x1
+ 1019 0310 14       		.byte	0x14
+ 1020 0311 99000000 		.4byte	0x99
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 21
 
 
- 1037 03eb 11       		.uleb128 0x11
- 1038 03ec 4B647800 		.ascii	"Kdx\000"
- 1039 03f0 01       		.byte	0x1
- 1040 03f1 13       		.byte	0x13
- 1041 03f2 81030000 		.4byte	0x381
- 1042 03f6 05       		.uleb128 0x5
- 1043 03f7 03       		.byte	0x3
- 1044 03f8 00000000 		.4byte	Kdx
- 1045 03fc 11       		.uleb128 0x11
- 1046 03fd 4E7800   		.ascii	"Nx\000"
- 1047 0400 01       		.byte	0x1
- 1048 0401 13       		.byte	0x13
- 1049 0402 81030000 		.4byte	0x381
- 1050 0406 05       		.uleb128 0x5
- 1051 0407 03       		.byte	0x3
- 1052 0408 00000000 		.4byte	Nx
- 1053 040c 11       		.uleb128 0x11
- 1054 040d 4B707900 		.ascii	"Kpy\000"
- 1055 0411 01       		.byte	0x1
- 1056 0412 13       		.byte	0x13
- 1057 0413 81030000 		.4byte	0x381
- 1058 0417 05       		.uleb128 0x5
- 1059 0418 03       		.byte	0x3
- 1060 0419 00000000 		.4byte	Kpy
- 1061 041d 11       		.uleb128 0x11
- 1062 041e 4B647900 		.ascii	"Kdy\000"
- 1063 0422 01       		.byte	0x1
- 1064 0423 13       		.byte	0x13
- 1065 0424 81030000 		.4byte	0x381
- 1066 0428 05       		.uleb128 0x5
- 1067 0429 03       		.byte	0x3
- 1068 042a 00000000 		.4byte	Kdy
- 1069 042e 11       		.uleb128 0x11
- 1070 042f 4E7900   		.ascii	"Ny\000"
- 1071 0432 01       		.byte	0x1
- 1072 0433 13       		.byte	0x13
- 1073 0434 81030000 		.4byte	0x381
- 1074 0438 05       		.uleb128 0x5
- 1075 0439 03       		.byte	0x3
- 1076 043a 00000000 		.4byte	Ny
- 1077 043e 13       		.uleb128 0x13
- 1078 043f 9B000000 		.4byte	0x9b
- 1079 0443 4E040000 		.4byte	0x44e
- 1080 0447 14       		.uleb128 0x14
- 1081 0448 B5000000 		.4byte	0xb5
- 1082 044c 0B       		.byte	0xb
- 1083 044d 00       		.byte	0
- 1084 044e 10       		.uleb128 0x10
- 1085 044f 2B000000 		.4byte	.LASF34
- 1086 0453 01       		.byte	0x1
- 1087 0454 14       		.byte	0x14
- 1088 0455 3E040000 		.4byte	0x43e
- 1089 0459 05       		.uleb128 0x5
- 1090 045a 03       		.byte	0x3
- 1091 045b 00000000 		.4byte	str1
- 1092 045f 10       		.uleb128 0x10
- 1093 0460 30000000 		.4byte	.LASF35
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 22
+ 1021 0315 05       		.uleb128 0x5
+ 1022 0316 03       		.byte	0x3
+ 1023 0317 00000000 		.4byte	adx
+ 1024 031b 11       		.uleb128 0x11
+ 1025 031c 61647900 		.ascii	"ady\000"
+ 1026 0320 01       		.byte	0x1
+ 1027 0321 14       		.byte	0x14
+ 1028 0322 99000000 		.4byte	0x99
+ 1029 0326 05       		.uleb128 0x5
+ 1030 0327 03       		.byte	0x3
+ 1031 0328 00000000 		.4byte	ady
+ 1032 032c 10       		.uleb128 0x10
+ 1033 032d 5D000000 		.4byte	.LASF27
+ 1034 0331 01       		.byte	0x1
+ 1035 0332 14       		.byte	0x14
+ 1036 0333 99000000 		.4byte	0x99
+ 1037 0337 05       		.uleb128 0x5
+ 1038 0338 03       		.byte	0x3
+ 1039 0339 00000000 		.4byte	accx
+ 1040 033d 10       		.uleb128 0x10
+ 1041 033e 62000000 		.4byte	.LASF28
+ 1042 0342 01       		.byte	0x1
+ 1043 0343 14       		.byte	0x14
+ 1044 0344 99000000 		.4byte	0x99
+ 1045 0348 05       		.uleb128 0x5
+ 1046 0349 03       		.byte	0x3
+ 1047 034a 00000000 		.4byte	accy
+ 1048 034e 10       		.uleb128 0x10
+ 1049 034f 3B010000 		.4byte	.LASF29
+ 1050 0353 01       		.byte	0x1
+ 1051 0354 14       		.byte	0x14
+ 1052 0355 99000000 		.4byte	0x99
+ 1053 0359 05       		.uleb128 0x5
+ 1054 035a 03       		.byte	0x3
+ 1055 035b 00000000 		.4byte	accx1
+ 1056 035f 10       		.uleb128 0x10
+ 1057 0360 15020000 		.4byte	.LASF30
+ 1058 0364 01       		.byte	0x1
+ 1059 0365 14       		.byte	0x14
+ 1060 0366 99000000 		.4byte	0x99
+ 1061 036a 05       		.uleb128 0x5
+ 1062 036b 03       		.byte	0x3
+ 1063 036c 00000000 		.4byte	accy1
+ 1064 0370 10       		.uleb128 0x10
+ 1065 0371 41010000 		.4byte	.LASF31
+ 1066 0375 01       		.byte	0x1
+ 1067 0376 14       		.byte	0x14
+ 1068 0377 99000000 		.4byte	0x99
+ 1069 037b 05       		.uleb128 0x5
+ 1070 037c 03       		.byte	0x3
+ 1071 037d 00000000 		.4byte	accx2
+ 1072 0381 10       		.uleb128 0x10
+ 1073 0382 DA000000 		.4byte	.LASF32
+ 1074 0386 01       		.byte	0x1
+ 1075 0387 14       		.byte	0x14
+ 1076 0388 99000000 		.4byte	0x99
+ 1077 038c 05       		.uleb128 0x5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 22
 
 
- 1094 0464 01       		.byte	0x1
- 1095 0465 14       		.byte	0x14
- 1096 0466 3E040000 		.4byte	0x43e
- 1097 046a 05       		.uleb128 0x5
- 1098 046b 03       		.byte	0x3
- 1099 046c 00000000 		.4byte	str2
- 1100 0470 10       		.uleb128 0x10
- 1101 0471 35000000 		.4byte	.LASF36
- 1102 0475 01       		.byte	0x1
- 1103 0476 14       		.byte	0x14
- 1104 0477 3E040000 		.4byte	0x43e
- 1105 047b 05       		.uleb128 0x5
- 1106 047c 03       		.byte	0x3
- 1107 047d 00000000 		.4byte	str3
- 1108 0481 15       		.uleb128 0x15
- 1109 0482 98000000 		.4byte	.LASF37
- 1110 0486 98000000 		.4byte	.LASF37
- 1111 048a 06       		.byte	0x6
- 1112 048b 22       		.byte	0x22
- 1113 048c 15       		.uleb128 0x15
- 1114 048d F0000000 		.4byte	.LASF38
- 1115 0491 F0000000 		.4byte	.LASF38
- 1116 0495 06       		.byte	0x6
- 1117 0496 24       		.byte	0x24
- 1118 0497 15       		.uleb128 0x15
- 1119 0498 B1000000 		.4byte	.LASF39
- 1120 049c B1000000 		.4byte	.LASF39
- 1121 04a0 06       		.byte	0x6
- 1122 04a1 23       		.byte	0x23
- 1123 04a2 15       		.uleb128 0x15
- 1124 04a3 E3010000 		.4byte	.LASF40
- 1125 04a7 E3010000 		.4byte	.LASF40
- 1126 04ab 07       		.byte	0x7
- 1127 04ac C3       		.byte	0xc3
- 1128 04ad 15       		.uleb128 0x15
- 1129 04ae 46000000 		.4byte	.LASF41
- 1130 04b2 46000000 		.4byte	.LASF41
- 1131 04b6 07       		.byte	0x7
- 1132 04b7 92       		.byte	0x92
- 1133 04b8 15       		.uleb128 0x15
- 1134 04b9 CA010000 		.4byte	.LASF42
- 1135 04bd CA010000 		.4byte	.LASF42
- 1136 04c1 08       		.byte	0x8
- 1137 04c2 92       		.byte	0x92
- 1138 04c3 15       		.uleb128 0x15
- 1139 04c4 AE010000 		.4byte	.LASF43
- 1140 04c8 AE010000 		.4byte	.LASF43
- 1141 04cc 06       		.byte	0x6
- 1142 04cd 1E       		.byte	0x1e
- 1143 04ce 15       		.uleb128 0x15
- 1144 04cf 83000000 		.4byte	.LASF44
- 1145 04d3 83000000 		.4byte	.LASF44
- 1146 04d7 09       		.byte	0x9
- 1147 04d8 5A       		.byte	0x5a
- 1148 04d9 15       		.uleb128 0x15
- 1149 04da 16030000 		.4byte	.LASF45
- 1150 04de 16030000 		.4byte	.LASF45
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 23
+ 1078 038d 03       		.byte	0x3
+ 1079 038e 00000000 		.4byte	accy2
+ 1080 0392 11       		.uleb128 0x11
+ 1081 0393 65783100 		.ascii	"ex1\000"
+ 1082 0397 01       		.byte	0x1
+ 1083 0398 14       		.byte	0x14
+ 1084 0399 99000000 		.4byte	0x99
+ 1085 039d 05       		.uleb128 0x5
+ 1086 039e 03       		.byte	0x3
+ 1087 039f 00000000 		.4byte	ex1
+ 1088 03a3 11       		.uleb128 0x11
+ 1089 03a4 65793100 		.ascii	"ey1\000"
+ 1090 03a8 01       		.byte	0x1
+ 1091 03a9 14       		.byte	0x14
+ 1092 03aa 99000000 		.4byte	0x99
+ 1093 03ae 05       		.uleb128 0x5
+ 1094 03af 03       		.byte	0x3
+ 1095 03b0 00000000 		.4byte	ey1
+ 1096 03b4 10       		.uleb128 0x10
+ 1097 03b5 72010000 		.4byte	.LASF33
+ 1098 03b9 01       		.byte	0x1
+ 1099 03ba 14       		.byte	0x14
+ 1100 03bb 99000000 		.4byte	0x99
+ 1101 03bf 05       		.uleb128 0x5
+ 1102 03c0 03       		.byte	0x3
+ 1103 03c1 00000000 		.4byte	adcx
+ 1104 03c5 10       		.uleb128 0x10
+ 1105 03c6 26000000 		.4byte	.LASF34
+ 1106 03ca 01       		.byte	0x1
+ 1107 03cb 14       		.byte	0x14
+ 1108 03cc 99000000 		.4byte	0x99
+ 1109 03d0 05       		.uleb128 0x5
+ 1110 03d1 03       		.byte	0x3
+ 1111 03d2 00000000 		.4byte	adcy
+ 1112 03d6 10       		.uleb128 0x10
+ 1113 03d7 00010000 		.4byte	.LASF35
+ 1114 03db 01       		.byte	0x1
+ 1115 03dc 14       		.byte	0x14
+ 1116 03dd 99000000 		.4byte	0x99
+ 1117 03e1 05       		.uleb128 0x5
+ 1118 03e2 03       		.byte	0x3
+ 1119 03e3 00000000 		.4byte	crucex
+ 1120 03e7 10       		.uleb128 0x10
+ 1121 03e8 07010000 		.4byte	.LASF36
+ 1122 03ec 01       		.byte	0x1
+ 1123 03ed 14       		.byte	0x14
+ 1124 03ee 99000000 		.4byte	0x99
+ 1125 03f2 05       		.uleb128 0x5
+ 1126 03f3 03       		.byte	0x3
+ 1127 03f4 00000000 		.4byte	crucey
+ 1128 03f8 11       		.uleb128 0x11
+ 1129 03f9 72656600 		.ascii	"ref\000"
+ 1130 03fd 01       		.byte	0x1
+ 1131 03fe 15       		.byte	0x15
+ 1132 03ff 09040000 		.4byte	0x409
+ 1133 0403 05       		.uleb128 0x5
+ 1134 0404 03       		.byte	0x3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 23
 
 
- 1151 04e2 0A       		.byte	0xa
- 1152 04e3 38       		.byte	0x38
- 1153 04e4 15       		.uleb128 0x15
- 1154 04e5 D0000000 		.4byte	.LASF46
- 1155 04e9 D0000000 		.4byte	.LASF46
- 1156 04ed 0B       		.byte	0xb
- 1157 04ee 18       		.byte	0x18
- 1158 04ef 15       		.uleb128 0x15
- 1159 04f0 29010000 		.4byte	.LASF47
- 1160 04f4 29010000 		.4byte	.LASF47
- 1161 04f8 0C       		.byte	0xc
- 1162 04f9 E7       		.byte	0xe7
- 1163 04fa 15       		.uleb128 0x15
- 1164 04fb 61020000 		.4byte	.LASF48
- 1165 04ff 61020000 		.4byte	.LASF48
- 1166 0503 0A       		.byte	0xa
- 1167 0504 3D       		.byte	0x3d
- 1168 0505 15       		.uleb128 0x15
- 1169 0506 99010000 		.4byte	.LASF49
- 1170 050a 99010000 		.4byte	.LASF49
- 1171 050e 0A       		.byte	0xa
- 1172 050f 3C       		.byte	0x3c
- 1173 0510 15       		.uleb128 0x15
- 1174 0511 0E030000 		.4byte	.LASF50
- 1175 0515 0E030000 		.4byte	.LASF50
- 1176 0519 0D       		.byte	0xd
- 1177 051a 76       		.byte	0x76
- 1178 051b 00       		.byte	0
- 1179              		.section	.debug_abbrev,"",%progbits
- 1180              	.Ldebug_abbrev0:
- 1181 0000 01       		.uleb128 0x1
- 1182 0001 11       		.uleb128 0x11
- 1183 0002 01       		.byte	0x1
- 1184 0003 25       		.uleb128 0x25
- 1185 0004 0E       		.uleb128 0xe
- 1186 0005 13       		.uleb128 0x13
- 1187 0006 0B       		.uleb128 0xb
- 1188 0007 03       		.uleb128 0x3
- 1189 0008 0E       		.uleb128 0xe
- 1190 0009 1B       		.uleb128 0x1b
- 1191 000a 0E       		.uleb128 0xe
- 1192 000b 55       		.uleb128 0x55
- 1193 000c 17       		.uleb128 0x17
- 1194 000d 11       		.uleb128 0x11
- 1195 000e 01       		.uleb128 0x1
- 1196 000f 10       		.uleb128 0x10
- 1197 0010 17       		.uleb128 0x17
- 1198 0011 00       		.byte	0
- 1199 0012 00       		.byte	0
- 1200 0013 02       		.uleb128 0x2
- 1201 0014 24       		.uleb128 0x24
- 1202 0015 00       		.byte	0
- 1203 0016 0B       		.uleb128 0xb
- 1204 0017 0B       		.uleb128 0xb
- 1205 0018 3E       		.uleb128 0x3e
- 1206 0019 0B       		.uleb128 0xb
- 1207 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 24
+ 1135 0405 00000000 		.4byte	ref
+ 1136 0409 12       		.uleb128 0x12
+ 1137 040a 99000000 		.4byte	0x99
+ 1138 040e 11       		.uleb128 0x11
+ 1139 040f 547300   		.ascii	"Ts\000"
+ 1140 0412 01       		.byte	0x1
+ 1141 0413 15       		.byte	0x15
+ 1142 0414 09040000 		.4byte	0x409
+ 1143 0418 05       		.uleb128 0x5
+ 1144 0419 03       		.byte	0x3
+ 1145 041a 00000000 		.4byte	Ts
+ 1146 041e 10       		.uleb128 0x10
+ 1147 041f 25010000 		.4byte	.LASF37
+ 1148 0423 01       		.byte	0x1
+ 1149 0424 15       		.byte	0x15
+ 1150 0425 09040000 		.4byte	0x409
+ 1151 0429 05       		.uleb128 0x5
+ 1152 042a 03       		.byte	0x3
+ 1153 042b 00000000 		.4byte	escx
+ 1154 042f 10       		.uleb128 0x10
+ 1155 0430 2A010000 		.4byte	.LASF38
+ 1156 0434 01       		.byte	0x1
+ 1157 0435 15       		.byte	0x15
+ 1158 0436 09040000 		.4byte	0x409
+ 1159 043a 05       		.uleb128 0x5
+ 1160 043b 03       		.byte	0x3
+ 1161 043c 00000000 		.4byte	escy
+ 1162 0440 11       		.uleb128 0x11
+ 1163 0441 4B707800 		.ascii	"Kpx\000"
+ 1164 0445 01       		.byte	0x1
+ 1165 0446 16       		.byte	0x16
+ 1166 0447 09040000 		.4byte	0x409
+ 1167 044b 05       		.uleb128 0x5
+ 1168 044c 03       		.byte	0x3
+ 1169 044d 00000000 		.4byte	Kpx
+ 1170 0451 11       		.uleb128 0x11
+ 1171 0452 4B647800 		.ascii	"Kdx\000"
+ 1172 0456 01       		.byte	0x1
+ 1173 0457 16       		.byte	0x16
+ 1174 0458 09040000 		.4byte	0x409
+ 1175 045c 05       		.uleb128 0x5
+ 1176 045d 03       		.byte	0x3
+ 1177 045e 00000000 		.4byte	Kdx
+ 1178 0462 11       		.uleb128 0x11
+ 1179 0463 4E7800   		.ascii	"Nx\000"
+ 1180 0466 01       		.byte	0x1
+ 1181 0467 16       		.byte	0x16
+ 1182 0468 09040000 		.4byte	0x409
+ 1183 046c 05       		.uleb128 0x5
+ 1184 046d 03       		.byte	0x3
+ 1185 046e 00000000 		.4byte	Nx
+ 1186 0472 11       		.uleb128 0x11
+ 1187 0473 4B707900 		.ascii	"Kpy\000"
+ 1188 0477 01       		.byte	0x1
+ 1189 0478 16       		.byte	0x16
+ 1190 0479 09040000 		.4byte	0x409
+ 1191 047d 05       		.uleb128 0x5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 24
 
 
- 1208 001b 0E       		.uleb128 0xe
- 1209 001c 00       		.byte	0
- 1210 001d 00       		.byte	0
- 1211 001e 03       		.uleb128 0x3
- 1212 001f 16       		.uleb128 0x16
- 1213 0020 00       		.byte	0
- 1214 0021 03       		.uleb128 0x3
- 1215 0022 0E       		.uleb128 0xe
- 1216 0023 3A       		.uleb128 0x3a
- 1217 0024 0B       		.uleb128 0xb
- 1218 0025 3B       		.uleb128 0x3b
- 1219 0026 0B       		.uleb128 0xb
- 1220 0027 49       		.uleb128 0x49
- 1221 0028 13       		.uleb128 0x13
- 1222 0029 00       		.byte	0
- 1223 002a 00       		.byte	0
- 1224 002b 04       		.uleb128 0x4
- 1225 002c 24       		.uleb128 0x24
- 1226 002d 00       		.byte	0
- 1227 002e 0B       		.uleb128 0xb
- 1228 002f 0B       		.uleb128 0xb
- 1229 0030 3E       		.uleb128 0x3e
- 1230 0031 0B       		.uleb128 0xb
- 1231 0032 03       		.uleb128 0x3
- 1232 0033 08       		.uleb128 0x8
- 1233 0034 00       		.byte	0
- 1234 0035 00       		.byte	0
- 1235 0036 05       		.uleb128 0x5
- 1236 0037 16       		.uleb128 0x16
- 1237 0038 00       		.byte	0
- 1238 0039 03       		.uleb128 0x3
- 1239 003a 0E       		.uleb128 0xe
- 1240 003b 3A       		.uleb128 0x3a
- 1241 003c 0B       		.uleb128 0xb
- 1242 003d 3B       		.uleb128 0x3b
- 1243 003e 05       		.uleb128 0x5
- 1244 003f 49       		.uleb128 0x49
- 1245 0040 13       		.uleb128 0x13
- 1246 0041 00       		.byte	0
- 1247 0042 00       		.byte	0
- 1248 0043 06       		.uleb128 0x6
- 1249 0044 2E       		.uleb128 0x2e
- 1250 0045 01       		.byte	0x1
- 1251 0046 3F       		.uleb128 0x3f
- 1252 0047 19       		.uleb128 0x19
- 1253 0048 03       		.uleb128 0x3
- 1254 0049 0E       		.uleb128 0xe
- 1255 004a 3A       		.uleb128 0x3a
- 1256 004b 0B       		.uleb128 0xb
- 1257 004c 3B       		.uleb128 0x3b
- 1258 004d 0B       		.uleb128 0xb
- 1259 004e 11       		.uleb128 0x11
- 1260 004f 01       		.uleb128 0x1
- 1261 0050 12       		.uleb128 0x12
- 1262 0051 06       		.uleb128 0x6
- 1263 0052 40       		.uleb128 0x40
- 1264 0053 18       		.uleb128 0x18
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 25
+ 1192 047e 03       		.byte	0x3
+ 1193 047f 00000000 		.4byte	Kpy
+ 1194 0483 11       		.uleb128 0x11
+ 1195 0484 4B647900 		.ascii	"Kdy\000"
+ 1196 0488 01       		.byte	0x1
+ 1197 0489 16       		.byte	0x16
+ 1198 048a 09040000 		.4byte	0x409
+ 1199 048e 05       		.uleb128 0x5
+ 1200 048f 03       		.byte	0x3
+ 1201 0490 00000000 		.4byte	Kdy
+ 1202 0494 11       		.uleb128 0x11
+ 1203 0495 4E7900   		.ascii	"Ny\000"
+ 1204 0498 01       		.byte	0x1
+ 1205 0499 16       		.byte	0x16
+ 1206 049a 09040000 		.4byte	0x409
+ 1207 049e 05       		.uleb128 0x5
+ 1208 049f 03       		.byte	0x3
+ 1209 04a0 00000000 		.4byte	Ny
+ 1210 04a4 13       		.uleb128 0x13
+ 1211 04a5 A7000000 		.4byte	0xa7
+ 1212 04a9 B4040000 		.4byte	0x4b4
+ 1213 04ad 14       		.uleb128 0x14
+ 1214 04ae C1000000 		.4byte	0xc1
+ 1215 04b2 4F       		.byte	0x4f
+ 1216 04b3 00       		.byte	0
+ 1217 04b4 10       		.uleb128 0x10
+ 1218 04b5 30000000 		.4byte	.LASF39
+ 1219 04b9 01       		.byte	0x1
+ 1220 04ba 17       		.byte	0x17
+ 1221 04bb A4040000 		.4byte	0x4a4
+ 1222 04bf 05       		.uleb128 0x5
+ 1223 04c0 03       		.byte	0x3
+ 1224 04c1 00000000 		.4byte	str1
+ 1225 04c5 10       		.uleb128 0x10
+ 1226 04c6 35000000 		.4byte	.LASF40
+ 1227 04ca 01       		.byte	0x1
+ 1228 04cb 17       		.byte	0x17
+ 1229 04cc A4040000 		.4byte	0x4a4
+ 1230 04d0 05       		.uleb128 0x5
+ 1231 04d1 03       		.byte	0x3
+ 1232 04d2 00000000 		.4byte	str2
+ 1233 04d6 10       		.uleb128 0x10
+ 1234 04d7 3A000000 		.4byte	.LASF41
+ 1235 04db 01       		.byte	0x1
+ 1236 04dc 17       		.byte	0x17
+ 1237 04dd A4040000 		.4byte	0x4a4
+ 1238 04e1 05       		.uleb128 0x5
+ 1239 04e2 03       		.byte	0x3
+ 1240 04e3 00000000 		.4byte	str3
+ 1241 04e7 15       		.uleb128 0x15
+ 1242 04e8 A8000000 		.4byte	.LASF42
+ 1243 04ec A8000000 		.4byte	.LASF42
+ 1244 04f0 06       		.byte	0x6
+ 1245 04f1 22       		.byte	0x22
+ 1246 04f2 15       		.uleb128 0x15
+ 1247 04f3 0E010000 		.4byte	.LASF43
+ 1248 04f7 0E010000 		.4byte	.LASF43
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 25
 
 
- 1265 0054 9642     		.uleb128 0x2116
- 1266 0056 19       		.uleb128 0x19
- 1267 0057 01       		.uleb128 0x1
- 1268 0058 13       		.uleb128 0x13
- 1269 0059 00       		.byte	0
- 1270 005a 00       		.byte	0
- 1271 005b 07       		.uleb128 0x7
- 1272 005c 898201   		.uleb128 0x4109
- 1273 005f 00       		.byte	0
- 1274 0060 11       		.uleb128 0x11
- 1275 0061 01       		.uleb128 0x1
- 1276 0062 31       		.uleb128 0x31
- 1277 0063 13       		.uleb128 0x13
- 1278 0064 00       		.byte	0
- 1279 0065 00       		.byte	0
- 1280 0066 08       		.uleb128 0x8
- 1281 0067 2E       		.uleb128 0x2e
- 1282 0068 01       		.byte	0x1
- 1283 0069 3F       		.uleb128 0x3f
- 1284 006a 19       		.uleb128 0x19
- 1285 006b 03       		.uleb128 0x3
- 1286 006c 0E       		.uleb128 0xe
- 1287 006d 3A       		.uleb128 0x3a
- 1288 006e 0B       		.uleb128 0xb
- 1289 006f 3B       		.uleb128 0x3b
- 1290 0070 0B       		.uleb128 0xb
- 1291 0071 27       		.uleb128 0x27
- 1292 0072 19       		.uleb128 0x19
- 1293 0073 11       		.uleb128 0x11
- 1294 0074 01       		.uleb128 0x1
- 1295 0075 12       		.uleb128 0x12
- 1296 0076 06       		.uleb128 0x6
- 1297 0077 40       		.uleb128 0x40
- 1298 0078 18       		.uleb128 0x18
- 1299 0079 9742     		.uleb128 0x2117
- 1300 007b 19       		.uleb128 0x19
- 1301 007c 01       		.uleb128 0x1
- 1302 007d 13       		.uleb128 0x13
- 1303 007e 00       		.byte	0
- 1304 007f 00       		.byte	0
- 1305 0080 09       		.uleb128 0x9
- 1306 0081 2E       		.uleb128 0x2e
- 1307 0082 01       		.byte	0x1
- 1308 0083 3F       		.uleb128 0x3f
- 1309 0084 19       		.uleb128 0x19
- 1310 0085 03       		.uleb128 0x3
- 1311 0086 0E       		.uleb128 0xe
- 1312 0087 3A       		.uleb128 0x3a
- 1313 0088 0B       		.uleb128 0xb
- 1314 0089 3B       		.uleb128 0x3b
- 1315 008a 0B       		.uleb128 0xb
- 1316 008b 27       		.uleb128 0x27
- 1317 008c 19       		.uleb128 0x19
- 1318 008d 49       		.uleb128 0x49
- 1319 008e 13       		.uleb128 0x13
- 1320 008f 8701     		.uleb128 0x87
- 1321 0091 19       		.uleb128 0x19
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 26
+ 1249 04fb 06       		.byte	0x6
+ 1250 04fc 24       		.byte	0x24
+ 1251 04fd 15       		.uleb128 0x15
+ 1252 04fe C1000000 		.4byte	.LASF44
+ 1253 0502 C1000000 		.4byte	.LASF44
+ 1254 0506 06       		.byte	0x6
+ 1255 0507 23       		.byte	0x23
+ 1256 0508 15       		.uleb128 0x15
+ 1257 0509 22020000 		.4byte	.LASF45
+ 1258 050d 22020000 		.4byte	.LASF45
+ 1259 0511 07       		.byte	0x7
+ 1260 0512 C3       		.byte	0xc3
+ 1261 0513 15       		.uleb128 0x15
+ 1262 0514 B8010000 		.4byte	.LASF46
+ 1263 0518 B8010000 		.4byte	.LASF46
+ 1264 051c 08       		.byte	0x8
+ 1265 051d C3       		.byte	0xc3
+ 1266 051e 15       		.uleb128 0x15
+ 1267 051f 55030000 		.4byte	.LASF47
+ 1268 0523 55030000 		.4byte	.LASF47
+ 1269 0527 06       		.byte	0x6
+ 1270 0528 25       		.byte	0x25
+ 1271 0529 15       		.uleb128 0x15
+ 1272 052a 4B000000 		.4byte	.LASF48
+ 1273 052e 4B000000 		.4byte	.LASF48
+ 1274 0532 07       		.byte	0x7
+ 1275 0533 92       		.byte	0x92
+ 1276 0534 15       		.uleb128 0x15
+ 1277 0535 09020000 		.4byte	.LASF49
+ 1278 0539 09020000 		.4byte	.LASF49
+ 1279 053d 08       		.byte	0x8
+ 1280 053e 92       		.byte	0x92
+ 1281 053f 15       		.uleb128 0x15
+ 1282 0540 ED010000 		.4byte	.LASF50
+ 1283 0544 ED010000 		.4byte	.LASF50
+ 1284 0548 06       		.byte	0x6
+ 1285 0549 1E       		.byte	0x1e
+ 1286 054a 15       		.uleb128 0x15
+ 1287 054b 93000000 		.4byte	.LASF51
+ 1288 054f 93000000 		.4byte	.LASF51
+ 1289 0553 09       		.byte	0x9
+ 1290 0554 5A       		.byte	0x5a
+ 1291 0555 15       		.uleb128 0x15
+ 1292 0556 96010000 		.4byte	.LASF52
+ 1293 055a 96010000 		.4byte	.LASF52
+ 1294 055e 0A       		.byte	0xa
+ 1295 055f 38       		.byte	0x38
+ 1296 0560 15       		.uleb128 0x15
+ 1297 0561 E0000000 		.4byte	.LASF53
+ 1298 0565 E0000000 		.4byte	.LASF53
+ 1299 0569 0B       		.byte	0xb
+ 1300 056a 18       		.byte	0x18
+ 1301 056b 15       		.uleb128 0x15
+ 1302 056c 47010000 		.4byte	.LASF54
+ 1303 0570 47010000 		.4byte	.LASF54
+ 1304 0574 0C       		.byte	0xc
+ 1305 0575 E7       		.byte	0xe7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 26
 
 
- 1322 0092 11       		.uleb128 0x11
- 1323 0093 01       		.uleb128 0x1
- 1324 0094 12       		.uleb128 0x12
- 1325 0095 06       		.uleb128 0x6
- 1326 0096 40       		.uleb128 0x40
- 1327 0097 18       		.uleb128 0x18
- 1328 0098 9642     		.uleb128 0x2116
- 1329 009a 19       		.uleb128 0x19
- 1330 009b 01       		.uleb128 0x1
- 1331 009c 13       		.uleb128 0x13
- 1332 009d 00       		.byte	0
- 1333 009e 00       		.byte	0
- 1334 009f 0A       		.uleb128 0xa
- 1335 00a0 2E       		.uleb128 0x2e
- 1336 00a1 00       		.byte	0
- 1337 00a2 3F       		.uleb128 0x3f
- 1338 00a3 19       		.uleb128 0x19
- 1339 00a4 03       		.uleb128 0x3
- 1340 00a5 0E       		.uleb128 0xe
- 1341 00a6 3A       		.uleb128 0x3a
- 1342 00a7 0B       		.uleb128 0xb
- 1343 00a8 3B       		.uleb128 0x3b
- 1344 00a9 0B       		.uleb128 0xb
- 1345 00aa 27       		.uleb128 0x27
- 1346 00ab 19       		.uleb128 0x19
- 1347 00ac 3C       		.uleb128 0x3c
- 1348 00ad 19       		.uleb128 0x19
- 1349 00ae 00       		.byte	0
- 1350 00af 00       		.byte	0
- 1351 00b0 0B       		.uleb128 0xb
- 1352 00b1 898201   		.uleb128 0x4109
- 1353 00b4 01       		.byte	0x1
- 1354 00b5 11       		.uleb128 0x11
- 1355 00b6 01       		.uleb128 0x1
- 1356 00b7 31       		.uleb128 0x31
- 1357 00b8 13       		.uleb128 0x13
- 1358 00b9 01       		.uleb128 0x1
- 1359 00ba 13       		.uleb128 0x13
- 1360 00bb 00       		.byte	0
- 1361 00bc 00       		.byte	0
- 1362 00bd 0C       		.uleb128 0xc
- 1363 00be 8A8201   		.uleb128 0x410a
- 1364 00c1 00       		.byte	0
- 1365 00c2 02       		.uleb128 0x2
- 1366 00c3 18       		.uleb128 0x18
- 1367 00c4 9142     		.uleb128 0x2111
- 1368 00c6 18       		.uleb128 0x18
- 1369 00c7 00       		.byte	0
- 1370 00c8 00       		.byte	0
- 1371 00c9 0D       		.uleb128 0xd
- 1372 00ca 898201   		.uleb128 0x4109
- 1373 00cd 01       		.byte	0x1
- 1374 00ce 11       		.uleb128 0x11
- 1375 00cf 01       		.uleb128 0x1
- 1376 00d0 31       		.uleb128 0x31
- 1377 00d1 13       		.uleb128 0x13
- 1378 00d2 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 27
+ 1306 0576 15       		.uleb128 0x15
+ 1307 0577 A0020000 		.4byte	.LASF55
+ 1308 057b A0020000 		.4byte	.LASF55
+ 1309 057f 0A       		.byte	0xa
+ 1310 0580 3D       		.byte	0x3d
+ 1311 0581 15       		.uleb128 0x15
+ 1312 0582 D8010000 		.4byte	.LASF56
+ 1313 0586 D8010000 		.4byte	.LASF56
+ 1314 058a 0A       		.byte	0xa
+ 1315 058b 3C       		.byte	0x3c
+ 1316 058c 15       		.uleb128 0x15
+ 1317 058d 4D030000 		.4byte	.LASF57
+ 1318 0591 4D030000 		.4byte	.LASF57
+ 1319 0595 0D       		.byte	0xd
+ 1320 0596 76       		.byte	0x76
+ 1321 0597 00       		.byte	0
+ 1322              		.section	.debug_abbrev,"",%progbits
+ 1323              	.Ldebug_abbrev0:
+ 1324 0000 01       		.uleb128 0x1
+ 1325 0001 11       		.uleb128 0x11
+ 1326 0002 01       		.byte	0x1
+ 1327 0003 25       		.uleb128 0x25
+ 1328 0004 0E       		.uleb128 0xe
+ 1329 0005 13       		.uleb128 0x13
+ 1330 0006 0B       		.uleb128 0xb
+ 1331 0007 03       		.uleb128 0x3
+ 1332 0008 0E       		.uleb128 0xe
+ 1333 0009 1B       		.uleb128 0x1b
+ 1334 000a 0E       		.uleb128 0xe
+ 1335 000b 55       		.uleb128 0x55
+ 1336 000c 17       		.uleb128 0x17
+ 1337 000d 11       		.uleb128 0x11
+ 1338 000e 01       		.uleb128 0x1
+ 1339 000f 10       		.uleb128 0x10
+ 1340 0010 17       		.uleb128 0x17
+ 1341 0011 00       		.byte	0
+ 1342 0012 00       		.byte	0
+ 1343 0013 02       		.uleb128 0x2
+ 1344 0014 24       		.uleb128 0x24
+ 1345 0015 00       		.byte	0
+ 1346 0016 0B       		.uleb128 0xb
+ 1347 0017 0B       		.uleb128 0xb
+ 1348 0018 3E       		.uleb128 0x3e
+ 1349 0019 0B       		.uleb128 0xb
+ 1350 001a 03       		.uleb128 0x3
+ 1351 001b 0E       		.uleb128 0xe
+ 1352 001c 00       		.byte	0
+ 1353 001d 00       		.byte	0
+ 1354 001e 03       		.uleb128 0x3
+ 1355 001f 16       		.uleb128 0x16
+ 1356 0020 00       		.byte	0
+ 1357 0021 03       		.uleb128 0x3
+ 1358 0022 0E       		.uleb128 0xe
+ 1359 0023 3A       		.uleb128 0x3a
+ 1360 0024 0B       		.uleb128 0xb
+ 1361 0025 3B       		.uleb128 0x3b
+ 1362 0026 0B       		.uleb128 0xb
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 27
 
 
- 1379 00d3 00       		.byte	0
- 1380 00d4 0E       		.uleb128 0xe
- 1381 00d5 34       		.uleb128 0x34
- 1382 00d6 00       		.byte	0
- 1383 00d7 03       		.uleb128 0x3
- 1384 00d8 0E       		.uleb128 0xe
- 1385 00d9 3A       		.uleb128 0x3a
- 1386 00da 0B       		.uleb128 0xb
- 1387 00db 3B       		.uleb128 0x3b
- 1388 00dc 05       		.uleb128 0x5
- 1389 00dd 49       		.uleb128 0x49
- 1390 00de 13       		.uleb128 0x13
- 1391 00df 3F       		.uleb128 0x3f
- 1392 00e0 19       		.uleb128 0x19
- 1393 00e1 3C       		.uleb128 0x3c
- 1394 00e2 19       		.uleb128 0x19
- 1395 00e3 00       		.byte	0
- 1396 00e4 00       		.byte	0
- 1397 00e5 0F       		.uleb128 0xf
- 1398 00e6 35       		.uleb128 0x35
- 1399 00e7 00       		.byte	0
- 1400 00e8 49       		.uleb128 0x49
- 1401 00e9 13       		.uleb128 0x13
- 1402 00ea 00       		.byte	0
- 1403 00eb 00       		.byte	0
- 1404 00ec 10       		.uleb128 0x10
- 1405 00ed 34       		.uleb128 0x34
- 1406 00ee 00       		.byte	0
- 1407 00ef 03       		.uleb128 0x3
- 1408 00f0 0E       		.uleb128 0xe
- 1409 00f1 3A       		.uleb128 0x3a
- 1410 00f2 0B       		.uleb128 0xb
- 1411 00f3 3B       		.uleb128 0x3b
- 1412 00f4 0B       		.uleb128 0xb
- 1413 00f5 49       		.uleb128 0x49
- 1414 00f6 13       		.uleb128 0x13
- 1415 00f7 3F       		.uleb128 0x3f
- 1416 00f8 19       		.uleb128 0x19
- 1417 00f9 02       		.uleb128 0x2
- 1418 00fa 18       		.uleb128 0x18
- 1419 00fb 00       		.byte	0
- 1420 00fc 00       		.byte	0
- 1421 00fd 11       		.uleb128 0x11
- 1422 00fe 34       		.uleb128 0x34
- 1423 00ff 00       		.byte	0
- 1424 0100 03       		.uleb128 0x3
- 1425 0101 08       		.uleb128 0x8
- 1426 0102 3A       		.uleb128 0x3a
- 1427 0103 0B       		.uleb128 0xb
- 1428 0104 3B       		.uleb128 0x3b
- 1429 0105 0B       		.uleb128 0xb
- 1430 0106 49       		.uleb128 0x49
- 1431 0107 13       		.uleb128 0x13
- 1432 0108 3F       		.uleb128 0x3f
- 1433 0109 19       		.uleb128 0x19
- 1434 010a 02       		.uleb128 0x2
- 1435 010b 18       		.uleb128 0x18
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 28
+ 1363 0027 49       		.uleb128 0x49
+ 1364 0028 13       		.uleb128 0x13
+ 1365 0029 00       		.byte	0
+ 1366 002a 00       		.byte	0
+ 1367 002b 04       		.uleb128 0x4
+ 1368 002c 24       		.uleb128 0x24
+ 1369 002d 00       		.byte	0
+ 1370 002e 0B       		.uleb128 0xb
+ 1371 002f 0B       		.uleb128 0xb
+ 1372 0030 3E       		.uleb128 0x3e
+ 1373 0031 0B       		.uleb128 0xb
+ 1374 0032 03       		.uleb128 0x3
+ 1375 0033 08       		.uleb128 0x8
+ 1376 0034 00       		.byte	0
+ 1377 0035 00       		.byte	0
+ 1378 0036 05       		.uleb128 0x5
+ 1379 0037 16       		.uleb128 0x16
+ 1380 0038 00       		.byte	0
+ 1381 0039 03       		.uleb128 0x3
+ 1382 003a 0E       		.uleb128 0xe
+ 1383 003b 3A       		.uleb128 0x3a
+ 1384 003c 0B       		.uleb128 0xb
+ 1385 003d 3B       		.uleb128 0x3b
+ 1386 003e 05       		.uleb128 0x5
+ 1387 003f 49       		.uleb128 0x49
+ 1388 0040 13       		.uleb128 0x13
+ 1389 0041 00       		.byte	0
+ 1390 0042 00       		.byte	0
+ 1391 0043 06       		.uleb128 0x6
+ 1392 0044 2E       		.uleb128 0x2e
+ 1393 0045 01       		.byte	0x1
+ 1394 0046 3F       		.uleb128 0x3f
+ 1395 0047 19       		.uleb128 0x19
+ 1396 0048 03       		.uleb128 0x3
+ 1397 0049 0E       		.uleb128 0xe
+ 1398 004a 3A       		.uleb128 0x3a
+ 1399 004b 0B       		.uleb128 0xb
+ 1400 004c 3B       		.uleb128 0x3b
+ 1401 004d 0B       		.uleb128 0xb
+ 1402 004e 11       		.uleb128 0x11
+ 1403 004f 01       		.uleb128 0x1
+ 1404 0050 12       		.uleb128 0x12
+ 1405 0051 06       		.uleb128 0x6
+ 1406 0052 40       		.uleb128 0x40
+ 1407 0053 18       		.uleb128 0x18
+ 1408 0054 9642     		.uleb128 0x2116
+ 1409 0056 19       		.uleb128 0x19
+ 1410 0057 01       		.uleb128 0x1
+ 1411 0058 13       		.uleb128 0x13
+ 1412 0059 00       		.byte	0
+ 1413 005a 00       		.byte	0
+ 1414 005b 07       		.uleb128 0x7
+ 1415 005c 898201   		.uleb128 0x4109
+ 1416 005f 00       		.byte	0
+ 1417 0060 11       		.uleb128 0x11
+ 1418 0061 01       		.uleb128 0x1
+ 1419 0062 31       		.uleb128 0x31
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 28
 
 
- 1436 010c 00       		.byte	0
- 1437 010d 00       		.byte	0
- 1438 010e 12       		.uleb128 0x12
- 1439 010f 26       		.uleb128 0x26
- 1440 0110 00       		.byte	0
- 1441 0111 49       		.uleb128 0x49
- 1442 0112 13       		.uleb128 0x13
- 1443 0113 00       		.byte	0
- 1444 0114 00       		.byte	0
- 1445 0115 13       		.uleb128 0x13
- 1446 0116 01       		.uleb128 0x1
- 1447 0117 01       		.byte	0x1
- 1448 0118 49       		.uleb128 0x49
- 1449 0119 13       		.uleb128 0x13
- 1450 011a 01       		.uleb128 0x1
- 1451 011b 13       		.uleb128 0x13
- 1452 011c 00       		.byte	0
- 1453 011d 00       		.byte	0
- 1454 011e 14       		.uleb128 0x14
- 1455 011f 21       		.uleb128 0x21
- 1456 0120 00       		.byte	0
- 1457 0121 49       		.uleb128 0x49
- 1458 0122 13       		.uleb128 0x13
- 1459 0123 2F       		.uleb128 0x2f
- 1460 0124 0B       		.uleb128 0xb
- 1461 0125 00       		.byte	0
- 1462 0126 00       		.byte	0
- 1463 0127 15       		.uleb128 0x15
- 1464 0128 2E       		.uleb128 0x2e
- 1465 0129 00       		.byte	0
- 1466 012a 3F       		.uleb128 0x3f
- 1467 012b 19       		.uleb128 0x19
- 1468 012c 3C       		.uleb128 0x3c
- 1469 012d 19       		.uleb128 0x19
- 1470 012e 6E       		.uleb128 0x6e
- 1471 012f 0E       		.uleb128 0xe
- 1472 0130 03       		.uleb128 0x3
- 1473 0131 0E       		.uleb128 0xe
- 1474 0132 3A       		.uleb128 0x3a
- 1475 0133 0B       		.uleb128 0xb
- 1476 0134 3B       		.uleb128 0x3b
- 1477 0135 0B       		.uleb128 0xb
- 1478 0136 00       		.byte	0
- 1479 0137 00       		.byte	0
- 1480 0138 00       		.byte	0
- 1481              		.section	.debug_aranges,"",%progbits
- 1482 0000 2C000000 		.4byte	0x2c
- 1483 0004 0200     		.2byte	0x2
- 1484 0006 00000000 		.4byte	.Ldebug_info0
- 1485 000a 04       		.byte	0x4
- 1486 000b 00       		.byte	0
- 1487 000c 0000     		.2byte	0
- 1488 000e 0000     		.2byte	0
- 1489 0010 00000000 		.4byte	.LFB64
- 1490 0014 CC010000 		.4byte	.LFE64-.LFB64
- 1491 0018 00000000 		.4byte	.LFB65
- 1492 001c 08000000 		.4byte	.LFE65-.LFB65
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 29
+ 1420 0063 13       		.uleb128 0x13
+ 1421 0064 00       		.byte	0
+ 1422 0065 00       		.byte	0
+ 1423 0066 08       		.uleb128 0x8
+ 1424 0067 2E       		.uleb128 0x2e
+ 1425 0068 01       		.byte	0x1
+ 1426 0069 3F       		.uleb128 0x3f
+ 1427 006a 19       		.uleb128 0x19
+ 1428 006b 03       		.uleb128 0x3
+ 1429 006c 0E       		.uleb128 0xe
+ 1430 006d 3A       		.uleb128 0x3a
+ 1431 006e 0B       		.uleb128 0xb
+ 1432 006f 3B       		.uleb128 0x3b
+ 1433 0070 0B       		.uleb128 0xb
+ 1434 0071 27       		.uleb128 0x27
+ 1435 0072 19       		.uleb128 0x19
+ 1436 0073 11       		.uleb128 0x11
+ 1437 0074 01       		.uleb128 0x1
+ 1438 0075 12       		.uleb128 0x12
+ 1439 0076 06       		.uleb128 0x6
+ 1440 0077 40       		.uleb128 0x40
+ 1441 0078 18       		.uleb128 0x18
+ 1442 0079 9742     		.uleb128 0x2117
+ 1443 007b 19       		.uleb128 0x19
+ 1444 007c 01       		.uleb128 0x1
+ 1445 007d 13       		.uleb128 0x13
+ 1446 007e 00       		.byte	0
+ 1447 007f 00       		.byte	0
+ 1448 0080 09       		.uleb128 0x9
+ 1449 0081 898201   		.uleb128 0x4109
+ 1450 0084 01       		.byte	0x1
+ 1451 0085 11       		.uleb128 0x11
+ 1452 0086 01       		.uleb128 0x1
+ 1453 0087 31       		.uleb128 0x31
+ 1454 0088 13       		.uleb128 0x13
+ 1455 0089 01       		.uleb128 0x1
+ 1456 008a 13       		.uleb128 0x13
+ 1457 008b 00       		.byte	0
+ 1458 008c 00       		.byte	0
+ 1459 008d 0A       		.uleb128 0xa
+ 1460 008e 8A8201   		.uleb128 0x410a
+ 1461 0091 00       		.byte	0
+ 1462 0092 02       		.uleb128 0x2
+ 1463 0093 18       		.uleb128 0x18
+ 1464 0094 9142     		.uleb128 0x2111
+ 1465 0096 18       		.uleb128 0x18
+ 1466 0097 00       		.byte	0
+ 1467 0098 00       		.byte	0
+ 1468 0099 0B       		.uleb128 0xb
+ 1469 009a 2E       		.uleb128 0x2e
+ 1470 009b 01       		.byte	0x1
+ 1471 009c 3F       		.uleb128 0x3f
+ 1472 009d 19       		.uleb128 0x19
+ 1473 009e 03       		.uleb128 0x3
+ 1474 009f 0E       		.uleb128 0xe
+ 1475 00a0 3A       		.uleb128 0x3a
+ 1476 00a1 0B       		.uleb128 0xb
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 29
 
 
- 1493 0020 00000000 		.4byte	.LFB66
- 1494 0024 88000000 		.4byte	.LFE66-.LFB66
- 1495 0028 00000000 		.4byte	0
- 1496 002c 00000000 		.4byte	0
- 1497              		.section	.debug_ranges,"",%progbits
- 1498              	.Ldebug_ranges0:
- 1499 0000 00000000 		.4byte	.LFB64
- 1500 0004 CC010000 		.4byte	.LFE64
- 1501 0008 00000000 		.4byte	.LFB65
- 1502 000c 08000000 		.4byte	.LFE65
- 1503 0010 00000000 		.4byte	.LFB66
- 1504 0014 88000000 		.4byte	.LFE66
- 1505 0018 00000000 		.4byte	0
- 1506 001c 00000000 		.4byte	0
- 1507              		.section	.debug_line,"",%progbits
- 1508              	.Ldebug_line0:
- 1509 0000 9C020000 		.section	.debug_str,"MS",%progbits,1
- 1509      02001C02 
- 1509      00000201 
- 1509      FB0E0D00 
- 1509      01010101 
- 1510              	.LASF21:
- 1511 0000 6375656E 		.ascii	"cuentx\000"
- 1511      747800
- 1512              	.LASF22:
- 1513 0007 6375656E 		.ascii	"cuenty\000"
- 1513      747900
- 1514              	.LASF2:
- 1515 000e 73686F72 		.ascii	"short int\000"
- 1515      7420696E 
- 1515      7400
- 1516              	.LASF54:
- 1517 0018 436F6E74 		.ascii	"Control\000"
- 1517      726F6C00 
- 1518              	.LASF14:
- 1519 0020 63686172 		.ascii	"char8\000"
- 1519      3800
- 1520              	.LASF56:
- 1521 0026 6D61696E 		.ascii	"main\000"
- 1521      00
- 1522              	.LASF34:
- 1523 002b 73747231 		.ascii	"str1\000"
- 1523      00
- 1524              	.LASF35:
- 1525 0030 73747232 		.ascii	"str2\000"
- 1525      00
- 1526              	.LASF36:
- 1527 0035 73747233 		.ascii	"str3\000"
- 1527      00
- 1528              	.LASF23:
- 1529 003a 64617461 		.ascii	"datax\000"
- 1529      7800
- 1530              	.LASF24:
- 1531 0040 64617461 		.ascii	"datay\000"
- 1531      7900
- 1532              	.LASF41:
- 1533 0046 50574D5F 		.ascii	"PWM_X_Start\000"
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 30
+ 1477 00a2 3B       		.uleb128 0x3b
+ 1478 00a3 0B       		.uleb128 0xb
+ 1479 00a4 27       		.uleb128 0x27
+ 1480 00a5 19       		.uleb128 0x19
+ 1481 00a6 49       		.uleb128 0x49
+ 1482 00a7 13       		.uleb128 0x13
+ 1483 00a8 8701     		.uleb128 0x87
+ 1484 00aa 19       		.uleb128 0x19
+ 1485 00ab 11       		.uleb128 0x11
+ 1486 00ac 01       		.uleb128 0x1
+ 1487 00ad 12       		.uleb128 0x12
+ 1488 00ae 06       		.uleb128 0x6
+ 1489 00af 40       		.uleb128 0x40
+ 1490 00b0 18       		.uleb128 0x18
+ 1491 00b1 9642     		.uleb128 0x2116
+ 1492 00b3 19       		.uleb128 0x19
+ 1493 00b4 01       		.uleb128 0x1
+ 1494 00b5 13       		.uleb128 0x13
+ 1495 00b6 00       		.byte	0
+ 1496 00b7 00       		.byte	0
+ 1497 00b8 0C       		.uleb128 0xc
+ 1498 00b9 2E       		.uleb128 0x2e
+ 1499 00ba 00       		.byte	0
+ 1500 00bb 3F       		.uleb128 0x3f
+ 1501 00bc 19       		.uleb128 0x19
+ 1502 00bd 03       		.uleb128 0x3
+ 1503 00be 0E       		.uleb128 0xe
+ 1504 00bf 3A       		.uleb128 0x3a
+ 1505 00c0 0B       		.uleb128 0xb
+ 1506 00c1 3B       		.uleb128 0x3b
+ 1507 00c2 0B       		.uleb128 0xb
+ 1508 00c3 27       		.uleb128 0x27
+ 1509 00c4 19       		.uleb128 0x19
+ 1510 00c5 3C       		.uleb128 0x3c
+ 1511 00c6 19       		.uleb128 0x19
+ 1512 00c7 00       		.byte	0
+ 1513 00c8 00       		.byte	0
+ 1514 00c9 0D       		.uleb128 0xd
+ 1515 00ca 898201   		.uleb128 0x4109
+ 1516 00cd 01       		.byte	0x1
+ 1517 00ce 11       		.uleb128 0x11
+ 1518 00cf 01       		.uleb128 0x1
+ 1519 00d0 31       		.uleb128 0x31
+ 1520 00d1 13       		.uleb128 0x13
+ 1521 00d2 00       		.byte	0
+ 1522 00d3 00       		.byte	0
+ 1523 00d4 0E       		.uleb128 0xe
+ 1524 00d5 34       		.uleb128 0x34
+ 1525 00d6 00       		.byte	0
+ 1526 00d7 03       		.uleb128 0x3
+ 1527 00d8 0E       		.uleb128 0xe
+ 1528 00d9 3A       		.uleb128 0x3a
+ 1529 00da 0B       		.uleb128 0xb
+ 1530 00db 3B       		.uleb128 0x3b
+ 1531 00dc 05       		.uleb128 0x5
+ 1532 00dd 49       		.uleb128 0x49
+ 1533 00de 13       		.uleb128 0x13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 30
 
 
- 1533      585F5374 
- 1533      61727400 
- 1534              	.LASF11:
- 1535 0052 696E7431 		.ascii	"int16\000"
- 1535      3600
- 1536              	.LASF25:
- 1537 0058 61636378 		.ascii	"accx\000"
- 1537      00
- 1538              	.LASF26:
- 1539 005d 61636379 		.ascii	"accy\000"
- 1539      00
- 1540              	.LASF12:
- 1541 0062 666C6F61 		.ascii	"float\000"
- 1541      7400
- 1542              	.LASF6:
- 1543 0068 6C6F6E67 		.ascii	"long long int\000"
- 1543      206C6F6E 
- 1543      6720696E 
- 1543      7400
- 1544              	.LASF55:
- 1545 0076 6973725F 		.ascii	"isr_Muestreo\000"
- 1545      4D756573 
- 1545      7472656F 
- 1545      00
- 1546              	.LASF44:
- 1547 0083 54696D65 		.ascii	"Timer_Start\000"
- 1547      725F5374 
- 1547      61727400 
- 1548              	.LASF4:
- 1549 008f 6C6F6E67 		.ascii	"long int\000"
- 1549      20696E74 
- 1549      00
- 1550              	.LASF37:
- 1551 0098 52657369 		.ascii	"ResistiveTouch_ActivateX\000"
- 1551      73746976 
- 1551      65546F75 
- 1551      63685F41 
- 1551      63746976 
- 1552              	.LASF39:
- 1553 00b1 52657369 		.ascii	"ResistiveTouch_ActivateY\000"
- 1553      73746976 
- 1553      65546F75 
- 1553      63685F41 
- 1553      63746976 
- 1554              	.LASF30:
- 1555 00ca 61636379 		.ascii	"accy2\000"
- 1555      3200
- 1556              	.LASF46:
- 1557 00d0 6973725F 		.ascii	"isr_Timer_StartEx\000"
- 1557      54696D65 
- 1557      725F5374 
- 1557      61727445 
- 1557      7800
- 1558              	.LASF1:
- 1559 00e2 756E7369 		.ascii	"unsigned char\000"
- 1559      676E6564 
- 1559      20636861 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 31
+ 1534 00df 3F       		.uleb128 0x3f
+ 1535 00e0 19       		.uleb128 0x19
+ 1536 00e1 3C       		.uleb128 0x3c
+ 1537 00e2 19       		.uleb128 0x19
+ 1538 00e3 00       		.byte	0
+ 1539 00e4 00       		.byte	0
+ 1540 00e5 0F       		.uleb128 0xf
+ 1541 00e6 35       		.uleb128 0x35
+ 1542 00e7 00       		.byte	0
+ 1543 00e8 49       		.uleb128 0x49
+ 1544 00e9 13       		.uleb128 0x13
+ 1545 00ea 00       		.byte	0
+ 1546 00eb 00       		.byte	0
+ 1547 00ec 10       		.uleb128 0x10
+ 1548 00ed 34       		.uleb128 0x34
+ 1549 00ee 00       		.byte	0
+ 1550 00ef 03       		.uleb128 0x3
+ 1551 00f0 0E       		.uleb128 0xe
+ 1552 00f1 3A       		.uleb128 0x3a
+ 1553 00f2 0B       		.uleb128 0xb
+ 1554 00f3 3B       		.uleb128 0x3b
+ 1555 00f4 0B       		.uleb128 0xb
+ 1556 00f5 49       		.uleb128 0x49
+ 1557 00f6 13       		.uleb128 0x13
+ 1558 00f7 3F       		.uleb128 0x3f
+ 1559 00f8 19       		.uleb128 0x19
+ 1560 00f9 02       		.uleb128 0x2
+ 1561 00fa 18       		.uleb128 0x18
+ 1562 00fb 00       		.byte	0
+ 1563 00fc 00       		.byte	0
+ 1564 00fd 11       		.uleb128 0x11
+ 1565 00fe 34       		.uleb128 0x34
+ 1566 00ff 00       		.byte	0
+ 1567 0100 03       		.uleb128 0x3
+ 1568 0101 08       		.uleb128 0x8
+ 1569 0102 3A       		.uleb128 0x3a
+ 1570 0103 0B       		.uleb128 0xb
+ 1571 0104 3B       		.uleb128 0x3b
+ 1572 0105 0B       		.uleb128 0xb
+ 1573 0106 49       		.uleb128 0x49
+ 1574 0107 13       		.uleb128 0x13
+ 1575 0108 3F       		.uleb128 0x3f
+ 1576 0109 19       		.uleb128 0x19
+ 1577 010a 02       		.uleb128 0x2
+ 1578 010b 18       		.uleb128 0x18
+ 1579 010c 00       		.byte	0
+ 1580 010d 00       		.byte	0
+ 1581 010e 12       		.uleb128 0x12
+ 1582 010f 26       		.uleb128 0x26
+ 1583 0110 00       		.byte	0
+ 1584 0111 49       		.uleb128 0x49
+ 1585 0112 13       		.uleb128 0x13
+ 1586 0113 00       		.byte	0
+ 1587 0114 00       		.byte	0
+ 1588 0115 13       		.uleb128 0x13
+ 1589 0116 01       		.uleb128 0x1
+ 1590 0117 01       		.byte	0x1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 31
 
 
- 1559      7200
- 1560              	.LASF38:
- 1561 00f0 52657369 		.ascii	"ResistiveTouch_Measure\000"
- 1561      73746976 
- 1561      65546F75 
- 1561      63685F4D 
- 1561      65617375 
- 1562              	.LASF32:
- 1563 0107 65736378 		.ascii	"escx\000"
- 1563      00
- 1564              	.LASF33:
- 1565 010c 65736379 		.ascii	"escy\000"
- 1565      00
- 1566              	.LASF16:
- 1567 0111 6C6F6E67 		.ascii	"long double\000"
- 1567      20646F75 
- 1567      626C6500 
- 1568              	.LASF27:
- 1569 011d 61636378 		.ascii	"accx1\000"
- 1569      3100
- 1570              	.LASF29:
- 1571 0123 61636378 		.ascii	"accx2\000"
- 1571      3200
- 1572              	.LASF47:
- 1573 0129 73707269 		.ascii	"sprintf\000"
- 1573      6E746600 
- 1574              	.LASF0:
- 1575 0131 7369676E 		.ascii	"signed char\000"
- 1575      65642063 
- 1575      68617200 
- 1576              	.LASF7:
- 1577 013d 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1577      206C6F6E 
- 1577      6720756E 
- 1577      7369676E 
- 1577      65642069 
- 1578              	.LASF8:
- 1579 0154 756E7369 		.ascii	"unsigned int\000"
- 1579      676E6564 
- 1579      20696E74 
- 1579      00
- 1580              	.LASF5:
- 1581 0161 6C6F6E67 		.ascii	"long unsigned int\000"
- 1581      20756E73 
- 1581      69676E65 
- 1581      6420696E 
- 1581      7400
- 1582              	.LASF31:
- 1583 0173 63727563 		.ascii	"cruce\000"
- 1583      6500
- 1584              	.LASF3:
- 1585 0179 73686F72 		.ascii	"short unsigned int\000"
- 1585      7420756E 
- 1585      7369676E 
- 1585      65642069 
- 1585      6E7400
- 1586              	.LASF15:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 32
+ 1591 0118 49       		.uleb128 0x49
+ 1592 0119 13       		.uleb128 0x13
+ 1593 011a 01       		.uleb128 0x1
+ 1594 011b 13       		.uleb128 0x13
+ 1595 011c 00       		.byte	0
+ 1596 011d 00       		.byte	0
+ 1597 011e 14       		.uleb128 0x14
+ 1598 011f 21       		.uleb128 0x21
+ 1599 0120 00       		.byte	0
+ 1600 0121 49       		.uleb128 0x49
+ 1601 0122 13       		.uleb128 0x13
+ 1602 0123 2F       		.uleb128 0x2f
+ 1603 0124 0B       		.uleb128 0xb
+ 1604 0125 00       		.byte	0
+ 1605 0126 00       		.byte	0
+ 1606 0127 15       		.uleb128 0x15
+ 1607 0128 2E       		.uleb128 0x2e
+ 1608 0129 00       		.byte	0
+ 1609 012a 3F       		.uleb128 0x3f
+ 1610 012b 19       		.uleb128 0x19
+ 1611 012c 3C       		.uleb128 0x3c
+ 1612 012d 19       		.uleb128 0x19
+ 1613 012e 6E       		.uleb128 0x6e
+ 1614 012f 0E       		.uleb128 0xe
+ 1615 0130 03       		.uleb128 0x3
+ 1616 0131 0E       		.uleb128 0xe
+ 1617 0132 3A       		.uleb128 0x3a
+ 1618 0133 0B       		.uleb128 0xb
+ 1619 0134 3B       		.uleb128 0x3b
+ 1620 0135 0B       		.uleb128 0xb
+ 1621 0136 00       		.byte	0
+ 1622 0137 00       		.byte	0
+ 1623 0138 00       		.byte	0
+ 1624              		.section	.debug_aranges,"",%progbits
+ 1625 0000 2C000000 		.4byte	0x2c
+ 1626 0004 0200     		.2byte	0x2
+ 1627 0006 00000000 		.4byte	.Ldebug_info0
+ 1628 000a 04       		.byte	0x4
+ 1629 000b 00       		.byte	0
+ 1630 000c 0000     		.2byte	0
+ 1631 000e 0000     		.2byte	0
+ 1632 0010 00000000 		.4byte	.LFB64
+ 1633 0014 20020000 		.4byte	.LFE64-.LFB64
+ 1634 0018 00000000 		.4byte	.LFB65
+ 1635 001c 4C000000 		.4byte	.LFE65-.LFB65
+ 1636 0020 00000000 		.4byte	.LFB66
+ 1637 0024 40010000 		.4byte	.LFE66-.LFB66
+ 1638 0028 00000000 		.4byte	0
+ 1639 002c 00000000 		.4byte	0
+ 1640              		.section	.debug_ranges,"",%progbits
+ 1641              	.Ldebug_ranges0:
+ 1642 0000 00000000 		.4byte	.LFB64
+ 1643 0004 20020000 		.4byte	.LFE64
+ 1644 0008 00000000 		.4byte	.LFB65
+ 1645 000c 4C000000 		.4byte	.LFE65
+ 1646 0010 00000000 		.4byte	.LFB66
+ 1647 0014 40010000 		.4byte	.LFE66
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 32
 
 
- 1587 018c 63686172 		.ascii	"char\000"
- 1587      00
- 1588              	.LASF10:
- 1589 0191 696E7433 		.ascii	"int32_t\000"
- 1589      325F7400 
- 1590              	.LASF49:
- 1591 0199 4C43445F 		.ascii	"LCD_Char_PrintString\000"
- 1591      43686172 
- 1591      5F507269 
- 1591      6E745374 
- 1591      72696E67 
- 1592              	.LASF43:
- 1593 01ae 52657369 		.ascii	"ResistiveTouch_Start\000"
- 1593      73746976 
- 1593      65546F75 
- 1593      63685F53 
- 1593      74617274 
- 1594              	.LASF52:
- 1595 01c3 6D61696E 		.ascii	"main.c\000"
- 1595      2E6300
- 1596              	.LASF42:
- 1597 01ca 50574D5F 		.ascii	"PWM_Y_Start\000"
- 1597      595F5374 
- 1597      61727400 
- 1598              	.LASF28:
- 1599 01d6 61636379 		.ascii	"accy1\000"
- 1599      3100
- 1600              	.LASF13:
- 1601 01dc 646F7562 		.ascii	"double\000"
- 1601      6C6500
- 1602              	.LASF40:
- 1603 01e3 50574D5F 		.ascii	"PWM_X_WriteCompare\000"
- 1603      585F5772 
- 1603      69746543 
- 1603      6F6D7061 
- 1603      726500
- 1604              	.LASF19:
- 1605 01f6 636F6F72 		.ascii	"coordx\000"
- 1605      647800
- 1606              	.LASF20:
- 1607 01fd 636F6F72 		.ascii	"coordy\000"
- 1607      647900
- 1608              	.LASF9:
- 1609 0204 5F5F696E 		.ascii	"__int32_t\000"
- 1609      7433325F 
- 1609      7400
- 1610              	.LASF53:
- 1611 020e 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
- 1611      73657273 
- 1611      5C544F53 
- 1611      48494241 
- 1611      5C446F63 
- 1612 023b 5072696D 		.ascii	"PrimerAvance\\BallPlate.cydsn\000"
- 1612      65724176 
- 1612      616E6365 
- 1612      5C42616C 
- 1612      6C506C61 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\cc8ZnwPC.s 			page 33
+ 1648 0018 00000000 		.4byte	0
+ 1649 001c 00000000 		.4byte	0
+ 1650              		.section	.debug_line,"",%progbits
+ 1651              	.Ldebug_line0:
+ 1652 0000 A9020000 		.section	.debug_str,"MS",%progbits,1
+ 1652      02001C02 
+ 1652      00000201 
+ 1652      FB0E0D00 
+ 1652      01010101 
+ 1653              	.LASF22:
+ 1654 0000 6375656E 		.ascii	"cuentx\000"
+ 1654      747800
+ 1655              	.LASF23:
+ 1656 0007 6375656E 		.ascii	"cuenty\000"
+ 1656      747900
+ 1657              	.LASF2:
+ 1658 000e 73686F72 		.ascii	"short int\000"
+ 1658      7420696E 
+ 1658      7400
+ 1659              	.LASF61:
+ 1660 0018 436F6E74 		.ascii	"Control\000"
+ 1660      726F6C00 
+ 1661              	.LASF15:
+ 1662 0020 63686172 		.ascii	"char8\000"
+ 1662      3800
+ 1663              	.LASF34:
+ 1664 0026 61646379 		.ascii	"adcy\000"
+ 1664      00
+ 1665              	.LASF63:
+ 1666 002b 6D61696E 		.ascii	"main\000"
+ 1666      00
+ 1667              	.LASF39:
+ 1668 0030 73747231 		.ascii	"str1\000"
+ 1668      00
+ 1669              	.LASF40:
+ 1670 0035 73747232 		.ascii	"str2\000"
+ 1670      00
+ 1671              	.LASF41:
+ 1672 003a 73747233 		.ascii	"str3\000"
+ 1672      00
+ 1673              	.LASF25:
+ 1674 003f 64617461 		.ascii	"datax\000"
+ 1674      7800
+ 1675              	.LASF26:
+ 1676 0045 64617461 		.ascii	"datay\000"
+ 1676      7900
+ 1677              	.LASF48:
+ 1678 004b 50574D5F 		.ascii	"PWM_X_Start\000"
+ 1678      585F5374 
+ 1678      61727400 
+ 1679              	.LASF12:
+ 1680 0057 696E7431 		.ascii	"int16\000"
+ 1680      3600
+ 1681              	.LASF27:
+ 1682 005d 61636378 		.ascii	"accx\000"
+ 1682      00
+ 1683              	.LASF28:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 33
 
 
- 1613              	.LASF17:
- 1614 0258 73697A65 		.ascii	"sizetype\000"
- 1614      74797065 
- 1614      00
- 1615              	.LASF48:
- 1616 0261 4C43445F 		.ascii	"LCD_Char_Position\000"
- 1616      43686172 
- 1616      5F506F73 
- 1616      6974696F 
- 1616      6E00
- 1617              	.LASF18:
- 1618 0273 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1618      52784275 
- 1618      66666572 
- 1618      00
- 1619              	.LASF51:
- 1620 0280 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1620      43313120 
- 1620      352E342E 
- 1620      31203230 
- 1620      31363036 
- 1621 02b3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1621      20726576 
- 1621      6973696F 
- 1621      6E203233 
- 1621      37373135 
- 1622 02e6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1622      66756E63 
- 1622      74696F6E 
- 1622      2D736563 
- 1622      74696F6E 
- 1623              	.LASF50:
- 1624 030e 43794465 		.ascii	"CyDelay\000"
- 1624      6C617900 
- 1625              	.LASF45:
- 1626 0316 4C43445F 		.ascii	"LCD_Char_Start\000"
- 1626      43686172 
- 1626      5F537461 
- 1626      727400
- 1627              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1684 0062 61636379 		.ascii	"accy\000"
+ 1684      00
+ 1685              	.LASF24:
+ 1686 0067 746F7563 		.ascii	"touch\000"
+ 1686      6800
+ 1687              	.LASF13:
+ 1688 006d 666C6F61 		.ascii	"float\000"
+ 1688      7400
+ 1689              	.LASF6:
+ 1690 0073 6C6F6E67 		.ascii	"long long int\000"
+ 1690      206C6F6E 
+ 1690      6720696E 
+ 1690      7400
+ 1691              	.LASF11:
+ 1692 0081 696E7438 		.ascii	"int8\000"
+ 1692      00
+ 1693              	.LASF62:
+ 1694 0086 6973725F 		.ascii	"isr_Muestreo\000"
+ 1694      4D756573 
+ 1694      7472656F 
+ 1694      00
+ 1695              	.LASF51:
+ 1696 0093 54696D65 		.ascii	"Timer_Start\000"
+ 1696      725F5374 
+ 1696      61727400 
+ 1697              	.LASF4:
+ 1698 009f 6C6F6E67 		.ascii	"long int\000"
+ 1698      20696E74 
+ 1698      00
+ 1699              	.LASF42:
+ 1700 00a8 52657369 		.ascii	"ResistiveTouch_ActivateX\000"
+ 1700      73746976 
+ 1700      65546F75 
+ 1700      63685F41 
+ 1700      63746976 
+ 1701              	.LASF44:
+ 1702 00c1 52657369 		.ascii	"ResistiveTouch_ActivateY\000"
+ 1702      73746976 
+ 1702      65546F75 
+ 1702      63685F41 
+ 1702      63746976 
+ 1703              	.LASF32:
+ 1704 00da 61636379 		.ascii	"accy2\000"
+ 1704      3200
+ 1705              	.LASF53:
+ 1706 00e0 6973725F 		.ascii	"isr_Timer_StartEx\000"
+ 1706      54696D65 
+ 1706      725F5374 
+ 1706      61727445 
+ 1706      7800
+ 1707              	.LASF1:
+ 1708 00f2 756E7369 		.ascii	"unsigned char\000"
+ 1708      676E6564 
+ 1708      20636861 
+ 1708      7200
+ 1709              	.LASF35:
+ 1710 0100 63727563 		.ascii	"crucex\000"
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 34
+
+
+ 1710      657800
+ 1711              	.LASF36:
+ 1712 0107 63727563 		.ascii	"crucey\000"
+ 1712      657900
+ 1713              	.LASF43:
+ 1714 010e 52657369 		.ascii	"ResistiveTouch_Measure\000"
+ 1714      73746976 
+ 1714      65546F75 
+ 1714      63685F4D 
+ 1714      65617375 
+ 1715              	.LASF37:
+ 1716 0125 65736378 		.ascii	"escx\000"
+ 1716      00
+ 1717              	.LASF38:
+ 1718 012a 65736379 		.ascii	"escy\000"
+ 1718      00
+ 1719              	.LASF17:
+ 1720 012f 6C6F6E67 		.ascii	"long double\000"
+ 1720      20646F75 
+ 1720      626C6500 
+ 1721              	.LASF29:
+ 1722 013b 61636378 		.ascii	"accx1\000"
+ 1722      3100
+ 1723              	.LASF31:
+ 1724 0141 61636378 		.ascii	"accx2\000"
+ 1724      3200
+ 1725              	.LASF54:
+ 1726 0147 73707269 		.ascii	"sprintf\000"
+ 1726      6E746600 
+ 1727              	.LASF0:
+ 1728 014f 7369676E 		.ascii	"signed char\000"
+ 1728      65642063 
+ 1728      68617200 
+ 1729              	.LASF7:
+ 1730 015b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1730      206C6F6E 
+ 1730      6720756E 
+ 1730      7369676E 
+ 1730      65642069 
+ 1731              	.LASF33:
+ 1732 0172 61646378 		.ascii	"adcx\000"
+ 1732      00
+ 1733              	.LASF8:
+ 1734 0177 756E7369 		.ascii	"unsigned int\000"
+ 1734      676E6564 
+ 1734      20696E74 
+ 1734      00
+ 1735              	.LASF5:
+ 1736 0184 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1736      20756E73 
+ 1736      69676E65 
+ 1736      6420696E 
+ 1736      7400
+ 1737              	.LASF52:
+ 1738 0196 4C43445F 		.ascii	"LCD_Char_Start\000"
+ 1738      43686172 
+ 1738      5F537461 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 35
+
+
+ 1738      727400
+ 1739              	.LASF3:
+ 1740 01a5 73686F72 		.ascii	"short unsigned int\000"
+ 1740      7420756E 
+ 1740      7369676E 
+ 1740      65642069 
+ 1740      6E7400
+ 1741              	.LASF46:
+ 1742 01b8 50574D5F 		.ascii	"PWM_Y_WriteCompare\000"
+ 1742      595F5772 
+ 1742      69746543 
+ 1742      6F6D7061 
+ 1742      726500
+ 1743              	.LASF16:
+ 1744 01cb 63686172 		.ascii	"char\000"
+ 1744      00
+ 1745              	.LASF10:
+ 1746 01d0 696E7433 		.ascii	"int32_t\000"
+ 1746      325F7400 
+ 1747              	.LASF56:
+ 1748 01d8 4C43445F 		.ascii	"LCD_Char_PrintString\000"
+ 1748      43686172 
+ 1748      5F507269 
+ 1748      6E745374 
+ 1748      72696E67 
+ 1749              	.LASF50:
+ 1750 01ed 52657369 		.ascii	"ResistiveTouch_Start\000"
+ 1750      73746976 
+ 1750      65546F75 
+ 1750      63685F53 
+ 1750      74617274 
+ 1751              	.LASF59:
+ 1752 0202 6D61696E 		.ascii	"main.c\000"
+ 1752      2E6300
+ 1753              	.LASF49:
+ 1754 0209 50574D5F 		.ascii	"PWM_Y_Start\000"
+ 1754      595F5374 
+ 1754      61727400 
+ 1755              	.LASF30:
+ 1756 0215 61636379 		.ascii	"accy1\000"
+ 1756      3100
+ 1757              	.LASF14:
+ 1758 021b 646F7562 		.ascii	"double\000"
+ 1758      6C6500
+ 1759              	.LASF45:
+ 1760 0222 50574D5F 		.ascii	"PWM_X_WriteCompare\000"
+ 1760      585F5772 
+ 1760      69746543 
+ 1760      6F6D7061 
+ 1760      726500
+ 1761              	.LASF20:
+ 1762 0235 636F6F72 		.ascii	"coordx\000"
+ 1762      647800
+ 1763              	.LASF21:
+ 1764 023c 636F6F72 		.ascii	"coordy\000"
+ 1764      647900
+ 1765              	.LASF9:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccn445JF.s 			page 36
+
+
+ 1766 0243 5F5F696E 		.ascii	"__int32_t\000"
+ 1766      7433325F 
+ 1766      7400
+ 1767              	.LASF60:
+ 1768 024d 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
+ 1768      73657273 
+ 1768      5C544F53 
+ 1768      48494241 
+ 1768      5C446F63 
+ 1769 027a 5072696D 		.ascii	"PrimerAvance\\BallPlate.cydsn\000"
+ 1769      65724176 
+ 1769      616E6365 
+ 1769      5C42616C 
+ 1769      6C506C61 
+ 1770              	.LASF18:
+ 1771 0297 73697A65 		.ascii	"sizetype\000"
+ 1771      74797065 
+ 1771      00
+ 1772              	.LASF55:
+ 1773 02a0 4C43445F 		.ascii	"LCD_Char_Position\000"
+ 1773      43686172 
+ 1773      5F506F73 
+ 1773      6974696F 
+ 1773      6E00
+ 1774              	.LASF19:
+ 1775 02b2 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1775      52784275 
+ 1775      66666572 
+ 1775      00
+ 1776              	.LASF58:
+ 1777 02bf 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1777      43313120 
+ 1777      352E342E 
+ 1777      31203230 
+ 1777      31363036 
+ 1778 02f2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1778      20726576 
+ 1778      6973696F 
+ 1778      6E203233 
+ 1778      37373135 
+ 1779 0325 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1779      66756E63 
+ 1779      74696F6E 
+ 1779      2D736563 
+ 1779      74696F6E 
+ 1780              	.LASF57:
+ 1781 034d 43794465 		.ascii	"CyDelay\000"
+ 1781      6C617900 
+ 1782              	.LASF47:
+ 1783 0355 52657369 		.ascii	"ResistiveTouch_TouchDetect\000"
+ 1783      73746976 
+ 1783      65546F75 
+ 1783      63685F54 
+ 1783      6F756368 
+ 1784              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
