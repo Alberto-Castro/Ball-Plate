@@ -196,34 +196,6 @@
 <VisibleNodeIds>
 <v>PrimerAvance</v>
 <v>PrimerAvance\BallPlate</v>
-<v>PrimerAvance\BallPlate\CortexM3</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_Timer.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_LCDPort.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_PM.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_X.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_Y.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_X.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_X_PM.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Y.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Y_PM.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch_ADC.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch_ADC_AMux.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
