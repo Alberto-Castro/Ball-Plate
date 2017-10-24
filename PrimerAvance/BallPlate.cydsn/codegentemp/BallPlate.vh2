@@ -2,7 +2,7 @@
 --	Conversion of BallPlate.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Oct 20 10:20:24 2017
+--	Tue Oct 24 11:04:39 2017
 --
 
 USE cypress.cypress.all;

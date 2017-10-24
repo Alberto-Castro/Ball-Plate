@@ -1580,7 +1580,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x6099
+.debug_info     0x00000000     0x60aa
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x598 .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_info    0x00000598      0x5de .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
@@ -1600,9 +1600,9 @@ END GROUP
  .debug_info    0x000030ad     0x1374 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyLib.o)
  .debug_info    0x00004421      0xa2a .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(cyPm.o)
  .debug_info    0x00004e4b      0x715 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(LCD_Char.o)
- .debug_info    0x00005560       0x98 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyBootAsmGnu.o)
- .debug_info    0x000055f8      0x5b8 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyFlash.o)
- .debug_info    0x00005bb0      0x4e9 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CySpc.o)
+ .debug_info    0x00005560       0xa9 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyBootAsmGnu.o)
+ .debug_info    0x00005609      0x5b8 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyFlash.o)
+ .debug_info    0x00005bc1      0x4e9 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CySpc.o)
 
 .debug_abbrev   0x00000000     0x19e8
  *(.debug_abbrev)
@@ -1698,48 +1698,48 @@ END GROUP
  .debug_frame   0x00002238       0x5c c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-reent.o)
  .debug_frame   0x00002294       0x20 c:/program files (x86)/cypress/psoc creator/4.1/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-nano-msizer.o)
 
-.debug_str      0x00000000     0x2757
+.debug_str      0x00000000     0x27b2
  *(.debug_str)
  .debug_str     0x00000000      0x309 .\CortexM3\ARM_GCC_541\Debug\main.o
                                 0x370 (size before relaxing)
- .debug_str     0x00000309      0x269 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                                0x3fe (size before relaxing)
- .debug_str     0x00000572       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-                                0x1ec (size before relaxing)
- .debug_str     0x000005f1      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                                0x312 (size before relaxing)
- .debug_str     0x00000735      0x11b .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(PWM_X.o)
-                                0x2d5 (size before relaxing)
- .debug_str     0x00000850       0xea .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(PWM_Y.o)
-                                0x2d5 (size before relaxing)
- .debug_str     0x0000093a      0x121 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(Timer.o)
-                                0x2fd (size before relaxing)
- .debug_str     0x00000a5b      0x1a3 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch.o)
-                                0x3d0 (size before relaxing)
- .debug_str     0x00000bfe      0x124 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(isr_Timer.o)
+ .debug_str     0x00000309      0x2c4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x40f (size before relaxing)
+ .debug_str     0x000005cd       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x1fd (size before relaxing)
+ .debug_str     0x0000064c      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x323 (size before relaxing)
+ .debug_str     0x00000790      0x11b .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(PWM_X.o)
                                 0x2e6 (size before relaxing)
- .debug_str     0x00000d22       0x63 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_AMux.o)
-                                0x26e (size before relaxing)
- .debug_str     0x00000d85      0x587 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC.o)
-                                0x838 (size before relaxing)
- .debug_str     0x0000130c       0x90 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_INT.o)
-                                0x213 (size before relaxing)
- .debug_str     0x0000139c       0x9b .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_AMux.o)
-                                0x270 (size before relaxing)
- .debug_str     0x00001437      0x209 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_Ext_CP_Clk.o)
-                                0x3fe (size before relaxing)
- .debug_str     0x00001640      0x203 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_theACLK.o)
-                                0x43b (size before relaxing)
- .debug_str     0x00001843      0x7d7 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyLib.o)
-                                0xa4f (size before relaxing)
- .debug_str     0x0000201a      0x365 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(cyPm.o)
-                                0x73b (size before relaxing)
- .debug_str     0x0000237f      0x190 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(LCD_Char.o)
-                                0x397 (size before relaxing)
- .debug_str     0x0000250f      0x19c .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyFlash.o)
-                                0x3a9 (size before relaxing)
- .debug_str     0x000026ab       0xac .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CySpc.o)
-                                0x332 (size before relaxing)
+ .debug_str     0x000008ab       0xea .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(PWM_Y.o)
+                                0x2e6 (size before relaxing)
+ .debug_str     0x00000995      0x121 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(Timer.o)
+                                0x30e (size before relaxing)
+ .debug_str     0x00000ab6      0x1a3 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch.o)
+                                0x3e1 (size before relaxing)
+ .debug_str     0x00000c59      0x124 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(isr_Timer.o)
+                                0x2f7 (size before relaxing)
+ .debug_str     0x00000d7d       0x63 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_AMux.o)
+                                0x27f (size before relaxing)
+ .debug_str     0x00000de0      0x587 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC.o)
+                                0x849 (size before relaxing)
+ .debug_str     0x00001367       0x90 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_INT.o)
+                                0x224 (size before relaxing)
+ .debug_str     0x000013f7       0x9b .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_AMux.o)
+                                0x281 (size before relaxing)
+ .debug_str     0x00001492      0x209 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_Ext_CP_Clk.o)
+                                0x40f (size before relaxing)
+ .debug_str     0x0000169b      0x203 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(ResistiveTouch_ADC_theACLK.o)
+                                0x44c (size before relaxing)
+ .debug_str     0x0000189e      0x7d7 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyLib.o)
+                                0xa60 (size before relaxing)
+ .debug_str     0x00002075      0x365 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(cyPm.o)
+                                0x74c (size before relaxing)
+ .debug_str     0x000023da      0x190 .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(LCD_Char.o)
+                                0x3a8 (size before relaxing)
+ .debug_str     0x0000256a      0x19c .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CyFlash.o)
+                                0x3ba (size before relaxing)
+ .debug_str     0x00002706       0xac .\CortexM3\ARM_GCC_541\Debug\BallPlate.a(CySpc.o)
+                                0x343 (size before relaxing)
 
 .debug_loc      0x00000000     0x266e
  *(.debug_loc)

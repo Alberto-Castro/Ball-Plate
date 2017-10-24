@@ -30,7 +30,7 @@ void Control(){
     ey=ref-datay;//calcula el error segun la referencia dada
     ady=-(Ny*Ts-1)*accy1+Kdy*Ny*(ey-ey1);//calculo de la parte derivativa
     accy=escy*(Kpy*ey+ady);//calculo de la accion de control
-    
+
     cuenty=318.31*accy+1500;
     if (cuenty <= 1000){
         cuenty = 1000;
