@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
   28:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** *
   29:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** * Parameters:
   30:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** *  void
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 2
 
 
   31:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
   54:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** *  void
   55:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** *
   56:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** *******************************************************************************/
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 3
 
 
   57:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** void ResistiveTouch_AMux_Init(void)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
   90              		.loc 1 79 0
   91 0002 FFF7FEFF 		bl	ResistiveTouch_AMux_DisconnectAll
   92              	.LVL2:
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 4
 
 
   93 0006 08BD     		pop	{r3, pc}
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  122:Generated_Source\PSoC5/ResistiveTouch_AMux.c ****     ResistiveTouch_AMux_CYAMUXSIDE_A_DisconnectAll();
  123:Generated_Source\PSoC5/ResistiveTouch_AMux.c ****     ResistiveTouch_AMux_CYAMUXSIDE_B_DisconnectAll();
  124:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** }
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 5
 
 
  125:Generated_Source\PSoC5/ResistiveTouch_AMux.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  118              		.cfi_endproc
  119              	.LFE3:
  120              		.size	ResistiveTouch_AMux_GetChannel, .-ResistiveTouch_AMux_GetChannel
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 6
 
 
  121              		.global	ResistiveTouch_AMux_initVar
@@ -319,46 +319,46 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  136 0006 00000000 		.4byte	.Ldebug_abbrev0
  137 000a 04       		.byte	0x4
  138 000b 01       		.uleb128 0x1
- 139 000c DD000000 		.4byte	.LASF19
+ 139 000c 82000000 		.4byte	.LASF19
  140 0010 0C       		.byte	0xc
- 141 0011 90010000 		.4byte	.LASF20
- 142 0015 55000000 		.4byte	.LASF21
+ 141 0011 35010000 		.4byte	.LASF20
+ 142 0015 C4010000 		.4byte	.LASF21
  143 0019 00000000 		.4byte	.Ldebug_ranges0+0
  144 001d 00000000 		.4byte	0
  145 0021 00000000 		.4byte	.Ldebug_line0
  146 0025 02       		.uleb128 0x2
  147 0026 01       		.byte	0x1
  148 0027 06       		.byte	0x6
- 149 0028 5A020000 		.4byte	.LASF0
+ 149 0028 49020000 		.4byte	.LASF0
  150 002c 02       		.uleb128 0x2
  151 002d 01       		.byte	0x1
  152 002e 08       		.byte	0x8
- 153 002f CF000000 		.4byte	.LASF1
+ 153 002f 74000000 		.4byte	.LASF1
  154 0033 02       		.uleb128 0x2
  155 0034 02       		.byte	0x2
  156 0035 05       		.byte	0x5
- 157 0036 1F020000 		.4byte	.LASF2
+ 157 0036 0E020000 		.4byte	.LASF2
  158 003a 02       		.uleb128 0x2
  159 003b 02       		.byte	0x2
  160 003c 07       		.byte	0x7
- 161 003d 7D010000 		.4byte	.LASF3
+ 161 003d 22010000 		.4byte	.LASF3
  162 0041 02       		.uleb128 0x2
  163 0042 04       		.byte	0x4
  164 0043 05       		.byte	0x5
- 165 0044 2F020000 		.4byte	.LASF4
+ 165 0044 1E020000 		.4byte	.LASF4
  166 0048 02       		.uleb128 0x2
  167 0049 04       		.byte	0x4
  168 004a 07       		.byte	0x7
- 169 004b 6B010000 		.4byte	.LASF5
+ 169 004b 10010000 		.4byte	.LASF5
  170 004f 02       		.uleb128 0x2
  171 0050 08       		.byte	0x8
  172 0051 05       		.byte	0x5
- 173 0052 0C020000 		.4byte	.LASF6
+ 173 0052 B1010000 		.4byte	.LASF6
  174 0056 02       		.uleb128 0x2
  175 0057 08       		.byte	0x8
  176 0058 07       		.byte	0x7
- 177 0059 D6010000 		.4byte	.LASF7
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 7
+ 177 0059 7B010000 		.4byte	.LASF7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 7
 
 
  178 005d 03       		.uleb128 0x3
@@ -368,29 +368,29 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  182 0064 02       		.uleb128 0x2
  183 0065 04       		.byte	0x4
  184 0066 07       		.byte	0x7
- 185 0067 C9010000 		.4byte	.LASF8
+ 185 0067 6E010000 		.4byte	.LASF8
  186 006b 04       		.uleb128 0x4
- 187 006c 29020000 		.4byte	.LASF9
+ 187 006c 18020000 		.4byte	.LASF9
  188 0070 02       		.byte	0x2
  189 0071 9201     		.2byte	0x192
  190 0073 2C000000 		.4byte	0x2c
  191 0077 04       		.uleb128 0x4
- 192 0078 C4010000 		.4byte	.LASF10
+ 192 0078 69010000 		.4byte	.LASF10
  193 007c 02       		.byte	0x2
  194 007d 9501     		.2byte	0x195
  195 007f 25000000 		.4byte	0x25
  196 0083 02       		.uleb128 0x2
  197 0084 04       		.byte	0x4
  198 0085 04       		.byte	0x4
- 199 0086 B0000000 		.4byte	.LASF11
+ 199 0086 55000000 		.4byte	.LASF11
  200 008a 02       		.uleb128 0x2
  201 008b 08       		.byte	0x8
  202 008c 04       		.byte	0x4
- 203 008d BD010000 		.4byte	.LASF12
+ 203 008d 62010000 		.4byte	.LASF12
  204 0091 02       		.uleb128 0x2
  205 0092 01       		.byte	0x1
  206 0093 08       		.byte	0x8
- 207 0094 1A020000 		.4byte	.LASF13
+ 207 0094 BF010000 		.4byte	.LASF13
  208 0098 05       		.uleb128 0x5
  209 0099 3B000000 		.4byte	.LASF14
  210 009d 01       		.byte	0x1
@@ -405,7 +405,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  219 00b2 26010000 		.4byte	0x126
  220 00b6 00       		.byte	0
  221 00b7 05       		.uleb128 0x5
- 222 00b8 66020000 		.4byte	.LASF15
+ 222 00b8 55020000 		.4byte	.LASF15
  223 00bc 01       		.byte	0x1
  224 00bd 39       		.byte	0x39
  225 00be 00000000 		.4byte	.LFB1
@@ -418,10 +418,10 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  232 00d1 26010000 		.4byte	0x126
  233 00d5 00       		.byte	0
  234 00d6 05       		.uleb128 0x5
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 8
 
 
- 235 00d7 B6000000 		.4byte	.LASF16
+ 235 00d7 5B000000 		.4byte	.LASF16
  236 00db 01       		.byte	0x1
  237 00dc 4D       		.byte	0x4d
  238 00dd 00000000 		.4byte	.LFB2
@@ -443,7 +443,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  254 0108 01       		.uleb128 0x1
  255 0109 9C       		.byte	0x9c
  256 010a 08       		.uleb128 0x8
- 257 010b ED010000 		.4byte	.LASF17
+ 257 010b 92010000 		.4byte	.LASF17
  258 010f 03       		.byte	0x3
  259 0110 26       		.byte	0x26
  260 0111 77000000 		.4byte	0x77
@@ -456,8 +456,8 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  267 0121 03       		.byte	0x3
  268 0122 00000000 		.4byte	ResistiveTouch_AMux_initVar
  269 0126 0A       		.uleb128 0xa
- 270 0127 38020000 		.4byte	.LASF23
- 271 012b 38020000 		.4byte	.LASF23
+ 270 0127 27020000 		.4byte	.LASF23
+ 271 012b 27020000 		.4byte	.LASF23
  272 012f 03       		.byte	0x3
  273 0130 24       		.byte	0x24
  274 0131 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  289 000c 17       		.uleb128 0x17
  290 000d 11       		.uleb128 0x11
  291 000e 01       		.uleb128 0x1
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 9
 
 
  292 000f 10       		.uleb128 0x10
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  346 0045 12       		.uleb128 0x12
  347 0046 06       		.uleb128 0x6
  348 0047 40       		.uleb128 0x40
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 10
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 10
 
 
  349 0048 18       		.uleb128 0x18
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  403 0082 3C       		.uleb128 0x3c
  404 0083 19       		.uleb128 0x19
  405 0084 00       		.byte	0
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 11
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 11
 
 
  406 0085 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  460              		.section	.debug_ranges,"",%progbits
  461              	.Ldebug_ranges0:
  462 0000 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 12
 
 
  463 0004 14000000 		.4byte	.LFE0
@@ -695,125 +695,125 @@ ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 1
  480      65546F75 
  480      63685F41 
  480      4D75785F 
- 481              	.LASF21:
- 482 0055 433A5C55 		.ascii	"C:\\Users\\Jafet ChaB\\Documents\\PSoC Creator\\bal"
- 482      73657273 
- 482      5C4A6166 
- 482      65742043 
- 482      6861425C 
- 483 0083 6C5F706C 		.ascii	"l_plate_control\\PrimerAvance\\BallPlate.cydsn\000"
- 483      6174655F 
- 483      636F6E74 
- 483      726F6C5C 
- 483      5072696D 
- 484              	.LASF11:
- 485 00b0 666C6F61 		.ascii	"float\000"
- 485      7400
- 486              	.LASF16:
- 487 00b6 52657369 		.ascii	"ResistiveTouch_AMux_Stop\000"
- 487      73746976 
- 487      65546F75 
- 487      63685F41 
- 487      4D75785F 
- 488              	.LASF1:
- 489 00cf 756E7369 		.ascii	"unsigned char\000"
- 489      676E6564 
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 13
+ 481              	.LASF11:
+ 482 0055 666C6F61 		.ascii	"float\000"
+ 482      7400
+ 483              	.LASF16:
+ 484 005b 52657369 		.ascii	"ResistiveTouch_AMux_Stop\000"
+ 484      73746976 
+ 484      65546F75 
+ 484      63685F41 
+ 484      4D75785F 
+ 485              	.LASF1:
+ 486 0074 756E7369 		.ascii	"unsigned char\000"
+ 486      676E6564 
+ 486      20636861 
+ 486      7200
+ 487              	.LASF19:
+ 488 0082 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 488      43313120 
+ 488      352E342E 
+ 488      31203230 
+ 488      31363036 
+ 489 00b5 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 489      20726576 
+ 489      6973696F 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 13
 
 
- 489      20636861 
- 489      7200
- 490              	.LASF19:
- 491 00dd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 491      43313120 
- 491      352E342E 
- 491      31203230 
- 491      31363036 
- 492 0110 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 492      20726576 
- 492      6973696F 
- 492      6E203233 
- 492      37373135 
- 493 0143 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 493      66756E63 
- 493      74696F6E 
- 493      2D736563 
- 493      74696F6E 
- 494              	.LASF5:
- 495 016b 6C6F6E67 		.ascii	"long unsigned int\000"
- 495      20756E73 
- 495      69676E65 
- 495      6420696E 
- 495      7400
- 496              	.LASF3:
- 497 017d 73686F72 		.ascii	"short unsigned int\000"
- 497      7420756E 
- 497      7369676E 
- 497      65642069 
- 497      6E7400
- 498              	.LASF20:
- 499 0190 47656E65 		.ascii	"Generated_Source\\PSoC5\\ResistiveTouch_AMux.c\000"
- 499      72617465 
- 499      645F536F 
- 499      75726365 
- 499      5C50536F 
- 500              	.LASF12:
- 501 01bd 646F7562 		.ascii	"double\000"
- 501      6C6500
- 502              	.LASF10:
- 503 01c4 696E7438 		.ascii	"int8\000"
- 503      00
- 504              	.LASF8:
- 505 01c9 756E7369 		.ascii	"unsigned int\000"
- 505      676E6564 
- 505      20696E74 
- 505      00
- 506              	.LASF7:
- 507 01d6 6C6F6E67 		.ascii	"long long unsigned int\000"
- 507      206C6F6E 
- 507      6720756E 
- 507      7369676E 
- 507      65642069 
- 508              	.LASF17:
- 509 01ed 52657369 		.ascii	"ResistiveTouch_AMux_curChannel\000"
- 509      73746976 
- 509      65546F75 
-ARM GAS  C:\Users\JAFETC~1\AppData\Local\Temp\cccD3yhk.s 			page 14
+ 489      6E203233 
+ 489      37373135 
+ 490 00e8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 490      66756E63 
+ 490      74696F6E 
+ 490      2D736563 
+ 490      74696F6E 
+ 491              	.LASF5:
+ 492 0110 6C6F6E67 		.ascii	"long unsigned int\000"
+ 492      20756E73 
+ 492      69676E65 
+ 492      6420696E 
+ 492      7400
+ 493              	.LASF3:
+ 494 0122 73686F72 		.ascii	"short unsigned int\000"
+ 494      7420756E 
+ 494      7369676E 
+ 494      65642069 
+ 494      6E7400
+ 495              	.LASF20:
+ 496 0135 47656E65 		.ascii	"Generated_Source\\PSoC5\\ResistiveTouch_AMux.c\000"
+ 496      72617465 
+ 496      645F536F 
+ 496      75726365 
+ 496      5C50536F 
+ 497              	.LASF12:
+ 498 0162 646F7562 		.ascii	"double\000"
+ 498      6C6500
+ 499              	.LASF10:
+ 500 0169 696E7438 		.ascii	"int8\000"
+ 500      00
+ 501              	.LASF8:
+ 502 016e 756E7369 		.ascii	"unsigned int\000"
+ 502      676E6564 
+ 502      20696E74 
+ 502      00
+ 503              	.LASF7:
+ 504 017b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 504      206C6F6E 
+ 504      6720756E 
+ 504      7369676E 
+ 504      65642069 
+ 505              	.LASF17:
+ 506 0192 52657369 		.ascii	"ResistiveTouch_AMux_curChannel\000"
+ 506      73746976 
+ 506      65546F75 
+ 506      63685F41 
+ 506      4D75785F 
+ 507              	.LASF6:
+ 508 01b1 6C6F6E67 		.ascii	"long long int\000"
+ 508      206C6F6E 
+ 508      6720696E 
+ 508      7400
+ 509              	.LASF13:
+ 510 01bf 63686172 		.ascii	"char\000"
+ 510      00
+ 511              	.LASF21:
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccJov447.s 			page 14
 
 
- 509      63685F41 
- 509      4D75785F 
- 510              	.LASF6:
- 511 020c 6C6F6E67 		.ascii	"long long int\000"
- 511      206C6F6E 
- 511      6720696E 
- 511      7400
- 512              	.LASF13:
- 513 021a 63686172 		.ascii	"char\000"
- 513      00
+ 512 01c4 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
+ 512      73657273 
+ 512      5C544F53 
+ 512      48494241 
+ 512      5C446F63 
+ 513 01f1 5072696D 		.ascii	"PrimerAvance\\BallPlate.cydsn\000"
+ 513      65724176 
+ 513      616E6365 
+ 513      5C42616C 
+ 513      6C506C61 
  514              	.LASF2:
- 515 021f 73686F72 		.ascii	"short int\000"
+ 515 020e 73686F72 		.ascii	"short int\000"
  515      7420696E 
  515      7400
  516              	.LASF9:
- 517 0229 75696E74 		.ascii	"uint8\000"
+ 517 0218 75696E74 		.ascii	"uint8\000"
  517      3800
  518              	.LASF4:
- 519 022f 6C6F6E67 		.ascii	"long int\000"
+ 519 021e 6C6F6E67 		.ascii	"long int\000"
  519      20696E74 
  519      00
  520              	.LASF23:
- 521 0238 52657369 		.ascii	"ResistiveTouch_AMux_DisconnectAll\000"
+ 521 0227 52657369 		.ascii	"ResistiveTouch_AMux_DisconnectAll\000"
  521      73746976 
  521      65546F75 
  521      63685F41 
  521      4D75785F 
  522              	.LASF0:
- 523 025a 7369676E 		.ascii	"signed char\000"
+ 523 0249 7369676E 		.ascii	"signed char\000"
  523      65642063 
  523      68617200 
  524              	.LASF15:
- 525 0266 52657369 		.ascii	"ResistiveTouch_AMux_Init\000"
+ 525 0255 52657369 		.ascii	"ResistiveTouch_AMux_Init\000"
  525      73746976 
  525      65546F75 
  525      63685F41 

@@ -1,5 +1,5 @@
 # StaticSegLCD_Example01
-# 2017-10-17 17:09:41Z
+# 2017-11-02 16:11:12Z
 
 set_location "ClockBlock" clockblockcell -1 -1 0
 set_io "\LCD_SegStat:Com(0)\" iocell 0 4

@@ -2,7 +2,7 @@
 --	Conversion of StaticSegLCD_Example01.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Oct 17 11:09:33 2017
+--	Thu Nov 02 10:10:52 2017
 --
 
 USE cypress.cypress.all;

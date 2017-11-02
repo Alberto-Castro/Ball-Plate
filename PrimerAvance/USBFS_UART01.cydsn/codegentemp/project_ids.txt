@@ -1,0 +1,9 @@
+C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\BallPlate.cyprj|016503ac-2e65-4a1b-be81-7b8edaa1b9f4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8f239c86-c742-43a7-8cac-b8b5ebaa5780
+C:\Users\TOSHIBA\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|a3e0e27a-4e98-46d7-a506-e7a89f133bbc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d6b3c675-6221-482f-afd8-8e009ac8f18f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|24104d47-b7d3-4fab-a4ae-2bf262f2dd97
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6939b4c2-69ca-435f-879f-4c993e942ba2
+C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cyprj|09c1d170-f2f4-4e22-b9fb-0883e3ad44ac
+C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|9703b2f0-497d-43b2-8db7-20e923882dc7
+C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\USBFS_UART01.cydsn\USBFS_UART01.cyprj|e61e2ac3-e511-4361-91db-ae89f409fc56

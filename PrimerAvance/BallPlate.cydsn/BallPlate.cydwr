@@ -256,6 +256,7 @@
       <Data key="a5d18180-577c-445a-aee0-a3ef6c1e9d6a/610968b3-67fb-4685-8915-5e2cfb8dc1ab" value="ResistiveTouch_xm" />
       <Data key="a5d18180-577c-445a-aee0-a3ef6c1e9d6a/cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada" value="ResistiveTouch_xp" />
       <Data key="ca0e93f8-4969-407a-a19b-2fee491f22f9" value="Out_Y" />
+      <Data key="d7c7b232-0697-4901-9a26-5382998aef39" value="Pin_1" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Out_X" />
     </Group>
   </Group>
@@ -3389,6 +3390,11 @@
     <Group key="ca0e93f8-4969-407a-a19b-2fee491f22f9">
       <Group key="0">
         <Data key="Port Format" value="4,5" />
+      </Group>
+    </Group>
+    <Group key="d7c7b232-0697-4901-9a26-5382998aef39">
+      <Group key="0">
+        <Data key="Port Format" value="4,6" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
