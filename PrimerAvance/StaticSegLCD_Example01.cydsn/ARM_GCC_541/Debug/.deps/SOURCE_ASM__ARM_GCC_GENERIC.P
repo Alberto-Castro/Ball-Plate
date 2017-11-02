@@ -1,10 +1,10 @@
-C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/ARM_GCC_541/Debug/CyBootAsmGnu.o : C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu.inc C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/ARM_GCC_541/Debug/CyBootAsmGnu.o : C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu.inc C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
 
-C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
 
-C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
 
-C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
 
-C:/Users/TOSHIBA/Documents/PSoC\ Creator/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+C:/Users/TOSHIBA/Documents/GitHub/Ball-Plate/PrimerAvance/StaticSegLCD_Example01.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
 

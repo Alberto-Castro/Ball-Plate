@@ -18,8 +18,8 @@ int16 coordx,coordy; //Coordenadas medidas de la placa
 int16 cuentx,cuenty; //Salidas al PWM
 int8 touch;
 float datax,datay,ex,ey,adx,ady,accx,accy,accx1,accy1,accx2,accy2,ex1,ey1,adcx,adcy,crucex,crucey, pdx, pdy, KNx, KNy; //Variables para el control
-const float ref=0, Ts=0.02,escx=1,escy=1;
-const float /*Kpx=0.03,Kdx=0.03,Nx=50.8753,Kpy=0.02,Kdy=0.02,Ny=50.8753;*/Kpy=0.0813,Kdy=0.0456,Ny=59.1,Kpx=0.0813,Kdx=0.0456,Nx=59.1;
+const float ref=0, Ts=0.02,escx=2,escy=2;
+const float Kpx=0.07,Kdx=0.035,Nx=50.8753,Kpy=0.04,Kdy=0.02,Ny=50.8753;//Kpy=0.0813,Kdy=0.0456,Ny=59.1,Kpx=0.0813,Kdx=0.0456,Nx=59.1;
 char8 str1[80],str2[80],str3[80];
 
 

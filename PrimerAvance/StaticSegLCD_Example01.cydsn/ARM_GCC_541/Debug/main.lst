@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
   28:main.c        **** ********************************************************************************
   29:main.c        **** *
   30:main.c        **** * Summary:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 2
 
 
   31:main.c        **** *  1. Clears interrupts from Pin_wakeup pin. 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
   57              	.LC3:
   58 0048 43757272 		.ascii	"Curr status: Failure\000"
   58      20737461 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 3
 
 
   58      7475733A 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
   80 0006 0023     		movs	r3, #0
   81 0008 7B71     		strb	r3, [r7, #5]
   74:main.c        ****     
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 4
 
 
   75:main.c        ****     /* Initialize the value to be displayed on the LCD. */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
   97:main.c        ****     {
   98:main.c        ****         LCD_Char_PrintString("Init status: Failure");
  114              		.loc 1 98 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 5
 
 
  115 003a 2148     		ldr	r0, .L8+8
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  124:main.c        ****         /* Set component's pin mode to HiZ for both segment and common lines to 
  125:main.c        ****         * decrese current consumption and to avoid LCD glaass damaging .
  126:main.c        ****         */
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 6
 
 
  127:main.c        ****         LCD_SegStat_SegPort_SetDriveMode(LCD_SegStat_DM_ALG_HIZ);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  148:main.c        ****         {
  149:main.c        ****             LCD_Char_PrintString("Curr status: Failure");
  177              		.loc 1 149 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 7
 
 
  178 00ae 0648     		ldr	r0, .L8+16
@@ -391,9 +391,9 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  203 0006 00000000 		.4byte	.Ldebug_abbrev0
  204 000a 04       		.byte	0x4
  205 000b 01       		.uleb128 0x1
- 206 000c C8000000 		.4byte	.LASF20
+ 206 000c CD000000 		.4byte	.LASF20
  207 0010 0C       		.byte	0xc
- 208 0011 73000000 		.4byte	.LASF21
+ 208 0011 78000000 		.4byte	.LASF21
  209 0015 21000000 		.4byte	.LASF22
  210 0019 00000000 		.4byte	.Ldebug_ranges0+0
  211 001d 00000000 		.4byte	0
@@ -401,35 +401,35 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  213 0025 02       		.uleb128 0x2
  214 0026 01       		.byte	0x1
  215 0027 06       		.byte	0x6
- 216 0028 94010000 		.4byte	.LASF0
+ 216 0028 99010000 		.4byte	.LASF0
  217 002c 02       		.uleb128 0x2
  218 002d 01       		.byte	0x1
  219 002e 08       		.byte	0x8
- 220 002f 56010000 		.4byte	.LASF1
+ 220 002f 5B010000 		.4byte	.LASF1
  221 0033 02       		.uleb128 0x2
  222 0034 02       		.byte	0x2
  223 0035 05       		.byte	0x5
- 224 0036 BC010000 		.4byte	.LASF2
+ 224 0036 C1010000 		.4byte	.LASF2
  225 003a 02       		.uleb128 0x2
  226 003b 02       		.byte	0x2
  227 003c 07       		.byte	0x7
- 228 003d B5000000 		.4byte	.LASF3
+ 228 003d BA000000 		.4byte	.LASF3
  229 0041 03       		.uleb128 0x3
- 230 0042 AC010000 		.4byte	.LASF9
+ 230 0042 B1010000 		.4byte	.LASF9
  231 0046 02       		.byte	0x2
  232 0047 3F       		.byte	0x3f
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 8
 
 
  233 0048 4C000000 		.4byte	0x4c
  234 004c 02       		.uleb128 0x2
  235 004d 04       		.byte	0x4
  236 004e 05       		.byte	0x5
- 237 004f 69010000 		.4byte	.LASF4
+ 237 004f 6E010000 		.4byte	.LASF4
  238 0053 02       		.uleb128 0x2
  239 0054 04       		.byte	0x4
  240 0055 07       		.byte	0x7
- 241 0056 8C000000 		.4byte	.LASF5
+ 241 0056 91000000 		.4byte	.LASF5
  242 005a 02       		.uleb128 0x2
  243 005b 08       		.byte	0x8
  244 005c 05       		.byte	0x5
@@ -437,7 +437,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  246 0061 02       		.uleb128 0x2
  247 0062 08       		.byte	0x8
  248 0063 07       		.byte	0x7
- 249 0064 9E000000 		.4byte	.LASF7
+ 249 0064 A3000000 		.4byte	.LASF7
  250 0068 04       		.uleb128 0x4
  251 0069 04       		.byte	0x4
  252 006a 05       		.byte	0x5
@@ -447,45 +447,45 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  256 0071 07       		.byte	0x7
  257 0072 14000000 		.4byte	.LASF8
  258 0076 03       		.uleb128 0x3
- 259 0077 CD010000 		.4byte	.LASF10
+ 259 0077 D2010000 		.4byte	.LASF10
  260 007b 03       		.byte	0x3
  261 007c 2C       		.byte	0x2c
  262 007d 41000000 		.4byte	0x41
  263 0081 05       		.uleb128 0x5
- 264 0082 86000000 		.4byte	.LASF11
+ 264 0082 8B000000 		.4byte	.LASF11
  265 0086 04       		.byte	0x4
  266 0087 9201     		.2byte	0x192
  267 0089 2C000000 		.4byte	0x2c
  268 008d 05       		.uleb128 0x5
- 269 008e C6010000 		.4byte	.LASF12
+ 269 008e CB010000 		.4byte	.LASF12
  270 0092 04       		.byte	0x4
  271 0093 9301     		.2byte	0x193
  272 0095 3A000000 		.4byte	0x3a
  273 0099 02       		.uleb128 0x2
  274 009a 04       		.byte	0x4
  275 009b 04       		.byte	0x4
- 276 009c B6010000 		.4byte	.LASF13
+ 276 009c BB010000 		.4byte	.LASF13
  277 00a0 02       		.uleb128 0x2
  278 00a1 08       		.byte	0x8
  279 00a2 04       		.byte	0x4
- 280 00a3 80010000 		.4byte	.LASF14
+ 280 00a3 85010000 		.4byte	.LASF14
  281 00a7 02       		.uleb128 0x2
  282 00a8 01       		.byte	0x1
  283 00a9 08       		.byte	0x8
- 284 00aa 64010000 		.4byte	.LASF15
+ 284 00aa 69010000 		.4byte	.LASF15
  285 00ae 02       		.uleb128 0x2
  286 00af 08       		.byte	0x8
  287 00b0 04       		.byte	0x4
- 288 00b1 A0010000 		.4byte	.LASF16
+ 288 00b1 A5010000 		.4byte	.LASF16
  289 00b5 02       		.uleb128 0x2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 9
 
 
  290 00b6 04       		.byte	0x4
  291 00b7 07       		.byte	0x7
- 292 00b8 D5010000 		.4byte	.LASF17
+ 292 00b8 DA010000 		.4byte	.LASF17
  293 00bc 06       		.uleb128 0x6
- 294 00bd 72010000 		.4byte	.LASF23
+ 294 00bd 77010000 		.4byte	.LASF23
  295 00c1 01       		.byte	0x1
  296 00c2 28       		.byte	0x28
  297 00c3 00000000 		.4byte	.LFB63
@@ -493,7 +493,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  299 00cb 01       		.uleb128 0x1
  300 00cc 9C       		.byte	0x9c
  301 00cd 07       		.uleb128 0x7
- 302 00ce 7A000000 		.4byte	.LASF24
+ 302 00ce 7F000000 		.4byte	.LASF24
  303 00d2 01       		.byte	0x1
  304 00d3 47       		.byte	0x47
  305 00d4 68000000 		.4byte	0x68
@@ -503,7 +503,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  309 00e1 9C       		.byte	0x9c
  310 00e2 03010000 		.4byte	0x103
  311 00e6 08       		.uleb128 0x8
- 312 00e7 7F000000 		.4byte	.LASF18
+ 312 00e7 84000000 		.4byte	.LASF18
  313 00eb 01       		.byte	0x1
  314 00ec 49       		.byte	0x49
  315 00ed 81000000 		.4byte	0x81
@@ -520,7 +520,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  326 0101 76       		.sleb128 -10
  327 0102 00       		.byte	0
  328 0103 09       		.uleb128 0x9
- 329 0104 87010000 		.4byte	.LASF25
+ 329 0104 8C010000 		.4byte	.LASF25
  330 0108 05       		.byte	0x5
  331 0109 1207     		.2byte	0x712
  332 010b 0F010000 		.4byte	0x10f
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  344 0006 0B       		.uleb128 0xb
  345 0007 03       		.uleb128 0x3
  346 0008 0E       		.uleb128 0xe
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 10
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 10
 
 
  347 0009 1B       		.uleb128 0x1b
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  401 003f 49       		.uleb128 0x49
  402 0040 13       		.uleb128 0x13
  403 0041 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 11
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 11
 
 
  404 0042 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  458 007a 3A       		.uleb128 0x3a
  459 007b 0B       		.uleb128 0xb
  460 007c 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 12
 
 
  461 007d 0B       		.uleb128 0xb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  515              		.section	.debug_line,"",%progbits
  516              	.Ldebug_line0:
  517 0000 8F010000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 13
 
 
  517      02004C01 
@@ -739,120 +739,120 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 1
  523      20696E74 
  523      00
  524              	.LASF22:
- 525 0021 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
+ 525 0021 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
  525      73657273 
  525      5C544F53 
  525      48494241 
  525      5C446F63 
- 526 004f 4176616E 		.ascii	"Avance\\StaticSegLCD_Example01.cydsn\000"
- 526      63655C53 
- 526      74617469 
- 526      63536567 
- 526      4C43445F 
+ 526 004e 5072696D 		.ascii	"PrimerAvance\\StaticSegLCD_Example01.cydsn\000"
+ 526      65724176 
+ 526      616E6365 
+ 526      5C537461 
+ 526      74696353 
  527              	.LASF21:
- 528 0073 6D61696E 		.ascii	"main.c\000"
+ 528 0078 6D61696E 		.ascii	"main.c\000"
  528      2E6300
  529              	.LASF24:
- 530 007a 6D61696E 		.ascii	"main\000"
+ 530 007f 6D61696E 		.ascii	"main\000"
  530      00
  531              	.LASF18:
- 532 007f 73746174 		.ascii	"status\000"
+ 532 0084 73746174 		.ascii	"status\000"
  532      757300
  533              	.LASF11:
- 534 0086 75696E74 		.ascii	"uint8\000"
+ 534 008b 75696E74 		.ascii	"uint8\000"
  534      3800
  535              	.LASF5:
- 536 008c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 536 0091 6C6F6E67 		.ascii	"long unsigned int\000"
  536      20756E73 
  536      69676E65 
  536      6420696E 
  536      7400
  537              	.LASF7:
- 538 009e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 538 00a3 6C6F6E67 		.ascii	"long long unsigned int\000"
  538      206C6F6E 
  538      6720756E 
  538      7369676E 
  538      65642069 
  539              	.LASF3:
- 540 00b5 73686F72 		.ascii	"short unsigned int\000"
+ 540 00ba 73686F72 		.ascii	"short unsigned int\000"
  540      7420756E 
  540      7369676E 
  540      65642069 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 14
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 14
 
 
  540      6E7400
  541              	.LASF20:
- 542 00c8 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 542 00cd 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  542      43313120 
  542      352E342E 
  542      31203230 
  542      31363036 
- 543 00fb 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 543 0100 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  543      20726576 
  543      6973696F 
  543      6E203233 
  543      37373135 
- 544 012e 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 544 0133 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
  544      66756E63 
  544      74696F6E 
  544      2D736563 
  544      74696F6E 
  545              	.LASF1:
- 546 0156 756E7369 		.ascii	"unsigned char\000"
+ 546 015b 756E7369 		.ascii	"unsigned char\000"
  546      676E6564 
  546      20636861 
  546      7200
  547              	.LASF15:
- 548 0164 63686172 		.ascii	"char\000"
+ 548 0169 63686172 		.ascii	"char\000"
  548      00
  549              	.LASF4:
- 550 0169 6C6F6E67 		.ascii	"long int\000"
+ 550 016e 6C6F6E67 		.ascii	"long int\000"
  550      20696E74 
  550      00
  551              	.LASF23:
- 552 0172 57616B65 		.ascii	"WakeUpIsr_Int\000"
+ 552 0177 57616B65 		.ascii	"WakeUpIsr_Int\000"
  552      55704973 
  552      725F496E 
  552      7400
  553              	.LASF14:
- 554 0180 646F7562 		.ascii	"double\000"
+ 554 0185 646F7562 		.ascii	"double\000"
  554      6C6500
  555              	.LASF25:
- 556 0187 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 556 018c 49544D5F 		.ascii	"ITM_RxBuffer\000"
  556      52784275 
  556      66666572 
  556      00
  557              	.LASF0:
- 558 0194 7369676E 		.ascii	"signed char\000"
+ 558 0199 7369676E 		.ascii	"signed char\000"
  558      65642063 
  558      68617200 
  559              	.LASF16:
- 560 01a0 6C6F6E67 		.ascii	"long double\000"
+ 560 01a5 6C6F6E67 		.ascii	"long double\000"
  560      20646F75 
  560      626C6500 
  561              	.LASF9:
- 562 01ac 5F5F696E 		.ascii	"__int32_t\000"
+ 562 01b1 5F5F696E 		.ascii	"__int32_t\000"
  562      7433325F 
  562      7400
  563              	.LASF13:
- 564 01b6 666C6F61 		.ascii	"float\000"
+ 564 01bb 666C6F61 		.ascii	"float\000"
  564      7400
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccaNP1xq.s 			page 15
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccT0E2b8.s 			page 15
 
 
  565              	.LASF2:
- 566 01bc 73686F72 		.ascii	"short int\000"
+ 566 01c1 73686F72 		.ascii	"short int\000"
  566      7420696E 
  566      7400
  567              	.LASF12:
- 568 01c6 75696E74 		.ascii	"uint16\000"
+ 568 01cb 75696E74 		.ascii	"uint16\000"
  568      313600
  569              	.LASF10:
- 570 01cd 696E7433 		.ascii	"int32_t\000"
+ 570 01d2 696E7433 		.ascii	"int32_t\000"
  570      325F7400 
  571              	.LASF17:
- 572 01d5 73697A65 		.ascii	"sizetype\000"
+ 572 01da 73697A65 		.ascii	"sizetype\000"
  572      74797065 
  572      00
  573              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
