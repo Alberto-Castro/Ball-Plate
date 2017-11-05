@@ -22,6 +22,12 @@ const float ref=0, Ts=0.02,escx=1,escy=1;
 const float /*Kpx=0.03,Kdx=0.03,Nx=50.8753,Kpy=0.02,Kdy=0.02,Ny=50.8753;*/Kpy = 0.04, Kdy=0.043,Ny=15,Kpx=0.04,Kdx=0.043,Nx=15;
 char8 str1[80],str2[80],str3[80];
 
+//Variables filtro media móvil
+const int N = 3;//Número de muestras
+float xbuffer[N], ybuffer[N], skx, sky;//Variables del cálculo promediador
+int ix,iy;
+
+
 
 
 void Control(){
@@ -30,14 +36,30 @@ void Control(){
         
     //Calculo en Y
     datay=(adcy*coordy)+crucey;//Conversión (y linealiza) de coordenada a tensión
-    if ((datay<=0.2) & (datay>=-0.2)){
-        datay=0;
+    
+    //-------------------------------------------
+    //Filtro de media móvil Y
+    sky = sky - ybuffer[iy] + datay;
+    datay = sky/N;
+    
+    ybuffer[iy] = datay;
+    iy++;
+    if (iy == N)
+    {
+     iy = 0;
     }
+    //-------------------------------------------
+    
+    /*if ((datay<=0.2) & (datay>=-0.2)){
+        datay=0;
+    }*/
+    
     ey=ref-datay;//calcula el error segun la referencia dada
     ady=-(pdy)*accy1+KNy*(ey-ey1);//calculo de la parte derivativa
     accy=escy*(Kpy*ey+ady);//calculo de la accion de control
     
     cuenty=318.31*accy+1100;
+    
     /*if (cuenty <= 1044){
         cuenty = 1044;
     }
@@ -54,15 +76,31 @@ void Control(){
     
     //Calculo en X
     datax=(adcx*coordx)+(crucex);//Conversión (y linealiza) de coordenada a tensión
-    if ((datax<=0.2) & (datax>=-0.2)){
-        datax=0;
+    
+    //-------------------------------------------
+    //Filtro de media móvil X
+    skx = skx - xbuffer[ix] + datax;// A la suma anterior le resta la muestra más vieja y le suma la más reciente
+    datax = skx/N;
+    
+    xbuffer[ix] = datax; //Remueve la muestra anterior (actualiza el buffer en el índice actual)
+    ix++; //Mueve el índice
+    if (ix == N) //Condición del buffer circular
+    {
+     ix = 0;
     }
+    //-------------------------------------------
+    
+    /*if ((datax<=0.2) & (datax>=-0.2)){
+        datax=0;
+    }*/
+    
     ex=ref-datax;//calcula el error segun la referencia dada
     adx=-(pdx)*accx1+KNx*(ex-ex1);//calculo de la parte derivativa
     accx=escx*(Kpx*ex+adx);//calculo de la accion de control
     
     
     cuentx=318.31*accx+1350;
+    
     /*if (cuentx <= 1294){
         cuentx = 1294;
     }
@@ -112,6 +150,8 @@ int main(void)
     isr_Timer_StartEx(isr_Muestreo);
     CyGlobalIntEnable; /* Enable global interrupts. */
     CY_ISR_PROTO(isr_Muestreo);
+    
+    ix=0, iy = 0, skx = 0, sky = 0;//Variables del filtro de media móvil
     
     coordx = 0;
     coordy = 0;
