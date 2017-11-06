@@ -1,3 +1,3 @@
-# Component constraints for C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\BallPlate.cyprj
-# Date: Tue, 31 Oct 2017 17:41:39 GMT
+# Component constraints for C:\Users\Jafet ChaB\Documents\PSoC Creator\ball_plate_control\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\Users\Jafet ChaB\Documents\PSoC Creator\ball_plate_control\PrimerAvance\BallPlate.cydsn\BallPlate.cyprj
+# Date: Mon, 06 Nov 2017 16:04:40 GMT

@@ -16,6 +16,7 @@
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance\BallPlate">
 <ExpandedNodeIds>
 <v>PrimerAvance</v>
+<v>PrimerAvance\BallPlate</v>
 <v>PrimerAvance\BallPlate\TopDesign</v>
 <v>PrimerAvance\BallPlate\BallPlate.cydwr</v>
 <v>PrimerAvance\BallPlate\BallPlate.cydwr\Pins</v>
@@ -31,7 +32,6 @@
 <v>PrimerAvance\BallPlate\Header Files\cyapicallbacks.h</v>
 <v>PrimerAvance\BallPlate\Source Files</v>
 <v>PrimerAvance\BallPlate\Source Files\main.c</v>
-<v>PrimerAvance\BallPlate\Generated_Source</v>
 <v>PrimerAvance\BallPlate\Generated_Source\PSoC5</v>
 <v>PrimerAvance\StaticSegLCD_Example01\TopDesign</v>
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_Example01.cydwr</v>
@@ -51,30 +51,27 @@
 <v>PrimerAvance\StaticSegLCD_Example01\Generated_Source</v>
 <v>PrimerAvance\StaticSegLCD_Example01\Generated_Source\PSoC5</v>
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_Example.pdf</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\Pins</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\Analog</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\Clocks</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\Interrupts</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\DMA</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\System</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\Directives</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\Flash Security</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.cydwr\EEPROM</v>
-<v>PrimerAvance\USBFS_UART01\Source Files</v>
-<v>PrimerAvance\USBFS_UART01\Source Files\main.c</v>
-<v>PrimerAvance\USBFS_UART01\cyapicallbacks.h</v>
-<v>PrimerAvance\USBFS_UART01\Generated_Source</v>
-<v>PrimerAvance\USBFS_UART01\Generated_Source\PSoC5</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART.pdf</v>
-<v>PrimerAvance\USBFS_UART01\USBUART_cdc.inf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PrimerAvance</v>
 <v>PrimerAvance\BallPlate</v>
+<v>PrimerAvance\BallPlate\TopDesign</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\Pins</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\Analog</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\Clocks</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\Interrupts</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\DMA</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\System</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\Directives</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\Flash Security</v>
+<v>PrimerAvance\BallPlate\BallPlate.cydwr\EEPROM</v>
+<v>PrimerAvance\BallPlate\Header Files</v>
+<v>PrimerAvance\BallPlate\Header Files\cyapicallbacks.h</v>
+<v>PrimerAvance\BallPlate\Source Files</v>
+<v>PrimerAvance\BallPlate\Source Files\main.c</v>
+<v>PrimerAvance\BallPlate\Generated_Source</v>
 <v>PrimerAvance\StaticSegLCD_Example01</v>
-<v>PrimerAvance\USBFS_UART01</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance">
@@ -86,18 +83,6 @@
 <v>PrimerAvance\StaticSegLCD_Example01</v>
 <v>PrimerAvance\StaticSegLCD_Example01\TopDesign</v>
 <v>PrimerAvance\StaticSegLCD_Example01\TopDesign\TopDesign.cysch</v>
-<v>PrimerAvance\USBFS_UART01</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC3</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC3\TopDesign.ctl</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC3\TopDesign.cysch</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4\PSoC 4200L</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4\PSoC 4200L\TopDesign.ctl</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4\PSoC 4200L\TopDesign.cysch</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC5</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC5\TopDesign.ctl</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC5\TopDesign.cysch</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PrimerAvance</v>
@@ -107,18 +92,6 @@
 <v>PrimerAvance\StaticSegLCD_Example01</v>
 <v>PrimerAvance\StaticSegLCD_Example01\TopDesign</v>
 <v>PrimerAvance\StaticSegLCD_Example01\TopDesign\TopDesign.cysch</v>
-<v>PrimerAvance\USBFS_UART01</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC3</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC3\TopDesign.ctl</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC3\TopDesign.cysch</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4\PSoC 4200L</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4\PSoC 4200L\TopDesign.ctl</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC4\PSoC 4200L\TopDesign.cysch</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC5</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC5\TopDesign.ctl</v>
-<v>PrimerAvance\USBFS_UART01\TopDesign\PSoC5\TopDesign.cysch</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance">
@@ -207,80 +180,10 @@
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_Example01.gpdsc</v>
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_Example01.rpt</v>
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_Example01_timing.html</v>
-<v>PrimerAvance\USBFS_UART01</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyScBoostClk.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_audio.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_boot.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_cdc.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_cls.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_descr.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_Dm.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_Dp.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_drv.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_episr.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_hid.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_midi.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_msc.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_pm.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_std.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_vnd.lst</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\USBFS_UART01.elf</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\USBFS_UART01.hex</v>
-<v>PrimerAvance\USBFS_UART01\CortexM3\ARM_GCC_541\Debug\USBFS_UART01.map</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.gpdsc</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01.rpt</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_UART01_timing.html</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PrimerAvance</v>
 <v>PrimerAvance\BallPlate</v>
-<v>PrimerAvance\BallPlate\CortexM3</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_Timer.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_LCDPort.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_Char_PM.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_X.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\Out_Y.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_X.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_X_PM.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Y.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Y_PM.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch_ADC.lst</v>
-<v>PrimerAvance\BallPlate\CortexM3\ARM_GCC_541\Debug\Listing Files\ResistiveTouch_ADC_AMux.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -288,7 +191,7 @@
 <v>Datasheet</v>
 </TreeKeysV2>
 <TreeStatesV2>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance\StaticSegLCD_Example01">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance">
 <ExpandedNodeIds>
 <v>PrimerAvance</v>
 <v>PrimerAvance\BallPlate</v>
@@ -315,12 +218,6 @@
 <v>PrimerAvance\StaticSegLCD_Example01\cy_isr_v1_70.pdf</v>
 <v>PrimerAvance\StaticSegLCD_Example01\cy_pins_v2_20.pdf</v>
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_v2_30.pdf</v>
-<v>PrimerAvance\USBFS_UART01\PSoC 5LP Architecture TRM</v>
-<v>PrimerAvance\USBFS_UART01\CY8C58LP Family Datasheet</v>
-<v>PrimerAvance\USBFS_UART01\System Reference Guides</v>
-<v>PrimerAvance\USBFS_UART01\System Reference Guides\cy_boot_v5_60</v>
-<v>PrimerAvance\USBFS_UART01\CharLCD_v2_20.pdf</v>
-<v>PrimerAvance\USBFS_UART01\USBFS_v3_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>PrimerAvance</v>
@@ -348,7 +245,6 @@
 <v>PrimerAvance\StaticSegLCD_Example01\cy_isr_v1_70.pdf</v>
 <v>PrimerAvance\StaticSegLCD_Example01\cy_pins_v2_20.pdf</v>
 <v>PrimerAvance\StaticSegLCD_Example01\StaticSegLCD_v2_30.pdf</v>
-<v>PrimerAvance\USBFS_UART01</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -363,12 +259,12 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\BallPlate.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\BallPlate.cydsn\main.c" />
 <name v=".\BallPlate.cydsn\BallPlate.cydwr" />
-<name v=".\BallPlate.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\USBFS_UART01.cydsn\TopDesign\PSoC5\TopDesign.cysch" />
-<name v=".\USBFS_UART01.cydsn\USBFS_UART01.cydwr" />
-<name v=".\USBFS_UART01.cydsn\main.c" />
+<name v=".\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cydwr" />
+<name v=".\StaticSegLCD_Example01.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -376,7 +272,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="825, 400" SelectedTabbedMdiWindow="3443f784-3b0a-4850-a3b0-da48e8c5143a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5177127e-d73a-4d5e-a6cc-98f711e7b705" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\main.c" Guid="3443f784-3b0a-4850-a3b0-da48e8c5143a" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\BallPlate.cydwr" Guid="2ee40fc1-ed0a-4f07-9c89-897e1f6a4cd9" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch" Guid="148aff2a-1f5b-471b-ad0b-7f02ecf35d15" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\USBFS_UART01.cydsn\TopDesign\PSoC5\TopDesign.cysch" Guid="07d06fe4-797a-49ce-b483-0b4e8ba85c57" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\USBFS_UART01.cydsn\USBFS_UART01.cydwr" Guid="d5fb7ebc-663f-40b6-a564-cd5baed39654" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\USBFS_UART01.cydsn\main.c" Guid="49d2e656-a0e8-4f87-aac1-5190602c2622" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1013, 400" SelectedTabbedMdiWindow="73fb4c2a-ba0c-4ee7-b6d5-7c1214627f97"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5177127e-d73a-4d5e-a6cc-98f711e7b705" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch" Guid="dc00986b-61a3-43ba-b4d1-0a1ed8aeda53" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\main.c" Guid="12f0c085-20c0-4cd3-bef7-45ed12882139" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\BallPlate.cydsn\BallPlate.cydwr" Guid="73fb4c2a-ba0c-4ee7-b6d5-7c1214627f97" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch" Guid="d118476d-17ec-41b1-a579-382664198f28" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cydwr" Guid="1077bc8c-a193-4956-b995-92ea76931d1f" /><DocumentWindow Key="C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\main.c" Guid="e213ab23-78e4-4be2-aa5c-2620f6da4a9d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

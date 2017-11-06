@@ -1,3 +1,3 @@
-# Component constraints for C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cyprj
-# Date: Thu, 02 Nov 2017 16:10:41 GMT
+# Component constraints for C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cyprj
+# Date: Tue, 17 Oct 2017 17:09:32 GMT

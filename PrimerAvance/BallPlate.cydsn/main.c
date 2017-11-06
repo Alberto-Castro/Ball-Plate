@@ -19,18 +19,23 @@ int16 cuentx,cuenty; //Salidas al PWM
 int8 touch;
 float datax,datay,ex,ey,adx,ady,accx,accy,accx1,accy1,accx2,accy2,ex1,ey1,adcx,adcy,crucex,crucey, pdx, pdy, KNx, KNy; //Variables para el control
 const float ref=0, Ts=0.02,escx=1,escy=1;
-const float /*Kpx=0.03,Kdx=0.03,Nx=50.8753,Kpy=0.02,Kdy=0.02,Ny=50.8753;*/Kpy = 0.04, Kdy=0.043,Ny=15,Kpx=0.04,Kdx=0.043,Nx=15;
+const float /*Kpx=0.03,Kdx=0.03,Nx=50.8753,Kpy=0.02,Kdy=0.02,Ny=50.8753;*/Kpy=7,Kdy=3,Ny=30,Kpx=7,Kdx=3,Nx=30;
 char8 str1[80],str2[80],str3[80];
 
 //Variables filtro media móvil
 const int N = 3;//Número de muestras
-float xbuffer[N], ybuffer[N], skx, sky;//Variables del cálculo promediador
+float xbuffer[3], ybuffer[3], skx, sky;//Variables del cálculo promediador
 int ix,iy;
 
 
 
 
 void Control(){
+    
+    coordy=ResistiveTouch_Measure();//toma los datos de la placa
+    
+    if(coordy > 4000)
+    {coordy = coordy/10;}
     
     ResistiveTouch_ActivateX();//Configura los pines para medir x
         
@@ -50,7 +55,7 @@ void Control(){
     }
     //-------------------------------------------
     
-    /*if ((datay<=0.2) & (datay>=-0.2)){
+    /*if ((datay<=0.01) & (datay>=-0.01)){
         datay=0;
     }*/
     
@@ -75,6 +80,9 @@ void Control(){
     ResistiveTouch_ActivateY();//Configura los pines para medir y
     
     //Calculo en X
+    if(coordx > 4000)
+    {coordx = coordx/10;}
+
     datax=(adcx*coordx)+(crucex);//Conversión (y linealiza) de coordenada a tensión
     
     //-------------------------------------------
@@ -90,7 +98,7 @@ void Control(){
     }
     //-------------------------------------------
     
-    /*if ((datax<=0.2) & (datax>=-0.2)){
+    /*if ((datax<=0.01) & (datax>=-0.01)){
         datax=0;
     }*/
     
@@ -111,9 +119,7 @@ void Control(){
     
     //Escribe las cuentas en los PWM
     PWM_X_WriteCompare(cuentx);
-    
-    coordy=ResistiveTouch_Measure();//toma los datos de la placa
-   
+       
     accx1=accx;//guarda la accion de control anterior de x
     ex1=ex;//guarda el error anterior de x
     accy1=accy;//guarda la accion de control anterior de y
@@ -123,10 +129,12 @@ void Control(){
 }
 
 CY_ISR(isr_Muestreo){
-    touch=ResistiveTouch_TouchDetect();
-    if (touch==1){
+    /*touch=ResistiveTouch_TouchDetect();
+    if (touch==1){*/
+        Pin_1_Write(1u);
         Control();
-    }
+        Pin_1_Write(0u);
+    /*}
     else{
         accx=0;
         accy=0;
@@ -136,7 +144,7 @@ CY_ISR(isr_Muestreo){
         cuenty=1100;
         PWM_X_WriteCompare(cuentx);
         PWM_Y_WriteCompare(cuenty);
-    }
+    }*/
 }
 
 int main(void)
@@ -156,7 +164,7 @@ int main(void)
     coordx = 0;
     coordy = 0;
     datax=0,datay=0,ex=0,ey=0,adx=0,ady=0,accx=0,accy=0,accx1=0,accy1=0,accx2=0,accy2=0,ex1=0,ey1=0,
-    adcx=0.00145,adcy=0.00166,crucex = -2.75 - 0.359 , crucey = -2.75 - 0.6132;//-2.53,-2,91
+    adcx=0.000062162,adcy=0.000052356,crucex = -0.120783783 , crucey = -0.103141361;//-2.53,-2,91
     pdy=(Ny*Ts-1), pdx=(Nx*Ts-1), KNx=Kdx*Nx, KNy=Kdy*Ny;
     
     cuentx=1350;//1377,1322

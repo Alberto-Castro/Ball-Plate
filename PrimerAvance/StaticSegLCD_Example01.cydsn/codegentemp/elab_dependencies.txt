@@ -1,4 +1,4 @@
-C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch
+C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\StaticSegLCD_v2_30\StaticSegLCD_v2_30.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\StaticSegLCD_v2_30\StaticSegLCD_v2_30.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\StaticSegLCD_v2_30\StaticSegLCD_v2_30.pdf
@@ -108,7 +108,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComp
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CharLCD_v2_20\Custom\cycharlcdcontrol.resx
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CharLCD_v2_20\Custom\cycustomcharacter.resx
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\CharLCD_v2_20\Custom\Resources.resx
-C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cydwr
+C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cydwr
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC5\API\cm3gcc.ld
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC5\API\Cm3RealView.scat
 C:\Program Files (x86)\Cypress\PSoC Creator\4.1\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_60\PSoC5\API\Cm3Start.c

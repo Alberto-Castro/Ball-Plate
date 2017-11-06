@@ -19,6 +19,7 @@ set_io "\ResistiveTouch:xp(0)\" iocell 4 1
 set_io "\ResistiveTouch:ym(0)\" iocell 4 2
 set_io "\ResistiveTouch:yp(0)\" iocell 4 3
 set_io "\LCD_Char:LCDPort(0)\" iocell 2 0
+set_io "Pin_1(0)" iocell 4 6
 set_location "isr_Timer" interrupt -1 -1 0
 set_location "\ResistiveTouch:ADC:DEC\" decimatorcell -1 -1 0
 set_io "\LCD_Char:LCDPort(2)\" iocell 2 2

@@ -30,6 +30,8 @@
 #include "Out_Y_aliases.h"
 #include "Out_Y.h"
 #include "LCD_Char.h"
+#include "Pin_1_aliases.h"
+#include "Pin_1.h"
 #include "ResistiveTouch_AMux.h"
 #include "ResistiveTouch_xm_aliases.h"
 #include "ResistiveTouch_xm.h"

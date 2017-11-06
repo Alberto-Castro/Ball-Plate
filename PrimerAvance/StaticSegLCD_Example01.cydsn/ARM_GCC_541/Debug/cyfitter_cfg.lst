@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
   29:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYPACKED 
   30:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYPACKED_ATTR __attribute__ ((packed))
   31:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CYALIGNED __attribute__ ((aligned))
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 2
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 2
 
 
   32:Generated_Source\PSoC5/cyfitter_cfg.c ****     #define CY_CFG_UNUSED __attribute__ ((unused))
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
   36              		.cfi_def_cfa_offset 16
   37 0004 00AF     		add	r7, sp, #0
   38              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 3
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 3
 
 
   39 0006 7860     		str	r0, [r7, #4]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
   84              		.loc 1 85 0
   85 0016 00BF     		nop
   86 0018 1037     		adds	r7, r7, #16
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 4
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 4
 
 
   87              		.cfi_def_cfa_offset 8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  134              		.align	2
  135              		.thumb
  136              		.thumb_func
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 5
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 5
 
 
  137              		.type	cfg_write_bytes32, %function
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  144:Generated_Source\PSoC5/cyfitter_cfg.c **** 
  145:Generated_Source\PSoC5/cyfitter_cfg.c ****     /* `#END` */
  146:Generated_Source\PSoC5/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 6
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 6
 
 
  147:Generated_Source\PSoC5/cyfitter_cfg.c ****     while(1) {}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  201:Generated_Source\PSoC5/cyfitter_cfg.c **** ********************************************************************************
  202:Generated_Source\PSoC5/cyfitter_cfg.c **** * Summary:
  203:Generated_Source\PSoC5/cyfitter_cfg.c **** *  This function is used for setting up the chip configuration areas that
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 7
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 7
 
 
  204:Generated_Source\PSoC5/cyfitter_cfg.c **** *  contain relatively sparse data.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  175 0026 23F0FF03 		bic	r3, r3, #255
  176 002a BB60     		str	r3, [r7, #8]
  223:Generated_Source\PSoC5/cyfitter_cfg.c **** 		while (count != 0u)
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 8
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 8
 
 
  177              		.loc 1 223 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  221 006c 1C37     		adds	r7, r7, #28
  222              		.cfi_def_cfa_offset 4
  223 006e BD46     		mov	sp, r7
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 9
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 9
 
 
  224              		.cfi_def_cfa_register 13
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  255:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_CLKDIST_DCFG0_CFG0 + 0x2u), 0x18u);
  254              		.loc 1 255 0
  255 000c 184B     		ldr	r3, .L10+4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 10
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 10
 
 
  256 000e 1822     		movs	r2, #24
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  295 004c 1A70     		strb	r2, [r3]
  271:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_CLKDIST_LD), 0x02u);
  296              		.loc 1 271 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 11
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 11
 
 
  297 004e 104B     		ldr	r3, .L10+36
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  348 0005 04       		.byte	4
  349              		.section	.text.AnalogSetDefault,"ax",%progbits
  350              		.align	2
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 12
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 12
 
 
  351              		.thumb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  371 000a FB71     		strb	r3, [r7, #7]
  309:Generated_Source\PSoC5/cyfitter_cfg.c **** 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_BG_DFT0), (bg_xover_inl_trim & 0x07u));
  372              		.loc 1 309 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 13
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 13
 
 
  373 000c 0A4A     		ldr	r2, .L13+4
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  320:Generated_Source\PSoC5/cyfitter_cfg.c **** * Enables or disables the analog pumps feeding analog routing switches.
  321:Generated_Source\PSoC5/cyfitter_cfg.c **** * Intended to be called at startup, based on the Vdda system configuration;
  322:Generated_Source\PSoC5/cyfitter_cfg.c **** * may be called during operation when the user informs us that the Vdda voltage
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 14
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 14
 
 
  323:Generated_Source\PSoC5/cyfitter_cfg.c **** * crossed the pump threshold.
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  449 0020 80BC     		pop	{r7}
  450              		.cfi_restore 7
  451              		.cfi_def_cfa_offset 0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 15
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 15
 
 
  452 0022 7047     		bx	lr
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  480              		.loc 1 370 0
  481              		.syntax unified
  482              	@ 370 "Generated_Source\PSoC5\cyfitter_cfg.c" 1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 16
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 16
 
 
  483 0006 72B6     		CPSID   i
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  508 0028 434A     		ldr	r2, .L23+4
  509 002a 1344     		add	r3, r3, r2
  510 002c 3B60     		str	r3, [r7]
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 17
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 17
 
 
  400:Generated_Source\PSoC5/cyfitter_cfg.c **** 			CYMEMZERO(ms->address, (size_t)(uint32)(ms->size));
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  552 007a DBB2     		uxtb	r3, r3
  553 007c 1370     		strb	r3, [r2]
  554              	.LBE3:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 18
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 18
 
 
  411:Generated_Source\PSoC5/cyfitter_cfg.c **** 	}
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  596 00ce 0822     		movs	r2, #8
  597 00d0 2E49     		ldr	r1, .L23+88
  598 00d2 2F48     		ldr	r0, .L23+92
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 19
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 19
 
 
  599 00d4 FFF7FEFF 		bl	CYCONFIGCPY
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  637              		.loc 1 439 0
  638 011c FFF7FEFF 		bl	AnalogSetDefault
  440:Generated_Source\PSoC5/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 20
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 20
 
 
  441:Generated_Source\PSoC5/cyfitter_cfg.c **** 	/* Configure alternate active mode */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  690              		.cfi_endproc
  691              	.LFE7:
  692              		.size	cyfitter_cfg, .-cyfitter_cfg
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 21
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 21
 
 
  693              		.section	.rodata
@@ -1235,7 +1235,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  724 000c 0D000000 		.4byte	.LASF45
  725 0010 0C       		.byte	0xc
  726 0011 AC000000 		.4byte	.LASF46
- 727 0015 76020000 		.4byte	.LASF47
+ 727 0015 FC000000 		.4byte	.LASF47
  728 0019 00000000 		.4byte	.Ldebug_ranges0+0
  729 001d 00000000 		.4byte	0
  730 0021 00000000 		.4byte	.Ldebug_line0
@@ -1251,30 +1251,30 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  740 0037 04       		.uleb128 0x4
  741 0038 04       		.byte	0x4
  742 0039 07       		.byte	0x7
- 743 003a E3010000 		.4byte	.LASF0
+ 743 003a 10020000 		.4byte	.LASF0
  744 003e 04       		.uleb128 0x4
  745 003f 08       		.byte	0x8
  746 0040 05       		.byte	0x5
- 747 0041 63020000 		.4byte	.LASF1
+ 747 0041 8C020000 		.4byte	.LASF1
  748 0045 04       		.uleb128 0x4
  749 0046 08       		.byte	0x8
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 22
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 22
 
 
  750 0047 04       		.byte	0x4
- 751 0048 09030000 		.4byte	.LASF2
+ 751 0048 F5020000 		.4byte	.LASF2
  752 004c 04       		.uleb128 0x4
  753 004d 01       		.byte	0x1
  754 004e 06       		.byte	0x6
- 755 004f 27030000 		.4byte	.LASF3
+ 755 004f 13030000 		.4byte	.LASF3
  756 0053 04       		.uleb128 0x4
  757 0054 01       		.byte	0x1
  758 0055 08       		.byte	0x8
- 759 0056 8E010000 		.4byte	.LASF4
+ 759 0056 BB010000 		.4byte	.LASF4
  760 005a 04       		.uleb128 0x4
  761 005b 02       		.byte	0x2
  762 005c 05       		.byte	0x5
- 763 005d B5010000 		.4byte	.LASF5
+ 763 005d E2010000 		.4byte	.LASF5
  764 0061 04       		.uleb128 0x4
  765 0062 02       		.byte	0x2
  766 0063 07       		.byte	0x7
@@ -1282,53 +1282,53 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  768 0068 04       		.uleb128 0x4
  769 0069 04       		.byte	0x4
  770 006a 05       		.byte	0x5
- 771 006b 00030000 		.4byte	.LASF7
+ 771 006b EC020000 		.4byte	.LASF7
  772 006f 04       		.uleb128 0x4
  773 0070 04       		.byte	0x4
  774 0071 07       		.byte	0x7
- 775 0072 56010000 		.4byte	.LASF8
+ 775 0072 83010000 		.4byte	.LASF8
  776 0076 04       		.uleb128 0x4
  777 0077 08       		.byte	0x8
  778 0078 07       		.byte	0x7
- 779 0079 25010000 		.4byte	.LASF9
+ 779 0079 32020000 		.4byte	.LASF9
  780 007d 04       		.uleb128 0x4
  781 007e 04       		.byte	0x4
  782 007f 07       		.byte	0x7
- 783 0080 36020000 		.4byte	.LASF10
+ 783 0080 5F020000 		.4byte	.LASF10
  784 0084 05       		.uleb128 0x5
  785 0085 04       		.byte	0x4
  786 0086 04       		.uleb128 0x4
  787 0087 01       		.byte	0x1
  788 0088 08       		.byte	0x8
- 789 0089 71020000 		.4byte	.LASF11
+ 789 0089 9A020000 		.4byte	.LASF11
  790 008d 06       		.uleb128 0x6
- 791 008e 68010000 		.4byte	.LASF13
+ 791 008e 95010000 		.4byte	.LASF13
  792 0092 03       		.byte	0x3
  793 0093 9201     		.2byte	0x192
  794 0095 53000000 		.4byte	0x53
  795 0099 06       		.uleb128 0x6
- 796 009a CA010000 		.4byte	.LASF14
+ 796 009a F7010000 		.4byte	.LASF14
  797 009e 03       		.byte	0x3
  798 009f 9301     		.2byte	0x193
  799 00a1 61000000 		.4byte	0x61
  800 00a5 06       		.uleb128 0x6
- 801 00a6 DC010000 		.4byte	.LASF15
+ 801 00a6 09020000 		.4byte	.LASF15
  802 00aa 03       		.byte	0x3
  803 00ab 9401     		.2byte	0x194
  804 00ad 6F000000 		.4byte	0x6f
  805 00b1 04       		.uleb128 0x4
  806 00b2 04       		.byte	0x4
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 23
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 23
 
 
  807 00b3 04       		.byte	0x4
- 808 00b4 1F010000 		.4byte	.LASF16
+ 808 00b4 5E010000 		.4byte	.LASF16
  809 00b8 04       		.uleb128 0x4
  810 00b9 08       		.byte	0x8
  811 00ba 04       		.byte	0x4
- 812 00bb 9C010000 		.4byte	.LASF17
+ 812 00bb C9010000 		.4byte	.LASF17
  813 00bf 06       		.uleb128 0x6
- 814 00c0 51010000 		.4byte	.LASF18
+ 814 00c0 7E010000 		.4byte	.LASF18
  815 00c4 03       		.byte	0x3
  816 00c5 3C02     		.2byte	0x23c
  817 00c7 CB000000 		.4byte	0xcb
@@ -1342,19 +1342,19 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  825 00dc 07       		.uleb128 0x7
  826 00dd 99000000 		.4byte	0x99
  827 00e1 08       		.uleb128 0x8
- 828 00e2 05020000 		.4byte	.LASF48
+ 828 00e2 34030000 		.4byte	.LASF48
  829 00e6 02       		.byte	0x2
  830 00e7 04       		.byte	0x4
  831 00e8 22       		.byte	0x22
  832 00e9 06010000 		.4byte	0x106
  833 00ed 09       		.uleb128 0x9
- 834 00ee CD020000 		.4byte	.LASF20
+ 834 00ee B2020000 		.4byte	.LASF20
  835 00f2 04       		.byte	0x4
  836 00f3 24       		.byte	0x24
  837 00f4 8D000000 		.4byte	0x8d
  838 00f8 00       		.byte	0
  839 00f9 09       		.uleb128 0x9
- 840 00fa 48030000 		.4byte	.LASF21
+ 840 00fa DD020000 		.4byte	.LASF21
  841 00fe 04       		.byte	0x4
  842 00ff 25       		.byte	0x25
  843 0100 8D000000 		.4byte	0x8d
@@ -1366,7 +1366,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  849 0109 99       		.byte	0x99
  850 010a 27010000 		.4byte	0x127
  851 010e 09       		.uleb128 0x9
- 852 010f CD020000 		.4byte	.LASF20
+ 852 010f B2020000 		.4byte	.LASF20
  853 0113 01       		.byte	0x1
  854 0114 9B       		.byte	0x9b
  855 0115 8D000000 		.4byte	0x8d
@@ -1378,16 +1378,16 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  861 0121 8D000000 		.4byte	0x8d
  862 0125 01       		.byte	0x1
  863 0126 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 24
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 24
 
 
  864 0127 03       		.uleb128 0x3
- 865 0128 0C010000 		.4byte	.LASF23
+ 865 0128 9F020000 		.4byte	.LASF23
  866 012c 01       		.byte	0x1
  867 012d 9D       		.byte	0x9d
  868 012e 06010000 		.4byte	0x106
  869 0132 0B       		.uleb128 0xb
- 870 0133 6E010000 		.4byte	.LASF24
+ 870 0133 9B010000 		.4byte	.LASF24
  871 0137 01       		.byte	0x1
  872 0138 4B       		.byte	0x4b
  873 0139 00000000 		.4byte	.LFB0
@@ -1413,7 +1413,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  893 015e 70       		.sleb128 -16
  894 015f 00       		.byte	0
  895 0160 0B       		.uleb128 0xb
- 896 0161 3C030000 		.4byte	.LASF25
+ 896 0161 28030000 		.4byte	.LASF25
  897 0165 01       		.byte	0x1
  898 0166 52       		.byte	0x52
  899 0167 00000000 		.4byte	.LFB1
@@ -1422,7 +1422,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  902 0170 9C       		.byte	0x9c
  903 0171 9E010000 		.4byte	0x19e
  904 0175 0D       		.uleb128 0xd
- 905 0176 1B020000 		.4byte	.LASF26
+ 905 0176 64010000 		.4byte	.LASF26
  906 017a 01       		.byte	0x1
  907 017b 52       		.byte	0x52
  908 017c 84000000 		.4byte	0x84
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  918 018f 91       		.byte	0x91
  919 0190 70       		.sleb128 -16
  920 0191 0C       		.uleb128 0xc
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 25
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 25
 
 
  921 0192 6E00     		.ascii	"n\000"
@@ -1454,7 +1454,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  931 01a0 A4010000 		.4byte	0x1a4
  932 01a4 0F       		.uleb128 0xf
  933 01a5 0B       		.uleb128 0xb
- 934 01a6 FC000000 		.4byte	.LASF27
+ 934 01a6 4E010000 		.4byte	.LASF27
  935 01aa 01       		.byte	0x1
  936 01ab 59       		.byte	0x59
  937 01ac 00000000 		.4byte	.LFB2
@@ -1463,7 +1463,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  940 01b5 9C       		.byte	0x9c
  941 01b6 E3010000 		.4byte	0x1e3
  942 01ba 0D       		.uleb128 0xd
- 943 01bb 1B020000 		.4byte	.LASF26
+ 943 01bb 64010000 		.4byte	.LASF26
  944 01bf 01       		.byte	0x1
  945 01c0 59       		.byte	0x59
  946 01c1 84000000 		.4byte	0x84
@@ -1488,7 +1488,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  965 01e1 6C       		.sleb128 -20
  966 01e2 00       		.byte	0
  967 01e3 10       		.uleb128 0x10
- 968 01e4 A3010000 		.4byte	.LASF28
+ 968 01e4 D0010000 		.4byte	.LASF28
  969 01e8 01       		.byte	0x1
  970 01e9 D6       		.byte	0xd6
  971 01ea 00000000 		.4byte	.LFB3
@@ -1497,8 +1497,8 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  974 01f3 9C       		.byte	0x9c
  975 01f4 53020000 		.4byte	0x253
  976 01f8 0D       		.uleb128 0xd
- 977 01f9 BF010000 		.4byte	.LASF29
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 26
+ 977 01f9 EC010000 		.4byte	.LASF29
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 26
 
 
  978 01fd 01       		.byte	0x1
@@ -1508,7 +1508,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  982 0204 91       		.byte	0x91
  983 0205 64       		.sleb128 -28
  984 0206 0D       		.uleb128 0xd
- 985 0207 D1010000 		.4byte	.LASF30
+ 985 0207 FE010000 		.4byte	.LASF30
  986 020b 01       		.byte	0x1
  987 020c D6       		.byte	0xd6
  988 020d 5E020000 		.4byte	0x25e
@@ -1535,7 +1535,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1009 022d 14000000 		.4byte	.LBB2
  1010 0231 4A000000 		.4byte	.LBE2-.LBB2
  1011 0235 13       		.uleb128 0x13
- 1012 0236 2D020000 		.4byte	.LASF31
+ 1012 0236 56020000 		.4byte	.LASF31
  1013 023a 01       		.byte	0x1
  1014 023b DC       		.byte	0xdc
  1015 023c A5000000 		.4byte	0xa5
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1032 0259 14       		.uleb128 0x14
  1033 025a A5000000 		.4byte	0xa5
  1034 025e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 27
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 27
 
 
  1035 025f 04       		.byte	0x4
@@ -1583,7 +1583,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1054 028b 9C       		.byte	0x9c
  1055 028c A0020000 		.4byte	0x2a0
  1056 0290 17       		.uleb128 0x17
- 1057 0291 15030000 		.4byte	.LASF34
+ 1057 0291 01030000 		.4byte	.LASF34
  1058 0295 01       		.byte	0x1
  1059 0296 3401     		.2byte	0x134
  1060 0298 8D000000 		.4byte	0x8d
@@ -1592,7 +1592,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1063 029e 77       		.sleb128 -9
  1064 029f 00       		.byte	0
  1065 02a0 18       		.uleb128 0x18
- 1066 02a1 78010000 		.4byte	.LASF37
+ 1066 02a1 A5010000 		.4byte	.LASF37
  1067 02a5 01       		.byte	0x1
  1068 02a6 4C01     		.2byte	0x14c
  1069 02a8 00000000 		.4byte	.LFB6
@@ -1601,7 +1601,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1072 02b1 9C       		.byte	0x9c
  1073 02b2 D5020000 		.4byte	0x2d5
  1074 02b6 19       		.uleb128 0x19
- 1075 02b7 F8020000 		.4byte	.LASF35
+ 1075 02b7 E4020000 		.4byte	.LASF35
  1076 02bb 01       		.byte	0x1
  1077 02bc 4C01     		.2byte	0x14c
  1078 02be 8D000000 		.4byte	0x8d
@@ -1609,7 +1609,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1080 02c3 91       		.byte	0x91
  1081 02c4 6F       		.sleb128 -17
  1082 02c5 17       		.uleb128 0x17
- 1083 02c6 33030000 		.4byte	.LASF36
+ 1083 02c6 1F030000 		.4byte	.LASF36
  1084 02ca 01       		.byte	0x1
  1085 02cb 4E01     		.2byte	0x14e
  1086 02cd 8D000000 		.4byte	0x8d
@@ -1618,10 +1618,10 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1089 02d3 77       		.sleb128 -9
  1090 02d4 00       		.byte	0
  1091 02d5 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 28
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 28
 
 
- 1092 02d6 F0010000 		.4byte	.LASF38
+ 1092 02d6 1D020000 		.4byte	.LASF38
  1093 02da 01       		.byte	0x1
  1094 02db 6E01     		.2byte	0x16e
  1095 02dd 00000000 		.4byte	.LFB7
@@ -1638,20 +1638,20 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1106 02f7 7A01     		.2byte	0x17a
  1107 02f9 18030000 		.4byte	0x318
  1108 02fd 1C       		.uleb128 0x1c
- 1109 02fe FD010000 		.4byte	.LASF39
+ 1109 02fe 2A020000 		.4byte	.LASF39
  1110 0302 01       		.byte	0x1
  1111 0303 7B01     		.2byte	0x17b
  1112 0305 84000000 		.4byte	0x84
  1113 0309 00       		.byte	0
  1114 030a 1C       		.uleb128 0x1c
- 1115 030b 4C010000 		.4byte	.LASF40
+ 1115 030b 79010000 		.4byte	.LASF40
  1116 030f 01       		.byte	0x1
  1117 0310 7C01     		.2byte	0x17c
  1118 0312 99000000 		.4byte	0x99
  1119 0316 04       		.byte	0x4
  1120 0317 00       		.byte	0
  1121 0318 06       		.uleb128 0x6
- 1122 0319 20020000 		.4byte	.LASF41
+ 1122 0319 49020000 		.4byte	.LASF41
  1123 031d 01       		.byte	0x1
  1124 031e 7D01     		.2byte	0x17d
  1125 0320 F4020000 		.4byte	0x2f4
@@ -1665,7 +1665,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1133 0334 14       		.uleb128 0x14
  1134 0335 18030000 		.4byte	0x318
  1135 0339 17       		.uleb128 0x17
- 1136 033a 3C010000 		.4byte	.LASF42
+ 1136 033a 69010000 		.4byte	.LASF42
  1137 033e 01       		.byte	0x1
  1138 033f 7F01     		.2byte	0x17f
  1139 0341 4B030000 		.4byte	0x34b
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1146 0351 6900     		.ascii	"i\000"
  1147 0353 01       		.byte	0x1
  1148 0354 8A01     		.2byte	0x18a
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 29
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 29
 
 
  1149 0356 8D000000 		.4byte	0x8d
@@ -1712,7 +1712,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1177 038d 14       		.uleb128 0x14
  1178 038e E1000000 		.4byte	0xe1
  1179 0392 20       		.uleb128 0x20
- 1180 0393 D4020000 		.4byte	.LASF43
+ 1180 0393 B9020000 		.4byte	.LASF43
  1181 0397 01       		.byte	0x1
  1182 0398 1301     		.2byte	0x113
  1183 039a A4030000 		.4byte	0x3a4
@@ -1722,7 +1722,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1187 03a4 14       		.uleb128 0x14
  1188 03a5 7D030000 		.4byte	0x37d
  1189 03a9 20       		.uleb128 0x20
- 1190 03aa 3F020000 		.4byte	.LASF44
+ 1190 03aa 68020000 		.4byte	.LASF44
  1191 03ae 01       		.byte	0x1
  1192 03af 1801     		.2byte	0x118
  1193 03b1 BB030000 		.4byte	0x3bb
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1203 0001 11       		.uleb128 0x11
  1204 0002 01       		.byte	0x1
  1205 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 30
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 30
 
 
  1206 0004 0E       		.uleb128 0xe
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1260 003a 0B       		.uleb128 0xb
  1261 003b 00       		.byte	0
  1262 003c 00       		.byte	0
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 31
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 31
 
 
  1263 003d 06       		.uleb128 0x6
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1317 0073 0B       		.uleb128 0xb
  1318 0074 3A       		.uleb128 0x3a
  1319 0075 0B       		.uleb128 0xb
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 32
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 32
 
 
  1320 0076 3B       		.uleb128 0x3b
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1374 00ad 13       		.uleb128 0x13
  1375 00ae 02       		.uleb128 0x2
  1376 00af 18       		.uleb128 0x18
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 33
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 33
 
 
  1377 00b0 00       		.byte	0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1431 00e7 12       		.uleb128 0x12
  1432 00e8 0B       		.uleb128 0xb
  1433 00e9 01       		.byte	0x1
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 34
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 34
 
 
  1434 00ea 11       		.uleb128 0x11
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1488 0121 3A       		.uleb128 0x3a
  1489 0122 0B       		.uleb128 0xb
  1490 0123 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 35
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 35
 
 
  1491 0124 05       		.uleb128 0x5
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1545 015c 00       		.byte	0
  1546 015d 19       		.uleb128 0x19
  1547 015e 05       		.uleb128 0x5
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 36
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 36
 
 
  1548 015f 00       		.byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1602 0196 03       		.uleb128 0x3
  1603 0197 0E       		.uleb128 0xe
  1604 0198 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 37
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 37
 
 
  1605 0199 0B       		.uleb128 0xb
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1659 01cf 19       		.uleb128 0x19
  1660 01d0 02       		.uleb128 0x2
  1661 01d1 18       		.uleb128 0x18
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 38
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 38
 
 
  1662 01d2 00       		.byte	0
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1713      FB0E0D00 
  1713      01010101 
  1714              	.LASF19:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 39
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 39
 
 
  1715 0000 72656731 		.ascii	"reg16\000"
@@ -2330,199 +2330,199 @@ ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 1
  1733      7369676E 
  1733      65642069 
  1733      6E7400
- 1734              	.LASF27:
- 1735 00fc 4359434F 		.ascii	"CYCONFIGCPYCODE\000"
- 1735      4E464947 
- 1735      43505943 
- 1735      4F444500 
- 1736              	.LASF23:
- 1737 010c 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
- 1737      66675F61 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 40
+ 1734              	.LASF47:
+ 1735 00fc 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\PSoC Creator\\Primer"
+ 1735      73657273 
+ 1735      5C544F53 
+ 1735      48494241 
+ 1735      5C446F63 
+ 1736 012a 4176616E 		.ascii	"Avance\\StaticSegLCD_Example01.cydsn\000"
+ 1736      63655C53 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 40
 
 
- 1737      64647276 
- 1737      616C7565 
- 1737      5F7400
- 1738              	.LASF16:
- 1739 011f 666C6F61 		.ascii	"float\000"
- 1739      7400
- 1740              	.LASF9:
- 1741 0125 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1741      206C6F6E 
- 1741      6720756E 
- 1741      7369676E 
- 1741      65642069 
- 1742              	.LASF42:
- 1743 013c 6366675F 		.ascii	"cfg_memset_list\000"
- 1743      6D656D73 
- 1743      65745F6C 
- 1743      69737400 
- 1744              	.LASF40:
- 1745 014c 73697A65 		.ascii	"size\000"
- 1745      00
- 1746              	.LASF18:
- 1747 0151 72656738 		.ascii	"reg8\000"
- 1747      00
- 1748              	.LASF8:
- 1749 0156 6C6F6E67 		.ascii	"long unsigned int\000"
- 1749      20756E73 
- 1749      69676E65 
- 1749      6420696E 
- 1749      7400
- 1750              	.LASF13:
- 1751 0168 75696E74 		.ascii	"uint8\000"
- 1751      3800
- 1752              	.LASF24:
- 1753 016e 43594D45 		.ascii	"CYMEMZERO\000"
- 1753      4D5A4552 
- 1753      4F00
- 1754              	.LASF37:
- 1755 0178 53657441 		.ascii	"SetAnalogRoutingPumps\000"
- 1755      6E616C6F 
- 1755      67526F75 
- 1755      74696E67 
- 1755      50756D70 
- 1756              	.LASF4:
- 1757 018e 756E7369 		.ascii	"unsigned char\000"
- 1757      676E6564 
- 1757      20636861 
- 1757      7200
- 1758              	.LASF17:
- 1759 019c 646F7562 		.ascii	"double\000"
- 1759      6C6500
- 1760              	.LASF28:
- 1761 01a3 6366675F 		.ascii	"cfg_write_bytes32\000"
- 1761      77726974 
- 1761      655F6279 
- 1761      74657333 
- 1761      3200
- 1762              	.LASF5:
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 41
+ 1736      74617469 
+ 1736      63536567 
+ 1736      4C43445F 
+ 1737              	.LASF27:
+ 1738 014e 4359434F 		.ascii	"CYCONFIGCPYCODE\000"
+ 1738      4E464947 
+ 1738      43505943 
+ 1738      4F444500 
+ 1739              	.LASF16:
+ 1740 015e 666C6F61 		.ascii	"float\000"
+ 1740      7400
+ 1741              	.LASF26:
+ 1742 0164 64657374 		.ascii	"dest\000"
+ 1742      00
+ 1743              	.LASF42:
+ 1744 0169 6366675F 		.ascii	"cfg_memset_list\000"
+ 1744      6D656D73 
+ 1744      65745F6C 
+ 1744      69737400 
+ 1745              	.LASF40:
+ 1746 0179 73697A65 		.ascii	"size\000"
+ 1746      00
+ 1747              	.LASF18:
+ 1748 017e 72656738 		.ascii	"reg8\000"
+ 1748      00
+ 1749              	.LASF8:
+ 1750 0183 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1750      20756E73 
+ 1750      69676E65 
+ 1750      6420696E 
+ 1750      7400
+ 1751              	.LASF13:
+ 1752 0195 75696E74 		.ascii	"uint8\000"
+ 1752      3800
+ 1753              	.LASF24:
+ 1754 019b 43594D45 		.ascii	"CYMEMZERO\000"
+ 1754      4D5A4552 
+ 1754      4F00
+ 1755              	.LASF37:
+ 1756 01a5 53657441 		.ascii	"SetAnalogRoutingPumps\000"
+ 1756      6E616C6F 
+ 1756      67526F75 
+ 1756      74696E67 
+ 1756      50756D70 
+ 1757              	.LASF4:
+ 1758 01bb 756E7369 		.ascii	"unsigned char\000"
+ 1758      676E6564 
+ 1758      20636861 
+ 1758      7200
+ 1759              	.LASF17:
+ 1760 01c9 646F7562 		.ascii	"double\000"
+ 1760      6C6500
+ 1761              	.LASF28:
+ 1762 01d0 6366675F 		.ascii	"cfg_write_bytes32\000"
+ 1762      77726974 
+ 1762      655F6279 
+ 1762      74657333 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 41
 
 
- 1763 01b5 73686F72 		.ascii	"short int\000"
- 1763      7420696E 
- 1763      7400
- 1764              	.LASF29:
- 1765 01bf 61646472 		.ascii	"addr_table\000"
- 1765      5F746162 
- 1765      6C6500
- 1766              	.LASF14:
- 1767 01ca 75696E74 		.ascii	"uint16\000"
- 1767      313600
- 1768              	.LASF30:
- 1769 01d1 64617461 		.ascii	"data_table\000"
- 1769      5F746162 
- 1769      6C6500
- 1770              	.LASF15:
- 1771 01dc 75696E74 		.ascii	"uint32\000"
- 1771      333200
- 1772              	.LASF0:
- 1773 01e3 756E7369 		.ascii	"unsigned int\000"
- 1773      676E6564 
- 1773      20696E74 
- 1773      00
- 1774              	.LASF38:
- 1775 01f0 63796669 		.ascii	"cyfitter_cfg\000"
- 1775      74746572 
- 1775      5F636667 
- 1775      00
- 1776              	.LASF39:
- 1777 01fd 61646472 		.ascii	"address\000"
- 1777      65737300 
- 1778              	.LASF48:
- 1779 0205 43595F44 		.ascii	"CY_DMA_TD_PROTO_ENTRY\000"
- 1779      4D415F54 
- 1779      445F5052 
- 1779      4F544F5F 
- 1779      454E5452 
- 1780              	.LASF26:
- 1781 021b 64657374 		.ascii	"dest\000"
- 1781      00
- 1782              	.LASF41:
- 1783 0220 6366675F 		.ascii	"cfg_memset_t\000"
- 1783      6D656D73 
- 1783      65745F74 
- 1783      00
- 1784              	.LASF31:
- 1785 022d 62617365 		.ascii	"baseAddr\000"
- 1785      41646472 
- 1785      00
- 1786              	.LASF10:
- 1787 0236 73697A65 		.ascii	"sizetype\000"
- 1787      74797065 
- 1787      00
- 1788              	.LASF44:
- 1789 023f 4C43445F 		.ascii	"LCD_SegStat_Seg__DMA_TD_PROTO_BLOCK\000"
- 1789      53656753 
- 1789      7461745F 
- 1789      5365675F 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 42
+ 1762      3200
+ 1763              	.LASF5:
+ 1764 01e2 73686F72 		.ascii	"short int\000"
+ 1764      7420696E 
+ 1764      7400
+ 1765              	.LASF29:
+ 1766 01ec 61646472 		.ascii	"addr_table\000"
+ 1766      5F746162 
+ 1766      6C6500
+ 1767              	.LASF14:
+ 1768 01f7 75696E74 		.ascii	"uint16\000"
+ 1768      313600
+ 1769              	.LASF30:
+ 1770 01fe 64617461 		.ascii	"data_table\000"
+ 1770      5F746162 
+ 1770      6C6500
+ 1771              	.LASF15:
+ 1772 0209 75696E74 		.ascii	"uint32\000"
+ 1772      333200
+ 1773              	.LASF0:
+ 1774 0210 756E7369 		.ascii	"unsigned int\000"
+ 1774      676E6564 
+ 1774      20696E74 
+ 1774      00
+ 1775              	.LASF38:
+ 1776 021d 63796669 		.ascii	"cyfitter_cfg\000"
+ 1776      74746572 
+ 1776      5F636667 
+ 1776      00
+ 1777              	.LASF39:
+ 1778 022a 61646472 		.ascii	"address\000"
+ 1778      65737300 
+ 1779              	.LASF9:
+ 1780 0232 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1780      206C6F6E 
+ 1780      6720756E 
+ 1780      7369676E 
+ 1780      65642069 
+ 1781              	.LASF41:
+ 1782 0249 6366675F 		.ascii	"cfg_memset_t\000"
+ 1782      6D656D73 
+ 1782      65745F74 
+ 1782      00
+ 1783              	.LASF31:
+ 1784 0256 62617365 		.ascii	"baseAddr\000"
+ 1784      41646472 
+ 1784      00
+ 1785              	.LASF10:
+ 1786 025f 73697A65 		.ascii	"sizetype\000"
+ 1786      74797065 
+ 1786      00
+ 1787              	.LASF44:
+ 1788 0268 4C43445F 		.ascii	"LCD_SegStat_Seg__DMA_TD_PROTO_BLOCK\000"
+ 1788      53656753 
+ 1788      7461745F 
+ 1788      5365675F 
+ 1788      5F444D41 
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 42
 
 
- 1789      5F444D41 
- 1790              	.LASF1:
- 1791 0263 6C6F6E67 		.ascii	"long long int\000"
- 1791      206C6F6E 
- 1791      6720696E 
- 1791      7400
- 1792              	.LASF11:
- 1793 0271 63686172 		.ascii	"char\000"
- 1793      00
- 1794              	.LASF47:
- 1795 0276 433A5C55 		.ascii	"C:\\Users\\TOSHIBA\\Documents\\GitHub\\Ball-Plate\\"
- 1795      73657273 
- 1795      5C544F53 
- 1795      48494241 
- 1795      5C446F63 
- 1796 02a3 5072696D 		.ascii	"PrimerAvance\\StaticSegLCD_Example01.cydsn\000"
- 1796      65724176 
- 1796      616E6365 
- 1796      5C537461 
- 1796      74696353 
- 1797              	.LASF20:
- 1798 02cd 6F666673 		.ascii	"offset\000"
- 1798      657400
- 1799              	.LASF43:
- 1800 02d4 4C43445F 		.ascii	"LCD_SegStat_Com__DMA_TD_PROTO_BLOCK\000"
- 1800      53656753 
- 1800      7461745F 
- 1800      436F6D5F 
- 1800      5F444D41 
+ 1789              	.LASF1:
+ 1790 028c 6C6F6E67 		.ascii	"long long int\000"
+ 1790      206C6F6E 
+ 1790      6720696E 
+ 1790      7400
+ 1791              	.LASF11:
+ 1792 029a 63686172 		.ascii	"char\000"
+ 1792      00
+ 1793              	.LASF23:
+ 1794 029f 63795F63 		.ascii	"cy_cfg_addrvalue_t\000"
+ 1794      66675F61 
+ 1794      64647276 
+ 1794      616C7565 
+ 1794      5F7400
+ 1795              	.LASF20:
+ 1796 02b2 6F666673 		.ascii	"offset\000"
+ 1796      657400
+ 1797              	.LASF43:
+ 1798 02b9 4C43445F 		.ascii	"LCD_SegStat_Com__DMA_TD_PROTO_BLOCK\000"
+ 1798      53656753 
+ 1798      7461745F 
+ 1798      436F6D5F 
+ 1798      5F444D41 
+ 1799              	.LASF21:
+ 1800 02dd 6C656E67 		.ascii	"length\000"
+ 1800      746800
  1801              	.LASF35:
- 1802 02f8 656E6162 		.ascii	"enabled\000"
+ 1802 02e4 656E6162 		.ascii	"enabled\000"
  1802      6C656400 
  1803              	.LASF7:
- 1804 0300 6C6F6E67 		.ascii	"long int\000"
+ 1804 02ec 6C6F6E67 		.ascii	"long int\000"
  1804      20696E74 
  1804      00
  1805              	.LASF2:
- 1806 0309 6C6F6E67 		.ascii	"long double\000"
+ 1806 02f5 6C6F6E67 		.ascii	"long double\000"
  1806      20646F75 
  1806      626C6500 
  1807              	.LASF34:
- 1808 0315 62675F78 		.ascii	"bg_xover_inl_trim\000"
+ 1808 0301 62675F78 		.ascii	"bg_xover_inl_trim\000"
  1808      6F766572 
  1808      5F696E6C 
  1808      5F747269 
  1808      6D00
  1809              	.LASF3:
- 1810 0327 7369676E 		.ascii	"signed char\000"
+ 1810 0313 7369676E 		.ascii	"signed char\000"
  1810      65642063 
  1810      68617200 
  1811              	.LASF36:
- 1812 0333 72656756 		.ascii	"regValue\000"
+ 1812 031f 72656756 		.ascii	"regValue\000"
  1812      616C7565 
  1812      00
  1813              	.LASF25:
- 1814 033c 4359434F 		.ascii	"CYCONFIGCPY\000"
+ 1814 0328 4359434F 		.ascii	"CYCONFIGCPY\000"
  1814      4E464947 
-ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccIlz3VX.s 			page 43
-
-
  1814      43505900 
- 1815              	.LASF21:
- 1816 0348 6C656E67 		.ascii	"length\000"
- 1816      746800
+ 1815              	.LASF48:
+ 1816 0334 43595F44 		.ascii	"CY_DMA_TD_PROTO_ENTRY\000"
+ARM GAS  C:\Users\TOSHIBA\AppData\Local\Temp\ccM4aVW9.s 			page 43
+
+
+ 1816      4D415F54 
+ 1816      445F5052 
+ 1816      4F544F5F 
+ 1816      454E5452 
  1817              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

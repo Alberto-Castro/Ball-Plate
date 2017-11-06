@@ -1,5 +1,5 @@
--- Project:   C:\Users\TOSHIBA\Documents\GitHub\Ball-Plate\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cyprj
--- Generated: 11/02/2017 10:11:32
+-- Project:   C:\Users\TOSHIBA\Documents\PSoC Creator\PrimerAvance\StaticSegLCD_Example01.cydsn\StaticSegLCD_Example01.cyprj
+-- Generated: 10/17/2017 11:09:47
 -- PSoC Creator  4.1 Update 1
 
 ENTITY StaticSegLCD_Example01 IS
