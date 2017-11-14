@@ -86,7 +86,7 @@
 <v>PrimerAvance\BallPlate\Generated_Source\PSoC5\ResistiveTouch_ADC</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance\BallPlate">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PrimerAvance\BallPlate\TopDesign\TopDesign.cysch">
 <ExpandedNodeIds>
 <v>PrimerAvance</v>
 <v>PrimerAvance\BallPlate</v>
@@ -296,8 +296,6 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\BallPlate.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\BallPlate.cydsn\BallPlate.cydwr" />
-<name v=".\BallPlate.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -305,7 +303,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1100, 399" SelectedTabbedMdiWindow="6b35679b-6f81-4d21-803c-076fac79b509"><DocumentWindow Key="C:\Users\Jafet ChaB\Documents\PSoC Creator\ball_plate_control\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch" Guid="2a8fea82-912d-415f-983d-03163fcfb887" /><DocumentWindow Key="C:\Users\Jafet ChaB\Documents\PSoC Creator\ball_plate_control\PrimerAvance\BallPlate.cydsn\BallPlate.cydwr" Guid="07e74811-00c0-4faf-985e-38c5a4ee00dd" /><DocumentWindow Key="C:\Users\Jafet ChaB\Documents\PSoC Creator\ball_plate_control\PrimerAvance\BallPlate.cydsn\main.c" Guid="6b35679b-6f81-4d21-803c-076fac79b509" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b0577b84-00ed-4cb3-80c5-2ef3b53949b8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="909, 399" SelectedTabbedMdiWindow="c5e639da-520f-4b08-a627-1e455ce27a73"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="b0577b84-00ed-4cb3-80c5-2ef3b53949b8" /><DocumentWindow Key="C:\Users\Jafet ChaB\Documents\GitHub\Ball-Plate\PrimerAvance\BallPlate.cydsn\TopDesign\TopDesign.cysch" Guid="c5e639da-520f-4b08-a627-1e455ce27a73" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

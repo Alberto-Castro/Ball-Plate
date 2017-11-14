@@ -19,7 +19,7 @@ int16 cuentx,cuenty; //Salidas al PWM
 int8 touch;
 float datax,datay,ex,ey,adx,ady,accx,accy,accx1,accy1,accx2,accy2,ex1,ey1,adcx,adcy,crucex,crucey, pdx, pdy, KNx, KNy; //Variables para el control
 const float ref=0, Ts=0.02,escx=1,escy=1;
-const float /*Kpx=0.03,Kdx=0.03,Nx=50.8753,Kpy=0.02,Kdy=0.02,Ny=50.8753;*/Kpy=7,Kdy=3,Ny=30,Kpx=7,Kdx=3,Nx=30;
+const float Kpy=4,Kdy=3,Ny=30,Kpx=6,Kdx=3,Nx=30;/*Kpy=7,Kdy=3,Ny=30,Kpx=7,Kdx=3,Nx=30;*/
 char8 str1[80],str2[80],str3[80];
 
 //Variables filtro media móvil
@@ -38,21 +38,22 @@ void Control(){
     {coordy = coordy/10;}
     
     ResistiveTouch_ActivateX();//Configura los pines para medir x
-        
-    //Calculo en Y
-    datay=(adcy*coordy)+crucey;//Conversión (y linealiza) de coordenada a tensión
-    
+            
     //-------------------------------------------
     //Filtro de media móvil Y
-    sky = sky - ybuffer[iy] + datay;
-    datay = sky/N;
+    sky = sky - ybuffer[iy] + coordy;
+    coordy = sky/N;
     
-    ybuffer[iy] = datay;
+    ybuffer[iy] = coordy;
     iy++;
     if (iy == N)
     {
      iy = 0;
     }
+    
+    //Calculo en Y
+    datay=(adcy*coordy)+crucey;//Conversión (y linealiza) de coordenada a tensión
+    
     //-------------------------------------------
     
     /*if ((datay<=0.01) & (datay>=-0.01)){
@@ -63,7 +64,7 @@ void Control(){
     ady=-(pdy)*accy1+KNy*(ey-ey1);//calculo de la parte derivativa
     accy=escy*(Kpy*ey+ady);//calculo de la accion de control
     
-    cuenty=318.31*accy+1100;
+    cuenty=318.31*accy+1105;
     
     /*if (cuenty <= 1044){
         cuenty = 1044;
@@ -83,19 +84,20 @@ void Control(){
     if(coordx > 4000)
     {coordx = coordx/10;}
 
-    datax=(adcx*coordx)+(crucex);//Conversión (y linealiza) de coordenada a tensión
-    
     //-------------------------------------------
     //Filtro de media móvil X
-    skx = skx - xbuffer[ix] + datax;// A la suma anterior le resta la muestra más vieja y le suma la más reciente
-    datax = skx/N;
+    skx = skx - xbuffer[ix] + coordx;// A la suma anterior le resta la muestra más vieja y le suma la más reciente
+    coordx = skx/N;
     
-    xbuffer[ix] = datax; //Remueve la muestra anterior (actualiza el buffer en el índice actual)
+    xbuffer[ix] = coordx; //Remueve la muestra anterior (actualiza el buffer en el índice actual)
     ix++; //Mueve el índice
     if (ix == N) //Condición del buffer circular
     {
      ix = 0;
     }
+    
+    datax=(adcx*coordx)+(crucex);//Conversión (y linealiza) de coordenada a tensión
+    
     //-------------------------------------------
     
     /*if ((datax<=0.01) & (datax>=-0.01)){
